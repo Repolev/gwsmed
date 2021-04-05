@@ -87,7 +87,7 @@ class ProductController extends Controller
                     $imageName = $request->input('title').Str::random(4) ."-". str_replace(' ', '-', $file->getClientOriginalName());
                 $int_image = Image::make($request->file('photo'));
                     $int_image->resize(320, 240);
-                    $int_image->save('storage/backend/assets/images/product/', $imageName, 100);
+                    $int_image->save(public_path('storage/backend/assets/images/product/'), $imageName, 100);
                     $photos[]=$imageName;
                     $photos_path[]='storage/backend/assets/images/product/'.$imageName;
                 }
@@ -218,7 +218,7 @@ class ProductController extends Controller
                         $imageName = $request->input('title').Str::random(4) ."-". str_replace(' ', '-', $file->getClientOriginalName());
                         $product_image = Image::make($file->getRealPath());
                         $product_image->resize(320, 240);
-                        $product_image->save('storage/backend/assets/images/product/'. $imageName, 100);
+                        $product_image->save(public_path('storage/backend/assets/images/product/'). $imageName, 100);
                         $photos[]=$imageName;
                         $photos_path[]='storage/backend/assets/images/product/'.$imageName;
                     }

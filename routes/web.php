@@ -178,6 +178,7 @@ Route::group(['prefix'=>'admin','middleware'=>['admin']],function(){
     // Blogs
     Route::resource('blogs', 'App\Http\Controllers\BlogController');
     Route::get('enquiry', [\App\Http\Controllers\EnquiryController::class,'index'])->name('enquiry.index');
+    Route::delete('enquiry-delete/{id}', [\App\Http\Controllers\EnquiryController::class,'destroy'])->name('enquiry.destroy');
 
 
     //comment management
