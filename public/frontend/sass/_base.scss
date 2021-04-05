@@ -1,0 +1,288 @@
+/*-------------Google Fonts---------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+/*----------------------------------------*/
+/* Default CSS
+/*----------------------------------------*/
+* {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    outline: none;
+    font-size: 100%;
+    line-height: inherit;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    letter-spacing: 0;
+    font-size: 14px;
+    color: #000000;
+    line-height: 1.4;
+    background: #fafafa;
+
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    transition: all 0.3s ease-out 0s;
+}
+
+dl,
+ol,
+ul {
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+a,
+.button,
+.btn {
+    -webkit-transition: all 0.3s ease-out 0s;
+    -moz-transition: all 0.3s ease-out 0s;
+    -ms-transition: all 0.3s ease-out 0s;
+    -o-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
+}
+
+a:focus,
+.button:focus,
+.btn:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+a:focus,
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.btn:focus,
+button:focus,
+input:focus,
+textarea,
+textarea:focus,
+.form-control:focus {
+    outline: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    margin: 0;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    color: inherit;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+}
+
+hr {
+    border-bottom: 1px solid #eceff8;
+    border-top: 0 none;
+    padding: 0;
+}
+
+label {
+    color: #7e7e7e;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+*::-moz-selection {
+    background: #d6b161;
+    color: #fff;
+    text-shadow: none;
+}
+
+::-moz-selection {
+    background: #444;
+    color: #fff;
+    text-shadow: none;
+}
+
+::selection {
+    background: #ff0000;
+    color: #fff;
+    text-shadow: none;
+}
+
+*::-moz-placeholder {
+    color: #555555;
+    font-size: 14px;
+    opacity: 1;
+}
+
+*::placeholder {
+    color: #555555;
+    font-size: 14px;
+    opacity: 1;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+    pointer-events: none;
+}
+
+/*-----Utility*---*/
+
+.section-title {
+    margin-bottom: 2rem;
+
+    h4 {
+        font-weight: 600;
+        display: inline-block;
+        vertical-align: middle;
+        text-transform: uppercase;
+
+        span {
+            color: $secondary-color;
+        }
+    }
+
+}
+
+
+
+/*Custom CSS*/
+
+.mg-top-5 {
+    margin-top: 5px;
+}
+
+.section-bg {
+    background-color: $white-bg;
+    border-radius: 2px;
+    box-shadow: -1px 1px 4px 2px rgba(228, 228, 228, 0.4);
+}
+
+.checkout-form .nice-select {
+    line-height: 30px;
+
+    &::after {
+        display: none;
+    }
+
+    ul.list {
+        width: 100%;
+    }
+}
+
+/* buttons CSS */
+.primary-btn {
+    font-family: 'Roboto', sans-serif;
+    display: inline-block;
+    font-size: 14px;
+    padding: 14px 30px;
+    background-color: #54bf54;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 2rem;
+
+    &:hover,
+    &:focus,
+    &:active {
+        border: 2px solid $primary-color;
+        background-color: transparent;
+        color: $primary-color;
+    }
+}
+
+
+.checkout-btn {
+    border: 2px solid $primary-color;
+    background-color: transparent;
+    color: $primary-color;
+
+    &:hover {
+        background: $primary-color;
+        color: $white-color;
+    }
+}
+
+.secondary-btn {
+    display: inline-block;
+    font-size: 10px;
+    padding: 6px 8px;
+    background-color: transparent;
+    color: #d30011;
+    font-weight: 500;
+    border: 2px solid #d30011;
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus,
+    &:active {
+        border: 2px solid $primary-color;
+        background-color: $primary-color;
+        color: #fff;
+    }
+}
+
+
+.site-btn {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 800;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 14px;
+    background: $primary-color;
+    border: none;
+    border-radius: 4px;
+}
+
+.widget-icon {
+    font-size: 16px;
+    line-height: 34px;
+    text-align: center;
+    border-radius: 50%;
+    background: #3f4551;
+    color: #fff;
+    padding: 9px;
+
+    &:hover {
+        background: #fff;
+        color: $primary-color;
+        border: 2px solid $primary-color;
+        position: relative;
+        transform: rotate(0);
+        -webkit-transition: all, 0.3s;
+        -moz-transition: all, 0.3s;
+        -ms-transition: all, 0.3s;
+        -o-transition: all, 0.3s;
+        transition: all, 0.3s;
+    }
+}

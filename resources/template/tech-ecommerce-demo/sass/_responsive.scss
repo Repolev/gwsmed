@@ -1,0 +1,15 @@
+/***========================
+===== Media Queries========*/
+
+@media (min-width: 1599px){
+    // Promotion Banner Section 
+    .promotion__banner .promotion-img-wrapper{
+        height: 16rem;
+    }
+}
+@media (min-width: 1200px) {
+
+    .container {
+        max-width: 90%;
+    }
+}
