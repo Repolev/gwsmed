@@ -333,16 +333,8 @@ class IndexController extends Controller
                 $products->where(['status'=>'active','cat_id'=>$category->id])->orderBy('title','DESC');
             }
         }
-
-        if(!empty($_GET['price'])){
-            $price=explode('-',$_GET['price']);
-            $price[0]=floor($price[0]) ;
-            $price[1]=ceil($price[1]) ;
-            $products->whereBetween('offer_price',$price)->where('status','active');
-//            return $products;
-        }
         else{
-            $products->where(['status'=>'active','cat_id'=>$category->id]);
+            $products->where(['status'=>'active']);
 
         }
         $products=$products->paginate(16);
