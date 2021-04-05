@@ -49,13 +49,13 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label for="">Description</label>
-                                            <textarea  class="form-control" placeholder="Write some text..." name="description" rows="3">{{$banner->description}}</textarea>
-                                        </div>
-                                    </div>
-                                    
+{{--                                    <div class="col-lg-12 col-md-12">--}}
+{{--                                        <div class="form-group">--}}
+{{--                                            <label for="">Description</label>--}}
+{{--                                            <textarea  class="form-control" placeholder="Write some text..." name="description" rows="3">{{$banner->description}}</textarea>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+
 
                                     <div class="col-sm-12">
                                         <button type="submit" class="btn btn-primary">Update</button>

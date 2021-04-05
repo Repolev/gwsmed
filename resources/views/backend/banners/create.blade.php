@@ -51,12 +51,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label for="">Description</label>
-                                            <textarea rows="3" class="form-control" placeholder="Write some text..." name="description">{{old('description')}}</textarea>
-                                        </div>
-                                    </div>
+{{--                                    <div class="col-lg-12 col-md-12">--}}
+{{--                                        <div class="form-group">--}}
+{{--                                            <label for="">Description</label>--}}
+{{--                                            <textarea rows="3" class="form-control" placeholder="Write some text..." name="description">{{old('description')}}</textarea>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
 
 
