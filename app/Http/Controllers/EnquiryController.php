@@ -27,4 +27,24 @@ class EnquiryController extends Controller
             return back();
         }
     }
+
+    public function index(){
+        $enquiries=Enquiry::latest()->get();
+        return view('backend.enquiry.index',compact('enquiries'));
+    }
+
+    public function destroy($id){
+        $enquiry=Enquiry::findOrFail($id);
+        if($enquiry){
+            $status=$enquiry->delete();
+            if($status){
+                toastr()->success('Enquiry successfully deleted','Success');
+                return back();
+            }
+            else{
+                toastr()->error('Something went wrong','Error');
+                return back();
+            }
+        }
+    }
 }

@@ -28,9 +28,6 @@ class CreateOrdersTable extends Migration
             $table->string('phone');
             $table->string('address');
             $table->string('address2')->nullable();
-
-            $table->string('subject')->nullable();
-            $table->text('message')->nullable();
             $table->timestamps();
         });
     }
