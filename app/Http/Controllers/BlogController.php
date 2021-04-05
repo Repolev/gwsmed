@@ -51,7 +51,7 @@ class BlogController extends Controller
             $imageName = time() ."-". str_replace(' ', '-', $file->getClientOriginalExtension());
             $blog_image = Image::make($file->getRealPath());
             $blog_image->resize(320, 240);
-            $blog_image->save(public_path('storage/backend/assets/images/blogs/'. $imageName, 100));
+            $blog_image->save(public_path('backend/assets/images/blogs/'. $imageName, 100));
             $data['image']=$imageName;
             $data['image_path'] = 'storage/backend/assets/images/blogs/'.$imageName;
         }
@@ -110,7 +110,7 @@ class BlogController extends Controller
             $imageName = time() ."-". str_replace(' ', '-', $file->getClientOriginalExtension());
             $blog_image = Image::make($file->getRealPath());
             $blog_image->resize(320, 240);
-            $blog_image->save(public_path('storage/backend/assets/images/blogs/'. $imageName, 100));
+            $blog_image->save(public_path('backend/assets/images/blogs/'. $imageName, 100));
             $data['image']=$imageName;
             $data['image_path'] = 'storage/backend/assets/images/blogs/'.$imageName;
         }
