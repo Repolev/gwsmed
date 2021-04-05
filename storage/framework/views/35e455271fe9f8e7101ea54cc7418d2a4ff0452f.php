@@ -213,7 +213,11 @@
             <div class="row">
                 <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="col-md-4 category-block">
-                    <div class="cv-deal-box" style="background-image: url(<?php echo e(url($cat->image_path)); ?>);background-size: cover">
+                    <?php if($cat->image_path != null): ?>
+                    <?php echo e(url($cat->image_path)); ?>
+
+                    <?php endif; ?>
+                    <div class="cv-deal-box">
                         <div class="overlay">
                             <h3><?php echo e(ucfirst($cat->title)); ?></h3>
                             <p><?php echo html_entity_decode($cat->description); ?></p>

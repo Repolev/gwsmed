@@ -85,9 +85,7 @@ class ProductController extends Controller
             if($files=$request->file('photo')){
                 foreach($files as $file){
                     $imageName = $request->input('title').Str::random(4) ."-". str_replace(' ', '-', $file->getClientOriginalName());
-                $int_image = Image::make($request->file('photo'));
-                    $int_image->resize(320, 240);
-                    $int_image->save(public_path('storage/backend/assets/images/product/'), $imageName, 100);
+                    $files->storeAs('public/backend/assets/images/product/',$imageName);
                     $photos[]=$imageName;
                     $photos_path[]='storage/backend/assets/images/product/'.$imageName;
                 }

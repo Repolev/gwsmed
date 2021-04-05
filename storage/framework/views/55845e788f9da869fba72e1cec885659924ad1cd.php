@@ -1,6 +1,4 @@
-@extends('backend.layouts.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div id="main-content">
         <div class="container-fluid">
             <div class="block-header">
@@ -8,7 +6,7 @@
                     <div class="col-lg-6 col-md-8 col-sm-12">
                         <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a>Add Banners</h2>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('admin')}}"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo e(route('admin')); ?>"><i class="icon-home"></i></a></li>
                             <li class="breadcrumb-item">Banners</li>
                             <li class="breadcrumb-item active">Add Banners</li>
                         </ul>
@@ -18,26 +16,26 @@
 
             <div class="row clearfix">
                 <div class="col-md-12">
-                    @if($errors->any())
+                    <?php if($errors->any()): ?>
                        <div class="alert alert-danger">
                            <ul>
-                               @foreach($errors->all() as $error)
-                                   <li>{{$error}}</li>
-                               @endforeach
+                               <?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                   <li><?php echo e($error); ?></li>
+                               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                            </ul>
                        </div>
-                    @endif
+                    <?php endif; ?>
                 </div>
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="body">
-                            <form action="{{route('banner.store')}}" method="post" enctype="multipart/form-data">
-                                @csrf
+                            <form action="<?php echo e(route('banner.store')); ?>" method="post" enctype="multipart/form-data">
+                                <?php echo csrf_field(); ?>
                                 <div class="row clearfix">
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                             <label for="">Banner Heading <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Heading" name="title" value="{{old('title')}}">
+                                            <input type="text" class="form-control" placeholder="Heading" name="title" value="<?php echo e(old('title')); ?>">
                                         </div>
 
 
@@ -47,46 +45,46 @@
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                             <label for="">Photo <span class="text-danger">*</span></label>
-                                            <input type="file" name="photo" class="dropify" id="input-file-now" data-height="100" data-default-file="{{old('photo')}}">
+                                            <input type="file" name="photo" class="dropify" id="input-file-now" data-height="100" data-default-file="<?php echo e(old('photo')); ?>">
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                             <label for="">Description</label>
-                                            <textarea rows="3" class="form-control" placeholder="Write some text..." name="description">{{old('description')}}</textarea>
+                                            <textarea rows="3" class="form-control" placeholder="Write some text..." name="description"><?php echo e(old('description')); ?></textarea>
                                         </div>
                                     </div>
 
 
 
-{{--                                    <div class="col-lg-12 col-md-12 col-sm-12 d-none" id="position_div">--}}
-{{--                                        <label for="">Position</label>--}}
-{{--                                        <select name="position" id="position"  class="form-control show-tick">--}}
-{{--                                            <option value="">-- Position --</option>--}}
-{{--                                            <option value="top" {{old('position')=='top' ? 'selected' : ''}}>Top</option>--}}
-{{--                                            <option value="middle" {{old('position') == 'middle' ? 'selected' : ''}} >Middle</option>--}}
-{{--                                            <option value="bottom" {{old('position') == 'bottom' ? 'selected' : ''}} >Bottom</option>--}}
-{{--                                            <option value="footer" {{old('position') == 'footer' ? 'selected' : ''}} >footer</option>--}}
-{{--                                        </select>--}}
-{{--                                    </div>--}}
 
-{{--                                    <div class="col-lg-12 col-md-12 col-sm-12 d-none" id="inner_position_div">--}}
-{{--                                        <label for="">Middle Position</label>--}}
-{{--                                        <select name="inner_position"  class="form-control show-tick">--}}
-{{--                                            <option value="">-- Middle Position --</option>--}}
-{{--                                            <option value="top" {{old('inner_position')=='top' ? 'selected' : ''}}>Top</option>--}}
-{{--                                            <option value="middle" {{old('inner_position') == 'middle' ? 'selected' : ''}} >Middle</option>--}}
-{{--                                            <option value="right" {{old('inner_position') == 'right' ? 'selected' : ''}} >Right</option>--}}
-{{--                                        </select>--}}
-{{--                                    </div>--}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                                     <div class="col-lg-12 col-sm-12" >
                                         <label for="status">Status <span class="text-danger">*</span></label>
                                         <select name="status" class="form-control show-tick">
-                                            <option value="active" {{old('status')=='active' ? 'selected' : ''}}>Active</option>
-                                            <option value="inactive" {{old('status') == 'inactive' ? 'selected' : ''}} >Inactive</option>
+                                            <option value="active" <?php echo e(old('status')=='active' ? 'selected' : ''); ?>>Active</option>
+                                            <option value="inactive" <?php echo e(old('status') == 'inactive' ? 'selected' : ''); ?> >Inactive</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-12">
@@ -104,9 +102,9 @@
 
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
     <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
     <script>
         $('#lfm').filemanager('image');
@@ -139,4 +137,6 @@
             }
         });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\All_projects\indian_friend\gwsmed\resources\views/backend/banners/create.blade.php ENDPATH**/ ?>

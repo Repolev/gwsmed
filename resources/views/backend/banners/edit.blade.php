@@ -44,13 +44,6 @@
 
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
-                                            <label for="">URL <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="URL" name="slug" value="{{$banner->slug}}">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
                                             <label for="">Photo <span class="text-danger">*</span></label>
                                             <input type="file" name="photo" class="dropify" id="input-file-now" data-height="100" data-default-file="{{asset($banner->image_path)}}" value="{{asset($banner->image_path)}}">
                                         </div>
@@ -62,35 +55,7 @@
                                             <textarea  class="form-control" placeholder="Write some text..." name="description" rows="3">{{$banner->description}}</textarea>
                                         </div>
                                     </div>
-
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <label for="">Condition <span class="text-danger">*</span></label>
-                                        <select name="condition" id="condition" class="form-control show-tick">
-                                            <option value="">-- Conditions --</option>
-                                            <option value="banner" {{$banner->condition=='banner' ? 'selected' : ''}}>Home Banner</option>
-                                            <option value="promo" {{$banner->condition == 'promo' ? 'selected' : ''}} >Promotion Banner</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-lg-12 col-md-12 col-sm-12 @if($banner->position) '' @else d-none @endif" id="position_div">
-                                        <label for="">Position</label>
-                                        <select name="position" id="position"  class="form-control show-tick">
-                                            <option value="">-- Position --</option>
-                                            <option value="top" {{$banner->position=='top' ? 'selected' : ''}}>Top</option>
-                                            <option value="middle" {{$banner->position == 'middle' ? 'selected' : ''}} >Middle</option>
-                                            <option value="bottom" {{$banner->position == 'bottom' ? 'selected' : ''}} >Bottom</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="col-lg-12 col-md-12 col-sm-12 @if($banner->inner_position && $banner->position)  @else d-none @endif" id="inner_position_div">
-                                        <label for="">Middle Position</label>
-                                        <select name="inner_position" id="inner_position"  class="form-control show-tick">
-                                            <option value="">-- Middle Position --</option>
-                                            <option value="top" {{$banner->inner_position=='top' ? 'selected' : ''}}>Top</option>
-                                            <option value="middle" {{$banner->inner_position == 'middle' ? 'selected' : ''}} >Middle</option>
-                                            <option value="right" {{$banner->inner_position == 'right' ? 'selected' : ''}} >Right</option>
-                                        </select>
-                                    </div>
+                                    
 
                                     <div class="col-sm-12">
                                         <button type="submit" class="btn btn-primary">Update</button>
