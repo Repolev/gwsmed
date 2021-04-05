@@ -44,6 +44,13 @@
 
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
+                                            <label for="">URL</label>
+                                            <input type="text" class="form-control" placeholder="URL" name="slug" value="{{$banner->slug}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
                                             <label for="">Photo <span class="text-danger">*</span></label>
                                             <input type="file" name="photo" class="dropify" id="input-file-now" data-height="100" data-default-file="{{asset($banner->image_path)}}" value="{{asset($banner->image_path)}}">
                                         </div>

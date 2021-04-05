@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
     <!-- banner start -->
     <div class="cv-banner">
@@ -7,7 +5,11 @@
             <div class="row">
                 <div class="owl-carousel owl-theme">
                     <?php $__currentLoopData = $banners; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $banner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="item"><img src="<?php echo e(asset($banner->image_path)); ?>" alt="Home Banner"></div>
+                        <div class="item">
+                            <a href="<?php echo e($banner->slug); ?>">
+                                <img src="<?php echo e(asset($banner->image_path)); ?>" alt="Home Banner">
+                            </a>
+                        </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
             </div>
@@ -17,7 +19,7 @@
 
     
 
-    <div class="cv-feature">
+    <div class="cv-feature spacer-top">
         <div class="container">
             <div class="cv-heading">
                 <h1>About Us</h1>
