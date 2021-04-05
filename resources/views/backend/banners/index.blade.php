@@ -46,7 +46,6 @@
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{ucfirst($item->title)}}</td>
-                                            <td>{!! html_entity_decode($item->description) !!}</td>
                                             <td><img src="{{asset($item->image_path)}}" alt="banner image" style="max-height: 190px; max-width: 120px"></td>
 
                                             <td>
@@ -124,7 +123,7 @@
                 },
                 success:function (response) {
                     if(response.status){
-                        alert(response.msg);
+                        console.log(response.msg);
                     }
                     else{
                         alert('Please try again!');

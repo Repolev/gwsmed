@@ -44,9 +44,8 @@
                                         <tr>
                                             <td><?php echo e($loop->iteration); ?></td>
                                             <td><?php echo e(ucfirst($item->title)); ?></td>
-                                            <td><?php echo html_entity_decode($item->description); ?></td>
                                             <td><img src="<?php echo e(asset($item->image_path)); ?>" alt="banner image" style="max-height: 190px; max-width: 120px"></td>
-                                          
+
                                             <td>
                                                 <input type="checkbox" name="toogle" value="<?php echo e($item->id); ?>" data-toggle="switchbutton" <?php echo e($item->status=='active' ? 'checked' : ''); ?> data-onlabel="active" data-offlabel="inactive" data-size="sm" data-onstyle="success" data-offstyle="danger">
                                             </td>
@@ -122,7 +121,7 @@
                 },
                 success:function (response) {
                     if(response.status){
-                        alert(response.msg);
+                        console.log(response.msg);
                     }
                     else{
                         alert('Please try again!');

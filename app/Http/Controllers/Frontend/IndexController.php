@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Redirect;
 class IndexController extends Controller
 {
     public function home(){
-        $banners=Banner::where(['status'=>'active','condition'=>'banner'])->orderBy('id','DESC')->limit('5')->get();
+        $banners=Banner::where(['status'=>'active'])->orderBy('id','DESC')->get();
 //        $promo_banner=Banner::where(['status'=>'active','condition'=>'promo','position'=>'footer'])->latest()->first();
 //        $top_promo_banner=Banner::where(['status'=>'active','condition'=>'promo','position'=>'top'])->orderBy('id','DESC')->limit(2)->get();
 //

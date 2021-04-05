@@ -34,7 +34,7 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
-                                            <label for="">Banner Heading <span class="text-danger">*</span></label>
+                                            <label for="">Banner Heading </label>
                                             <input type="text" class="form-control" placeholder="Heading" name="title" value="<?php echo e(old('title')); ?>">
                                         </div>
 
