@@ -46,7 +46,7 @@
                                         <tr>
                                             <td><?php echo e($loop->iteration); ?></td>
                                             <td><?php echo e(ucfirst($item->title)); ?></td>
-                                            <td><?php if($item->image_path): ?><img src="<?php echo e(asset($item->image_path)); ?>" alt="banner image" style="max-height: 90px; max-width: 120px"><?php endif; ?></td>
+                                            <td><?php if($item->image_path): ?><img src="<?php echo e(asset($item->image_path)); ?>" alt="category image" style="max-height: 90px; max-width: 120px"><?php endif; ?></td>
 
                                             <td><?php echo e($item->is_parent==1 ? 'Yes' : 'No'); ?></td>
                                             <td><?php echo e($item->on_menu==1 ? 'Yes' : 'No'); ?></td>

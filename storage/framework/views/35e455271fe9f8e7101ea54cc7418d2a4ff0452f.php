@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('content'); ?>
     <!-- banner start -->
     <div class="cv-banner">
@@ -215,11 +217,7 @@
             <div class="row">
                 <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="col-md-4 category-block">
-                    <?php if($cat->image_path != null): ?>
-                    <?php echo e(url($cat->image_path)); ?>
-
-                    <?php endif; ?>
-                    <div class="cv-deal-box">
+                    <div class="cv-deal-box" <?php if($cat->image_path != null): ?> style="background-image: url(<?php echo e(url($cat->image_path)); ?>); background-size: cover;" <?php endif; ?>>
                         <div class="overlay">
                             <h3><?php echo e(ucfirst($cat->title)); ?></h3>
                             <p><?php echo html_entity_decode($cat->description); ?></p>
