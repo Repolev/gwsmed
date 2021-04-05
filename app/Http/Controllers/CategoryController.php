@@ -64,9 +64,7 @@ class CategoryController extends Controller
         if($request->hasFile('photo')){
             if($file=$request->file('photo')){
                 $imageName = time() ."-". str_replace(' ', '-', $file->getClientOriginalName());
-                $category_image = Image::make($file->getRealPath());
-                $category_image->resize(300, 500);
-                $category_image->save(public_path('backend/assets/images/category'. $imageName, 100));
+                $file->storeAs(public_path('backend/assets/images/category'), $imageName);
                 $data['photo']=$imageName;
                 $data['image_path']='storage/backend/assets/images/category/'.$imageName;
             }
@@ -153,9 +151,7 @@ class CategoryController extends Controller
             if($request->hasFile('photo')){
                 if($file=$request->file('photo')){
                     $imageName = time() ."-". str_replace(' ', '-', $file->getClientOriginalExtension());
-                    $category_image = Image::make($file->getRealPath());
-                    $category_image->resize(320, 240);
-                    $category_image->save(public_path('backend/assets/images/category/'. $imageName, 100));
+                    $file->storeAs(public_path('backend/assets/images/category/'), $imageName);
                     $data['photo']=$imageName;
                     $data['image_path']='storage/backend/assets/images/category/'.$imageName;
                 }
