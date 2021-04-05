@@ -213,7 +213,10 @@
             <div class="row">
                 @foreach($categories as $cat)
                 <div class="col-md-4 category-block">
-                    <div class="cv-deal-box" @if($cat->image_path != null) style="background-image: url({{url($cat->image_path)}}); background-size: cover;" @endif>
+                    @if($cat->image_path != null)
+                    {{url($cat->image_path)}}
+                    @endif
+                    <div class="cv-deal-box">
                         <div class="overlay">
                             <h3>{{ucfirst($cat->title)}}</h3>
                             <p>{!! html_entity_decode($cat->description) !!}</p>
