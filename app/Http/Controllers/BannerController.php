@@ -50,12 +50,8 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'title'=>'string|required',
-            'slug'=>'string|nullable',
-            'description'=>'string|nullable',
+            'title'=>'string|nullable',
             'photo'=>'required|image|mimes:png,jpg,gif,jpeg,svg',
-            'position'=>'nullable|in:top,middle,bottom,footer',
-            'condition'=>'nullable|in:banner,promo',
             'status'=>'required|in:active,inactive',
         ]);
         $data=$request->all();

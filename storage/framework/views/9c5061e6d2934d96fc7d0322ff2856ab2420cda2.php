@@ -1,25 +1,23 @@
-@extends('backend.layouts.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div id="main-content">
         <div class="container-fluid">
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Banners
-                            <a class="btn btn-sm btn-outline-secondary" href="{{route('banner.create')}}"><i class="icon-plus"></i> Add Banner</a></h2>
+                            <a class="btn btn-sm btn-outline-secondary" href="<?php echo e(route('banner.create')); ?>"><i class="icon-plus"></i> Add Banner</a></h2>
                         <ul class="breadcrumb float-left">
-                            <li class="breadcrumb-item"><a href="{{route('admin')}}"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo e(route('admin')); ?>"><i class="icon-home"></i></a></li>
                             <li class="breadcrumb-item active">Banner</li>
                         </ul>
-                        <p class="float-right">Total Banners :{{\App\Models\Banner::count()}}</p>
+                        <p class="float-right">Total Banners :<?php echo e(\App\Models\Banner::count()); ?></p>
                     </div>
                 </div>
             </div>
 
             <div class="row clearfix">
                 <div class="col-lg-12">
-                    @include('backend.layouts.notification')
+                    <?php echo $__env->make('backend.layouts.notification', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 </div>
                 <div class="col-lg-12">
                     <div class="card">
@@ -42,27 +40,27 @@
                                     </thead>
                                     <tbody>
 
-                                    @foreach($banners as $item)
+                                    <?php $__currentLoopData = $banners; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
-                                            <td>{{$loop->iteration}}</td>
-                                            <td>{{ucfirst($item->title)}}</td>
-                                            <td><img src="{{asset($item->image_path)}}" alt="banner image" style="max-height: 190px; max-width: 120px"></td>
+                                            <td><?php echo e($loop->iteration); ?></td>
+                                            <td><?php echo e(ucfirst($item->title)); ?></td>
+                                            <td><img src="<?php echo e(asset($item->image_path)); ?>" alt="banner image" style="max-height: 190px; max-width: 120px"></td>
 
                                             <td>
-                                                <input type="checkbox" name="toogle" value="{{$item->id}}" data-toggle="switchbutton" {{$item->status=='active' ? 'checked' : ''}} data-onlabel="active" data-offlabel="inactive" data-size="sm" data-onstyle="success" data-offstyle="danger">
+                                                <input type="checkbox" name="toogle" value="<?php echo e($item->id); ?>" data-toggle="switchbutton" <?php echo e($item->status=='active' ? 'checked' : ''); ?> data-onlabel="active" data-offlabel="inactive" data-size="sm" data-onstyle="success" data-offstyle="danger">
                                             </td>
                                             <td>
-                                                <a href="{{route('banner.edit',$item->id)}}" data-toggle="tooltip" title="edit" class="float-left btn btn-sm btn-outline-warning" data-placement="bottom"><i class="fas fa-edit"></i> </a>
-                                                <form class="float-left ml-1" action="{{route('banner.destroy',$item->id)}}"  method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <a href="" data-toggle="tooltip" title="delete" data-id="{{$item->id}}" class="dltBtn btn btn-sm btn-outline-danger" data-placement="bottom"><i class="fas fa-trash-alt"></i> </a>
+                                                <a href="<?php echo e(route('banner.edit',$item->id)); ?>" data-toggle="tooltip" title="edit" class="float-left btn btn-sm btn-outline-warning" data-placement="bottom"><i class="fas fa-edit"></i> </a>
+                                                <form class="float-left ml-1" action="<?php echo e(route('banner.destroy',$item->id)); ?>"  method="post">
+                                                    <?php echo csrf_field(); ?>
+                                                    <?php echo method_field('delete'); ?>
+                                                    <a href="" data-toggle="tooltip" title="delete" data-id="<?php echo e($item->id); ?>" class="dltBtn btn btn-sm btn-outline-danger" data-placement="bottom"><i class="fas fa-trash-alt"></i> </a>
                                                 </form>
 
                                             </td>
 
                                         </tr>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                     </tbody>
                                 </table>
@@ -74,9 +72,9 @@
 
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $.ajaxSetup({
@@ -114,10 +112,10 @@
             var id=$(this).val();
             // alert(id);
             $.ajax({
-                url:"{{route('banner.status')}}",
+                url:"<?php echo e(route('banner.status')); ?>",
                 type:"POST",
                 data:{
-                    _token:'{{csrf_token()}}',
+                    _token:'<?php echo e(csrf_token()); ?>',
                     mode:mode,
                     id:id,
                 },
@@ -132,4 +130,6 @@
             })
         });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\All_projects\indian_friend\gwsmed\resources\views/backend/banners/index.blade.php ENDPATH**/ ?>

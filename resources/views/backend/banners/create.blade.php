@@ -36,19 +36,14 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
-                                            <label for="">Banner Heading <span class="text-danger">*</span></label>
+                                            <label for="">Banner Heading </label>
                                             <input type="text" class="form-control" placeholder="Heading" name="title" value="{{old('title')}}">
                                         </div>
 
 
                                     </div>
 
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label for="">URL <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="URL" name="slug" value="{{old('slug')}}">
-                                        </div>
-                                    </div>
+
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                             <label for="">Photo <span class="text-danger">*</span></label>
@@ -56,48 +51,40 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label for="">Description</label>
-                                            <textarea rows="3" class="form-control" placeholder="Write some text..." name="description">{{old('description')}}</textarea>
-                                        </div>
-                                    </div>
+{{--                                    <div class="col-lg-12 col-md-12">--}}
+{{--                                        <div class="form-group">--}}
+{{--                                            <label for="">Description</label>--}}
+{{--                                            <textarea rows="3" class="form-control" placeholder="Write some text..." name="description">{{old('description')}}</textarea>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <label for="">Condition <span class="text-danger">*</span></label>
-                                        <select name="condition" id="condition" class="form-control show-tick">
-                                            <option value="">-- Conditions --</option>
-                                            <option value="banner" {{old('condition')=='banner' ? 'selected' : ''}}>Home Banner</option>
-                                            <option value="promo" {{old('condition') == 'promo' ? 'selected' : ''}} >Promotion Banner</option>
-                                        </select>
-                                    </div>
 
-                                    <div class="col-lg-12 col-md-12 col-sm-12 d-none" id="position_div">
-                                        <label for="">Position</label>
-                                        <select name="position" id="position"  class="form-control show-tick">
-                                            <option value="">-- Position --</option>
-                                            <option value="top" {{old('position')=='top' ? 'selected' : ''}}>Top</option>
-                                            <option value="middle" {{old('position') == 'middle' ? 'selected' : ''}} >Middle</option>
-                                            <option value="bottom" {{old('position') == 'bottom' ? 'selected' : ''}} >Bottom</option>
-                                            <option value="footer" {{old('position') == 'footer' ? 'selected' : ''}} >footer</option>
-                                        </select>
-                                    </div>
 
-                                    <div class="col-lg-12 col-md-12 col-sm-12 d-none" id="inner_position_div">
-                                        <label for="">Middle Position</label>
-                                        <select name="inner_position"  class="form-control show-tick">
-                                            <option value="">-- Middle Position --</option>
-                                            <option value="top" {{old('inner_position')=='top' ? 'selected' : ''}}>Top</option>
-                                            <option value="middle" {{old('inner_position') == 'middle' ? 'selected' : ''}} >Middle</option>
-                                            <option value="right" {{old('inner_position') == 'right' ? 'selected' : ''}} >Right</option>
-                                        </select>
-                                    </div>
+{{--                                    <div class="col-lg-12 col-md-12 col-sm-12 d-none" id="position_div">--}}
+{{--                                        <label for="">Position</label>--}}
+{{--                                        <select name="position" id="position"  class="form-control show-tick">--}}
+{{--                                            <option value="">-- Position --</option>--}}
+{{--                                            <option value="top" {{old('position')=='top' ? 'selected' : ''}}>Top</option>--}}
+{{--                                            <option value="middle" {{old('position') == 'middle' ? 'selected' : ''}} >Middle</option>--}}
+{{--                                            <option value="bottom" {{old('position') == 'bottom' ? 'selected' : ''}} >Bottom</option>--}}
+{{--                                            <option value="footer" {{old('position') == 'footer' ? 'selected' : ''}} >footer</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+
+{{--                                    <div class="col-lg-12 col-md-12 col-sm-12 d-none" id="inner_position_div">--}}
+{{--                                        <label for="">Middle Position</label>--}}
+{{--                                        <select name="inner_position"  class="form-control show-tick">--}}
+{{--                                            <option value="">-- Middle Position --</option>--}}
+{{--                                            <option value="top" {{old('inner_position')=='top' ? 'selected' : ''}}>Top</option>--}}
+{{--                                            <option value="middle" {{old('inner_position') == 'middle' ? 'selected' : ''}} >Middle</option>--}}
+{{--                                            <option value="right" {{old('inner_position') == 'right' ? 'selected' : ''}} >Right</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
 
 
                                     <div class="col-lg-12 col-sm-12" >
                                         <label for="status">Status <span class="text-danger">*</span></label>
                                         <select name="status" class="form-control show-tick">
-                                            <option value="">-- Status --</option>
                                             <option value="active" {{old('status')=='active' ? 'selected' : ''}}>Active</option>
                                             <option value="inactive" {{old('status') == 'inactive' ? 'selected' : ''}} >Inactive</option>
                                         </select>
