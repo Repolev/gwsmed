@@ -35,8 +35,15 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
-                                            <label for="">Banner Heading <span class="text-danger">*</span></label>
+                                            <label for="">Banner Heading </label>
                                             <input type="text" class="form-control" placeholder="Banner heading" name="title" value="<?php echo e($banner->title); ?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label for="">URL</label>
+                                            <input type="text" class="form-control" placeholder="URL" name="slug" value="<?php echo e($banner->slug); ?>">
                                         </div>
                                     </div>
 
