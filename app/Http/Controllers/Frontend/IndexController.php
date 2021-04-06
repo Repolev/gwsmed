@@ -401,7 +401,7 @@ class IndexController extends Controller
 
     //    Product detail
     public function productDetail($slug){
-        $product=Product::with('rel_prods')->where('slug',$slug)->first();
+        $product=Product::with('categories')->where('slug',$slug)->first();
         $categories=Category::where(['status'=>'active','is_parent'=>1])->latest()->get();
         if($product){
             return view('frontend.pages.product.product-detail',compact('product','categories'));

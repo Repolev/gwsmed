@@ -165,7 +165,7 @@
 </div>
 <!-- top header end -->
 
-<div class="cv-top-header" style="height:90px">
+<div class="cv-top-header" style="height:104px">
     <div class="container">
         <div class="row">
 
@@ -184,10 +184,10 @@
             <div class="col"></div>
             <div class="col-md-6 ">
                 <form action="<?php echo e(route('search')); ?>" method="get" class="d-flex">
-                    <input type="text" name="query" class="form-control" style="border-radius: 2px 0 0 2px;" name="query" id="search_text"
+                    <input type="text" name="query" class="form-control" style="padding-left:30px;border-radius: 30px 0 0 30px;height: 56px;" name="query" id="search_text"
                            placeholder="Search products...">
                     <div class="input-group-append">
-                        <button type="submit" class="input-group-text"><i class="fas fa-search"></i>
+                        <button type="submit" style="border-radius:0 30px 30px 0;" class="input-group-text"><i class="fas fa-search"></i>
                         </button>
                     </div>
                 </form>
