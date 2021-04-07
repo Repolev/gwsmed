@@ -6,8 +6,10 @@ use App\Models\Display;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Image;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -64,9 +66,12 @@ class CategoryController extends Controller
         if($request->hasFile('photo')){
             if($file=$request->file('photo')){
                 $imageName = time() .".". str_replace(' ', '-', $file->getClientOriginalName());
-                $file->storeAs('public/backend/assets/images/category/', $imageName);
+                $product_image = Image::make($file);
+                $product_image->resize(500, 400);
+                $image_path = public_path('/backend/assets/images/category/' . $imageName);
+                $product_image->save($image_path);
                 $data['photo']=$imageName;
-                $data['image_path']='storage/backend/assets/images/category/'.$imageName;
+                $data['image_path']='backend/assets/images/category/'.$imageName;
             }
         }
         $slug = $request->input('slug');
@@ -151,9 +156,12 @@ class CategoryController extends Controller
             if($request->hasFile('photo')){
                 if($file=$request->file('photo')){
                     $imageName = time() .".". str_replace(' ', '-', $file->getClientOriginalExtension());
-                    $file->storeAs('public/backend/assets/images/category/', $imageName);
+                    $product_image = Image::make($file);
+                    $product_image->resize(500, 400);
+                    $image_path = public_path('/backend/assets/images/category/' . $imageName);
+                    $product_image->save($image_path);
                     $data['photo']=$imageName;
-                    $data['image_path']='storage/backend/assets/images/category/'.$imageName;
+                    $data['image_path']='backend/assets/images/category/'.$imageName;
                 }
             }
 
