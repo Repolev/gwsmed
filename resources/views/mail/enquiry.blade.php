@@ -13,7 +13,7 @@
         <div class="col-xl-6 col-lg-6 col-sm-12 m-auto">
             <h3>Enquiry Form</h3>
             <p> My name is, {{$details['full_name']}}</p>
-{{--            @if(count($details->subject)>0)--}}
+{{--            @if($details->subject)--}}
 
 {{--            <p> My subject is : {{ $details['subject']}}. </p>--}}
 {{--            @endif--}}

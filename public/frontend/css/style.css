@@ -2002,7 +2002,9 @@ p#me_timer span {
 }
 .cv-prod-category {
     margin-bottom: 5px;
+    font-weight: bold;
 }
+
 .cv-prod-text{
     margin-top: 22px;
 }
