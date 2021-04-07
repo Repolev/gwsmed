@@ -35,9 +35,7 @@
                                         <th>S.N.</th>
                                         <th>Title</th>
                                         <th>Photo</th>
-                                        <th>Quantity</th>
                                         <th>Categories</th>
-                                        <th>Tags</th>
                                         <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
@@ -52,23 +50,13 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{ucfirst($item->title)}}</td>
                                             <td><img src="{{asset($photo[0])}}" alt="Product image" style="max-height: 90px; max-width: 120px"></td>
-                                            <td>{{$item->stock}}</td>
                                             <td>@foreach($item->categories as $category){{ $category->title }} | @endforeach</td>
-                                            <td>
-                                                @if($item->tags=='new')
-                                                    <span class="badge badge-success">{{$item->tags}}</span>
-                                                @elseif($item->tags=='sell')
-                                                    <span class="badge badge-warning">{{$item->tags}}</span>
-                                                @else
-                                                    <span class="badge badge-primary">{{$item->tags}}</span>
-                                                @endif
-                                            </td>
                                             <td>
                                                 <input type="checkbox" name="toogle" value="{{$item->id}}" data-toggle="switchbutton" {{$item->status=='active' ? 'checked' : ''}} data-onlabel="active" data-offlabel="inactive" data-size="sm" data-onstyle="success" data-offstyle="danger">
                                             </td>
                                             <td>
 {{--                                                <a href="{{route('product.show',$item->id)}}" data-toggle="tooltip" title="add attribute" class="float-left btn btn-sm btn-outline-secondary mr-1 mb-1" data-placement="bottom"><i class="fas fa-plus-circle"></i> </a>--}}
-                                                <a href="javascript:void(0);"  data-toggle="modal" data-target="#productID{{$item->id}}" data-toggle="tooltip" title="view" class="mr-1 float-left btn btn-sm btn-outline-info" data-placement="bottom"><i class="fas fa-eye"></i> </a>
+                                                <a href="{{route('product.detail',$item->slug)}}" target="_blank" data-toggle="tooltip" title="view" class="mr-1 float-left btn btn-sm btn-outline-info" data-placement="bottom"><i class="fas fa-eye"></i> </a>
                                                 <a href="{{route('product.edit',$item->id)}}" data-toggle="tooltip" title="edit" class="float-left btn btn-sm btn-outline-warning" data-placement="bottom"><i class="fas fa-edit"></i> </a>
                                                 <form class="float-left ml-1" action="{{route('product.destroy',$item->id)}}"  method="post">
                                                     @csrf
@@ -98,88 +86,26 @@
                                                                 <div class="col-md-12">
                                                                     <strong>Main Images :</strong>
                                                                     @foreach($photo as $photos)
-                                                                        <img src="{{asset($photos)}}" class="img-fluid">
+                                                                        <img src="{{asset($photos)}}" style="max-width: 150px" class="img-fluid">
                                                                     @endforeach
                                                                 </div>
                                                             </div>
 
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <strong>Price:</strong>
-                                                                    <p>${{number_format($product->price,2)}}</p>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <strong>Offer Price:</strong>
-                                                                    <p>${{number_format($product->offer_price,2)}}</p>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <strong>Stock:</strong>
-                                                                    <p>{{$product->stock}}</p>
-                                                                </div>
-                                                            </div>
-                                                            @if($product->variants)
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <strong>Variant Images :</strong>
-                                                                    @php
-                                                                        $variants=explode(',',$product->variants_path);
-                                                                    @endphp
-                                                                    @foreach($variants as $photo)
-                                                                        <img src="{{asset($photo)}}" class="img-fluid">
-                                                                    @endforeach
-                                                                </div>
-                                                            </div>
-                                                            @endif
 
-                                                            {{-- <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <strong>Category:</strong>
-                                                                    <p>{{ucfirst(\App\Models\Category::where('id',$product->cat_id)->value('title'))}}</p>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <strong>Child Category:</strong>
-                                                                    <p>{{ucfirst(\App\Models\Category::where('id',$product->child_cat_id)->value('title'))}}</p>
-                                                                </div>
-                                                            </div> --}}
-
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <strong>Brand:</strong>
-                                                                    <p>{{ucfirst(\App\Models\Brand::where('id',$product->brand_id)->value('title'))}}</p>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <strong>Size:</strong>
-                                                                    <p class="badge badge-success">{{$product->size}}</p>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <strong>Vendor:</strong>
-                                                                    <p >{{\App\Models\User::where('id',$product->vendor_id)->value('full_name')}}</p>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row">
-                                                                <div class="col-md-4">
-                                                                    <strong>Today's Deal:</strong>
-                                                                    <p>
-                                                                        <input type="checkbox" name="deal" value="{{$item->id}}"  data-toggle="switchbutton" {{$product->todays_deal==1 ? 'checked' : ''}} data-size="sm">
-                                                                    </p>
-                                                                </div>
-                                                                <div class="col-md-4">
-                                                                    <strong>Tag:</strong>
-                                                                    <div class="badge badge-success">{{$product->tags}}</div>
-                                                                </div>
                                                                 <div class="col-md-4">
                                                                     <strong>Status:</strong>
                                                                     <div class="badge badge-warning">{{$product->status}}</div>
                                                                 </div>
                                                             </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
 
-                                                            <strong>Summary:</strong>
-                                                            <p>{!! html_entity_decode($product->summary) !!}</p>
-                                                            <strong>Description:</strong>
-                                                            <p>{!! html_entity_decode($product->description) !!}</p>
-                                                            <strong>Specification:</strong>
-                                                            <p>{!! html_entity_decode($product->specification) !!}</p>
+                                                                    <strong>Summary:</strong>
+                                                                    <p>{!! html_entity_decode($product->summary) !!}</p>
+                                                                    <strong>Description:</strong>
+                                                                    <p>{!! html_entity_decode($product->description) !!}</p>
+                                                                </div>
+                                                            </div>
 
                                                         </div>
                                                         <div class="modal-footer">

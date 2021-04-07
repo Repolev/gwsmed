@@ -77,8 +77,7 @@
                                            <input data-id="{{$product->id}}" type="number" class="qty-text" min="1" value="1">
                                            <button data-id="{{$product->id}}" class="cv-add"></button>
                                        </div>
-                                    <a href="javascript:void(0);" data-product_id="{{$product->id}}" data-quantity="1" class="cv-btn add_to_cart_button_details" id="add_to_cart_button_details_{{$product->id}}">add to cart</a>
-                                       <a href="javascript:void(0);" data-product_id="{{$product->id}}" data-quantity="1" class="mr-2 cv-btn add_to_cart_button_details" id="add_to_cart_button_details_{{$product->id}}">add to cart</a>
+                                    <a href="javascript:void(0);" data-product_id="{{$product->id}}" data-quantity="1" class="mr-2 cv-btn add_to_cart_button_details" id="add_to_cart_button_details_{{$product->id}}">add to cart</a>
                                        <a href="javascript:void(0);" class="cv-btn btn-success" style="background:#28a745 " data-target="#exampleModal" data-toggle="modal">Send Enquiry</a>
                                    </div>
                                    <div class="cv-prod-count mt-2 mb-2">
@@ -347,6 +346,25 @@
                                                                                                                 s48.128-107.52,107.52-107.52s107.52,48.128,107.52,107.52S290.048,338.176,230.656,338.176z"></path>
                                                                         </g>
                                                                     </svg> View detail</a>
+
+                                                                    <a href="javascript:;" data-id="{{$item->id}}" id="add_to_cart{{$item->id}}" class="cv-btn add_to_cart" data-quantity="1">
+                                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                                            <g>
+                                                                                <path d="M507.519,116.384C503.721,111.712,498.021,109,492,109H129.736l-1.484-13.632l-0.053-0.438C121.099,40.812,74.583,0,20,0
+                                                                                C8.954,0,0,8.954,0,20s8.954,20,20,20c34.506,0,63.923,25.749,68.512,59.928l23.773,218.401C91.495,327.765,77,348.722,77,373
+                                                                                c0,0.167,0.002,0.334,0.006,0.5C77.002,373.666,77,373.833,77,374c0,33.084,26.916,60,60,60h8.138
+                                                                                c-2.034,5.964-3.138,12.355-3.138,19c0,32.532,26.467,59,59,59s59-26.468,59-59c0-6.645-1.104-13.036-3.138-19h86.277
+                                                                                c-2.034,5.964-3.138,12.355-3.138,19c0,32.532,26.467,59,59,59c32.533,0,59-26.468,59-59c0-32.532-26.467-59-59-59H137
+                                                                                c-11.028,0-20-8.972-20-20c0-0.167-0.002-0.334-0.006-0.5c0.004-0.166,0.006-0.333,0.006-0.5c0-11.028,8.972-20,20-20h255.331
+                                                                                c35.503,0,68.084-21.966,83.006-55.962c4.439-10.114-0.161-21.912-10.275-26.352c-10.114-4.439-21.912,0.161-26.352,10.275
+                                                                                C430.299,300.125,411.661,313,392.331,313h-240.39L134.09,149h333.308l-9.786,46.916c-2.255,10.813,4.682,21.407,15.495,23.662
+                                                                                c1.377,0.288,2.75,0.426,4.104,0.426c9.272,0,17.59-6.484,19.558-15.92l14.809-71C512.808,127.19,511.317,121.056,507.519,116.384
+                                                                                z M399,434c10.477,0,19,8.523,19,19s-8.523,19-19,19s-19-8.523-19-19S388.523,434,399,434z M201,434c10.477,0,19,8.524,19,19
+                                                                                c0,10.477-8.523,19-19,19s-19-8.523-19-19S190.523,434,201,434z"></path>
+                                                                            </g>
+                                                                        </svg>
+                                                                        add to Cart</a>
+
                                                             </div>
                                                         </div>
                                                         <div class="cv-product-data">
@@ -650,6 +668,65 @@
                 }
             });
         });
+    </script>
+
+
+    {{-- Add to cart --}}
+    <script>
+        $(document).on('click', '.add_to_cart', function (e) {
+            e.preventDefault();
+            var product_id = $(this).data('id');
+            var product_qty = $(this).data('quantity');
+            var token = "{{ csrf_token() }}";
+            var path = "{{ route('cart.store') }}";
+
+            $.ajax({
+                url: path,
+                type: "POST",
+                dataType: "JSON",
+                data: {
+                    product_id: product_id,
+                    product_qty: product_qty,
+                    _token: token,
+                },
+                beforeSend: function () {
+                    $('#add_to_cart' + product_id).html(
+                        '<i class="fa fa-spinner fa-spin widget-icon"></i> Loading...');
+                },
+                complete: function () {
+                    $('#add_to_cart' + product_id).html(
+                        '<i class="fas fa-cart-plus"></i> add to Cart');
+                },
+                success: function (data) {
+                    console.log(data);
+
+                    if (data['status']) {
+                        $('body #header').html(data['header']);
+                        $('body #cart_counter').html(data['cart_count']);
+                        swal({
+                            title: "Success!",
+                            text: data['message'],
+                            icon: "success",
+                            button: "OK!",
+                        });
+
+                    } else {
+                        $('body #header-ajax').html(data['header']);
+                        $('body #cart_counter').html(data['cart_count']);
+                        swal({
+                            title: "Sorry!",
+                            text: data['message'],
+                            icon: "error",
+                            button: "OK!",
+                        });
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        });
+
     </script>
 
     <script>

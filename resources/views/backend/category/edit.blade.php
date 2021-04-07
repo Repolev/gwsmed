@@ -45,7 +45,7 @@
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                         <label for="">Category URL<span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="blog-slug" name="slug" value="{{ $category->slug }}" id="categorySlug">
+                                            <input type="text" class="form-control" placeholder="category-slug" name="slug" value="{{ $category->slug }}" id="categorySlug">
                                         </div>
                                     </div>
 
