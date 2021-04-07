@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Enquiry;
 use App\Models\Product;
+use Mail;
 use Illuminate\Http\Request;
 
 class EnquiryController extends Controller
@@ -29,6 +30,7 @@ class EnquiryController extends Controller
         $enquiry['subject']=$request->subject;
         $enquiry['message']=$request->message;
 
+        \Illuminate\Support\Facades\Mail::to('prajwal.iar@gmail.com')->send(new \App\Mail\Enquiry($data));
         $status=$enquiry->save();
 
         $category=Category::find($request->cats);
