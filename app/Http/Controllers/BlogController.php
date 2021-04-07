@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
-use Image;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class BlogController extends Controller
 {
@@ -49,9 +49,12 @@ class BlogController extends Controller
         $data['user_id'] = Auth::guard('admin')->user()->id;
         if($file=$request->file('blog_image')){
             $imageName = time() ."-". str_replace(' ', '-', $file->getClientOriginalExtension());
-            $file->storeAs('public/backend/assets/images/blogs/', $imageName);
+            $product_image = Image::make($file);
+            $product_image->resize(500, 400);
+            $image_path = public_path('/backend/assets/images/blogs/' . $imageName);
+            $product_image->save($image_path);
             $data['image']=$imageName;
-            $data['image_path'] = 'storage/backend/assets/images/blogs/'.$imageName;
+            $data['image_path'] = 'backend/assets/images/blogs/'.$imageName;
         }
 
         $data['slug']=str_replace(' ','-',$request->slug);
@@ -106,9 +109,12 @@ class BlogController extends Controller
         $data['user_id'] = Auth::guard('admin')->user()->id;
         if($file=$request->file('blog_image')){
             $imageName = time() ."-". str_replace(' ', '-', $file->getClientOriginalExtension());
-            $file->storeAs('public/backend/assets/images/blogs/', $imageName);
+            $product_image = Image::make($file);
+            $product_image->resize(500, 400);
+            $image_path = public_path('/backend/assets/images/blogs/' . $imageName);
+            $product_image->save($image_path);
             $data['image']=$imageName;
-            $data['image_path'] = 'storage/backend/assets/images/blogs/'.$imageName;
+            $data['image_path'] = 'backend/assets/images/blogs/'.$imageName;
         }
 
         $status = $blog->fill($data)->save();
