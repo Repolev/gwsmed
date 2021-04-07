@@ -1,0 +1,191 @@
+[05-Apr-2021 09:08:49 UTC] PHP Fatal error:  Uncaught Error: Class 'ParagonIE_Sodium_Compat' not found in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php:8
+Stack trace:
+#0 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/sodium_compat.php(825): require_once()
+#1 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/autoload.php(51): require_once('/home/gwsmedco/...')
+#2 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(71): require('/home/gwsmedco/...')
+#3 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(61): composerRequire3f8ae47cd36ecee4288849db874da8a0('3109cb1a231dcd0...', '/home/gwsmedco/...')
+#4 /home/gwsmedco/gws.gwsmed.com/vendor/autoload.php(7): ComposerAutoloaderInit3f8ae47cd36ecee4288849db874da8a0::getLoader()
+#5 /home/gwsmedco/gws.gwsmed.com/public/index.php(34): require('/home/gwsmedco/...')
+#6 /home/gwsmedco/gws.gwsmed.com/server.php(21): require_once('/home/gwsmedco/...')
+#7 {main}
+  thrown in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php on line 8
+[05-Apr-2021 09:08:51 UTC] PHP Fatal error:  Uncaught Error: Class 'ParagonIE_Sodium_Compat' not found in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php:8
+Stack trace:
+#0 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/sodium_compat.php(825): require_once()
+#1 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/autoload.php(51): require_once('/home/gwsmedco/...')
+#2 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(71): require('/home/gwsmedco/...')
+#3 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(61): composerRequire3f8ae47cd36ecee4288849db874da8a0('3109cb1a231dcd0...', '/home/gwsmedco/...')
+#4 /home/gwsmedco/gws.gwsmed.com/vendor/autoload.php(7): ComposerAutoloaderInit3f8ae47cd36ecee4288849db874da8a0::getLoader()
+#5 /home/gwsmedco/gws.gwsmed.com/public/index.php(34): require('/home/gwsmedco/...')
+#6 /home/gwsmedco/gws.gwsmed.com/server.php(21): require_once('/home/gwsmedco/...')
+#7 {main}
+  thrown in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php on line 8
+[05-Apr-2021 09:08:51 UTC] PHP Fatal error:  Uncaught Error: Class 'ParagonIE_Sodium_Compat' not found in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php:8
+Stack trace:
+#0 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/sodium_compat.php(825): require_once()
+#1 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/autoload.php(51): require_once('/home/gwsmedco/...')
+#2 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(71): require('/home/gwsmedco/...')
+#3 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(61): composerRequire3f8ae47cd36ecee4288849db874da8a0('3109cb1a231dcd0...', '/home/gwsmedco/...')
+#4 /home/gwsmedco/gws.gwsmed.com/vendor/autoload.php(7): ComposerAutoloaderInit3f8ae47cd36ecee4288849db874da8a0::getLoader()
+#5 /home/gwsmedco/gws.gwsmed.com/public/index.php(34): require('/home/gwsmedco/...')
+#6 /home/gwsmedco/gws.gwsmed.com/server.php(21): require_once('/home/gwsmedco/...')
+#7 {main}
+  thrown in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php on line 8
+[05-Apr-2021 09:08:51 UTC] PHP Fatal error:  Uncaught Error: Class 'ParagonIE_Sodium_Compat' not found in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php:8
+Stack trace:
+#0 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/sodium_compat.php(825): require_once()
+#1 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/autoload.php(51): require_once('/home/gwsmedco/...')
+#2 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(71): require('/home/gwsmedco/...')
+#3 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(61): composerRequire3f8ae47cd36ecee4288849db874da8a0('3109cb1a231dcd0...', '/home/gwsmedco/...')
+#4 /home/gwsmedco/gws.gwsmed.com/vendor/autoload.php(7): ComposerAutoloaderInit3f8ae47cd36ecee4288849db874da8a0::getLoader()
+#5 /home/gwsmedco/gws.gwsmed.com/public/index.php(34): require('/home/gwsmedco/...')
+#6 /home/gwsmedco/gws.gwsmed.com/server.php(21): require_once('/home/gwsmedco/...')
+#7 {main}
+  thrown in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php on line 8
+[05-Apr-2021 09:08:51 UTC] PHP Fatal error:  Uncaught Error: Class 'ParagonIE_Sodium_Compat' not found in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php:8
+Stack trace:
+#0 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/sodium_compat.php(825): require_once()
+#1 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/autoload.php(51): require_once('/home/gwsmedco/...')
+#2 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(71): require('/home/gwsmedco/...')
+#3 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(61): composerRequire3f8ae47cd36ecee4288849db874da8a0('3109cb1a231dcd0...', '/home/gwsmedco/...')
+#4 /home/gwsmedco/gws.gwsmed.com/vendor/autoload.php(7): ComposerAutoloaderInit3f8ae47cd36ecee4288849db874da8a0::getLoader()
+#5 /home/gwsmedco/gws.gwsmed.com/public/index.php(34): require('/home/gwsmedco/...')
+#6 /home/gwsmedco/gws.gwsmed.com/server.php(21): require_once('/home/gwsmedco/...')
+#7 {main}
+  thrown in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php on line 8
+[05-Apr-2021 09:09:08 UTC] PHP Fatal error:  Uncaught Error: Class 'ParagonIE_Sodium_Compat' not found in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php:8
+Stack trace:
+#0 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/sodium_compat.php(825): require_once()
+#1 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/autoload.php(51): require_once('/home/gwsmedco/...')
+#2 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(71): require('/home/gwsmedco/...')
+#3 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(61): composerRequire3f8ae47cd36ecee4288849db874da8a0('3109cb1a231dcd0...', '/home/gwsmedco/...')
+#4 /home/gwsmedco/gws.gwsmed.com/vendor/autoload.php(7): ComposerAutoloaderInit3f8ae47cd36ecee4288849db874da8a0::getLoader()
+#5 /home/gwsmedco/gws.gwsmed.com/public/index.php(34): require('/home/gwsmedco/...')
+#6 /home/gwsmedco/gws.gwsmed.com/server.php(21): require_once('/home/gwsmedco/...')
+#7 {main}
+  thrown in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php on line 8
+[05-Apr-2021 09:09:09 UTC] PHP Fatal error:  Uncaught Error: Class 'ParagonIE_Sodium_Compat' not found in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php:8
+Stack trace:
+#0 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/sodium_compat.php(825): require_once()
+#1 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/autoload.php(51): require_once('/home/gwsmedco/...')
+#2 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(71): require('/home/gwsmedco/...')
+#3 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(61): composerRequire3f8ae47cd36ecee4288849db874da8a0('3109cb1a231dcd0...', '/home/gwsmedco/...')
+#4 /home/gwsmedco/gws.gwsmed.com/vendor/autoload.php(7): ComposerAutoloaderInit3f8ae47cd36ecee4288849db874da8a0::getLoader()
+#5 /home/gwsmedco/gws.gwsmed.com/public/index.php(34): require('/home/gwsmedco/...')
+#6 /home/gwsmedco/gws.gwsmed.com/server.php(21): require_once('/home/gwsmedco/...')
+#7 {main}
+  thrown in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php on line 8
+[05-Apr-2021 09:09:09 UTC] PHP Fatal error:  Uncaught Error: Class 'ParagonIE_Sodium_Compat' not found in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php:8
+Stack trace:
+#0 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/sodium_compat.php(825): require_once()
+#1 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/autoload.php(51): require_once('/home/gwsmedco/...')
+#2 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(71): require('/home/gwsmedco/...')
+#3 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(61): composerRequire3f8ae47cd36ecee4288849db874da8a0('3109cb1a231dcd0...', '/home/gwsmedco/...')
+#4 /home/gwsmedco/gws.gwsmed.com/vendor/autoload.php(7): ComposerAutoloaderInit3f8ae47cd36ecee4288849db874da8a0::getLoader()
+#5 /home/gwsmedco/gws.gwsmed.com/public/index.php(34): require('/home/gwsmedco/...')
+#6 /home/gwsmedco/gws.gwsmed.com/server.php(21): require_once('/home/gwsmedco/...')
+#7 {main}
+  thrown in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php on line 8
+[05-Apr-2021 09:09:09 UTC] PHP Fatal error:  Uncaught Error: Class 'ParagonIE_Sodium_Compat' not found in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php:8
+Stack trace:
+#0 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/sodium_compat.php(825): require_once()
+#1 /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/autoload.php(51): require_once('/home/gwsmedco/...')
+#2 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(71): require('/home/gwsmedco/...')
+#3 /home/gwsmedco/gws.gwsmed.com/vendor/composer/autoload_real.php(61): composerRequire3f8ae47cd36ecee4288849db874da8a0('3109cb1a231dcd0...', '/home/gwsmedco/...')
+#4 /home/gwsmedco/gws.gwsmed.com/vendor/autoload.php(7): ComposerAutoloaderInit3f8ae47cd36ecee4288849db874da8a0::getLoader()
+#5 /home/gwsmedco/gws.gwsmed.com/public/index.php(34): require('/home/gwsmedco/...')
+#6 /home/gwsmedco/gws.gwsmed.com/server.php(21): require_once('/home/gwsmedco/...')
+#7 {main}
+  thrown in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php on line 8
+[07-Apr-2021 16:25:57 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:25:57 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:25:58 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:25:58 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:26:17 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:26:17 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:26:18 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:26:18 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:26:18 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:26:18 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:26:18 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:26:18 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:26:19 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:26:19 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:26:19 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:26:19 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:26:23 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:26:23 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:26:35 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:26:35 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:27:35 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:27:35 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:27:35 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:27:35 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:28:06 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:28:06 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:28:06 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:28:06 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:28:06 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:28:06 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:28:07 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:28:07 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:28:31 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:28:31 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:28:35 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:28:35 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:28:39 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:28:39 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:28:47 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:28:47 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:32:33 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:32:33 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:33:58 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:33:58 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:34:00 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:34:00 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:34:12 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:34:12 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:34:16 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:34:16 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:34:46 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:34:46 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:34:46 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:34:46 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:34:48 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:34:48 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:34:48 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:34:48 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:35:43 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:35:43 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:35:43 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:35:43 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:35:44 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:35:44 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:35:44 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: Permission denied in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:35:44 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:55 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: No such file or directory in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:55 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:55 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: No such file or directory in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:55 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:56 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: No such file or directory in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:56 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:56 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: No such file or directory in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:56 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:56 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: No such file or directory in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:56 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:57 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: No such file or directory in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:57 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:57 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: No such file or directory in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:57 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:57 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: No such file or directory in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:57 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:57 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: No such file or directory in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:57 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:57 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: No such file or directory in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:57 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:57 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: No such file or directory in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:57 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:57 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: No such file or directory in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:41:57 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:42:18 UTC] PHP Warning:  require_once(/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php): failed to open stream: No such file or directory in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47
+[07-Apr-2021 16:42:18 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/gwsmedco/gws.gwsmed.com/public/../bootstrap/app.php' (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/public/index.php on line 47

@@ -1,0 +1,54 @@
+.my-account-area {
+    margin: 2rem 0;
+
+    .my-account-navigation {
+        background: $white-color;
+        box-shadow: 0 8px 22px 0 #f0f0f0;
+        border-radius: 6px;
+        padding: 6px 4px;
+
+        ul {
+            li {
+                margin: 14px 4px;
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    color: #000;
+                    font-size: 14px;
+                    font-weight: 400;
+                    padding: 10px;
+
+                    .dashboard-icon {
+                        color: $primary-color;
+                        margin-right: 0.5rem;
+                        font-size: 20px;
+                    }
+                }
+
+            }
+
+            li.active>a {
+                background: #f5f5f5;
+                border-radius: 1rem;
+
+                i {
+                    color: $secondary-color;
+                }
+            }
+        }
+
+    }
+
+    .my-account-content {
+        p {
+            font-size: 14px;
+            line-height: 22px;
+        }
+
+        .address-card {
+            background: #fff;
+            padding: 12px;
+        }
+    }
+}
