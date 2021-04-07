@@ -34,7 +34,6 @@
                                     <tr>
                                         <th>S.N.</th>
                                         <th>Title</th>
-                                        <th>Description</th>
                                         <th>Photo</th>
                                         <th>Status</th>
                                         <th>Actions</th>

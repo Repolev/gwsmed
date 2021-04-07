@@ -333,16 +333,8 @@ class IndexController extends Controller
                 $products->where(['status'=>'active','cat_id'=>$category->id])->orderBy('title','DESC');
             }
         }
-
-        if(!empty($_GET['price'])){
-            $price=explode('-',$_GET['price']);
-            $price[0]=floor($price[0]) ;
-            $price[1]=ceil($price[1]) ;
-            $products->whereBetween('offer_price',$price)->where('status','active');
-//            return $products;
-        }
         else{
-            $products->where(['status'=>'active','cat_id'=>$category->id]);
+            $products->where(['status'=>'active']);
 
         }
         $products=$products->paginate(16);
@@ -409,7 +401,7 @@ class IndexController extends Controller
 
     //    Product detail
     public function productDetail($slug){
-        $product=Product::with('rel_prods')->where('slug',$slug)->first();
+        $product=Product::with('categories')->where('slug',$slug)->first();
         $categories=Category::where(['status'=>'active','is_parent'=>1])->latest()->get();
         if($product){
             return view('frontend.pages.product.product-detail',compact('product','categories'));

@@ -7,7 +7,11 @@
             <div class="row">
                 <div class="owl-carousel owl-theme">
                     @foreach($banners as $banner)
-                        <div class="item"><img src="{{ asset($banner->image_path) }}" alt="Home Banner"></div>
+                        <div class="item">
+                            <a href="{{$banner->slug}}">
+                                <img src="{{ asset($banner->image_path) }}" alt="Home Banner">
+                            </a>
+                        </div>
                     @endforeach
                 </div>
             </div>
@@ -17,7 +21,7 @@
 
     {{--  About us  --}}
 
-    <div class="cv-feature">
+    <div class="cv-feature spacer-top">
         <div class="container">
             <div class="cv-heading">
                 <h1>About Us</h1>
