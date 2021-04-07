@@ -70,11 +70,7 @@ class CartController extends Controller
         $request_quantity=$request->input('product_qty');
         $productQuantity=$request->input('productQuantity');
 
-        if($request_quantity>$productQuantity){
-            $message="We currently do not have enough items in stock";
-            $response['status']=false;
-        }
-        elseif($request_quantity<1){
+        if($request_quantity<1){
             $message="You can't add less than 1 quantity";
             $response['status']=false;
         }
