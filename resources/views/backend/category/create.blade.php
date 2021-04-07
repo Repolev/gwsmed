@@ -97,6 +97,13 @@
                                         </div>
                                     </div>
 
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Banner</label>
+                                            <input type="file" name="banner" class="dropify" data-height="150">
+                                        </div>
+                                    </div>
+
                                     <div class="col-lg-12 col-sm-12">
                                         <label for="status">Status</label>
                                         <select name="status" class="form-control show-tick">

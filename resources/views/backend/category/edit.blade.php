@@ -97,6 +97,13 @@
                                         </div>
                                     </div>
 
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Banner</label>
+                                            <input type="file" name="banner" class="dropify" data-height="150" value="{{asset($category->banner_path)}}" data-default-file="{{asset($category->banner_path)}}">
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <button type="submit" class="btn btn-success">Update</button>
