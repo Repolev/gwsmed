@@ -61,13 +61,13 @@
                             <div class="cv-prod-content">
                                 <h2 class="cv-price-title">{{ucfirst($product->title)}}</h2>
                                 <div class="cv-prod-category">
-                                    <span>Product Model : {{$product->model_no}}</span>
+                                    <span>Product Model : <span style="font-weight: 700">{{$product->model_no}}</span></span>
 
                                 </div>
                                 <div class="cv-prod-category my-3">
                                     <span>Category :</span>
                                     @foreach($product->categories as $category)
-                                        <a href="#" class="cv-prod-category">{{ $category->title }}</a>
+                                        <a href="{{route('product.category',$category->slug)}}" style="font-weight: 700" class="cv-prod-category">{{ $category->title }}@if(!$loop->last),@endif</a>
                                     @endforeach
                                 </div>
                                <div class="mt-3">
@@ -77,7 +77,8 @@
                                            <input data-id="{{$product->id}}" type="number" class="qty-text" min="1" value="1">
                                            <button data-id="{{$product->id}}" class="cv-add"></button>
                                        </div>
-                                       <a href="javascript:void(0);" data-product_id="{{$product->id}}" data-quantity="1" class="cv-btn add_to_cart_button_details" id="add_to_cart_button_details_{{$product->id}}">add to cart</a>
+                                       <a href="javascript:void(0);" data-product_id="{{$product->id}}" data-quantity="1" class="mr-2 cv-btn add_to_cart_button_details" id="add_to_cart_button_details_{{$product->id}}">add to cart</a>
+                                       <a href="javascript:void(0);" class="cv-btn btn-success" style="background:#28a745 " data-target="#exampleModal" data-toggle="modal">Send Enquiry</a>
                                    </div>
                                    <div class="mt-4">
                                        <p>{!! html_entity_decode($product->summary) !!}</p>
@@ -86,9 +87,9 @@
 
                                     {{--Enquiry form--}}
                                <!-- Modal -->
-                                   <div class="modal  fade" style="height:450px; overflow-y:scroll;top:120px" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                   <div class="modal  fade" style="height:100%; overflow-y:scroll;top:22px" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                        <div class="modal-dialog modal-lg" role="document">
-                                           <form action="{{route('checkout.store')}}" method="post">
+                                           <form action="{{route('enquiry.submit')}}" method="post">
                                                @csrf
                                            <div class="modal-content">
                                                <div class="modal-header">
@@ -98,15 +99,24 @@
                                                    </button>
                                                </div>
                                                <div class="modal-body">
+
                                                        <div class="row">
                                                            <div class="col-md-6">
                                                                <div class="form-group">
+                                                                   <label for="">Full name <span class="text-danger">*</span></label>
                                                                    <input type="text" class="form-control" name="full_name" placeholder="Full name">
+                                                                   @error('full_name')
+                                                                   <p class="text-danger">{{$message}}</p>
+                                                                   @enderror
                                                                </div>
                                                            </div>
                                                            <div class="col-md-6">
                                                                <div class="form-group">
+                                                                   <label for="">Email <span class="text-danger">*</span></label>
                                                                    <input type="email" class="form-control" name="email" placeholder="Email address">
+                                                                   @error('email')
+                                                                   <p class="text-danger">{{$message}}</p>
+                                                                   @enderror
                                                                </div>
                                                            </div>
                                                        </div>
@@ -115,54 +125,69 @@
                                                                <div class="form-group">
                                                                    <label for="">Phone <span class="text-danger">*</span></label>
                                                                    <input type="text" name="phone" placeholder="Phone" class="form-control">
+                                                                   @error('phone')
+                                                                   <p class="text-danger">{{$message}}</p>
+                                                                   @enderror
                                                                </div>
                                                            </div>
 
                                                            <div class="col-md-6">
                                                                <div class="form-group">
-                                                                   <label for="">Country <span class="text-danger">*</span></label>
+                                                                   <label for="">Country</label>
                                                                    <input type="text" name="country" placeholder="Country name" class="form-control">
+                                                                   @error('country')
+                                                                   <p class="text-danger">{{$message}}</p>
+                                                                   @enderror
                                                                </div>
                                                            </div>
 
                                                        </div>
 
-                                                       <div class="row">
-                                                           <div class="col-md-6">
-                                                               <div class="form-group">
-                                                                   <label for="">Address <span class="text-danger">*</span></label>
-                                                                   <textarea name="address" placeholder="Shipping Address" class="form-control"></textarea>
-                                                               </div>
-                                                           </div>
-                                                           <div class="col-md-6">
-                                                               <div class="form-group">
-                                                                   <label for="">Address2</label>
-                                                                   <textarea name="address2" placeholder="Shipping Address" class="form-control"></textarea>
-                                                               </div>
-                                                           </div>
-                                                       </div>
                                                        <div class="row">
                                                            <div class="col-md-12">
                                                                <div class="form-group">
                                                                    <label for="">Subject <span class="text-danger">*</span></label>
                                                                    <input type="text" name="subject" placeholder="Subject" class="form-control" value="{{$product->title}}">
+                                                                   @error('subject')
+                                                                   <p class="text-danger">{{$message}}</p>
+                                                                   @enderror
                                                                </div>
                                                            </div>
+                                                       </div>
+
+                                                       <div class="row">
+                                                           <div class="col-md-12">
+                                                               <div class="form-group">
+                                                                   <label for="">Address</label>
+                                                                   <textarea name="address" placeholder="Address" class="form-control"></textarea>
+                                                                   @error('address')
+                                                                   <p class="text-danger">{{$message}}</p>
+                                                                   @enderror
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                       <div class="row">
 
                                                            <div class="col-md-12">
                                                                <div class="form-group">
                                                                    <label for="">Message</label>
                                                                    <textarea name="message" placeholder="Enter text..." class="form-control"></textarea>
+                                                                   @error('message')
+                                                                   <p class="text-danger">{{$message}}</p>
+                                                                   @enderror
                                                                </div>
                                                            </div>
 
                                                        </div>
 
 
+
+
+
                                                </div>
                                                <div class="modal-footer">
                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                   <button type="submit" class="btn btn-primary">Send Enquiry</button>
+                                                   <button type="submit" class="btn btn-primary"  onclick="confirm('Are you sure?')">Send Enquiry</button>
                                                </div>
                                            </div>
                                            </form>
@@ -181,99 +206,99 @@
                     <div class="cv-shop-tab">
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                             <a class="nav-link active" data-toggle="tab" href="#cv-pro-description" role="tab" aria-selected="true">description</a>
-                            <a class="nav-link" data-toggle="tab" href="#cv-pro-enquiry" role="tab" aria-selected="true">Enquiry</a>
+{{--                            <a class="nav-link" data-toggle="tab" href="#cv-pro-enquiry" role="tab" aria-selected="true">Enquiry</a>--}}
                         </div>
                         <div class="tab-content cv-tab-content" id="nav-tabContent">
                             <div class="tab-pane fade show active" id="cv-pro-description">
                                 <p>{!! html_entity_decode($product->description) !!}</p>
                             </div>
-                            <div class="tab-pane fade show" id="cv-pro-enquiry">
-                                <form action="{{route('enquiry.submit')}}" method="post">
-                                    @csrf
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control" name="full_name" placeholder="Full name">
-                                                @error('full_name')
-                                                <p class="text-danger">{{$message}}</p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <input type="email" class="form-control" name="email" placeholder="Email address">
-                                                @error('email')
-                                                <p class="text-danger">{{$message}}</p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Phone <span class="text-danger">*</span></label>
-                                                <input type="text" name="phone" placeholder="Phone" class="form-control">
-                                                @error('phone')
-                                                    <p class="text-danger">{{$message}}</p>
-                                                @enderror
-                                            </div>
-                                        </div>
+{{--                            <div class="tab-pane fade show" id="cv-pro-enquiry">--}}
+{{--                                <form action="{{route('enquiry.submit')}}" method="post">--}}
+{{--                                    @csrf--}}
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-md-6">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <input type="text" class="form-control" name="full_name" placeholder="Full name">--}}
+{{--                                                @error('full_name')--}}
+{{--                                                <p class="text-danger">{{$message}}</p>--}}
+{{--                                                @enderror--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-6">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <input type="email" class="form-control" name="email" placeholder="Email address">--}}
+{{--                                                @error('email')--}}
+{{--                                                <p class="text-danger">{{$message}}</p>--}}
+{{--                                                @enderror--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-md-6">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label for="">Phone <span class="text-danger">*</span></label>--}}
+{{--                                                <input type="text" name="phone" placeholder="Phone" class="form-control">--}}
+{{--                                                @error('phone')--}}
+{{--                                                    <p class="text-danger">{{$message}}</p>--}}
+{{--                                                @enderror--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Country</label>
-                                                <input type="text" name="country" placeholder="Country name" class="form-control">
-                                                @error('country')
-                                                <p class="text-danger">{{$message}}</p>
-                                                @enderror
-                                            </div>
-                                        </div>
+{{--                                        <div class="col-md-6">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label for="">Country</label>--}}
+{{--                                                <input type="text" name="country" placeholder="Country name" class="form-control">--}}
+{{--                                                @error('country')--}}
+{{--                                                <p class="text-danger">{{$message}}</p>--}}
+{{--                                                @enderror--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                    </div>
+{{--                                    </div>--}}
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="">Subject <span class="text-danger">*</span></label>
-                                                <input type="text" name="subject" placeholder="Subject" class="form-control" value="{{$product->title}}">
-                                                @error('subject')
-                                                <p class="text-danger">{{$message}}</p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-md-12">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label for="">Subject <span class="text-danger">*</span></label>--}}
+{{--                                                <input type="text" name="subject" placeholder="Subject" class="form-control" value="{{$product->title}}">--}}
+{{--                                                @error('subject')--}}
+{{--                                                <p class="text-danger">{{$message}}</p>--}}
+{{--                                                @enderror--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="">Address</label>
-                                                <textarea name="address" placeholder="Shipping Address" class="form-control"></textarea>
-                                                @error('address')
-                                                <p class="text-danger">{{$message}}</p>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-md-12">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label for="">Address</label>--}}
+{{--                                                <textarea name="address" placeholder="Shipping Address" class="form-control"></textarea>--}}
+{{--                                                @error('address')--}}
+{{--                                                <p class="text-danger">{{$message}}</p>--}}
+{{--                                                @enderror--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="row">--}}
 
 
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="">Message</label>
-                                                <textarea name="message" placeholder="Enter text..." class="form-control"></textarea>
-                                                @error('message')
-                                                <p class="text-danger">{{$message}}</p>
-                                                @enderror
-                                            </div>
-                                        </div>
+{{--                                        <div class="col-md-12">--}}
+{{--                                            <div class="form-group">--}}
+{{--                                                <label for="">Message</label>--}}
+{{--                                                <textarea name="message" placeholder="Enter text..." class="form-control"></textarea>--}}
+{{--                                                @error('message')--}}
+{{--                                                <p class="text-danger">{{$message}}</p>--}}
+{{--                                                @enderror--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                    </div>
-                                    <div class="cv-cart-btn text-left">
-                                        <button type="submit" class="cv-btn" onclick="confirm('Are you sure?')">Send Enquiry</button>
-                                    </div>
-                                </form>
+{{--                                    </div>--}}
+{{--                                    <div class="cv-cart-btn text-left">--}}
+{{--                                        <button type="submit" class="cv-btn" onclick="confirm('Are you sure?')">Send Enquiry</button>--}}
+{{--                                    </div>--}}
+{{--                                </form>--}}
 
-                            </div>
+{{--                            </div>--}}
                         </div>
                     </div>
                 </div>
@@ -281,69 +306,70 @@
         </div>
     </div>
     <!-- shop end -->
-{{--    @if(count($product->categories)>0)--}}
-{{--        <!-- related product start -->--}}
-{{--            <div class="cv-arrival cv-related-product cv-product-slider spacer-top-less">--}}
-{{--                <div class="container">--}}
-{{--                    <div class="cv-heading">--}}
-{{--                        <h1>Related products</h1>--}}
-{{--                        --}}{{--                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>--}}
-{{--                    </div>--}}
-{{--                    <div class="row">--}}
-{{--                        <div class="col-12">--}}
-{{--                            <div class="swiper-container">--}}
-{{--                                <div class="swiper-wrapper">--}}
-{{--                                    @foreach($product->categories as $cat)--}}
-{{--                                        --}}
+    @if(count($product->categories)>0)
+        <!-- related product start -->
+            <div class="cv-arrival cv-related-product cv-product-slider spacer-top-less">
+                <div class="container">
+                    <div class="cv-heading">
+                        <h1>Related products</h1>
+                                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    @foreach($product->categories as $cat)
+                                        @if(count($cat->products)>0)
+                                            @foreach($cat->products as $item)
+                                                <div class="swiper-slide">
+                                                    <div class="cv-product-box">
+                                                        @php
+                                                            $photos=explode(',',$item->image_path);
+                                                        @endphp
+                                                        <div class="cv-product-img">
+                                                            <img src="{{asset($photos[0])}}" alt="{{$item->title}}" class="img-fluid"/>
+                                                            <div class="cv-product-button">
+                                                                <a href="{{route('product.detail',$item->slug)}}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
+                                                                        <g>
+                                                                            <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
+                                                                                                                S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
+                                                                                                                c0.512-23.04,18.944-41.472,41.472-41.472V208.64z"></path>
+                                                                        </g>
+                                                                        <g>
+                                                                            <path d="M455.936,215.296c-25.088-31.232-114.688-133.12-225.28-133.12S30.464,184.064,5.376,215.296
+                                                                                                                c-7.168,8.704-7.168,21.504,0,30.72c25.088,31.232,114.688,133.12,225.28,133.12s200.192-101.888,225.28-133.12
+                                                                                                                C463.104,237.312,463.104,224.512,455.936,215.296z M230.656,338.176c-59.392,0-107.52-48.128-107.52-107.52
+                                                                                                                s48.128-107.52,107.52-107.52s107.52,48.128,107.52,107.52S290.048,338.176,230.656,338.176z"></path>
+                                                                        </g>
+                                                                    </svg> View detail</a>
+                                                            </div>
+                                                        </div>
+                                                        <div class="cv-product-data">
+                                                            <a href="{{route('product.detail',$item->slug)}}" class="cv-price-title">{{ucfirst($item->title)}}</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
 
-{{--                                        @foreach($cat->rel_prods as $item)--}}
-{{--                                            @if($item->id!=$product->id)--}}
-{{--                                                <div class="swiper-slide">--}}
-{{--                                                    <div class="cv-product-box">--}}
-{{--                                                        @php--}}
-{{--                                                            $photos=explode(',',$item->image_path);--}}
-{{--                                                        @endphp--}}
-{{--                                                        <div class="cv-product-img">--}}
-{{--                                                            <img src="{{asset($photos[0])}}" alt="{{$item->title}}" class="img-fluid"/>--}}
-{{--                                                            <div class="cv-product-button">--}}
-{{--                                                                <a href="{{route('product.detail',$item->slug)}}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">--}}
-{{--                                                                        <g>--}}
-{{--                                                                            <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24--}}
-{{--                                                                        S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576--}}
-{{--                                                                        c0.512-23.04,18.944-41.472,41.472-41.472V208.64z"></path>--}}
-{{--                                                                        </g>--}}
-{{--                                                                        <g>--}}
-{{--                                                                            <path d="M455.936,215.296c-25.088-31.232-114.688-133.12-225.28-133.12S30.464,184.064,5.376,215.296--}}
-{{--                                                                        c-7.168,8.704-7.168,21.504,0,30.72c25.088,31.232,114.688,133.12,225.28,133.12s200.192-101.888,225.28-133.12--}}
-{{--                                                                        C463.104,237.312,463.104,224.512,455.936,215.296z M230.656,338.176c-59.392,0-107.52-48.128-107.52-107.52--}}
-{{--                                                                        s48.128-107.52,107.52-107.52s107.52,48.128,107.52,107.52S290.048,338.176,230.656,338.176z"></path>--}}
-{{--                                                                        </g>--}}
-{{--                                                                    </svg> View detail</a>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="cv-product-data">--}}
-{{--                                                            <a href="{{route('product.detail',$item->slug)}}" class="cv-price-title">{{ucfirst($item->title)}}</a>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                            @endif--}}
-{{--                                        @endforeach--}}
-{{--                                    @endforeach--}}
+                                        @endif
 
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <!-- Add Arrows -->--}}
-{{--                            <div class="swiper-button-next"></div>--}}
-{{--                            <div class="swiper-button-prev"></div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+                                    @endforeach
 
-{{--        <!-- related product end -->--}}
+                                </div>
+                            </div>
+                            <!-- Add Arrows -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-{{--    @endif--}}
+        <!-- related product end -->
+
+    @endif
 @endsection
+
 
 @section('styles')
     <style>

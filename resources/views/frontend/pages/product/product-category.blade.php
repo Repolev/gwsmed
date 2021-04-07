@@ -12,6 +12,7 @@
                         <h1>{{ucfirst($category->title)}}</h1>
                         <ul>
                             <li><a href="{{route('home')}}">Home</a></li>
+                            <li>Category</li>
                             <li>{{ucfirst($category->title)}}</li>
                         </ul>
                     </div>

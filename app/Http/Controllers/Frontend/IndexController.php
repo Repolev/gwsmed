@@ -347,56 +347,49 @@ class IndexController extends Controller
     }
 
     //product by sub category
-    public function productSubCategory(Request $request,$slug,$cat_slug){
+    public function productSubCategory(Request $request,$slug){
 
         $products=Product::query();
 
-        $sub_category=Category::where(['status'=>'active','slug'=>$cat_slug])->first();
-        $category=Category::where(['status'=>'active','slug'=>$slug])->first();
+        $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->first();
         //brand filter
-        if(!empty($_GET['brand'])){
-            $slugs=explode(',',$_GET['brand']);
-            $brand_ids=Brand::select('id')->whereIn('slug',$slugs)->pluck('id')->toArray();
-            $products->whereIn('brand_id',$brand_ids);
-        }
+//        if(!empty($_GET['brand'])){
+//            $slugs=explode(',',$_GET['brand']);
+//            $brand_ids=Brand::select('id')->whereIn('slug',$slugs)->pluck('id')->toArray();
+//            $products->whereIn('brand_id',$brand_ids);
+//        }
         if(!empty($_GET['sortBy'])){
             if($_GET['sortBy']=='priceAsc'){
-                $products->where(['status'=>'active','child_cat_id'=>$sub_category->id])->orderBy('offer_price','ASC');
+                $products->where(['status'=>'active','cat_id' => $category->id])->orderBy('offer_price','ASC');
             }
             if($_GET['sortBy']=='priceDesc'){
-                $products->where(['status'=>'active','child_cat_id'=>$sub_category->id])->orderBy('offer_price','DESC');
+                $products->where(['status'=>'active','cat_id'=>$category->id])->orderBy('offer_price','DESC');
             }
             if($_GET['sortBy']=='discAsc'){
-                $products->where(['status'=>'active','child_cat_id'=>$sub_category->id])->orderBy('discount','ASC');
+                $products->where(['status'=>'active','cat_id'=>$category->id])->orderBy('discount','ASC');
             }
             if($_GET['sortBy']=='discDesc'){
-                $products->where(['status'=>'active','child_cat_id'=>$sub_category->id])->orderBy('discount','DESC');
+                $products->where(['status'=>'active','cat_id'=>$category->id])->orderBy('discount','DESC');
             }
             if($_GET['sortBy']=='titleAsc'){
-                $products->where(['status'=>'active','child_cat_id'=>$sub_category->id])->orderBy('title','ASC');
+                $products->where(['status'=>'active','cat_id'=>$category->id])->orderBy('title','ASC');
             }
             if($_GET['sortBy']=='titledesc'){
-                $products->where(['status'=>'active','child_cat_id'=>$sub_category->id])->orderBy('title','DESC');
+                $products->where(['status'=>'active','cat_id'=>$category->id])->orderBy('title','DESC');
             }
         }
-
-        if(!empty($_GET['price'])){
-            $price=explode('-',$_GET['price']);
-            $price[0]=floor($price[0]) ;
-            $price[1]=ceil($price[1]) ;
-            $products->whereBetween('offer_price',$price)->where('status','active');
-        }
         else{
-            $products->where(['status'=>'active','child_cat_id'=>$sub_category->id]);
+            $products->where(['status'=>'active']);
 
         }
         $products=$products->paginate(16);
 
-        $brands=Brand::where('status','active')->orderBy('title','ASC')->with('products')->get();
+//        return $products;
 
-        $categories=Category::where('status','active')->orderBy('title','ASC')->with('products')->get();
+//        return $brands;
+        $categories=Category::where('status','active')->orderBy('title','ASC')->with('subcategories')->with('products')->get();
 
-        return view('frontend.pages.product.product-subcategory',compact(['category','sub_category','categories','brands','products']));
+        return view('frontend.pages.product.product-subcategory',compact(['category','categories',   'products']));
     }
 
     //    Product detail
@@ -538,4 +531,10 @@ class IndexController extends Controller
         $blog=Blog::where('slug',$url)->with('comments')->first();
         return view('frontend.pages.blog-single',compact('blog','blogs'));
     }
+
+    //enquiry
+    public function enquiry(){
+        return view('frontend.pages.enquiry');
+    }
+
 }

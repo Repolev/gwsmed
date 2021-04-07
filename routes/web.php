@@ -27,11 +27,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[\App\Http\Controllers\Frontend\IndexController::class,'home'])->name('home');
 
+//Enquiry form
+Route::get('enquiry',[\App\Http\Controllers\Frontend\IndexController::class,'enquiry'])->name('enquiry');
 //Display the product through category
 Route::get('product-category/{slug}',[\App\Http\Controllers\Frontend\IndexController::class,'productCategory'])->name('product.category');
 
 //Display the products through subcategory
-Route::get('product-category/{slug}/{cat_slug}',[\App\Http\Controllers\Frontend\IndexController::class,'productSubCategory'])->name('product.subcategory');
+Route::get('product-subcategory/{slug}',[\App\Http\Controllers\Frontend\IndexController::class,'productSubCategory'])->name('product.subcategory');
 
 //Product detail
 Route::get('product-detail/{slug}/',[\App\Http\Controllers\Frontend\IndexController::class,'productDetail'])->name('product.detail');

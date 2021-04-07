@@ -63,7 +63,7 @@ class CategoryController extends Controller
         $data=$request->all();
         if($request->hasFile('photo')){
             if($file=$request->file('photo')){
-                $imageName = time() ."-". str_replace(' ', '-', $file->getClientOriginalName());
+                $imageName = time() .".". str_replace(' ', '-', $file->getClientOriginalName());
                 $file->storeAs('public/backend/assets/images/category/', $imageName);
                 $data['photo']=$imageName;
                 $data['image_path']='storage/backend/assets/images/category/'.$imageName;
@@ -150,7 +150,7 @@ class CategoryController extends Controller
 
             if($request->hasFile('photo')){
                 if($file=$request->file('photo')){
-                    $imageName = time() ."-". str_replace(' ', '-', $file->getClientOriginalExtension());
+                    $imageName = time() .".". str_replace(' ', '-', $file->getClientOriginalExtension());
                     $file->storeAs('public/backend/assets/images/category/', $imageName);
                     $data['photo']=$imageName;
                     $data['image_path']='storage/backend/assets/images/category/'.$imageName;

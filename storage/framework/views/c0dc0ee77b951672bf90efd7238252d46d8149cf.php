@@ -184,7 +184,7 @@
             <div class="col"></div>
             <div class="col-md-6 ">
                 <form action="<?php echo e(route('search')); ?>" method="get" class="d-flex">
-                    <input type="text" name="query" class="form-control" style="padding-left:30px;border-radius: 30px 0 0 30px;height: 56px;" name="query" id="search_text"
+                    <input type="text" name="query" class="form-control" style="padding-left:30px;border-radius: 30px 0 0 30px;height: 46px;" name="query" id="search_text"
                            placeholder="Search products...">
                     <div class="input-group-append">
                         <button type="submit" style="border-radius:0 30px 30px 0;" class="input-group-text"><i class="fas fa-search"></i>
@@ -225,7 +225,7 @@
                             <div class="cv-mega-menu">
                                 <?php
 
-                                    $categories=\App\Models\Category::with('subcategories')->where(['status'=>'active'])->where('on_menu', 1)->latest()->limit(4)->get();
+                                    $categories=\App\Models\Category::with('subcategories')->where(['status'=>'active'])->where('on_menu', 1)->latest()->limit(3)->get();
 
                                 ?>
 
@@ -238,7 +238,7 @@
 
                                             <?php if(count($category->subcategories)>0): ?>
                                                 <?php $__currentLoopData = $category->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subCat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <li><a href="<?php echo e(route('product.subcategory',[$category->slug,$subCat->slug])); ?>"><?php echo e(ucfirst($subCat->title)); ?></a></li>
+                                                <li><a href="<?php echo e(route('product.subcategory',$subCat->slug)); ?>"><?php echo e(ucfirst($subCat->title)); ?></a></li>
                                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                              <?php endif; ?>
                                         </ul>
@@ -247,7 +247,9 @@
 
                             </div>
                         </li>
+                        <li><a href="">Covid 19*</a></li>
                         <li><a href="<?php echo e(route('blog')); ?>">Blog</a></li>
+                        <li><a href="<?php echo e(route('enquiry')); ?>">Enquiry</a></li>
                         <li><a href="<?php echo e(route('contact.us')); ?>">Contact</a></li>
                     </ul>
                     </div>

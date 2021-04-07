@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Enquiry;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class EnquiryController extends Controller
@@ -13,11 +14,25 @@ class EnquiryController extends Controller
             'email'=>'email|required',
             'phone'=>'required',
             'country'=>'nullable|string',
-            'subject'=>'string|required',
-            'message'=>'string|nullable'
+            'subject'=>'string|nullable',
+            'message'=>'string|nullable',
+            'products'=>'required',
         ]);
         $data=$request->all();
-        $status=Enquiry::create($data);
+        $enquiry=new Enquiry();
+        $enquiry['full_name']=$request->full_name;
+        $enquiry['email']=$request->email;
+        $enquiry['phone']=$request->phone;
+        $enquiry['country']=$request->country;
+        $enquiry['address']=$request->address;
+        $enquiry['subject']=$request->subject;
+        $enquiry['message']=$request->message;
+
+        $status=$enquiry->save();
+
+        $product=Product::find($request->products);
+        $enquiry->products()->attach($product);
+
         if($status){
             toastr()->success('Thank you for submitting enquiry','Success');
             return back();

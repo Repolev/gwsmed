@@ -40,6 +40,12 @@ class Product extends Model
         return $this->belongsToMany(Order::class,'product_orders')->withPivot('quantity')->withTimestamps();
     }
 
+    // many to many relation with order
+    public function enquiries(){
+        return $this->belongsToMany(Enquiry::class,'enquiry_products','product_id','enquiry_id');
+    }
+
+
     public function reviews(){
         return $this->hasMany('App\Models\ProductReview','product_id','id');
     }
