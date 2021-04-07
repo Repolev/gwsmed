@@ -20,29 +20,20 @@ class CartController extends Controller
         $product_id=$request->input('product_id');
         $product=Product::getProductByCart($product_id);
 
-        //check here the quantity of products
-        if($product[0]['stock']<=0 || $product_qty>$product[0]['stock']){
-            $response['status']=false;
-            $response['message']="We don't have enough items";
+        $cart_array=[];
+
+        foreach(Cart::instance('shopping')->content() as $item){
+            $cart_array[]=$item->id;
+        }
+
+        $result=Cart::instance('shopping')->add($product_id,$product[0]['title'],$product_qty,0)->associate('App\Models\Product');
+
+        if($result){
+            $response['status']=true;
+            $response['product_id']=$product_id;
             $response['total']=Cart::subtotal();
             $response['cart_count']=Cart::instance('shopping')->count();
-        }
-        else{
-            $cart_array=[];
-
-            foreach(Cart::instance('shopping')->content() as $item){
-                $cart_array[]=$item->id;
-            }
-
-            $result=Cart::instance('shopping')->add($product_id,$product[0]['title'],$product_qty,0)->associate('App\Models\Product');
-
-            if($result){
-                $response['status']=true;
-                $response['product_id']=$product_id;
-                $response['total']=Cart::subtotal();
-                $response['cart_count']=Cart::instance('shopping')->count();
-                $response['message']="Item was added to your cart";
-            }
+            $response['message']="Item was added to your cart";
         }
         if($request->ajax()){
             $header=view('frontend.layouts.header')->render();
