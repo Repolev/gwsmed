@@ -15,6 +15,7 @@ class Category extends Model
         'description',
         'photo',
         'image_path',
+        'banner_path',
         'is_parent',
         'parent_id',
         'is_featured',
