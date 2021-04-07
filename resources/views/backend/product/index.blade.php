@@ -35,9 +35,7 @@
                                         <th>S.N.</th>
                                         <th>Title</th>
                                         <th>Photo</th>
-                                        <th>Quantity</th>
                                         <th>Categories</th>
-                                        <th>Tags</th>
                                         <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
@@ -52,17 +50,7 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{ucfirst($item->title)}}</td>
                                             <td><img src="{{asset($photo[0])}}" alt="Product image" style="max-height: 90px; max-width: 120px"></td>
-                                            <td>{{$item->stock}}</td>
                                             <td>@foreach($item->categories as $category){{ $category->title }} | @endforeach</td>
-                                            <td>
-                                                @if($item->tags=='new')
-                                                    <span class="badge badge-success">{{$item->tags}}</span>
-                                                @elseif($item->tags=='sell')
-                                                    <span class="badge badge-warning">{{$item->tags}}</span>
-                                                @else
-                                                    <span class="badge badge-primary">{{$item->tags}}</span>
-                                                @endif
-                                            </td>
                                             <td>
                                                 <input type="checkbox" name="toogle" value="{{$item->id}}" data-toggle="switchbutton" {{$item->status=='active' ? 'checked' : ''}} data-onlabel="active" data-offlabel="inactive" data-size="sm" data-onstyle="success" data-offstyle="danger">
                                             </td>
