@@ -67,11 +67,7 @@
                                 <div class="cv-prod-category my-3">
                                     <span>Category :</span>
                                     @foreach($product->categories as $category)
-<<<<<<< HEAD
-                                    <a href="{{route('product.category',$category->slug)}}" style="font-weight: 700" class="cv-prod-category">{{ $category->title }}@if(!$loop->last),@endif</a>
-=======
                                         <a href="{{route('product.category',$category->slug)}}" style="font-weight: 700" class="cv-prod-category">{{ $category->title }}@if(!$loop->last),@endif</a>
->>>>>>> d12342fef71bf1569fafe146c6252f67dbbddc98
                                     @endforeach
                                 </div>
                                <div class="mt-3">
