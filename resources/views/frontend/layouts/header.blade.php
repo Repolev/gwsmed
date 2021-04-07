@@ -188,7 +188,7 @@
             <div class="col"></div>
             <div class="col-md-6 ">
                 <form action="{{route('search')}}" method="get" class="d-flex">
-                    <input type="text" name="query" class="form-control" style="padding-left:30px;border-radius: 30px 0 0 30px;height: 56px;" name="query" id="search_text"
+                    <input type="text" name="query" class="form-control" style="padding-left:30px;border-radius: 30px 0 0 30px;height: 46px;" name="query" id="search_text"
                            placeholder="Search products...">
                     <div class="input-group-append">
                         <button type="submit" style="border-radius:0 30px 30px 0;" class="input-group-text"><i class="fas fa-search"></i>
@@ -221,37 +221,35 @@
                 <div class="cv-nav-bar text-left">
                     <div class="cv-menu">
                     <ul>
-                        <li><a href="{{route('home')}}">Home</a>
+                        <li><a href="{{route('home')}}"><i class="fas fa-home"></i></a>
                         </li>
                         <li><a href="{{route('about.us')}}">About</a></li>
+                        @php
 
-                        <li class="cv-children-menu cv-mega-li"><a href="javascript:;">Products</a>
-                            <div class="cv-mega-menu">
-                                @php
+                            $categories=\App\Models\Category::with('subcategories')->where(['status'=>'active'])->where('on_menu', 1)->latest()->limit(3)->get();
 
-                                    $categories=\App\Models\Category::with('subcategories')->where(['status'=>'active'])->where('on_menu', 1)->latest()->limit(4)->get();
+                        @endphp
 
-                                @endphp
+                        @foreach($categories as $category)
 
-                                @foreach($categories as $category)
+                            <li class="cv-children-menu cv-mega-li"><a href="{{route('product.category',$category->slug)}}">{{ucfirst($category->title)}}</a>
+                                <div class="cv-mega-menu">
                                     <div class="cm-menu-list">
                                         <ul>
-                                            <li>
-                                                <a href="{{route('product.category',$category->slug)}}"><h3>{{ucfirst($category->title)}}</h3></a>
-                                            </li>
-
                                             @if(count($category->subcategories)>0)
                                                 @foreach($category->subcategories as $subCat)
-                                                <li><a href="{{route('product.subcategory',[$category->slug,$subCat->slug])}}">{{ucfirst($subCat->title)}}</a></li>
+                                                <li><a href="{{route('product.subcategory',$subCat->slug)}}">{{ucfirst($subCat->title)}}</a></li>
                                                 @endforeach
-                                             @endif
+                                            @endif
                                         </ul>
                                     </div>
-                                @endforeach
 
-                            </div>
-                        </li>
+                                </div>
+                            </li>
+                        @endforeach
+                        <li><a href="">Covid 19*</a></li>
                         <li><a href="{{route('blog')}}">Blog</a></li>
+                        <li><a href="{{route('enquiry')}}">Enquiry</a></li>
                         <li><a href="{{route('contact.us')}}">Contact</a></li>
                     </ul>
                     </div>

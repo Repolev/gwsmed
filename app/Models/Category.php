@@ -40,6 +40,13 @@ class Category extends Model
         return $this->belongsToMany(Product::class, 'product_categories');
     }
 
+
+    // many to many relation with order
+    public function enquiries(){
+        return $this->belongsToMany(Enquiry::class,'enquiry_categories','category_id','enquiry_id');
+    }
+
+
     public function subcategories(){
         return $this->hasMany('App\Models\Category','parent_id','id')->where('status','active');
     }

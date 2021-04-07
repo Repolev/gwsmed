@@ -1,6 +1,4 @@
-@extends('backend.layouts.master')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div id="main-content">
         <div class="container-fluid">
             <div class="block-header">
@@ -9,17 +7,17 @@
                         <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i
                                     class="fa fa-arrow-left"></i></a> Enquiry</h2>
                         <ul class="breadcrumb float-left">
-                            <li class="breadcrumb-item"><a href="{{route('admin')}}"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo e(route('admin')); ?>"><i class="icon-home"></i></a></li>
                             <li class="breadcrumb-item active">Enquiry</li>
                         </ul>
-                        <p class="float-right">Total Enquiry :{{\App\Models\Enquiry::count()}}</p>
+                        <p class="float-right">Total Enquiry :<?php echo e(\App\Models\Enquiry::count()); ?></p>
                     </div>
                 </div>
             </div>
 
             <div class="row clearfix">
                 <div class="col-lg-12">
-                    @include('backend.layouts.notification')
+                    <?php echo $__env->make('backend.layouts.notification', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 </div>
                 <div class="col-lg-12">
                     <div class="card">
@@ -43,34 +41,34 @@
                                     </thead>
                                     <tbody>
 
-                                    @foreach($enquiries as $item)
+                                    <?php $__currentLoopData = $enquiries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <tr>
-                                            <td>{{$loop->iteration}}</td>
-                                            <td>{{$item->full_name}}</td>
-                                            <td>{{$item->email}}</td>
-                                            <td>{{$item->phone}}</td>
-                                            <td>{{$item->country}}</td>
+                                            <td><?php echo e($loop->iteration); ?></td>
+                                            <td><?php echo e($item->full_name); ?></td>
+                                            <td><?php echo e($item->email); ?></td>
+                                            <td><?php echo e($item->phone); ?></td>
+                                            <td><?php echo e($item->country); ?></td>
                                             <td>
-                                                <a href="javascript:void(0);"  data-toggle="modal" data-target="#enquiryID{{ $item->id }}" title="view"
-                                                       data-id="{{$item->id}}"
+                                                <a href="javascript:void(0);"  data-toggle="modal" data-target="#enquiryID<?php echo e($item->id); ?>" title="view"
+                                                       data-id="<?php echo e($item->id); ?>"
                                                        class="btn btn-sm btn-outline-success"
                                                        data-placement="bottom"><i class="fas fa-eye"></i> </a>
                                                 <form class="float-left ml-1"
-                                                      action="{{route('enquiry.destroy',$item->id)}}" method="post">
-                                                    @csrf
-                                                    @method('delete')
+                                                      action="<?php echo e(route('enquiry.destroy',$item->id)); ?>" method="post">
+                                                    <?php echo csrf_field(); ?>
+                                                    <?php echo method_field('delete'); ?>
                                                     <a href="" data-toggle="tooltip" title="delete"
-                                                       data-id="{{$item->id}}"
+                                                       data-id="<?php echo e($item->id); ?>"
                                                        class="dltBtn btn btn-sm btn-outline-danger"
                                                        data-placement="bottom"><i class="fas fa-trash-alt"></i> </a>
                                                 </form>
 
                                                   <!-- Modal -->
-                                            <div class="modal fade" id="enquiryID{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal fade" id="enquiryID<?php echo e($item->id); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                 <div class="modal-dialog   modal-lg" role="document">
-                                                    @php
+                                                    <?php
                                                     $enquiry=\App\Models\Enquiry::where('id',$item->id)->first();
-                                                    @endphp
+                                                    ?>
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLongTitle">Enquiry</h5>
@@ -84,30 +82,30 @@
                                                             <div class="row">
                                                                 <div class="col-md-4">
                                                                     <strong>Full name:</strong>
-                                                                    <p>{{ucfirst($enquiry->full_name)}}</p>
+                                                                    <p><?php echo e(ucfirst($enquiry->full_name)); ?></p>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <strong>Email:</strong>
-                                                                    <p >{{$enquiry->email}}</p>
+                                                                    <p ><?php echo e($enquiry->email); ?></p>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <strong>Phone:</strong>
-                                                                    <p >{{$enquiry->phone}}</p>
+                                                                    <p ><?php echo e($enquiry->phone); ?></p>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <strong>Country:</strong>
-                                                                    <p >{{$enquiry->country}}</p>
+                                                                    <p ><?php echo e($enquiry->country); ?></p>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <strong>Categories:</strong>
                                                                     <p>
                                                                         <ul>
 
-                                                                            @if(count($enquiry->categories)>0)
-                                                                                @foreach($enquiry->categories as $cat)
-                                                                                    <li>{{ Str::ucfirst($cat->title) }}</li>
-                                                                                @endforeach
-                                                                            @endif
+                                                                            <?php if(count($enquiry->categories)>0): ?>
+                                                                                <?php $__currentLoopData = $enquiry->categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                                    <li><?php echo e(Str::ucfirst($cat->title)); ?></li>
+                                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                                            <?php endif; ?>
                                                                         </ul>
                                                                     </p>
                                                                 </div>
@@ -117,16 +115,17 @@
                                                                 <div class="col-md-4">
                                                                     <strong>Address:</strong>
                                                                     <p>
-                                                                        {{ $enquiry->address }}
+                                                                        <?php echo e($enquiry->address); ?>
+
                                                                     </p>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <strong>Subject:</strong>
-                                                                    <p>{{$enquiry->subject}}</p>
+                                                                    <p><?php echo e($enquiry->subject); ?></p>
                                                                 </div>
                                                                 <div class="col-md-4">
                                                                     <strong>Message:</strong>
-                                                                    <p>{{$enquiry->message}}</p>
+                                                                    <p><?php echo e($enquiry->message); ?></p>
                                                                 </div>
                                                             </div>
 
@@ -145,7 +144,7 @@
                                             </td>
 
                                         </tr>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                     </tbody>
                                 </table>
@@ -157,9 +156,9 @@
 
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('scripts')
+<?php $__env->startSection('scripts'); ?>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $.ajaxSetup({
@@ -197,10 +196,10 @@
             var id = $(this).val();
             // alert(id);
             $.ajax({
-                url: "{{route('shipping.status')}}",
+                url: "<?php echo e(route('shipping.status')); ?>",
                 type: "POST",
                 data: {
-                    _token: '{{csrf_token()}}',
+                    _token: '<?php echo e(csrf_token()); ?>',
                     mode: mode,
                     id: id,
                 },
@@ -214,4 +213,6 @@
             })
         });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('backend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\All_projects\indian_friend\gwsmed\resources\views/backend/enquiry/index.blade.php ENDPATH**/ ?>

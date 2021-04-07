@@ -1,25 +1,25 @@
-@extends('frontend.layouts.master')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
     <!-- banner start -->
     <div class="cv-banner">
         <div class="container-fluid">
             <div class="row">
                 <div class="owl-carousel owl-theme">
-                    @foreach($banners as $banner)
+                    <?php $__currentLoopData = $banners; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $banner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="item">
-                            <a href="{{$banner->slug}}">
-                                <img src="{{ asset($banner->image_path) }}" alt="Home Banner">
+                            <a href="<?php echo e($banner->slug); ?>">
+                                <img src="<?php echo e(asset($banner->image_path)); ?>" alt="Home Banner">
                             </a>
                         </div>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
             </div>
         </div>
     </div>
     <!-- banner end -->
 
-    {{--  About us  --}}
+    
 
     <div class="cv-feature spacer-top">
         <div class="container">
@@ -80,7 +80,7 @@
         </div>
     </div>
     <!-- featured products start -->
-    @if(count($featured_products)>0)
+    <?php if(count($featured_products)>0): ?>
         <div class="cv-arrival cv-product-three cv-product-slider">
             <div class="container">
                 <div class="cv-heading">
@@ -90,18 +90,18 @@
                     <div class="col-12">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
-                                @foreach($featured_products as $item)
+                                <?php $__currentLoopData = $featured_products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                                 <div class="swiper-slide">
                                     <div class="cv-product-box">
                                         <div class="cv-product-img">
-                                            @php
+                                            <?php
                                             $photos=explode(',',$item->image_path);
 
-                                            @endphp
-                                            <img src="{{asset($photos[0])}}" alt="{{$item->title}}" class="img-fluid"/>
+                                            ?>
+                                            <img src="<?php echo e(asset($photos[0])); ?>" alt="<?php echo e($item->title); ?>" class="img-fluid"/>
                                             <div class="cv-product-button">
-                                                <a href="{{route('product.detail',$item->slug)}}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
+                                                <a href="<?php echo e(route('product.detail',$item->slug)); ?>" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                         <g>
                                                             <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
                                                         S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
@@ -114,7 +114,7 @@
                                                         s48.128-107.52,107.52-107.52s107.52,48.128,107.52,107.52S290.048,338.176,230.656,338.176z"></path>
                                                         </g>
                                                     </svg> View detail</a>
-                                                <a href="javascript:;" data-id="{{$item->id}}" id="add_to_cart{{$item->id}}" class="cv-btn add_to_cart" data-quantity="1">
+                                                <a href="javascript:;" data-id="<?php echo e($item->id); ?>" id="add_to_cart<?php echo e($item->id); ?>" class="cv-btn add_to_cart" data-quantity="1">
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                                         <g>
                                                             <path d="M507.519,116.384C503.721,111.712,498.021,109,492,109H129.736l-1.484-13.632l-0.053-0.438C121.099,40.812,74.583,0,20,0
@@ -134,11 +134,11 @@
                                             </div>
                                         </div>
                                         <div class="cv-product-data">
-                                            <a href="{{route('product.detail',$item->slug)}}" class="cv-price-title">{{ucfirst($item->title)}}</a>
+                                            <a href="<?php echo e(route('product.detail',$item->slug)); ?>" class="cv-price-title"><?php echo e(ucfirst($item->title)); ?></a>
                                         </div>
                                     </div>
                                 </div>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                         </div>
                         <!-- Add Arrows -->
@@ -148,7 +148,7 @@
                 </div>
             </div>
         </div>
-    @endif
+    <?php endif; ?>
     <!-- featured products end -->
 
     <div class="cv-feature  ">
@@ -211,26 +211,26 @@
         </div>
     </div>
 
-    @if(count($categories)>0)
+    <?php if(count($categories)>0): ?>
     <div class="cv-deal spacer-top spacer-bottom">
         <div class="container">
             <div class="row">
-                @foreach($categories as $cat)
+                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div class="col-md-4 category-block">
-                    <div class="cv-deal-box" @if($cat->image_path != null) style="background-image: url({{url($cat->image_path)}}); background-size: cover;" @endif>
+                    <div class="cv-deal-box" <?php if($cat->image_path != null): ?> style="background-image: url(<?php echo e(url($cat->image_path)); ?>); background-size: cover;" <?php endif; ?>>
                         <div class="overlay">
-                            <h3>{{ucfirst($cat->title)}}</h3>
-                            <p>{!! html_entity_decode($cat->description) !!}</p>
-                            <a href="{{route('product.category',$cat->slug)}}" class="cv-btn">readmore</a>
+                            <h3><?php echo e(ucfirst($cat->title)); ?></h3>
+                            <p><?php echo html_entity_decode($cat->description); ?></p>
+                            <a href="<?php echo e(route('product.category',$cat->slug)); ?>" class="cv-btn">readmore</a>
                         </div>
 
                     </div>
                 </div>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
         </div>
     </div>
-    @endif
+    <?php endif; ?>
 
 
     <!-- product gallery start -->
@@ -243,26 +243,26 @@
                 <div class="col-12">
                     <div class="cv-product-nav cv-product-tab">
                         <ul>
-                            @if($cat_gallery_first)
-                            <li><a data-filter=".cv-first" class="cv-product-active">{{ $cat_gallery_first->title }}</a></li>
-                            @endif
-                            @if($cat_gallery_second)
-                            <li><a data-filter=".cv-second" >{{ $cat_gallery_second->title }}</a></li>
-                            @endif
-                            @if($cat_gallery_third)
-                            <li><a data-filter=".cv-third" >{{ $cat_gallery_third->title }}</a></li>
-                            @endif
+                            <?php if($cat_gallery_first): ?>
+                            <li><a data-filter=".cv-first" class="cv-product-active"><?php echo e($cat_gallery_first->title); ?></a></li>
+                            <?php endif; ?>
+                            <?php if($cat_gallery_second): ?>
+                            <li><a data-filter=".cv-second" ><?php echo e($cat_gallery_second->title); ?></a></li>
+                            <?php endif; ?>
+                            <?php if($cat_gallery_third): ?>
+                            <li><a data-filter=".cv-third" ><?php echo e($cat_gallery_third->title); ?></a></li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                     <div class="cv-product-all wow fadeIn" data-wow-delay="0.5s">
                         <div class="cv-gallery-grid">
                             <div class="cv-product-box cv-product-item cv-first">
-                                @if($cat_gallery_first)
-                                    @foreach($cat_gallery_first->subcategories as $subcategories)
+                                <?php if($cat_gallery_first): ?>
+                                    <?php $__currentLoopData = $cat_gallery_first->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subcategories): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="cv-product-img">
-                                        <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
+                                        <img src="<?php echo e($subcategories->image_path); ?>" alt="image" class="img-fluid"/>
                                         <div class="cv-product-button">
-                                            <a href="{{ route('product.subcategory', $subcategories->slug) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
+                                            <a href="<?php echo e(route('product.subcategory', $subcategories->slug)); ?>" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                 <g>
                                                     <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
                                                         S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
@@ -278,18 +278,18 @@
                                         </div>
                                     </div>
                                     <div class="cv-product-data">
-                                        <a href="javascript:;" class="cv-price-title">{{ $subcategories->title }}</a>
+                                        <a href="javascript:;" class="cv-price-title"><?php echo e($subcategories->title); ?></a>
                                     </div>
-                                    @endforeach
-                                @endif
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endif; ?>
                             </div>
                             <div class="cv-product-box cv-product-item cv-second">
-                                @if($cat_gallery_second)
-                                    @foreach($cat_gallery_second->subcategories as $subcategories)
+                                <?php if($cat_gallery_second): ?>
+                                    <?php $__currentLoopData = $cat_gallery_second->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subcategories): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="cv-product-img">
-                                        <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
+                                        <img src="<?php echo e($subcategories->image_path); ?>" alt="image" class="img-fluid"/>
                                         <div class="cv-product-button">
-                                            <a href="{{ route('product.subcategory', $subcategories->slug) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
+                                            <a href="<?php echo e(route('product.subcategory', $subcategories->slug)); ?>" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                 <g>
                                                     <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
                                                         S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
@@ -305,18 +305,18 @@
                                         </div>
                                     </div>
                                     <div class="cv-product-data">
-                                        <a href="javascript:;" class="cv-price-title">{{ $subcategories->title }}</a>
+                                        <a href="javascript:;" class="cv-price-title"><?php echo e($subcategories->title); ?></a>
                                     </div>
-                                    @endforeach
-                                @endif
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endif; ?>
                             </div>
                             <div class="cv-product-box cv-product-item cv-third">
-                                @if($cat_gallery_third)
-                                    @foreach($cat_gallery_third->subcategories as $subcategories)
+                                <?php if($cat_gallery_third): ?>
+                                    <?php $__currentLoopData = $cat_gallery_third->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subcategories): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="cv-product-img">
-                                        <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
+                                        <img src="<?php echo e($subcategories->image_path); ?>" alt="image" class="img-fluid"/>
                                         <div class="cv-product-button">
-                                            <a href="{{ route('product.subcategory', $subcategories->slug) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
+                                            <a href="<?php echo e(route('product.subcategory', $subcategories->slug)); ?>" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                 <g>
                                                     <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
                                                         S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
@@ -332,10 +332,10 @@
                                         </div>
                                     </div>
                                     <div class="cv-product-data">
-                                        <a href="javascript:;" class="cv-price-title">{{ $subcategories->title }}</a>
+                                        <a href="javascript:;" class="cv-price-title"><?php echo e($subcategories->title); ?></a>
                                     </div>
-                                    @endforeach
-                                @endif
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -346,17 +346,17 @@
     <!-- product gallery end -->
     <!-- testimonial start -->
     <!-- product gallery end -->
-@endsection
-@section('scripts')
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('scripts'); ?>
 
-    {{-- Add to cart --}}
+    
     <script>
         $(document).on('click', '.add_to_cart', function (e) {
             e.preventDefault();
             var product_id = $(this).data('id');
             var product_qty = $(this).data('quantity');
-            var token = "{{ csrf_token() }}";
-            var path = "{{ route('cart.store') }}";
+            var token = "<?php echo e(csrf_token()); ?>";
+            var path = "<?php echo e(route('cart.store')); ?>";
 
             $.ajax({
                 url: path,
@@ -407,4 +407,6 @@
 
     </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('frontend.layouts.master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\All_projects\indian_friend\gwsmed\resources\views/frontend/index.blade.php ENDPATH**/ ?>

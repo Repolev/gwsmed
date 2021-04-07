@@ -2543,7 +2543,7 @@ textarea{
     /* mega menu start */
     .cv-mega-menu,.cv-sub-mmenu {
         position: absolute;
-        top: 70px;
+        top: 60px;
         left: 0;
         right: 0;
         margin: auto;
@@ -2569,7 +2569,7 @@ textarea{
     }
     .cm-menu-list {
         display: inline-flex;
-        width: 24%;
+        width: 33%;
         margin-bottom: 23px;
     }
     .cm-menu-list ul li {
