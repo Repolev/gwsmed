@@ -33,7 +33,7 @@ class SettingController extends Controller
         if($request->hasFile('logo')){
             if($file=$request->file('logo')){
                 $imageName=str_replace(' ','-',$request->input('title')).'-'.$file->getClientOriginalName();
-                $file->storeAs('public/frontend/images/settings/',$imageName);
+                $file->storeAs('storage/frontend/images/settings/',$imageName);
                 $data['logo']=$imageName;
             }
         }

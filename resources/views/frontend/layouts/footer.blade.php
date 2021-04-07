@@ -5,7 +5,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="cv-foot-box cv-foot-logo">
                         @if(\App\Models\Setting::value('logo'))
-                            <img src="{{ asset('frontend/assets/images/logo.svg') }}" alt="image" class="img-fluid"/>
+                            <img src="{{ asset('storage/frontend/images/settings/'.\App\Models\Setting::value('logo')) }}" alt="image" class="img-fluid"/>
                         @else
                             <img src="{{ Helper::defaultLogo() }}" alt="image" class="img-fluid"/>
                         @endif
