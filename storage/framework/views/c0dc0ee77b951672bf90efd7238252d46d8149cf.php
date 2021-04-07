@@ -222,28 +222,32 @@
                         <li><a href="<?php echo e(route('about.us')); ?>">About</a></li>
                         <?php
 
-                            $categories=\App\Models\Category::with('subcategories')->where(['status'=>'active'])->where('on_menu', 1)->latest()->limit(3)->get();
+                            $categories=\App\Models\Category::with('subcategories')->where(['status'=>'active'])->where('on_menu', 1)->latest()->limit(4)->get();
 
                         ?>
 
                         <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <?php if(count($category->subcategories)>0): ?>
+                                <li class="cv-children-menu cv-mega-li"><a href="<?php echo e(route('product.category',$category->slug)); ?>"><?php echo e(ucfirst($category->title)); ?></a>
+                                    <div class="cv-mega-menu">
+                                        <div class="cm-menu-list">
+                                            <ul>
 
-                            <li class="cv-children-menu cv-mega-li"><a href="<?php echo e(route('product.category',$category->slug)); ?>"><?php echo e(ucfirst($category->title)); ?></a>
-                                <div class="cv-mega-menu">
-                                    <div class="cm-menu-list">
-                                        <ul>
-                                            <?php if(count($category->subcategories)>0): ?>
-                                                <?php $__currentLoopData = $category->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subCat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                <li><a href="<?php echo e(route('product.subcategory',$subCat->slug)); ?>"><?php echo e(ucfirst($subCat->title)); ?></a></li>
-                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                            <?php endif; ?>
-                                        </ul>
+                                                    <?php $__currentLoopData = $category->subcategories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $subCat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <li><a href="<?php echo e(route('product.subcategory',$subCat->slug)); ?>"><?php echo e(ucfirst($subCat->title)); ?></a></li>
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            </ul>
+                                        </div>
+
                                     </div>
+                                </li>
+                            <?php else: ?>
+                                <li><a href="<?php echo e(route('product.category',$category->slug)); ?>"><?php echo e(ucfirst($category->title)); ?></a></li>
 
-                                </div>
-                            </li>
+                            <?php endif; ?>
+
+
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        <li><a href="">Covid 19*</a></li>
                         <li><a href="<?php echo e(route('blog')); ?>">Blog</a></li>
                         <li><a href="<?php echo e(route('enquiry')); ?>">Enquiry</a></li>
                         <li><a href="<?php echo e(route('contact.us')); ?>">Contact</a></li>

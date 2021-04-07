@@ -37,7 +37,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label style="font-weight: bold;color:black" for="">Full name <span class="text-danger">*</span></label>
+                                    
                                     <input type="text" class="form-control" name="full_name" placeholder="Full name" value="<?php echo e(old('full_name')); ?>">
                                     <?php $__errorArgs = ['full_name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -53,7 +53,7 @@ unset($__errorArgs, $__bag); ?>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label style="font-weight: bold;color:black" for="">Email <span class="text-danger" >*</span></label>
+                                    
                                     <input type="email" class="form-control" name="email" placeholder="Email address" value="<?php echo e(old('email')); ?>">
                                     <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -67,11 +67,9 @@ endif;
 unset($__errorArgs, $__bag); ?>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label style="font-weight: bold;color:black" for="">Phone <span class="text-danger">*</span></label>
+                                    
                                     <input type="text" name="phone" placeholder="Phone" class="form-control" value="<?php echo e(old('phone')); ?>">
                                     <?php $__errorArgs = ['phone'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -88,7 +86,7 @@ unset($__errorArgs, $__bag); ?>
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label style="font-weight: bold;color:black" for="">Country <span class="text-danger">*</span></label>
+                                    
                                     <input type="text" name="country" placeholder="Country name" class="form-control" value="<?php echo e(old('country')); ?>">
                                     <?php $__errorArgs = ['country'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -102,14 +100,14 @@ endif;
 unset($__errorArgs, $__bag); ?>
                                 </div>
                             </div>
-
                         </div>
 
 
+
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label style="font-weight: bold;color:black" for="">Address</label>
+                                    
                                     <textarea name="address" placeholder="Address" class="form-control"><?php echo e(old('address')); ?></textarea>
                                     <?php $__errorArgs = ['address'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -123,14 +121,11 @@ endif;
 unset($__errorArgs, $__bag); ?>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
 
-
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="form-group">
-                                    <label style="font-weight: bold;color:black" for="">Describe your requirement in Brief</label>
-                                    <textarea name="message" placeholder="Enter text..." class="form-control"><?php echo e(old('message')); ?></textarea>
+                                    
+                                    <textarea name="message" placeholder="Enter message..." class="form-control"><?php echo e(old('message')); ?></textarea>
                                     <?php $__errorArgs = ['message'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -143,27 +138,28 @@ endif;
 unset($__errorArgs, $__bag); ?>
                                 </div>
                             </div>
-
-
-
-
                         </div>
+
 
                         <div class="row">
                             <?php
-                                $products=\App\Models\Product::where('status','active')->orderBy('title','ASC')->get();
+                                $categories=\App\Models\Category::where('status','active')->orderBy('title','ASC')->get();
                             ?>
 
-                           <div class="col-md-12">
-                               <label style="font-weight: bold;color:black" for="">Products <span class="text-danger">*</span></label>
-                              <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <div class="col-md-12">
+                                <label style="font-weight: bold;color:black" for="">Category <span class="text-danger">*</span></label>
+                            </div>
+                            <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <div class="col-md-4">
 
-                                   <div class="form-group d-flex">
-                                       <label for=""><?php echo e(ucfirst($product->title)); ?></label>
-                                       <input type="checkbox" name="products[]" value="<?php echo e($product->id); ?>"  style="width: auto" class="ml-2 form-control form-control-sm">
-                                   </div>
-                               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                           </div>
+
+                                        <div class="form-group d-flex">
+                                            <label for=""><?php echo e(ucfirst($category->title)); ?></label>
+                                            <input type="checkbox" name="cats[]" value="<?php echo e($category->id); ?>"  style="width: auto" class="ml-2 form-control form-control-sm">
+                                        </div>
+                                </div>
+                           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
 
 
 

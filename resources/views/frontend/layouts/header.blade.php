@@ -226,28 +226,32 @@
                         <li><a href="{{route('about.us')}}">About</a></li>
                         @php
 
-                            $categories=\App\Models\Category::with('subcategories')->where(['status'=>'active'])->where('on_menu', 1)->latest()->limit(3)->get();
+                            $categories=\App\Models\Category::with('subcategories')->where(['status'=>'active'])->where('on_menu', 1)->latest()->limit(4)->get();
 
                         @endphp
 
                         @foreach($categories as $category)
+                            @if(count($category->subcategories)>0)
+                                <li class="cv-children-menu cv-mega-li"><a href="{{route('product.category',$category->slug)}}">{{ucfirst($category->title)}}</a>
+                                    <div class="cv-mega-menu">
+                                        <div class="cm-menu-list">
+                                            <ul>
 
-                            <li class="cv-children-menu cv-mega-li"><a href="{{route('product.category',$category->slug)}}">{{ucfirst($category->title)}}</a>
-                                <div class="cv-mega-menu">
-                                    <div class="cm-menu-list">
-                                        <ul>
-                                            @if(count($category->subcategories)>0)
-                                                @foreach($category->subcategories as $subCat)
-                                                <li><a href="{{route('product.subcategory',$subCat->slug)}}">{{ucfirst($subCat->title)}}</a></li>
-                                                @endforeach
-                                            @endif
-                                        </ul>
+                                                    @foreach($category->subcategories as $subCat)
+                                                    <li><a href="{{route('product.subcategory',$subCat->slug)}}">{{ucfirst($subCat->title)}}</a></li>
+                                                    @endforeach
+                                            </ul>
+                                        </div>
+
                                     </div>
+                                </li>
+                            @else
+                                <li><a href="{{route('product.category',$category->slug)}}">{{ucfirst($category->title)}}</a></li>
 
-                                </div>
-                            </li>
+                            @endif
+
+
                         @endforeach
-                        <li><a href="">Covid 19*</a></li>
                         <li><a href="{{route('blog')}}">Blog</a></li>
                         <li><a href="{{route('enquiry')}}">Enquiry</a></li>
                         <li><a href="{{route('contact.us')}}">Contact</a></li>
