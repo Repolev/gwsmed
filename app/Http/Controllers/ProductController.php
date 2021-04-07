@@ -6,9 +6,9 @@ use App\Models\Display;
 use App\Models\Product;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Image;
 use App\Models\ProductAttribute;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
 {
@@ -84,10 +84,13 @@ class ProductController extends Controller
         if($request->hasFile('photo')){
             if($files=$request->file('photo')){
                 foreach($files as $file){
-                    $imageName = $request->input('title').Str::random(4) ."-". str_replace(' ', '-', $file->getClientOriginalName());
-                    $file->storeAs('public/backend/assets/images/product/', $imageName);
+                    $imageName = str_replace(' ', '_', $request->input('title')) . Str::random(10) .".". $file->getClientOriginalExtension();
+                    $product_image = Image::make($file);
+                    $product_image->resize(500, 400);
+                    $image_path = public_path('/backend/assets/images/product/' . $imageName);
+                    $product_image->save($image_path);
                     $photos[]=$imageName;
-                    $photos_path[]='storage/backend/assets/images/product/'.$imageName;
+                    $photos_path[]='backend/assets/images/product/'.$imageName;
                 }
                 $image=implode(',',$photos);
                 $image_path=implode(',',$photos_path);
@@ -213,10 +216,13 @@ class ProductController extends Controller
             if($request->hasFile('photo')){
                 if($files=$request->file('photo')){
                     foreach($files as $file){
-                        $imageName = $request->input('title').Str::random(4) ."-". str_replace(' ', '-', $file->getClientOriginalName());
-                        $files->storeAs('public/backend/assets/images/product/',$imageName);
+                        $imageName = str_replace(' ', '_', $request->input('title')) . Str::random(4) .".". $file->getClientOriginalExtension();
+                        $product_image = Image::make($file);
+                        $product_image->resize(500, 400);
+                        $image_path = public_path('/backend/assets/images/product/' . $imageName);
+                        $product_image->save($image_path);
                         $photos[]=$imageName;
-                        $photos_path[]='storage/backend/assets/images/product/'.$imageName;
+                        $photos_path[]='backend/assets/images/product/'.$imageName;
                     }
                     $image=implode(',',$photos);
                     $image_path=implode(',',$photos_path);

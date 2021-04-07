@@ -77,6 +77,7 @@
                                            <input data-id="{{$product->id}}" type="number" class="qty-text" min="1" value="1">
                                            <button data-id="{{$product->id}}" class="cv-add"></button>
                                        </div>
+                                    <a href="javascript:void(0);" data-product_id="{{$product->id}}" data-quantity="1" class="cv-btn add_to_cart_button_details" id="add_to_cart_button_details_{{$product->id}}">add to cart</a>
                                        <a href="javascript:void(0);" data-product_id="{{$product->id}}" data-quantity="1" class="mr-2 cv-btn add_to_cart_button_details" id="add_to_cart_button_details_{{$product->id}}">add to cart</a>
                                        <a href="javascript:void(0);" class="cv-btn btn-success" style="background:#28a745 " data-target="#exampleModal" data-toggle="modal">Send Enquiry</a>
                                    </div>
