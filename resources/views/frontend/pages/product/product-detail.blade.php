@@ -67,7 +67,7 @@
                                 <div class="cv-prod-category my-3">
                                     <span>Category :</span>
                                     @foreach($product->categories as $category)
-                                        <a href="#" class="cv-prod-category">{{ $category->title }}</a>
+                                        <a href="#" class="cv-prod-category">{{ $category->title }}</a> @if(!$loop->last), @endif
                                     @endforeach
                                 </div>
                                <div class="mt-3">
