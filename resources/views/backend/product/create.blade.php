@@ -116,9 +116,8 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <label for="">Category</label>
                                         <select id="categoryId" name="category_id[]" class="form-control show-tick" multiple>
-                                            <option value="">-- Category --</option>
-                                            @foreach(\App\Models\Category::orderBy('title','ASC')->get() as $cat)
-                                                <option value="{{$cat->id}}" {{old('cat_id')==$cat->id? 'selected ' : ''}}>{{ucfirst($cat->title)}}</option>
+                                            @foreach(\App\Models\Category::orderBy('title','DESC')->get() as $cat)
+                                                <option value="{{$cat->id}}" {{old('cat_id')==$cat->id? 'selected ' : ''}}>@for($i = 0; $i < $cat->level; $i++) - @endfor {{ucfirst($cat->title)}}</option>
                                             @endforeach
                                         </select>
                                     </div>

@@ -18,6 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->string('photo')->nullable();
+            $table->string('banner_Path')->nullable();
             $table->string('image_path')->nullable();
             $table->boolean('is_parent')->default(true);
             $table->boolean('is_featured')->default(false);

@@ -74,6 +74,17 @@ class CategoryController extends Controller
                 $data['image_path']='backend/assets/images/category/'.$imageName;
             }
         }
+
+        if($request->hasFile('banner')){
+            if($file=$request->file('banner')){
+                $imageName = time() .".". str_replace(' ', '-', $file->getClientOriginalName());
+                $product_image = Image::make($file);
+                $product_image->resize(1920, 230);
+                $image_path = public_path('/backend/assets/images/category/' . $imageName);
+                $product_image->save($image_path);
+                $data['banner_path']='backend/assets/images/category/'.$imageName;
+            }
+        }
         $slug = $request->input('slug');
         $slug_count = Category::where('slug',$slug)->count();
         if($slug_count>0){
@@ -162,6 +173,17 @@ class CategoryController extends Controller
                     $product_image->save($image_path);
                     $data['photo']=$imageName;
                     $data['image_path']='backend/assets/images/category/'.$imageName;
+                }
+            }
+
+            if($request->hasFile('banner')){
+                if($file=$request->file('banner')){
+                    $imageName = time() .".". str_replace(' ', '-', $file->getClientOriginalName());
+                    $product_image = Image::make($file);
+                    $product_image->resize(1920, 230);
+                    $image_path = public_path('/backend/assets/images/category/' . $imageName);
+                    $product_image->save($image_path);
+                    $data['banner_path']='backend/assets/images/category/'.$imageName;
                 }
             }
 
