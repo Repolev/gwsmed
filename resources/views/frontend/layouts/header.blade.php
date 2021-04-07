@@ -177,7 +177,7 @@
                 <div class="cv-head-contact">
                     <div class="cv-logo">
                         @if(\App\Models\Setting::value('logo'))
-                            <a href="{{route('home')}}"><img src="{{ asset('frontend/assets/images/logo.svg') }}" alt="image" class="img-fluid"/></a>
+                            <a href="{{route('home')}}"><img src="{{ asset('storage/frontend/images/settings/'.\App\Models\Setting::value('logo')) }}" alt="image" class="img-fluid"/></a>
                         @else
                             <a href="{{route('home')}}"><img src="{{ Helper::defaultLogo() }}" alt="image" class="img-fluid"/>
                             </a>

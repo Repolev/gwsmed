@@ -187,6 +187,8 @@ class CategoryController extends Controller
                 }
             }
 
+            return $data;
+
             if($request->is_parent==1){
                 $data['parent_id']=null;
             }

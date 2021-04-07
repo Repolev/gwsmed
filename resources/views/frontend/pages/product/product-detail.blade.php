@@ -3,8 +3,9 @@
 @section('meta_title', $product->title)
 
 @section('content')
+
     <!-- breadcrumb start -->
-    <div class="cv-breadcrumb">
+    <div class="cv-breadcrumb " style="background: linear-gradient(to left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{{asset($product->categories[0]->banner_path)}}');">
         <div class="container">
             <div class="row">
                 <div class="col-12">

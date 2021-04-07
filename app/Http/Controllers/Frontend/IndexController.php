@@ -384,7 +384,6 @@ class IndexController extends Controller
         }
         $products=$products->paginate(16);
 
-//        return $products;
 
 //        return $brands;
         $categories=Category::where('status','active')->orderBy('title','ASC')->with('subcategories')->with('products')->get();
