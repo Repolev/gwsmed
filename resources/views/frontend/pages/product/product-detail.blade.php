@@ -77,8 +77,12 @@
                                            <input data-id="{{$product->id}}" type="number" class="qty-text" min="1" value="1">
                                            <button data-id="{{$product->id}}" class="cv-add"></button>
                                        </div>
-                                       <a href="javascript:void(0);" data-product_id="{{$product->id}}" data-quantity="1" class="cv-btn add_to_cart_button_details" id="add_to_cart_button_details_{{$product->id}}">add to cart</a>
+                                    <a href="javascript:void(0);" data-product_id="{{$product->id}}" data-quantity="1" class="cv-btn add_to_cart_button_details" id="add_to_cart_button_details_{{$product->id}}">add to cart</a>
                                    </div>
+                                   <div class="cv-prod-count mt-2 mb-2">
+                                       <a href="{{ route('catalog.download', $product->id) }}" class="cv-btn">Download Catalog</a>
+                                   </div>
+
                                    <div class="mt-4">
                                        <p>{!! html_entity_decode($product->summary) !!}</p>
                                    </div>
