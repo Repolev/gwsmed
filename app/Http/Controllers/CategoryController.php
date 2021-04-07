@@ -63,7 +63,7 @@ class CategoryController extends Controller
         $data=$request->all();
         if($request->hasFile('photo')){
             if($file=$request->file('photo')){
-                $imageName = time() ."-". str_replace(' ', '-', $file->getClientOriginalName());
+                $imageName = time() .".". str_replace(' ', '-', $file->getClientOriginalName());
                 $file->storeAs('public/backend/assets/images/category/', $imageName);
                 $data['photo']=$imageName;
                 $data['image_path']='storage/backend/assets/images/category/'.$imageName;
@@ -150,7 +150,7 @@ class CategoryController extends Controller
 
             if($request->hasFile('photo')){
                 if($file=$request->file('photo')){
-                    $imageName = time() ."-". str_replace(' ', '-', $file->getClientOriginalExtension());
+                    $imageName = time() .".". str_replace(' ', '-', $file->getClientOriginalExtension());
                     $file->storeAs('public/backend/assets/images/category/', $imageName);
                     $data['photo']=$imageName;
                     $data['image_path']='storage/backend/assets/images/category/'.$imageName;
@@ -172,6 +172,7 @@ class CategoryController extends Controller
             $data['slug'] = $slug;
             $data['is_parent']=$request->input('is_parent',0);
             $data['on_menu']=$request->input('on_menu',0);
+            
             $status=$category->fill($data)->save();
             if($status){
                 return redirect()->route('category.index')->with('success','Category successfully updated');
