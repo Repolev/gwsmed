@@ -67,11 +67,7 @@
                                 <div class="cv-prod-category my-3">
                                     <span>Category :</span>
                                     @foreach($product->categories as $category)
-<<<<<<< HEAD
-                                        <a href="#" class="cv-prod-category">{{ $category->title }}</a> @if(!$loop->last), @endif
-=======
                                         <a href="{{route('product.category',$category->slug)}}" style="font-weight: 700" class="cv-prod-category">{{ $category->title }}@if(!$loop->last),@endif</a>
->>>>>>> 175a20e28ad51314df621ca220429877c615690a
                                     @endforeach
                                 </div>
                                <div class="mt-3">
@@ -81,12 +77,8 @@
                                            <input data-id="{{$product->id}}" type="number" class="qty-text" min="1" value="1">
                                            <button data-id="{{$product->id}}" class="cv-add"></button>
                                        </div>
-<<<<<<< HEAD
-                                    <a href="javascript:void(0);" data-product_id="{{$product->id}}" data-quantity="1" class="cv-btn add_to_cart_button_details" id="add_to_cart_button_details_{{$product->id}}">add to cart</a>
-=======
                                        <a href="javascript:void(0);" data-product_id="{{$product->id}}" data-quantity="1" class="mr-2 cv-btn add_to_cart_button_details" id="add_to_cart_button_details_{{$product->id}}">add to cart</a>
                                        <a href="javascript:void(0);" class="cv-btn btn-success" style="background:#28a745 " data-target="#exampleModal" data-toggle="modal">Send Enquiry</a>
->>>>>>> 175a20e28ad51314df621ca220429877c615690a
                                    </div>
                                    <div class="cv-prod-count mt-2 mb-2">
                                        <a href="{{ route('catalog.download', $product->id) }}" class="cv-btn">Download Catalog</a>
@@ -354,6 +346,7 @@
                                                                                                                 s48.128-107.52,107.52-107.52s107.52,48.128,107.52,107.52S290.048,338.176,230.656,338.176z"></path>
                                                                         </g>
                                                                     </svg> View detail</a>
+
                                                             </div>
                                                         </div>
                                                         <div class="cv-product-data">
