@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->mediumText('summary');
             $table->longText('description')->nullable();
 //            $table->longText('specification')->nullable();
-            $table->integer('stock')->default(0);
+            // $table->integer('stock')->default(0);
 //            $table->unsignedBigInteger('brand_id')->nullable();
 //            $table->unsignedBigInteger('display_id')->nullable();
             $table->text('photo');
@@ -37,6 +37,8 @@ class CreateProductsTable extends Migration
 //            $table->boolean('todays_deal')->default(false);
             $table->enum('status',['active','inactive'])->default('active');
             $table->text('meta_tag')->nullable();
+            $table->text('meta_description')->nullable();
+
 
 //            $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->timestamps();

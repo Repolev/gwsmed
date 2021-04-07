@@ -85,7 +85,7 @@ class ProductController extends Controller
             if($files=$request->file('photo')){
                 foreach($files as $file){
                     $imageName = $request->input('title').Str::random(4) ."-". str_replace(' ', '-', $file->getClientOriginalName());
-                    $files->storeAs('public/backend/assets/images/product/',$imageName);
+                    $file->storeAs('public/backend/assets/images/product/', $imageName);
                     $photos[]=$imageName;
                     $photos_path[]='storage/backend/assets/images/product/'.$imageName;
                 }
@@ -106,8 +106,8 @@ class ProductController extends Controller
                    $variant_path[]='storage/backend/assets/images/product/'.$imageName;
 
                }
-               $vphoto=implode(',',$vphotos);
-               $variant_paths=implode(',',$variant_path);
+                $vphoto=implode(',',$vphotos);
+                $variant_paths=implode(',',$variant_path);
                 $data['variants']=$vphoto;
                 $data['variants_path']=$variant_paths;
             }
@@ -214,9 +214,7 @@ class ProductController extends Controller
                 if($files=$request->file('photo')){
                     foreach($files as $file){
                         $imageName = $request->input('title').Str::random(4) ."-". str_replace(' ', '-', $file->getClientOriginalName());
-                        $product_image = Image::make($file->getRealPath());
-                        $product_image->resize(320, 240);
-                        $product_image->save(public_path('storage/backend/assets/images/product/'). $imageName, 100);
+                        $files->storeAs('public/backend/assets/images/product/',$imageName);
                         $photos[]=$imageName;
                         $photos_path[]='storage/backend/assets/images/product/'.$imageName;
                     }
@@ -235,7 +233,6 @@ class ProductController extends Controller
                         $file->storeAs('public/backend/assets/images/product/', $imageName);
                         $vphotos[]=$imageName;
                         $variant_path[]='storage/backend/assets/images/product/'.$imageName;
-
                     }
                     $vphoto=implode(',',$vphotos);
                     $variant_paths=implode(',',$variant_path);

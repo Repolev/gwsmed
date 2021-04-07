@@ -38,9 +38,6 @@
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th>Country</th>
-                                        <th>Address</th>
-                                        <th>Subject</th>
-                                        <th>Message</th>
                                         <th>Actions</th>
                                     </tr>
                                     </thead>
@@ -53,10 +50,11 @@
                                             <td>{{$item->email}}</td>
                                             <td>{{$item->phone}}</td>
                                             <td>{{$item->country}}</td>
-                                            <td>{{$item->address}}</td>
-                                            <td>{{$item->subject}}</td>
-                                            <td>{{$item->message}}</td>
                                             <td>
+                                                <a href="javascript:void(0);"  data-toggle="modal" data-target="#enquiryID{{ $item->id }}" title="view"
+                                                       data-id="{{$item->id}}"
+                                                       class="btn btn-sm btn-outline-success"
+                                                       data-placement="bottom"><i class="fas fa-eye"></i> </a>
                                                 <form class="float-left ml-1"
                                                       action="{{route('enquiry.destroy',$item->id)}}" method="post">
                                                     @csrf
@@ -66,6 +64,83 @@
                                                        class="dltBtn btn btn-sm btn-outline-danger"
                                                        data-placement="bottom"><i class="fas fa-trash-alt"></i> </a>
                                                 </form>
+
+                                                  <!-- Modal -->
+                                            <div class="modal fade" id="enquiryID{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog   modal-lg" role="document">
+                                                    @php
+                                                    $enquiry=\App\Models\Enquiry::where('id',$item->id)->first();
+                                                    @endphp
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLongTitle">Enquiry</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+
+
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <strong>Full name:</strong>
+                                                                    <p>{{ucfirst($enquiry->full_name)}}</p>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <strong>Email:</strong>
+                                                                    <p >{{$enquiry->email}}</p>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <strong>Phone:</strong>
+                                                                    <p >{{$enquiry->phone}}</p>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <strong>Country:</strong>
+                                                                    <p >{{$enquiry->country}}</p>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <strong>Categories:</strong>
+                                                                    <p>
+                                                                        <ul>
+
+                                                                            @if(count($enquiry->categories)>0)
+                                                                                @foreach($enquiry->categories as $cat)
+                                                                                    <li>{{ Str::ucfirst($cat->title) }}</li>
+                                                                                @endforeach
+                                                                            @endif
+                                                                        </ul>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <strong>Address:</strong>
+                                                                    <p>
+                                                                        {{ $enquiry->address }}
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <strong>Subject:</strong>
+                                                                    <p>{{$enquiry->subject}}</p>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <strong>Message:</strong>
+                                                                    <p>{{$enquiry->message}}</p>
+                                                                </div>
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
 
                                             </td>
 

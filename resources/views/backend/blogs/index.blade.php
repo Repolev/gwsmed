@@ -44,7 +44,7 @@
                                     @foreach($blogs as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>@if($item->image_path)<img src="{{ asset($item->image_path)}}" alt="banner image" style="max-height: 90px; max-width: 120px">@endif</td>
+                                            <td>@if($item->image_path)<img src="{{ asset($item->image_path)}}" alt="blog image" style="max-height: 90px; max-width: 120px">@endif</td>
                                             <td>{{ucfirst($item->title)}}</td>
                                             <td>{{ $item->user->name }}</td>
                                             <td>

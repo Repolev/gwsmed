@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('content'); ?>
     <div id="main-content">
         <div class="container-fluid">
@@ -34,25 +36,23 @@
                                 <div class="row clearfix">
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
-                                            <label for="">Banner Heading <span class="text-danger">*</span></label>
+                                            <label for="">Banner Heading</label>
                                             <input type="text" class="form-control" placeholder="Heading" name="title" value="<?php echo e(old('title')); ?>">
                                         </div>
 
 
                                     </div>
 
-
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label for="">URL</label>
+                                            <input type="text" class="form-control" placeholder="URL" name="slug" value="<?php echo e(old('slug')); ?>">
+                                        </div>
+                                    </div>
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                             <label for="">Photo <span class="text-danger">*</span></label>
                                             <input type="file" name="photo" class="dropify" id="input-file-now" data-height="100" data-default-file="<?php echo e(old('photo')); ?>">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label for="">Description</label>
-                                            <textarea rows="3" class="form-control" placeholder="Write some text..." name="description"><?php echo e(old('description')); ?></textarea>
                                         </div>
                                     </div>
 

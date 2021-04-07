@@ -43,12 +43,12 @@
                     </ul>
                 </li>
 
-                <li class="{{(\Illuminate\Support\Facades\Request::is('admin/shipping*')==1) ? 'active' : ''}}"><a href="javascript:void(0);" class="has-arrow"><i class="fas fa-truck"></i><span>Shipping Management</span> </a>
+                {{-- <li class="{{(\Illuminate\Support\Facades\Request::is('admin/shipping*')==1) ? 'active' : ''}}"><a href="javascript:void(0);" class="has-arrow"><i class="fas fa-truck"></i><span>Shipping Management</span> </a>
                     <ul>
                         <li><a href="{{route('shipping.index')}}">All Shippings</a></li>
                         <li><a href="{{route('shipping.create')}}">Add Shipping</a></li>
                     </ul>
-                </li>
+                </li> --}}
                 <li class="{{(\Illuminate\Support\Facades\Request::is('admin/orders*')==1) ? 'active' : ''}}"><a href="{{route('orders.index')}}"><i class="icon-layers"></i>Order Management</a></li>
                 <li class="{{(\Illuminate\Support\Facades\Request::is('admin/blogs*')==1) ? 'active' : ''}}"><a href="javascript:void(0);" class="has-arrow"><i class="icon-picture"></i><span>Blog Management</span> </a>
                     <ul>

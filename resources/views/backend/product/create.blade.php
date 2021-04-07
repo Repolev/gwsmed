@@ -69,12 +69,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12 col-md-12">
+                                    {{-- <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                             <label for="">Quantity <span class="text-danger">*</span></label>
                                             <input type="number" class="form-control" placeholder="eg. 10" name="stock" value="{{old('stock')}}">
                                         </div>
-                                    </div>
+                                    </div> --}}
 
 {{--                                    <div class="col-lg-12 col-md-12">--}}
 {{--                                        <div class="form-group">--}}
@@ -136,7 +136,7 @@
 {{--                                            @endforeach--}}
 {{--                                        </select>--}}
 {{--                                    </div>--}}
-                                   <div class="col-lg-12 col-md-12 col-sm-12">
+                                   {{-- <div class="col-lg-12 col-md-12 col-sm-12">
                                         <label for="">Tags</label>
                                         <select name="tags" class="form-control show-tick">
                                             <option value="">-- Tags --</option>
@@ -145,7 +145,7 @@
                                             <option value="hot" {{old('tags') == 'hot' ? 'selected' : ''}} >Hot</option>
                                             <option value="sale" {{old('tags') == 'sale' ? 'selected' : ''}} >Sale</option>
                                         </select>
-                                    </div>
+                                    </div> --}}
 
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
@@ -164,8 +164,16 @@
 
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
-                                            <label for="">Meta Tags : </label>
+                                            <label for="">Meta Title : </label>
                                             <input type="text" name="meta_tag" class="form-control" placeholder="Meta tags" value="{{old('meta_tag')}}">
+                                            {{--                                            <input id="is_featured" type="checkbox" name="is_featured" value="1" checked> Yes--}}
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Meta Description : </label>
+                                            <textarea  name="meta_description" class="form-control" placeholder="Meta Description" >{{old('meta_description')}}</textarea>
                                             {{--                                            <input id="is_featured" type="checkbox" name="is_featured" value="1" checked> Yes--}}
                                         </div>
                                     </div>
@@ -175,7 +183,6 @@
                                     <div class="col-lg-12 col-sm-12">
                                         <label for="status">Status</label>
                                         <select name="status" class="form-control show-tick">
-                                            <option value="">-- Status --</option>
                                             <option value="active" {{old('status')=='active' ? 'selected' : ''}}>Active</option>
                                             <option value="inactive" {{old('status') == 'inactive' ? 'selected' : ''}} >Inactive</option>
                                         </select>

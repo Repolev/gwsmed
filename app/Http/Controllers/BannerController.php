@@ -50,12 +50,9 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'title'=>'string|required',
-            'slug'=>'string|nullable',
-            'description'=>'string|nullable',
+            'title'=>'string|nullable',
+            'slug'=>'url|nullable',
             'photo'=>'required|image|mimes:png,jpg,gif,jpeg,svg',
-            'position'=>'nullable|in:top,middle,bottom,footer',
-            'condition'=>'nullable|in:banner,promo',
             'status'=>'required|in:active,inactive',
         ]);
         $data=$request->all();
@@ -116,12 +113,9 @@ class BannerController extends Controller
         $banner=Banner::find($id);
         if($banner){
             $this->validate($request,[
-                'title'=>'string|required',
-                'slug'=>'string|nullable',
-                'description'=>'string|nullable',
+                'title'=>'string|nullable',
+                'slug'=>'url|nullable',
                 'photo'=>'nullable|image|mimes:png,jpg,gif,jpeg,svg',
-                'position'=>'nullable|in:top,middle,bottom,footer',
-                'condition'=>'nullable|in:banner,promo',
             ]);
             $data=$request->all();
 

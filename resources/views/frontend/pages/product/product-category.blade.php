@@ -12,6 +12,7 @@
                         <h1>{{ucfirst($category->title)}}</h1>
                         <ul>
                             <li><a href="{{route('home')}}">Home</a></li>
+                            <li>Category</li>
                             <li>{{ucfirst($category->title)}}</li>
                         </ul>
                     </div>
@@ -41,7 +42,7 @@
                                  class="img-fluid" />
                         </div>
                         <div class="cv-product-data">
-                            <a href="" class="cv-price-title">{{ucfirst($subcat->title)}}</a>
+                            <a href="{{route('product.category',$subcat->slug)}}" class="cv-price-title">{{ucfirst($subcat->title)}}</a>
 
                         </div>
                     </div>
@@ -59,7 +60,7 @@
                                             $photo=explode(',',$item->image_path);
                                         @endphp
                                         <div class="cv-product-img">
-                                            <img src="{{$photo[0]}}" alt="{{$item->title}}"
+                                            <img src="{{asset($photo[0])}}" alt="{{$item->title}}"
                                                  class="img-fluid" />
                                             <div class="cv-product-button">
                                                 <a href="{{route('product.detail',$item->slug)}}" class="cv-btn"><svg

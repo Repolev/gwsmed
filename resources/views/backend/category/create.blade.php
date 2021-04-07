@@ -100,7 +100,6 @@
                                     <div class="col-lg-12 col-sm-12">
                                         <label for="status">Status</label>
                                         <select name="status" class="form-control show-tick">
-                                            <option value="">-- Status --</option>
                                             <option value="active" {{old('status')=='active' ? 'selected' : ''}}>Active</option>
                                             <option value="inactive" {{old('status') == 'inactive' ? 'selected' : ''}} >Inactive</option>
                                         </select>

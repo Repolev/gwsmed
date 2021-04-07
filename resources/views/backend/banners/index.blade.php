@@ -34,11 +34,7 @@
                                     <tr>
                                         <th>S.N.</th>
                                         <th>Title</th>
-                                        <th>Description</th>
                                         <th>Photo</th>
-                                        <th>Position</th>
-                                        <th>Inner Position</th>
-                                        <th>Condition</th>
                                         <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
@@ -49,17 +45,8 @@
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{ucfirst($item->title)}}</td>
-                                            <td>{!! html_entity_decode($item->description) !!}</td>
                                             <td><img src="{{asset($item->image_path)}}" alt="banner image" style="max-height: 190px; max-width: 120px"></td>
-                                            <td>{{$item->position}}</td>
-                                            <td>{{$item->inner_position}}</td>
-                                            <td>
-                                                @if($item->condition=='banner')
-                                                    <span class="badge badge-success">{{$item->condition}}</span>
-                                                @else
-                                                    <span class="badge badge-primary">{{$item->condition}}</span>
-                                                @endif
-                                            </td>
+
                                             <td>
                                                 <input type="checkbox" name="toogle" value="{{$item->id}}" data-toggle="switchbutton" {{$item->status=='active' ? 'checked' : ''}} data-onlabel="active" data-offlabel="inactive" data-size="sm" data-onstyle="success" data-offstyle="danger">
                                             </td>
@@ -135,7 +122,7 @@
                 },
                 success:function (response) {
                     if(response.status){
-                        alert(response.msg);
+                        console.log(response.msg);
                     }
                     else{
                         alert('Please try again!');

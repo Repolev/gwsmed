@@ -48,7 +48,7 @@
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{ucfirst($item->title)}}</td>
-                                            <td>@if($item->image_path)<img src="{{asset($item->image_path)}}" alt="banner image" style="max-height: 90px; max-width: 120px">@endif</td>
+                                            <td>@if($item->image_path)<img src="{{asset($item->image_path)}}" alt="category image" style="max-height: 90px; max-width: 120px">@endif</td>
 {{--                                            <td><i class="fas {{$item->is_featured==1 ? 'fa-check-circle text-success' : 'fa-times-circle text-danger'}}"></i></td>--}}
                                             <td>{{$item->is_parent==1 ? 'Yes' : 'No' }}</td>
                                             <td>{{$item->on_menu==1 ? 'Yes' : 'No' }}</td>

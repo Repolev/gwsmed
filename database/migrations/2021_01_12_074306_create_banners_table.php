@@ -15,13 +15,11 @@ class CreateBannersTable extends Migration
     {
         Schema::create('banners', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->mediumText('description')->nullable();
+            $table->string('title')->nullable();
+            $table->string('slug')->nullable();
             $table->string('image_path');
             $table->string('photo');
             $table->enum('status',['active','inactive'])->default('inactive');
-            $table->enum('position',['top','middle','bottom','footer'])->nullable();
-            $table->enum('inner_position',['top','middle','right'])->nullable();
             $table->timestamps();
         });
     }

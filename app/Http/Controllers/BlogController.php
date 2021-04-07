@@ -49,12 +49,11 @@ class BlogController extends Controller
         $data['user_id'] = Auth::guard('admin')->user()->id;
         if($file=$request->file('blog_image')){
             $imageName = time() ."-". str_replace(' ', '-', $file->getClientOriginalExtension());
-            $blog_image = Image::make($file->getRealPath());
-            $blog_image->resize(320, 240);
-            $blog_image->save(public_path('storage/backend/assets/images/blogs/'. $imageName, 100));
+            $file->storeAs('public/backend/assets/images/blogs/', $imageName);
             $data['image']=$imageName;
             $data['image_path'] = 'storage/backend/assets/images/blogs/'.$imageName;
         }
+
         $data['slug']=str_replace(' ','-',$request->slug);
         $status = Blog::create($data);
         if($status){
@@ -105,12 +104,9 @@ class BlogController extends Controller
         ]);
         $data = $request->all();
         $data['user_id'] = Auth::guard('admin')->user()->id;
-
         if($file=$request->file('blog_image')){
             $imageName = time() ."-". str_replace(' ', '-', $file->getClientOriginalExtension());
-            $blog_image = Image::make($file->getRealPath());
-            $blog_image->resize(320, 240);
-            $blog_image->save(public_path('storage/backend/assets/images/blogs/'. $imageName, 100));
+            $file->storeAs('public/backend/assets/images/blogs/', $imageName);
             $data['image']=$imageName;
             $data['image_path'] = 'storage/backend/assets/images/blogs/'.$imageName;
         }

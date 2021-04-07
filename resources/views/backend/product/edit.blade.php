@@ -68,12 +68,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12 col-md-12">
+                                    {{-- <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                             <label for="">Stock <span class="text-danger">*</span></label>
                                             <input type="number" class="form-control" placeholder="Stock" name="stock" value="{{$product->stock}}">
                                         </div>
-                                    </div>
+                                    </div> --}}
 
 {{--                                    <div class="col-lg-12 col-md-12">--}}
 {{--                                        <div class="form-group">--}}
@@ -133,7 +133,7 @@
 {{--                                            @endforeach--}}
 {{--                                        </select>--}}
 {{--                                    </div>--}}
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                    {{-- <div class="col-lg-12 col-md-12 col-sm-12">
                                         <label for="">Tags</label>
                                         <select name="tags" class="form-control show-tick">
                                             <option value="">-- Tags --</option>
@@ -141,7 +141,7 @@
                                             <option value="sale" {{$product->tags == 'sale' ? 'selected' : ''}} >Sale</option>
                                             <option value="hot" {{$product->tags == 'hot' ? 'selected' : ''}} >Hot</option>
                                         </select>
-                                    </div>
+                                    </div> --}}
 
 {{--                                    <div class="col-lg-12 col-md-12">--}}
 {{--                                        <div class="form-group">--}}
@@ -165,10 +165,18 @@
                                         </div>
                                     </div>
 
+
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Meta Description : </label>
+                                            <textarea  name="meta_description" class="form-control" placeholder="Meta Description" >{{$product->meta_description}}</textarea>
+                                            {{--                                            <input id="is_featured" type="checkbox" name="is_featured" value="1" checked> Yes--}}
+                                        </div>
+                                    </div>
+
                                     <div class="col-lg-12 col-sm-12">
                                         <label for="status">Status</label>
                                         <select name="status" class="form-control show-tick">
-                                            <option value="">-- Status --</option>
                                             <option value="active" {{$product->status=='active' ? 'selected' : ''}}>Active</option>
                                             <option value="inactive" {{$product->status == 'inactive' ? 'selected' : ''}} >Inactive</option>
                                         </select>

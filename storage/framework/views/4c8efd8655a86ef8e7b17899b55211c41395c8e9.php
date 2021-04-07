@@ -36,9 +36,6 @@
                                         <th>Email</th>
                                         <th>Phone</th>
                                         <th>Country</th>
-                                        <th>Address</th>
-                                        <th>Subject</th>
-                                        <th>Message</th>
                                         <th>Actions</th>
                                     </tr>
                                     </thead>
@@ -51,10 +48,11 @@
                                             <td><?php echo e($item->email); ?></td>
                                             <td><?php echo e($item->phone); ?></td>
                                             <td><?php echo e($item->country); ?></td>
-                                            <td><?php echo e($item->address); ?></td>
-                                            <td><?php echo e($item->subject); ?></td>
-                                            <td><?php echo e($item->message); ?></td>
                                             <td>
+                                                <a href="javascript:void(0);"  data-toggle="modal" data-target="#enquiryID<?php echo e($item->id); ?>" title="view"
+                                                       data-id="<?php echo e($item->id); ?>"
+                                                       class="btn btn-sm btn-outline-success"
+                                                       data-placement="bottom"><i class="fas fa-eye"></i> </a>
                                                 <form class="float-left ml-1"
                                                       action="<?php echo e(route('enquiry.destroy',$item->id)); ?>" method="post">
                                                     <?php echo csrf_field(); ?>
@@ -64,6 +62,84 @@
                                                        class="dltBtn btn btn-sm btn-outline-danger"
                                                        data-placement="bottom"><i class="fas fa-trash-alt"></i> </a>
                                                 </form>
+
+                                                  <!-- Modal -->
+                                            <div class="modal fade" id="enquiryID<?php echo e($item->id); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog   modal-lg" role="document">
+                                                    <?php
+                                                    $enquiry=\App\Models\Enquiry::where('id',$item->id)->first();
+                                                    ?>
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLongTitle">Enquiry</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+
+
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <strong>Full name:</strong>
+                                                                    <p><?php echo e(ucfirst($enquiry->full_name)); ?></p>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <strong>Email:</strong>
+                                                                    <p ><?php echo e($enquiry->email); ?></p>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <strong>Phone:</strong>
+                                                                    <p ><?php echo e($enquiry->phone); ?></p>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <strong>Country:</strong>
+                                                                    <p ><?php echo e($enquiry->country); ?></p>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <strong>Categories:</strong>
+                                                                    <p>
+                                                                        <ul>
+
+                                                                            <?php if(count($enquiry->categories)>0): ?>
+                                                                                <?php $__currentLoopData = $enquiry->categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                                    <li><?php echo e(Str::ucfirst($cat->title)); ?></li>
+                                                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                                            <?php endif; ?>
+                                                                        </ul>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <strong>Address:</strong>
+                                                                    <p>
+                                                                        <?php echo e($enquiry->address); ?>
+
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <strong>Subject:</strong>
+                                                                    <p><?php echo e($enquiry->subject); ?></p>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <strong>Message:</strong>
+                                                                    <p><?php echo e($enquiry->message); ?></p>
+                                                                </div>
+                                                            </div>
+
+
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
 
                                             </td>
 
