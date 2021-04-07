@@ -39,7 +39,7 @@
                     </div>
                     <div class="body">
                         <form class="form-auth-small" method="POST" action="{{ route('admin.login.submit') }}">
-                            @csrf
+                            {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="signin-email" class="control-label sr-only">Email</label>
                                 <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus id="signin-email" placeholder="Email">

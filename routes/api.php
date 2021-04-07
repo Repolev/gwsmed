@@ -22,7 +22,7 @@ Route::post('register',[\App\Http\Controllers\Api\AuthController::class,'registe
 Route::post('login',[\App\Http\Controllers\Api\AuthController::class,'login']);
 
 // BannerApi
-Route::apiResource('/banner',\App\Http\Controllers\Api\BannerController::class)->middleware('auth:api');
+Route::apiResource('/banners',\App\Http\Controllers\Api\BannerController::class)->middleware('auth:api');
 
 // BrandApi
 Route::get('/brands',[\App\Http\Controllers\Api\FrontendController::class,'brands']);
