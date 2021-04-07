@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Enquiry;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class EnquiryController extends Controller
             'country'=>'nullable|string',
             'subject'=>'string|nullable',
             'message'=>'string|nullable',
-            'products'=>'required',
+            'cats'=>'required',
         ]);
         $data=$request->all();
         $enquiry=new Enquiry();
@@ -30,8 +31,8 @@ class EnquiryController extends Controller
 
         $status=$enquiry->save();
 
-        $product=Product::find($request->products);
-        $enquiry->products()->attach($product);
+        $category=Category::find($request->cats);
+        $enquiry->categories()->attach($category);
 
         if($status){
             toastr()->success('Thank you for submitting enquiry','Success');

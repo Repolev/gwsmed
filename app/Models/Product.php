@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable=['title','slug','meta_tag','model_no','summary','description','stock','price','offer_price','discount','tags','is_featured','status','photo','image_path'];
+    protected $fillable=['title','slug','meta_tag','meta_description','model_no','summary','description','stock','price','offer_price','discount','tags','is_featured','status','photo','image_path'];
 
     public function brand(){
         return $this->belongsTo('App\Models\Brand');
@@ -38,11 +38,6 @@ class Product extends Model
     // many to many relation with order
     public function orders(){
         return $this->belongsToMany(Order::class,'product_orders')->withPivot('quantity')->withTimestamps();
-    }
-
-    // many to many relation with order
-    public function enquiries(){
-        return $this->belongsToMany(Enquiry::class,'enquiry_products','product_id','enquiry_id');
     }
 
 

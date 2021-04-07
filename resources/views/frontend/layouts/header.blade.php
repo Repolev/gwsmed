@@ -221,36 +221,32 @@
                 <div class="cv-nav-bar text-left">
                     <div class="cv-menu">
                     <ul>
-                        <li><a href="{{route('home')}}">Home</a>
+                        <li><a href="{{route('home')}}"><i class="fas fa-home"></i></a>
                         </li>
                         <li><a href="{{route('about.us')}}">About</a></li>
+                        @php
 
-                        <li class="cv-children-menu cv-mega-li"><a href="javascript:;">Products</a>
-                            <div class="cv-mega-menu">
-                                @php
+                            $categories=\App\Models\Category::with('subcategories')->where(['status'=>'active'])->where('on_menu', 1)->latest()->limit(3)->get();
 
-                                    $categories=\App\Models\Category::with('subcategories')->where(['status'=>'active'])->where('on_menu', 1)->latest()->limit(3)->get();
+                        @endphp
 
-                                @endphp
+                        @foreach($categories as $category)
 
-                                @foreach($categories as $category)
+                            <li class="cv-children-menu cv-mega-li"><a href="{{route('product.category',$category->slug)}}">{{ucfirst($category->title)}}</a>
+                                <div class="cv-mega-menu">
                                     <div class="cm-menu-list">
                                         <ul>
-                                            <li>
-                                                <a href="{{route('product.category',$category->slug)}}"><h3>{{ucfirst($category->title)}}</h3></a>
-                                            </li>
-
                                             @if(count($category->subcategories)>0)
                                                 @foreach($category->subcategories as $subCat)
                                                 <li><a href="{{route('product.subcategory',$subCat->slug)}}">{{ucfirst($subCat->title)}}</a></li>
                                                 @endforeach
-                                             @endif
+                                            @endif
                                         </ul>
                                     </div>
-                                @endforeach
 
-                            </div>
-                        </li>
+                                </div>
+                            </li>
+                        @endforeach
                         <li><a href="">Covid 19*</a></li>
                         <li><a href="{{route('blog')}}">Blog</a></li>
                         <li><a href="{{route('enquiry')}}">Enquiry</a></li>
