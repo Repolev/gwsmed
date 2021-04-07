@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <title>{{ $data->title }} | Gws Med</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ $product->title }} | Gws Med</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   </head>
   <body>
-    <h2 class="mb-3">Name: {{ $data->title }}</h2>
-    <h3>Category: {{ $data->category->title }}</h3>
-    <img src="{{ $data->image_path }}" alt="{{ $data->title }}" height="400" width="400">
-    <h3>{{ $data->price }}</h3>
-    {!! $data->description !!}
+    <h2 class="mb-3">Name: {{ $product->title }}</h2>
+    <img src="{{ $product->image_path }}" alt="{{ $product->title }}" height="400" width="400">
+    <h3>Category: @foreach($product->categories as $category) {{ $category->title . ',' }} @endforeach</h3>
+    <h3>Price: {{ $product->price }}</h3>
+    {!! $product->description !!}
     <footer>
         <img src="{{ asset('frontend/images/logo.png') }}" alt="GWS Med logo" height="200px" width="300px">
         <div style="text:center">

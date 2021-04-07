@@ -12,7 +12,7 @@ use App\Models\Display;
 use App\Models\Product;
 use App\Models\Setting;
 use App\Models\Category;
-use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
@@ -85,7 +85,7 @@ class IndexController extends Controller
     public function downloadCatalogPdf($id)
     {
         $product = Product::findOrFail($id);
-        $pdf = PDF::loadView('frontend.download_catalog', compact('product'));
+        $pdf = PDF::loadView('frontend.pages.download_catalog', compact('product'));
         return $pdf->download('GWSmed-catalog.pdf');
     }
 
