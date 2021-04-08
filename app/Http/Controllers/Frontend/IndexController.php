@@ -354,6 +354,7 @@ class IndexController extends Controller
         $merged_products = $products;
         if($category->parent_id != null){
             $level_one = $category->parentcategories;
+            dd($level_one);
             if($level_one->products){
                 $level_one_product = $level_one->products;
                 $merged_products = $products->merge($level_one_product);
