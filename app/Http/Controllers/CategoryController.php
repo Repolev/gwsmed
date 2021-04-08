@@ -186,9 +186,6 @@ class CategoryController extends Controller
                     $data['banner_path']='backend/assets/images/category/'.$imageName;
                 }
             }
-
-            return $data;
-
             if($request->is_parent==1){
                 $data['parent_id']=null;
             }
