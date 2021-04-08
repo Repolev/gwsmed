@@ -1,22 +1,5 @@
 @extends('frontend.layouts.master')
 @section('content')
-    <!-- breadcrumb start -->
-    <div class="cv-breadcrumb">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="cv-breadcrumb-box">
-                        <h1>Shop</h1>
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li>Shop</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- breadcrumb end -->
     <!-- shop start -->
     <div class="cv-shop">
         <div class="container">
@@ -32,13 +15,16 @@
                         <div class="cv-product-all wow fadeIn" data-wow-delay="0.5s">
                             <div class="cv-gallery-grid">
                                 @if(count($products)>0)
-                                    @foreach($products as $product)
+                                    @foreach($products as $item)
                                         <div class="cv-product-box cv-product-item cv-hand">
                                             <div class="cv-product-img">
-                                                <img src="{{$product->image_path}}" alt="image"
+                                                @php
+                                                    $photos=explode(',',$item->image_path);
+                                                @endphp
+                                                <img src="{{asset($photos[0])}}" alt="{{$item->title}}"
                                                      class="img-fluid" />
                                                 <div class="cv-product-button">
-                                                    <a href="javascript:;" class="cv-btn"><svg
+                                                    <a href="{{route('product.detail',$item->slug)}}" class="cv-btn"><svg
                                                             xmlns="http://www.w3.org/2000/svg"
                                                             viewBox="0 0 461.312 461.312">
                                                             <g>
@@ -56,11 +42,10 @@
                                                             </g>
                                                         </svg>
                                                         View detail</a>
-                                                    <a href="javascript:;" class="cv-btn">
+                                                    <a href="javascript:;" data-id="{{$item->id}}" id="add_to_cart{{$item->id}}" class="cv-btn add_to_cart" data-quantity="1">
                                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                                             <g>
-                                                                <path
-                                                                    d="M507.519,116.384C503.721,111.712,498.021,109,492,109H129.736l-1.484-13.632l-0.053-0.438C121.099,40.812,74.583,0,20,0
+                                                                <path d="M507.519,116.384C503.721,111.712,498.021,109,492,109H129.736l-1.484-13.632l-0.053-0.438C121.099,40.812,74.583,0,20,0
                                                             C8.954,0,0,8.954,0,20s8.954,20,20,20c34.506,0,63.923,25.749,68.512,59.928l23.773,218.401C91.495,327.765,77,348.722,77,373
                                                             c0,0.167,0.002,0.334,0.006,0.5C77.002,373.666,77,373.833,77,374c0,33.084,26.916,60,60,60h8.138
                                                             c-2.034,5.964-3.138,12.355-3.138,19c0,32.532,26.467,59,59,59s59-26.468,59-59c0-6.645-1.104-13.036-3.138-19h86.277
@@ -70,15 +55,14 @@
                                                             C430.299,300.125,411.661,313,392.331,313h-240.39L134.09,149h333.308l-9.786,46.916c-2.255,10.813,4.682,21.407,15.495,23.662
                                                             c1.377,0.288,2.75,0.426,4.104,0.426c9.272,0,17.59-6.484,19.558-15.92l14.809-71C512.808,127.19,511.317,121.056,507.519,116.384
                                                             z M399,434c10.477,0,19,8.523,19,19s-8.523,19-19,19s-19-8.523-19-19S388.523,434,399,434z M201,434c10.477,0,19,8.524,19,19
-                                                            c0,10.477-8.523,19-19,19s-19-8.523-19-19S190.523,434,201,434z">
-                                                                </path>
+                                                            c0,10.477-8.523,19-19,19s-19-8.523-19-19S190.523,434,201,434z"></path>
                                                             </g>
                                                         </svg>
                                                         add to Cart</a>
                                                 </div>
                                             </div>
                                             <div class="cv-product-data">
-                                                <a href="{{route('product.detail',$product->slug)}}" class="cv-price-title">{{ucfirst($product->title)}}</a>
+                                                <a href="{{route('product.detail',$item->slug)}}" class="cv-price-title">{{ucfirst($item->title)}}</a>
                                             </div>
                                         </div>
                                     @endforeach
@@ -177,225 +161,61 @@
 @endsection
 
 @section('scripts')
-{{--    --}}{{-- Add to compare --}}
-{{--    <script>--}}
-{{--        $(document).on('click','.add_to_compare',function (e) {--}}
-{{--            e.preventDefault();--}}
-{{--            var product_id=$(this).data('id');--}}
-{{--            var product_price=$(this).data('price');--}}
-{{--            var product_qty=$(this).data('quantity');--}}
-{{--            var token = "{{ csrf_token() }}";--}}
-{{--            var path = "{{ route('compare.store') }}";--}}
-{{--            $.ajax({--}}
-{{--                url: path,--}}
-{{--                type: "POST",--}}
-{{--                dataType: "JSON",--}}
-{{--                data: {--}}
-{{--                    product_id: product_id,--}}
-{{--                    product_qty: product_qty,--}}
-{{--                    product_price: product_price,--}}
-{{--                    _token: token,--}}
-{{--                },--}}
-{{--                success: function (data) {--}}
-{{--                    console.log(data);--}}
+    {{-- Add to cart --}}
+    <script>
+        $(document).on('click', '.add_to_cart', function (e) {
+            e.preventDefault();
+            var product_id = $(this).data('id');
+            var product_qty = $(this).data('quantity');
+            var token = "{{ csrf_token() }}";
+            var path = "{{ route('cart.store') }}";
 
-{{--                    if (data['status']) {--}}
-{{--                        swal({--}}
-{{--                            title: "Success!",--}}
-{{--                            text: data['message'],--}}
-{{--                            icon: "success",--}}
-{{--                            button: "OK!",--}}
-{{--                        });--}}
+            $.ajax({
+                url: path,
+                type: "POST",
+                dataType: "JSON",
+                data: {
+                    product_id: product_id,
+                    product_qty: product_qty,
+                    _token: token,
+                },
+                beforeSend: function () {
+                    $('#add_to_cart' + product_id).html(
+                        '<i class="fa fa-spinner fa-spin widget-icon"></i> Loading...');
+                },
+                complete: function () {
+                    $('#add_to_cart' + product_id).html(
+                        '<i class="fas fa-cart-plus"></i> add to Cart');
+                },
+                success: function (data) {
+                    console.log(data);
 
-{{--                    } else if (data['present']) {--}}
-{{--                        swal({--}}
-{{--                            title: "Opps!",--}}
-{{--                            text: data['message'],--}}
-{{--                            icon: "warning",--}}
-{{--                            button: "OK!",--}}
-{{--                        });--}}
-{{--                    } else {--}}
-{{--                        swal({--}}
-{{--                            title: "Sorry!",--}}
-{{--                            text: data['message'],--}}
-{{--                            icon: "error",--}}
-{{--                            button: "OK!",--}}
-{{--                        });--}}
-{{--                    }--}}
-{{--                },--}}
-{{--                error: function (err) {--}}
-{{--                    console.log(err);--}}
-{{--                }--}}
-{{--            });--}}
-{{--        });--}}
-{{--    </script>--}}
-{{--    --}}{{-- Add to wishlist --}}
-{{--    <script>--}}
-{{--        $(document).on('click', '.add_to_wishlist', function (e) {--}}
-{{--            e.preventDefault();--}}
-{{--            var product_id = $(this).data('id');--}}
-{{--            var product_qty = $(this).data('quantity');--}}
+                    if (data['status']) {
+                        $('body #header').html(data['header']);
+                        $('body #cart_counter').html(data['cart_count']);
+                        swal({
+                            title: "Success!",
+                            text: data['message'],
+                            icon: "success",
+                            button: "OK!",
+                        });
 
-{{--            var token = "{{ csrf_token() }}";--}}
-{{--            var path = "{{ route('wishlist.store') }}";--}}
+                    } else {
+                        $('body #header-ajax').html(data['header']);
+                        $('body #cart_counter').html(data['cart_count']);
+                        swal({
+                            title: "Sorry!",
+                            text: data['message'],
+                            icon: "error",
+                            button: "OK!",
+                        });
+                    }
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        });
 
-{{--            $.ajax({--}}
-{{--                url: path,--}}
-{{--                type: "POST",--}}
-{{--                dataType: "JSON",--}}
-{{--                data: {--}}
-{{--                    product_id: product_id,--}}
-{{--                    product_qty: product_qty,--}}
-{{--                    _token: token,--}}
-{{--                },--}}
-{{--                success: function (data) {--}}
-{{--                    console.log(data);--}}
-
-{{--                    if (data['status']) {--}}
-{{--                        swal({--}}
-{{--                            title: "Success!",--}}
-{{--                            text: data['message'],--}}
-{{--                            icon: "success",--}}
-{{--                            button: "OK!",--}}
-{{--                        });--}}
-
-{{--                    } else if (data['present']) {--}}
-{{--                        swal({--}}
-{{--                            title: "Opps!",--}}
-{{--                            text: data['message'],--}}
-{{--                            icon: "warning",--}}
-{{--                            button: "OK!",--}}
-{{--                        });--}}
-{{--                    } else {--}}
-{{--                        swal({--}}
-{{--                            title: "Sorry!",--}}
-{{--                            text: "You can't add that product",--}}
-{{--                            icon: "error",--}}
-{{--                            button: "OK!",--}}
-{{--                        });--}}
-{{--                    }--}}
-{{--                },--}}
-{{--                error: function (err) {--}}
-{{--                    console.log(err);--}}
-{{--                }--}}
-{{--            });--}}
-{{--        });--}}
-
-{{--    </script>--}}
-{{--    --}}{{-- Add to cart --}}
-{{--    <script>--}}
-{{--        $(document).on('click', '.add_to_cart', function (e) {--}}
-{{--            e.preventDefault();--}}
-{{--            var product_id = $(this).data('product-id');--}}
-{{--            var product_qty = $(this).data('quantity');--}}
-{{--            var product_price = $(this).data('price');--}}
-{{--            var token = "{{ csrf_token() }}";--}}
-{{--            var path = "{{ route('cart.store') }}";--}}
-
-{{--            $.ajax({--}}
-{{--                url: path,--}}
-{{--                type: "POST",--}}
-{{--                dataType: "JSON",--}}
-{{--                data: {--}}
-{{--                    product_id: product_id,--}}
-{{--                    product_qty: product_qty,--}}
-{{--                    product_price: product_price,--}}
-{{--                    _token: token,--}}
-{{--                },--}}
-{{--                success: function (data) {--}}
-{{--                    console.log(data);--}}
-
-{{--                    if (data['status']) {--}}
-{{--                        $('body #header-ajax').html(data['header']);--}}
-{{--                        $('body #cart_counter').html(data['cart_count']);--}}
-{{--                        swal({--}}
-{{--                            title: "Success!",--}}
-{{--                            text: data['message'],--}}
-{{--                            icon: "success",--}}
-{{--                            button: "OK!",--}}
-{{--                        });--}}
-
-{{--                    } else {--}}
-{{--                        $('body #header-ajax').html(data['header']);--}}
-{{--                        $('body #cart_counter').html(data['cart_count']);--}}
-{{--                        swal({--}}
-{{--                            title: "Sorry!",--}}
-{{--                            text: data['message'],--}}
-{{--                            icon: "error",--}}
-{{--                            button: "OK!",--}}
-{{--                        });--}}
-{{--                    }--}}
-{{--                },--}}
-{{--                error: function (err) {--}}
-{{--                    console.log(err);--}}
-{{--                }--}}
-{{--            });--}}
-{{--        });--}}
-
-{{--    </script>--}}
-
-{{--    <script>--}}
-{{--        $('.qty-text ').change('key up',function () {--}}
-{{--            var id=$(this).data('id');--}}
-{{--            var spinner=$(this),input=spinner.closest('div.quantity').find('input[type="number"]');--}}
-{{--            var newVal=parseFloat(input.val());--}}
-{{--            $('#add_to_cart_button_details_'+id).attr('data-quantity',newVal);--}}
-
-{{--        });--}}
-
-{{--        $('.add_to_cart_button_details').on('click',function () {--}}
-{{--            var product_qty=$(this).data('quantity');--}}
-{{--            var product_id=$(this).data('product_id');--}}
-{{--            var product_price=$(this).data('price');--}}
-{{--            var token="{{csrf_token()}}";--}}
-{{--            var path="{{route('cart.store')}}";--}}
-
-{{--            $.ajax({--}}
-{{--                url:path,--}}
-{{--                type:"POST",--}}
-{{--                data:{--}}
-{{--                    _token:token,--}}
-{{--                    product_id:product_id,--}}
-{{--                    product_price:product_price,--}}
-{{--                    product_qty:product_qty,--}}
-{{--                },--}}
-{{--                beforeSend:function () {--}}
-{{--                    $('#add_to_cart_button_details_{{$product->id}}').html('<i class="fa fa-spinner fa-spin"></i> Loading...');--}}
-
-{{--                },--}}
-{{--                complete:function () {--}}
-{{--                    $('#add_to_cart_button_details_{{$product->id}}').html('Add To Cart');--}}
-{{--                },--}}
-{{--                success:function (data) {--}}
-{{--                    console.log(data['status']);--}}
-{{--                    if(data['status']){--}}
-{{--                        $('body #header-ajax').html(data['header']);--}}
-{{--                        $('body #cart_counter').html(data['cart_count']);--}}
-{{--                        swal({--}}
-{{--                            title: "Success!",--}}
-{{--                            text: data['message'],--}}
-{{--                            icon: "success",--}}
-{{--                            button: "OK!",--}}
-{{--                        });--}}
-{{--                    }--}}
-{{--                    else{--}}
-{{--                        $('body #header-ajax').html(data['header']);--}}
-{{--                        $('body #cart_counter').html(data['cart_count']);--}}
-{{--                        swal({--}}
-{{--                            title: "Sorry!",--}}
-{{--                            text: data['message'],--}}
-{{--                            icon: "error",--}}
-{{--                            button: "OK!",--}}
-{{--                        });--}}
-{{--                    }--}}
-
-{{--                    window.location.href=window.location.href;--}}
-
-{{--                },--}}
-{{--                error:function (err) {--}}
-{{--                    console.log(err);--}}
-{{--                }--}}
-{{--            });--}}
-{{--        });--}}
-{{--    </script>--}}
+    </script>
 @endsection

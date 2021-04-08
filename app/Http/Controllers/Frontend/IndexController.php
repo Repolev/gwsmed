@@ -351,6 +351,9 @@ class IndexController extends Controller
 
         $products=Product::query();
 
+        $category=Category::with('products')->whereNotNull('parent_id')->get();
+        return $category;
+
         $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->first();
         //brand filter
 //        if(!empty($_GET['brand'])){
