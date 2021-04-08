@@ -53,9 +53,9 @@ class IndexController extends Controller
 //        $home_page_category_two=Display::where('status','active')->with('products')->skip(1)->take(2)->get();
 //        $home_page_category_three=Display::where('status','active')->with('products')->skip(3)->take(2)->get();
 //        $brands=Brand::where(['status'=>'active'])->orderBy('id','DESC')->get();
-        $cat_gallery_first = Category::where('on_menu', 1)->with('subcategories')->first();
-        $cat_gallery_second = Category::where('on_menu', 1)->with('subcategories')->skip(1)->first();
-        $cat_gallery_third = Category::where('on_menu', 1)->with('subcategories')->skip(2)->first();
+        $cat_gallery_first = Category::where('status','actvie')->where('on_menu', 1)->with('subcategories')->first();
+        $cat_gallery_second = Category::where('status','actvie')->where('on_menu', 1)->with('subcategories')->skip(1)->first();
+        $cat_gallery_third = Category::where('status','actvie')->where('on_menu', 1)->with('subcategories')->skip(2)->first();
         return view('frontend.index',compact([
             'banners',
 
