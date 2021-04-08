@@ -53,7 +53,7 @@ class Category extends Model
     }
 
     public function parentcategories(){
-        return $this->hasMany('App\Models\Category','id','parent_id')->with('products')->where('status','active');
+        return $this->hasOne('App\Models\Category','id','parent_id')->with('products')->where('status','active');
     }
 
 }
