@@ -116,9 +116,8 @@
 {{--                                        </select>--}}
 {{--                                    </div>--}}
                                     <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <label for="">Category</label>
+                                        <label for="">Categories/SubCategories</label>
                                         <select id="categoryId" name="category_id[]" class="form-control show-tick" multiple>
-                                            <option value="">-- Category --</option>
                                             @foreach(\App\Models\Category::orderBy('title','DESC')->get() as $cat)
                                                 <option value="{{$cat->id}}" {{$cat->id == $product->cat_id? 'selected' : ''}}>@for($i = 0; $i < $cat->level; $i++) - @endfor{{$cat->title}}</option>
                                             @endforeach
