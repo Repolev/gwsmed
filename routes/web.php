@@ -110,9 +110,6 @@ Route::group(['prefix'=>'admin'],function(){
 });
 
 Route::group(['prefix'=>'admin','middleware'=>['admin']],function(){
-
-
-
     Route::get('/',[\App\Http\Controllers\AdminController::class,'admin'])->name('admin');
 
     // Banner Section

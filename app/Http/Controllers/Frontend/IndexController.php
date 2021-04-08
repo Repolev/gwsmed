@@ -348,47 +348,33 @@ class IndexController extends Controller
 
     //product by sub category
     public function productSubCategory(Request $request,$slug){
-
-        $products=Product::query();
-
         $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->first();
-        //brand filter
-//        if(!empty($_GET['brand'])){
-//            $slugs=explode(',',$_GET['brand']);
-//            $brand_ids=Brand::select('id')->whereIn('slug',$slugs)->pluck('id')->toArray();
-//            $products->whereIn('brand_id',$brand_ids);
-//        }
-        if(!empty($_GET['sortBy'])){
-            if($_GET['sortBy']=='priceAsc'){
-                $products->where(['status'=>'active','cat_id' => $category->id])->orderBy('offer_price','ASC');
-            }
-            if($_GET['sortBy']=='priceDesc'){
-                $products->where(['status'=>'active','cat_id'=>$category->id])->orderBy('offer_price','DESC');
-            }
-            if($_GET['sortBy']=='discAsc'){
-                $products->where(['status'=>'active','cat_id'=>$category->id])->orderBy('discount','ASC');
-            }
-            if($_GET['sortBy']=='discDesc'){
-                $products->where(['status'=>'active','cat_id'=>$category->id])->orderBy('discount','DESC');
-            }
-            if($_GET['sortBy']=='titleAsc'){
-                $products->where(['status'=>'active','cat_id'=>$category->id])->orderBy('title','ASC');
-            }
-            if($_GET['sortBy']=='titledesc'){
-                $products->where(['status'=>'active','cat_id'=>$category->id])->orderBy('title','DESC');
+
+        $products = Category::where(['status' => 'active', 'slug' => $slug])->first()->products;
+        $merged_products = $products;
+        if($category->parent_id != null){
+            $level_one = $category->parentcategories;
+            $level_one_product = $level_one->products;
+            $merged_products = $products->merge($level_one_product);
+            if($level_one->parent_id != null){
+                $level_two = $category->parentcategories;
+                $level_two_product = $level_two->products;
+                $merged_products = $merged_products->merge($level_two_product);
+                if($level_two->parent_id != null){
+                    $level_three = $category->parentcategories;
+                    $level_three_product = $level_three->products;
+                    $merged_products = $merged_products->merge($level_three_product);
+                    if($level_three->parent_id != null){
+                        $level_four = $category->parentcategories;
+                        $level_four_product = $level_four->products;
+                        $merged_products = $merged_products->merge($level_four_product);
+                    }
+                }
             }
         }
-        else{
-            $products->where(['status'=>'active']);
-
-        }
-        $products=$products->paginate(16);
-
-
-//        return $brands;
+        $unique_products = $merged_products->unique();
         $categories=Category::where('status','active')->orderBy('title','ASC')->with('subcategories')->with('products')->get();
-
-        return view('frontend.pages.product.product-subcategory',compact(['category','categories',   'products']));
+        return view('frontend.pages.product.product-subcategory', compact(['category', 'products', 'unique_products']));
     }
 
     //    Product detail
