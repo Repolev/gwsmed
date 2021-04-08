@@ -354,25 +354,25 @@ class IndexController extends Controller
         $merged_products = $products;
         if($category->parent_id != null){
             $level_one = $category->parentcategories;
-            if($level_one){
+            if($level_one->products){
                 $level_one_product = $level_one->products;
                 $merged_products = $products->merge($level_one_product);
             }
             if($level_one->parent_id != null){
                 $level_two = $category->parentcategories;
-                if($level_two){
+                if($level_two->products){
                     $level_two_product = $level_two->products;
                     $merged_products = $merged_products->merge($level_two_product);
                 }
                 if($level_two->parent_id != null){
                     $level_three = $category->parentcategories;
-                    if($level_three){
+                    if($level_three->products){
                         $level_three_product = $level_three->products;
                         $merged_products = $merged_products->merge($level_three_product);
                     }
                     if($level_three->parent_id != null){
                         $level_four = $category->parentcategories;
-                        if($level_four){
+                        if($level_four->products){
                             $level_four_product = $level_four->products;
                             $merged_products = $merged_products->merge($level_four_product);
                         }
