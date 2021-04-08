@@ -48,7 +48,7 @@ class BlogController extends Controller
         $data = $request->all();
         $data['user_id'] = Auth::guard('admin')->user()->id;
         if($file=$request->file('blog_image')){
-            $imageName = time() ."-". str_replace(' ', '-', $file->getClientOriginalExtension());
+            $imageName = time() .".". str_replace(' ', '-', $file->getClientOriginalExtension());
             $product_image = Image::make($file);
             $product_image->resize(500, 400);
             $image_path = public_path('/backend/assets/images/blogs/' . $imageName);
@@ -108,7 +108,7 @@ class BlogController extends Controller
         $data = $request->all();
         $data['user_id'] = Auth::guard('admin')->user()->id;
         if($file=$request->file('blog_image')){
-            $imageName = time() ."-". str_replace(' ', '-', $file->getClientOriginalExtension());
+            $imageName = time() .".". str_replace(' ', '-', $file->getClientOriginalExtension());
             $product_image = Image::make($file);
             $product_image->resize(500, 400);
             $image_path = public_path('/backend/assets/images/blogs/' . $imageName);

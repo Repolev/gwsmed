@@ -220,7 +220,7 @@
                     <div class="cv-deal-box" @if($cat->image_path != null) style="background-image: url({{url($cat->image_path)}}); background-size: cover;" @endif>
                         <div class="overlay" style="color:white!important; ">
                             <h3>{{ucfirst($cat->title)}}</h3>
-                            <p >{!! html_entity_decode(\Illuminate\Support\Str::limit($cat->description,550)) !!}</p>
+                            <p >{!! html_entity_decode(\Illuminate\Support\Str::limit($cat->description,500)) !!}</p>
                             <a href="{{route('product.category',$cat->slug)}}" class="cv-btn">readmore</a>
                         </div>
 
@@ -233,6 +233,7 @@
     @endif
 
 
+    @if($cat_gallery_first)
     <!-- product gallery start -->
     <div class="cv-product-gallery cv-product-three spacer-top-less">
         <div class="container">
@@ -344,6 +345,7 @@
         </div>
     </div>
     <!-- product gallery end -->
+    @endif
     <!-- testimonial start -->
     <!-- product gallery end -->
 @endsection

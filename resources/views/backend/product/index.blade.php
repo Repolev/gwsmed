@@ -204,7 +204,7 @@
                 },
                 success:function (response) {
                     if(response.status){
-                        alert(response.msg);
+                        console.log(response.msg);
                     }
                     else{
                         alert('Please try again!');
