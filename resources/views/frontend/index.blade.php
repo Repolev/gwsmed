@@ -218,9 +218,9 @@
                 @foreach($categories as $cat)
                 <div class="col-md-4 category-block">
                     <div class="cv-deal-box" @if($cat->image_path != null) style="background-image: url({{url($cat->image_path)}}); background-size: cover;" @endif>
-                        <div class="overlay">
+                        <div class="overlay" style="color:white!important; ">
                             <h3>{{ucfirst($cat->title)}}</h3>
-                            <p>{!! html_entity_decode($cat->description) !!}</p>
+                            <p >{!! html_entity_decode(\Illuminate\Support\Str::limit($cat->description,550)) !!}</p>
                             <a href="{{route('product.category',$cat->slug)}}" class="cv-btn">readmore</a>
                         </div>
 
@@ -346,6 +346,14 @@
     <!-- product gallery end -->
     <!-- testimonial start -->
     <!-- product gallery end -->
+@endsection
+
+@section('styles')
+    <style>
+        p span{
+            color:white !important;
+        }
+    </style>
 @endsection
 @section('scripts')
 
