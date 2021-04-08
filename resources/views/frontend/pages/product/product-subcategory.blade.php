@@ -42,7 +42,7 @@
                                          class="img-fluid" />
                                 </div>
                                 <div class="cv-product-data">
-                                    <a href="{{route('product.category',$subcat->slug)}}" class="cv-price-title">{{ucfirst($subcat->title)}}</a>
+                                    <a href="{{route('product.subcategory',$subcat->slug)}}" class="cv-price-title">{{ucfirst($subcat->title)}}</a>
 
                                 </div>
                             </div>

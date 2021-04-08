@@ -43,6 +43,13 @@
     .owl-item h1 {
         margin: 0;
     }
+
+    .accept-cookies{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
 </style>
 
 <!-- preloader start -->
