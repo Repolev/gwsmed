@@ -24,13 +24,13 @@ class EnquiryController extends Controller
         $category_id = $request->cats;
         $categories = Category::findMany($category_id);
         $data['categories'] = $categories;
-        $send_mail = Mail::to('gwssurgicalsllp@gmail.com')->cc('info@gwsmed.com')->cc('reehoodayush@gmail.com')->send(new \App\Mail\CategoryEnquiry($data));
-        if($send_mail){
-            toastr()->success('Thank you for submitting enquiry','Success');
-            return back();
-        }
-        else{
+        Mail::to('gwssurgicalsllp@gmail.com')->cc('info@gwsmed.com')->cc('reehoodayush@gmail.com')->send(new \App\Mail\CategoryEnquiry($data));
+       // check for failures
+        if (Mail::failures()) {
             toastr()->error('Something went wrong','Error');
+            return back();
+        } else {
+            toastr()->success('Thank you for submitting enquiry','Success');
             return back();
         }
     }
