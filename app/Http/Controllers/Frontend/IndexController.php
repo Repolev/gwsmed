@@ -7,20 +7,12 @@ use App\Models\User;
 use App\Models\Brand;
 use App\Models\Order;
 use App\Models\Banner;
-use App\Models\Review;
-use App\Models\Display;
 use App\Models\Product;
-use App\Models\Setting;
 use App\Models\Category;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
-use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Redirect;
 
 
 class IndexController extends Controller
@@ -351,37 +343,7 @@ class IndexController extends Controller
         $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->first();
 
         $products = Category::where(['status' => 'active', 'slug' => $slug])->first()->products;
-        $merged_products = $products;
-        if($category->parent_id != null){
-            $level_one = $category->parentCategory;
-            dd($level_one);
-            if($level_one->products){
-                $level_one_product = $level_one->products;
-                $merged_products = $products->merge($level_one_product);
-            }
-            if($level_one->parent_id != null){
-                $level_two = $category->parentCategory;
-                if($level_two->products){
-                    $level_two_product = $level_two->products;
-                    $merged_products = $merged_products->merge($level_two_product);
-                }
-                if($level_two->parent_id != null){
-                    $level_three = $category->parentCategory;
-                    if($level_three->products){
-                        $level_three_product = $level_three->products;
-                        $merged_products = $merged_products->merge($level_three_product);
-                    }
-                    if($level_three->parent_id != null){
-                        $level_four = $category->parentCategory;
-                        if($level_four->products){
-                            $level_four_product = $level_four->products;
-                            $merged_products = $merged_products->merge($level_four_product);
-                        }
-                    }
-                }
-            }
-        }
-        $unique_products = $merged_products->unique();
+
         $categories=Category::where('status','active')->orderBy('title','ASC')->with('subcategories')->with('products')->get();
         return view('frontend.pages.product.product-subcategory', compact(['category', 'products', 'unique_products']));
     }
@@ -528,7 +490,8 @@ class IndexController extends Controller
 
     //enquiry
     public function enquiry(){
-        return view('frontend.pages.enquiry');
+        $categories= Category::where('status','active')->orderBy('title','ASC')->get();
+        return view('frontend.pages.enquiry', compact('categories'));
     }
 
 }

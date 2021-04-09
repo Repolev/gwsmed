@@ -5,43 +5,52 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Enquiry;
 use App\Models\Product;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
 class EnquiryController extends Controller
 {
-    public function enquiryForm(Request $request){
+    public function enquiryCategoryForm(Request $request){
+
         $this->validate($request,[
             'full_name'=>'string|required',
-            'email'=>'email|required',
-            'phone'=>'required',
+            'email' => 'email|required',
+            'phone' => 'required',
             'country'=>'nullable|string',
-            'subject'=>'string|nullable',
-            'message'=>'string|nullable',
-            'cats'=>'required',
+            'cats' => 'required',
+            'message' => 'string|nullable',
         ]);
-        $data=$request->all();
-        $enquiry=new Enquiry();
-        $enquiry['full_name']=$request->full_name;
-        $enquiry['email']=$request->email;
-        $enquiry['phone']=$request->phone;
-        $enquiry['country']=$request->country;
-        $enquiry['address']=$request->address;
-        $enquiry['subject']=$request->subject;
-        $enquiry['message']=$request->message;
-
-        \Illuminate\Support\Facades\Mail::to('prajwal.iar@gmail.com')->send(new \App\Mail\Enquiry($data));
-        $status=$enquiry->save();
-
-        $category=Category::find($request->cats);
-        $enquiry->categories()->attach($category);
-
-        if($status){
+        $data = $request->all();
+        $send_mail = Mail::to('gwssurgicalsllp@gmail.com')->cc('info@gwsmed.com')->cc('reehoodayush@gmail.com')->send(new \App\Mail\CategoryEnquiry($data));
+        if($send_mail){
             toastr()->success('Thank you for submitting enquiry','Success');
             return back();
         }
         else{
             toastr()->error('Something went wrong','Error');
+            return back();
+        }
+    }
+
+    public function enquiryProductForm(Request $request){
+
+        $this->validate($request,[
+            'full_name'=>'string|required',
+            'email'=>'email|required',
+            'phone'=>'required',
+            'country'=>'nullable|string',
+            'product' => 'required|string',
+            'message'=>'string|nullable',
+        ]);
+        $data=$request->all();
+        Mail::to('gwssurgicalsllp@gmail.com')->cc('info@gwsmed.com')->cc('reehoodayush@gmail.com')->send(new \App\Mail\ProductEnquiry($data));
+
+        // check for failures
+        if (Mail::failures()) {
+            toastr()->error('Something went wrong','Error');
+            return back();
+        } else {
+            toastr()->success('Thank you for submitting enquiry','Success');
             return back();
         }
     }

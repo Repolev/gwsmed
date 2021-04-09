@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-xl-6 col-lg-6 col-sm-12 m-auto">
             <h3> Order confirmation mail</h3>
-            <p> Hey, {{$details['first_name']}}</p>
+            <p> Hey, {{$details['first_name'] . ' '. $details['last_name']}}</p>
             <p> Your order is successfully received. </p>
             <p> We will contact you as soon as possible. </p>
             <br/>
