@@ -341,7 +341,6 @@ class IndexController extends Controller
     //product by sub category
     public function productSubCategory(Request $request,$slug){
         $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->first();
-<<<<<<< HEAD
 
         $products = Category::where(['status' => 'active', 'slug' => $slug])->first()->products;
         $merged_products = $products;
@@ -374,8 +373,6 @@ class IndexController extends Controller
             }
         }
         $unique_products = $merged_products->unique();
-=======
->>>>>>> 38695ffddb0fc3676c2d2b27fab3d722295ab6d1
         $categories=Category::where('status','active')->orderBy('title','ASC')->with('subcategories')->with('products')->get();
         return view('frontend.pages.product.product-subcategory', compact(['category', 'products', 'unique_products']));
     }
