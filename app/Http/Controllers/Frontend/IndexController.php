@@ -7,20 +7,12 @@ use App\Models\User;
 use App\Models\Brand;
 use App\Models\Order;
 use App\Models\Banner;
-use App\Models\Review;
-use App\Models\Display;
 use App\Models\Product;
-use App\Models\Setting;
 use App\Models\Category;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
-use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Redirect;
 
 
 class IndexController extends Controller
@@ -349,6 +341,7 @@ class IndexController extends Controller
     //product by sub category
     public function productSubCategory(Request $request,$slug){
         $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->first();
+<<<<<<< HEAD
 
         $products = Category::where(['status' => 'active', 'slug' => $slug])->first()->products;
         $merged_products = $products;
@@ -381,6 +374,8 @@ class IndexController extends Controller
             }
         }
         $unique_products = $merged_products->unique();
+=======
+>>>>>>> 38695ffddb0fc3676c2d2b27fab3d722295ab6d1
         $categories=Category::where('status','active')->orderBy('title','ASC')->with('subcategories')->with('products')->get();
         return view('frontend.pages.product.product-subcategory', compact(['category', 'products', 'unique_products']));
     }
@@ -527,7 +522,8 @@ class IndexController extends Controller
 
     //enquiry
     public function enquiry(){
-        return view('frontend.pages.enquiry');
+        $categories= Category::where('status','active')->orderBy('title','ASC')->get();
+        return view('frontend.pages.enquiry', compact('categories'));
     }
 
 }

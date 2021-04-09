@@ -34,7 +34,7 @@
                         </div>
                     @endif
                     <h3 class="px-2 pb-3">Enquiry Form</h3>
-                    <form action="{{route('enquiry.submit')}}" method="post">
+                    <form action="{{route('enquiry.product')}}" method="post">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">
@@ -76,8 +76,6 @@
                             </div>
                         </div>
 
-
-
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -102,21 +100,16 @@
 
 
                         <div class="row">
-                            @php
-                                $categories=\App\Models\Category::where('status','active')->orderBy('title','ASC')->get();
-                            @endphp
 
                             <div class="col-md-12">
                                 <label style="font-weight: bold;color:black" for="">Category <span class="text-danger">*</span></label>
                             </div>
                             @foreach($categories as $category)
                                 <div class="col-md-4">
-
-
-                                        <div class="form-group d-flex">
-                                            <label for="">{{ucfirst($category->title)}}</label>
-                                            <input type="checkbox" name="cats[]" value="{{$category->id}}"  style="width: auto" class="ml-2 form-control form-control-sm">
-                                        </div>
+                                    <div class="form-group d-flex">
+                                        <label for="">{{ucfirst($category->title)}}</label>
+                                        <input type="checkbox" name="cats[]" value="{{$category->id}}"  style="width: auto" class="ml-2 form-control form-control-sm">
+                                    </div>
                                 </div>
                            @endforeach
 

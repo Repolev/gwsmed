@@ -52,7 +52,7 @@
             @else
                 <div class="cv-product-all wow fadeIn" data-wow-delay="0.5s">
                     <div class="cv-gallery-grid">
-                        @foreach($unique_products as $item)
+                        @foreach($category->products as $item)
                             <div class="cv-product-box cv-product-item cv-hand">
                                 @php
                                     $photo=explode(',',$item->image_path);
