@@ -21,6 +21,9 @@ class EnquiryController extends Controller
             'message' => 'string|nullable',
         ]);
         $data = $request->all();
+        $category_id = $request->cats;
+        $categories = Category::findMany($category_id);
+        $data['categories'] = $categories;
         $send_mail = Mail::to('gwssurgicalsllp@gmail.com')->cc('info@gwsmed.com')->cc('reehoodayush@gmail.com')->send(new \App\Mail\CategoryEnquiry($data));
         if($send_mail){
             toastr()->success('Thank you for submitting enquiry','Success');
