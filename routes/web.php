@@ -97,7 +97,8 @@ Route::post('comment/{id}', [\App\Http\Controllers\Frontend\CommentController::c
 Route::get('blogs/{url}',[\App\Http\Controllers\Frontend\IndexController::class,'blogDetail'])->name('blog.detail');
 
 // Enquiry Form
-Route::post('enquiry',[\App\Http\Controllers\EnquiryController::class,'enquiryForm'])->name('enquiry.submit');
+Route::post('enquiry-category',[\App\Http\Controllers\EnquiryController::class,'enquiryCategoryForm'])->name('enquiry.category');
+Route::post('enquiry-product',[\App\Http\Controllers\EnquiryController::class,'enquiryProductForm'])->name('enquiry.product');
 
 //Endfrontend section
 Auth::routes();
@@ -110,9 +111,6 @@ Route::group(['prefix'=>'admin'],function(){
 });
 
 Route::group(['prefix'=>'admin','middleware'=>['admin']],function(){
-
-
-
     Route::get('/',[\App\Http\Controllers\AdminController::class,'admin'])->name('admin');
 
     // Banner Section

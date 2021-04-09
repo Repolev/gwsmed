@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Enquiry extends Mailable
+class ProductEnquiry extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,6 +30,6 @@ class Enquiry extends Mailable
     public function build()
     {
         return $this->subject('New Enquiry for Products')
-                    ->view('mail.enquiry')->with('details',$this->details);
+                    ->markdown('mail.product_enquiry')->with('details',$this->details);
     }
 }

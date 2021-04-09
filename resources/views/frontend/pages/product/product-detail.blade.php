@@ -94,7 +94,7 @@
                                <!-- Modal -->
                                    <div class="modal  fade" style="height:100%; overflow-y:scroll;top:22px" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                        <div class="modal-dialog modal-lg" role="document">
-                                           <form action="{{route('enquiry.submit')}}" method="post">
+                                           <form action="{{route('enquiry.product')}}" method="post">
                                                @csrf
                                            <div class="modal-content">
                                                <div class="modal-header">
@@ -151,8 +151,8 @@
                                                        <div class="row">
                                                            <div class="col-md-12">
                                                                <div class="form-group">
-                                                                   <label for="">Subject <span class="text-danger">*</span></label>
-                                                                   <input type="text" name="subject" placeholder="Subject" class="form-control" value="{{$product->title}}">
+                                                                   <label for="">Product <span class="text-danger">*</span></label>
+                                                                   <input type="text" name="product" placeholder="Product" class="form-control" value="{{$product->title}}">
                                                                    @error('subject')
                                                                    <p class="text-danger">{{$message}}</p>
                                                                    @enderror
@@ -182,13 +182,7 @@
                                                                    @enderror
                                                                </div>
                                                            </div>
-
                                                        </div>
-
-
-
-
-
                                                </div>
                                                <div class="modal-footer">
                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

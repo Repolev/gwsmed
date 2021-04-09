@@ -7,20 +7,12 @@ use App\Models\User;
 use App\Models\Brand;
 use App\Models\Order;
 use App\Models\Banner;
-use App\Models\Review;
-use App\Models\Display;
 use App\Models\Product;
-use App\Models\Setting;
 use App\Models\Category;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
-use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Redirect;
 
 
 class IndexController extends Controller
@@ -348,47 +340,9 @@ class IndexController extends Controller
 
     //product by sub category
     public function productSubCategory(Request $request,$slug){
-
-        $products=Product::query();
-
         $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->first();
-        //brand filter
-//        if(!empty($_GET['brand'])){
-//            $slugs=explode(',',$_GET['brand']);
-//            $brand_ids=Brand::select('id')->whereIn('slug',$slugs)->pluck('id')->toArray();
-//            $products->whereIn('brand_id',$brand_ids);
-//        }
-        if(!empty($_GET['sortBy'])){
-            if($_GET['sortBy']=='priceAsc'){
-                $products->where(['status'=>'active','cat_id' => $category->id])->orderBy('offer_price','ASC');
-            }
-            if($_GET['sortBy']=='priceDesc'){
-                $products->where(['status'=>'active','cat_id'=>$category->id])->orderBy('offer_price','DESC');
-            }
-            if($_GET['sortBy']=='discAsc'){
-                $products->where(['status'=>'active','cat_id'=>$category->id])->orderBy('discount','ASC');
-            }
-            if($_GET['sortBy']=='discDesc'){
-                $products->where(['status'=>'active','cat_id'=>$category->id])->orderBy('discount','DESC');
-            }
-            if($_GET['sortBy']=='titleAsc'){
-                $products->where(['status'=>'active','cat_id'=>$category->id])->orderBy('title','ASC');
-            }
-            if($_GET['sortBy']=='titledesc'){
-                $products->where(['status'=>'active','cat_id'=>$category->id])->orderBy('title','DESC');
-            }
-        }
-        else{
-            $products->where(['status'=>'active']);
-
-        }
-        $products=$products->paginate(16);
-
-
-//        return $brands;
         $categories=Category::where('status','active')->orderBy('title','ASC')->with('subcategories')->with('products')->get();
-
-        return view('frontend.pages.product.product-subcategory',compact(['category','categories',   'products']));
+        return view('frontend.pages.product.product-subcategory', compact(['category', 'products', 'unique_products']));
     }
 
     //    Product detail
@@ -533,7 +487,8 @@ class IndexController extends Controller
 
     //enquiry
     public function enquiry(){
-        return view('frontend.pages.enquiry');
+        $categories= Category::where('status','active')->orderBy('title','ASC')->get();
+        return view('frontend.pages.enquiry', compact('categories'));
     }
 
 }

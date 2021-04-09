@@ -51,7 +51,6 @@
             </div>
             @else
                 @if(count($category->products)>0)
-
                     <div class="cv-product-all wow fadeIn" data-wow-delay="0.5s">
                         <div class="cv-gallery-grid">
                                 @foreach($category->products as $item)
@@ -151,10 +150,7 @@
                         filter();
                     },
 
-
                 });
-
-
             }
         });
     </script>
