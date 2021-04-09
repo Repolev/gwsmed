@@ -341,9 +341,6 @@ class IndexController extends Controller
     //product by sub category
     public function productSubCategory(Request $request,$slug){
         $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->first();
-
-        $products = Category::where(['status' => 'active', 'slug' => $slug])->first()->products;
-
         $categories=Category::where('status','active')->orderBy('title','ASC')->with('subcategories')->with('products')->get();
         return view('frontend.pages.product.product-subcategory', compact(['category', 'products', 'unique_products']));
     }
