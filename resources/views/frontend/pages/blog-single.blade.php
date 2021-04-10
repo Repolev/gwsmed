@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
-@section('meta_description', $blog->content)
-@section('meta_title', $blog->title)
+@section('meta_description', $blog->meta_description)
+@section('meta_title', $blog->meta_title)
 
 @section('content')
 

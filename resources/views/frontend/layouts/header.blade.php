@@ -191,7 +191,7 @@
                     <input type="text" name="query" class="form-control" style="padding-left:30px;border-radius: 30px 0 0 30px;height: 46px;" name="query" id="search_text"
                            placeholder="Search products...">
                     <div class="input-group-append">
-                        <button type="submit" style="border-radius:0 30px 30px 0;background: #AB292B" class="input-group-text"><i class="fas fa-search"></i>
+                        <button type="submit" style="border-radius:0 30px 30px 0;background: #434242" class="input-group-text"><i class="fas fa-search"></i>
                         </button>
                     </div>
                 </form>

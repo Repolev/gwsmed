@@ -60,6 +60,21 @@
                                             <textarea id="description" class="form-control" placeholder="Write some text..." name="content">{{ old('content') }}</textarea>
                                         </div>
                                     </div>
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Meta title</label>
+                                            <input type="text" class="form-control" placeholder="Meta title" name="meta_title" value="{{old('meta_title')}}" id="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Meta description</label>
+                                            <textarea id="description" class="form-control" placeholder="Meta description" name="meta_description">{{old('meta_description')}}</textarea>
+                                        </div>
+                                    </div>
+
+
                                     <div class="col-sm-12">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                         <button type="reset" class="btn btn-outline-secondary">Cancel</button>

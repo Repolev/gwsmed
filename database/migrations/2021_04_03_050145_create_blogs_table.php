@@ -22,6 +22,8 @@ class CreateBlogsTable extends Migration
             $table->text('content');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
+            $table->text('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
             $table->foreign('user_id')->on('admins')->references('id')->onDelete('CASCADE');
         });
     }
