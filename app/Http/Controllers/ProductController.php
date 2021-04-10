@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Display;
 use App\Models\Product;
 use Illuminate\Support\Str;
@@ -51,8 +52,10 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $categories=Category::where('status','active')->where('is_parent',1)->orderBy('id','DESC')->get();
+
         $home_page_menus=Display::where('status','active')->latest()->get();
-        return view('backend.product.create',compact('home_page_menus'));
+        return view('backend.product.create',compact('home_page_menus','categories'));
     }
 
     /**
@@ -167,9 +170,11 @@ class ProductController extends Controller
     public function edit($id)
     {
         $home_page_menus=Display::where('status','active')->latest()->get();
+        $categories=Category::where('status','active')->where('is_parent',1)->orderBy('id','DESC')->get();
+
         $product=Product::find($id);
         if($product){
-            return view('backend.product.edit',compact(['product','home_page_menus']));
+            return view('backend.product.edit',compact(['product','home_page_menus','categories']));
         }
         else{
             return back()->with('error','Category not found');

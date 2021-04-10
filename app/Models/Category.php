@@ -21,7 +21,9 @@ class Category extends Model
         'is_featured',
         'status',
         'level',
-        'on_menu'
+        'on_menu',
+        'meta_title',
+        'meta_description',
     ];
 
 

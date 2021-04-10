@@ -1,5 +1,6 @@
 @extends('frontend.layouts.master')
 
+
 @section('content')
 
     <!-- breadcrumb start -->

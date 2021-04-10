@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
-@section('meta_description', $category->description)
-@section('meta_title', $category->title)
+@section('meta_description', $category->meta_description)
+@section('meta_title', $category->meta_title)
 
 @section('content')
     <!-- breadcrumb start -->

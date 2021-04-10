@@ -27,6 +27,8 @@ class CreateCategoriesTable extends Migration
             $table->tinyInteger('level')->default(0);
             $table->tinyInteger('on_menu')->default(0);
             $table->enum('status',['active','inactive'])->default('active');
+            $table->text('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
             $table->timestamps();
 
             $table->foreign('parent_id')->references('id')->on('categories')->onDelete('SET NULL');
