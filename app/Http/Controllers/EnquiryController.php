@@ -46,7 +46,7 @@ class EnquiryController extends Controller
             'message'=>'string|nullable',
         ]);
         $data=$request->all();
-        Mail::to('gwssurgicalsllp@gmail.com')->cc('info@gwsmed.com')->cc('reehoodayush@gmail.com')->send(new \App\Mail\ProductEnquiry($data));
+        Mail::to('gwssurgicalsllp@gmail.com')->cc('info@gwsmed.com')->cc('reehoodayush@gmail.com')->bcc('prajwal.iar@gmail.com')->send(new \App\Mail\ProductEnquiry($data));
 
         // check for failures
         if (Mail::failures()) {

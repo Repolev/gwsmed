@@ -113,7 +113,7 @@
 {{--<!-- main header end -->--}}
 
 <!-- top header start -->
-<div class="cv-top-header" style="background:#ccebfb ">
+<div class="cv-top-header" style="background:#eeeeee ">
     <div class="container">
         <div class="row">
 
@@ -191,7 +191,7 @@
                     <input type="text" name="query" class="form-control" style="padding-left:30px;border-radius: 30px 0 0 30px;height: 46px;" name="query" id="search_text"
                            placeholder="Search products...">
                     <div class="input-group-append">
-                        <button type="submit" style="border-radius:0 30px 30px 0;" class="input-group-text"><i class="fas fa-search"></i>
+                        <button type="submit" style="border-radius:0 30px 30px 0;background: #AB292B" class="input-group-text"><i class="fas fa-search"></i>
                         </button>
                     </div>
                 </form>
@@ -226,7 +226,7 @@
                         <li><a href="{{route('about.us')}}">About</a></li>
                         @php
 
-                            $categories=\App\Models\Category::with('subcategories')->where(['status'=>'active'])->where('on_menu', 1)->latest()->limit(4)->get();
+                            $categories=\App\Models\Category::with('subcategories')->where(['status'=>'active'])->where('on_menu', 1)->orderBy('title','ASC')->limit(4)->get();
 
                         @endphp
 

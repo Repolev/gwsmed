@@ -117,8 +117,21 @@
 {{--                                    </div>--}}
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <label for="">Categories/SubCategories</label>
-                                        <select id="categoryId" name="category_id[]" class="form-control show-tick" multiple>
-                                            @foreach(\App\Models\Category::orderBy('title','DESC')->get() as $cat)
+{{--                                        @php--}}
+
+{{--                                            $categories=\App\Models\Category::where('status','active')->with('subcategories')->orderBy('title','ASC')->get();--}}
+{{--                                        @endphp--}}
+                                        <select id="categoryId" name="category_id[]" class="form-control show-tick select2" multiple>
+
+{{--                                                @foreach($categories as $cat)--}}
+{{--                                                    @if(count($cat->subcategories)>0)--}}
+{{--                                                        <option value="{{$cat->title}}">@for($i = 0; $i <= $cat->level; $i++) - @endfor{{$cat->title}}</option>--}}
+{{--                                                    @else--}}
+{{--                                                        <option value="{{$cat->title}}" {{$cat->id == $product->cat_id? 'selected' : ''}}>{{$cat->title}}</option>--}}
+{{--                                                    @endif--}}
+{{--                                                    <option value="{{$cat->id}}" {{$cat->id == $product->cat_id? 'selected' : ''}}>@for($i = 0; $i < $cat->level; $i++) - @endfor{{$cat->title}}</option>--}}
+{{--                                                @endforeach--}}
+                                            @foreach(\App\Models\Category::where('status','active')->get() as $cat)
                                                 <option value="{{$cat->id}}" {{$cat->id == $product->cat_id? 'selected' : ''}}>@for($i = 0; $i < $cat->level; $i++) - @endfor{{$cat->title}}</option>
                                             @endforeach
                                         </select>
@@ -194,10 +207,21 @@
     </div>
 @endsection
 
+@section('styles')
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+@endsection
+
 @section('scripts')
-    <script src="/vendor/laravel-filemanager/js/stand-alone-button.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <script>
-        $('#lfm,#lfm1').filemanager('image');
+        $(document).ready(function() {
+            $('.select2').select2({
+                placeholder:"Choose category subcategory.."
+            });
+        });
     </script>
 
     <script>

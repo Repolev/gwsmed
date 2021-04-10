@@ -78,15 +78,20 @@
                                            <input data-id="{{$product->id}}" type="number" class="qty-text" min="1" value="1">
                                            <button data-id="{{$product->id}}" class="cv-add"></button>
                                        </div>
+
                                     <a href="javascript:void(0);" data-product_id="{{$product->id}}" data-quantity="1" class="mr-2 cv-btn add_to_cart_button_details" id="add_to_cart_button_details_{{$product->id}}">add to cart</a>
-                                       <a href="javascript:void(0);" class="cv-btn btn-success" style="background:#28a745 " data-target="#exampleModal" data-toggle="modal">Send Enquiry</a>
-                                   </div>
-                                   <div class="cv-prod-count mt-2 mb-2">
-                                       <a href="{{ route('catalog.download', $product->id) }}" class="cv-btn">Download Catalog</a>
                                    </div>
 
-                                   <div class="mt-4">
+
+
+                                   <div class="my-4 pt-3 px-2 px-3" style="border:1px solid #ddd">
                                        <p>{!! html_entity_decode($product->summary) !!}</p>
+                                   </div>
+
+                                   <div class=" mt-2 mb-2">
+                                       <a href="javascript:void(0);" class="btn btn-outline-success btn-sm"  data-target="#exampleModal" data-toggle="modal"><i class="fas fa-paper-plane"></i> Send Enquiry</a>
+
+                                       <a href="{{ route('catalog.download', $product->id) }}" class="btn btn-sm btn-outline-warning"><i class="fas fa-download"></i> Download Catalog</a>
                                    </div>
 
 
@@ -208,8 +213,8 @@
 {{--                            <a class="nav-link" data-toggle="tab" href="#cv-pro-enquiry" role="tab" aria-selected="true">Enquiry</a>--}}
                         </div>
                         <div class="tab-content cv-tab-content" id="nav-tabContent">
-                            <div class="tab-pane fade show active" id="cv-pro-description">
-                                <p>{!! html_entity_decode($product->description) !!}</p>
+                            <div class="tab-pane fade show active p-4" style="border:1px solid #ddd" id="cv-pro-description">
+                                <p >{!! html_entity_decode($product->description) !!}</p>
                             </div>
 {{--                            <div class="tab-pane fade show" id="cv-pro-enquiry">--}}
 {{--                                <form action="{{route('enquiry.submit')}}" method="post">--}}
@@ -311,7 +316,6 @@
                 <div class="container">
                     <div class="cv-heading">
                         <h1>Related products</h1>
-                                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                     <div class="row">
                         <div class="col-12">

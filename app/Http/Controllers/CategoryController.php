@@ -67,7 +67,7 @@ class CategoryController extends Controller
             if($file=$request->file('photo')){
                 $imageName = time() .".". str_replace(' ', '-', $file->getClientOriginalName());
                 $product_image = Image::make($file);
-                $product_image->resize(300, 400);
+                $product_image->resize(250, 300);
                 $image_path = public_path('/backend/assets/images/category/' . $imageName);
                 $product_image->save($image_path);
                 $data['photo']=$imageName;
@@ -168,7 +168,7 @@ class CategoryController extends Controller
                 if($file=$request->file('photo')){
                     $imageName = time() .".". str_replace(' ', '-', $file->getClientOriginalExtension());
                     $product_image = Image::make($file);
-                    $product_image->resize(300, 400);
+                    $product_image->resize(250, 300);
                     $image_path = public_path('/backend/assets/images/category/' . $imageName);
                     $product_image->save($image_path);
                     $data['photo']=$imageName;

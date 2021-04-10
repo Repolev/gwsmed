@@ -63,6 +63,7 @@
                                             </div>
                                             <div class="cv-product-data">
                                                 <a href="{{route('product.detail',$item->slug)}}" class="cv-price-title">{{ucfirst($item->title)}}</a>
+                                                <p>Model No: <span style="font-weight: bold;color:#AB292B;">{{\Illuminate\Support\Str::upper($item->model_no)}}</span></p>
                                             </div>
                                         </div>
                                     @endforeach

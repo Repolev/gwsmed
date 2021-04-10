@@ -154,7 +154,7 @@
     <div class="cv-feature  ">
         <div class="container">
             <div class="cv-heading">
-                <h6 style="font-weight: bold;color:#AB3238;font-size: 18px">The Brand to Trust Upon</h6>
+                <h6 style="font-weight: bold;color:grey;font-size: 18px">The Brand to Trust Upon</h6>
                 <h1>Why buy from GWS?</h1>
             </div>
             <div class="row">
@@ -257,87 +257,94 @@
                     </div>
                     <div class="cv-product-all wow fadeIn" data-wow-delay="0.5s">
                         <div class="cv-gallery-grid">
-                            <div class="cv-product-box cv-product-item cv-first">
-                                @if($cat_gallery_first)
-                                    @foreach($cat_gallery_first->subcategories as $subcategories)
-                                    <div class="cv-product-img">
-                                        <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
-                                        <div class="cv-product-button">
-                                            <a href="{{ route('product.subcategory', $subcategories->slug) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
-                                                <g>
-                                                    <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
-                                                        S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
-                                                        c0.512-23.04,18.944-41.472,41.472-41.472V208.64z"></path>
-                                                </g>
-                                                <g>
-                                                    <path d="M455.936,215.296c-25.088-31.232-114.688-133.12-225.28-133.12S30.464,184.064,5.376,215.296
-                                                        c-7.168,8.704-7.168,21.504,0,30.72c25.088,31.232,114.688,133.12,225.28,133.12s200.192-101.888,225.28-133.12
-                                                        C463.104,237.312,463.104,224.512,455.936,215.296z M230.656,338.176c-59.392,0-107.52-48.128-107.52-107.52
-                                                        s48.128-107.52,107.52-107.52s107.52,48.128,107.52,107.52S290.048,338.176,230.656,338.176z"></path>
-                                                </g>
-                                            </svg> View detail</a>
-                                        </div>
+                            @if($cat_gallery_first)
+                                @foreach($cat_gallery_first->subcategories as $subcategories)
+                                    <div class="cv-product-box cv-product-item cv-first">
+
+                                            <div class="cv-product-img">
+                                                <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
+                                                <div class="cv-product-button">
+                                                    <a href="{{ route('product.subcategory', $subcategories->slug) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
+                                                        <g>
+                                                            <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
+                                                                S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
+                                                                c0.512-23.04,18.944-41.472,41.472-41.472V208.64z"></path>
+                                                        </g>
+                                                        <g>
+                                                            <path d="M455.936,215.296c-25.088-31.232-114.688-133.12-225.28-133.12S30.464,184.064,5.376,215.296
+                                                                c-7.168,8.704-7.168,21.504,0,30.72c25.088,31.232,114.688,133.12,225.28,133.12s200.192-101.888,225.28-133.12
+                                                                C463.104,237.312,463.104,224.512,455.936,215.296z M230.656,338.176c-59.392,0-107.52-48.128-107.52-107.52
+                                                                s48.128-107.52,107.52-107.52s107.52,48.128,107.52,107.52S290.048,338.176,230.656,338.176z"></path>
+                                                        </g>
+                                                    </svg> View detail</a>
+                                                </div>
+                                            </div>
+                                            <div class="cv-product-data">
+                                                <a href="{{ route('product.subcategory', $subcategories->slug) }}" class="cv-price-title">{{ ucfirst($subcategories->title) }}</a>
+                                                <p>No. of products: {{count($subcategories->products)}}</p>
+                                            </div>
                                     </div>
-                                    <div class="cv-product-data">
-                                        <a href="javascript:;" class="cv-price-title">{{ $subcategories->title }}</a>
-                                    </div>
-                                    @endforeach
-                                @endif
-                            </div>
-                            <div class="cv-product-box cv-product-item cv-second">
+                                @endforeach
+                            @endif
+
                                 @if($cat_gallery_second)
                                     @foreach($cat_gallery_second->subcategories as $subcategories)
-                                    <div class="cv-product-img">
-                                        <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
-                                        <div class="cv-product-button">
-                                            <a href="{{ route('product.subcategory', $subcategories->slug) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
-                                                <g>
-                                                    <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
-                                                        S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
-                                                        c0.512-23.04,18.944-41.472,41.472-41.472V208.64z"></path>
-                                                </g>
-                                                <g>
-                                                    <path d="M455.936,215.296c-25.088-31.232-114.688-133.12-225.28-133.12S30.464,184.064,5.376,215.296
-                                                        c-7.168,8.704-7.168,21.504,0,30.72c25.088,31.232,114.688,133.12,225.28,133.12s200.192-101.888,225.28-133.12
-                                                        C463.104,237.312,463.104,224.512,455.936,215.296z M230.656,338.176c-59.392,0-107.52-48.128-107.52-107.52
-                                                        s48.128-107.52,107.52-107.52s107.52,48.128,107.52,107.52S290.048,338.176,230.656,338.176z"></path>
-                                                </g>
-                                            </svg> View detail</a>
+                                        <div class="cv-product-box cv-product-item cv-second">
+
+                                                <div class="cv-product-img">
+                                                    <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
+                                                    <div class="cv-product-button">
+                                                        <a href="{{ route('product.subcategory', $subcategories->slug) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
+                                                            <g>
+                                                                <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
+                                                                    S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
+                                                                    c0.512-23.04,18.944-41.472,41.472-41.472V208.64z"></path>
+                                                            </g>
+                                                            <g>
+                                                                <path d="M455.936,215.296c-25.088-31.232-114.688-133.12-225.28-133.12S30.464,184.064,5.376,215.296
+                                                                    c-7.168,8.704-7.168,21.504,0,30.72c25.088,31.232,114.688,133.12,225.28,133.12s200.192-101.888,225.28-133.12
+                                                                    C463.104,237.312,463.104,224.512,455.936,215.296z M230.656,338.176c-59.392,0-107.52-48.128-107.52-107.52
+                                                                    s48.128-107.52,107.52-107.52s107.52,48.128,107.52,107.52S290.048,338.176,230.656,338.176z"></path>
+                                                            </g>
+                                                        </svg> View detail</a>
+                                                    </div>
+                                                </div>
+                                            <div class="cv-product-data">
+                                                <a href="{{ route('product.subcategory', $subcategories->slug) }}" class="cv-price-title">{{ ucfirst($subcategories->title) }}</a>
+                                                <p>No. of products: {{count($subcategories->products)}}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="cv-product-data">
-                                        <a href="javascript:;" class="cv-price-title">{{ $subcategories->title }}</a>
-                                    </div>
                                     @endforeach
                                 @endif
-                            </div>
-                            <div class="cv-product-box cv-product-item cv-third">
                                 @if($cat_gallery_third)
                                     @foreach($cat_gallery_third->subcategories as $subcategories)
-                                    <div class="cv-product-img">
-                                        <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
-                                        <div class="cv-product-button">
-                                            <a href="{{ route('product.subcategory', $subcategories->slug) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
-                                                <g>
-                                                    <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
-                                                        S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
-                                                        c0.512-23.04,18.944-41.472,41.472-41.472V208.64z"></path>
-                                                </g>
-                                                <g>
-                                                    <path d="M455.936,215.296c-25.088-31.232-114.688-133.12-225.28-133.12S30.464,184.064,5.376,215.296
-                                                        c-7.168,8.704-7.168,21.504,0,30.72c25.088,31.232,114.688,133.12,225.28,133.12s200.192-101.888,225.28-133.12
-                                                        C463.104,237.312,463.104,224.512,455.936,215.296z M230.656,338.176c-59.392,0-107.52-48.128-107.52-107.52
-                                                        s48.128-107.52,107.52-107.52s107.52,48.128,107.52,107.52S290.048,338.176,230.656,338.176z"></path>
-                                                </g>
-                                            </svg> View detail</a>
+                                        <div class="cv-product-box cv-product-item cv-third">
+
+                                                <div class="cv-product-img">
+                                                    <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
+                                                    <div class="cv-product-button">
+                                                        <a href="{{ route('product.subcategory', $subcategories->slug) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
+                                                            <g>
+                                                                <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
+                                                                    S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
+                                                                    c0.512-23.04,18.944-41.472,41.472-41.472V208.64z"></path>
+                                                            </g>
+                                                            <g>
+                                                                <path d="M455.936,215.296c-25.088-31.232-114.688-133.12-225.28-133.12S30.464,184.064,5.376,215.296
+                                                                    c-7.168,8.704-7.168,21.504,0,30.72c25.088,31.232,114.688,133.12,225.28,133.12s200.192-101.888,225.28-133.12
+                                                                    C463.104,237.312,463.104,224.512,455.936,215.296z M230.656,338.176c-59.392,0-107.52-48.128-107.52-107.52
+                                                                    s48.128-107.52,107.52-107.52s107.52,48.128,107.52,107.52S290.048,338.176,230.656,338.176z"></path>
+                                                            </g>
+                                                        </svg> View detail</a>
+                                                    </div>
+                                                </div>
+                                            <div class="cv-product-data">
+                                                <a href="{{ route('product.subcategory', $subcategories->slug) }}" class="cv-price-title">{{ ucfirst($subcategories->title) }}</a>
+                                                <p>No. of products: {{count($subcategories->products)}}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="cv-product-data">
-                                        <a href="javascript:;" class="cv-price-title">{{ $subcategories->title }}</a>
-                                    </div>
                                     @endforeach
                                 @endif
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -352,7 +359,7 @@
 
 @section('styles')
     <style>
-        p span{
+       .category-block p span{
             color:white !important;
         }
     </style>

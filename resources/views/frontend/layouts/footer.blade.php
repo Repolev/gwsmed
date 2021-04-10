@@ -5,11 +5,11 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="cv-foot-box cv-foot-logo">
                         @if(\App\Models\Setting::value('logo'))
-                            <img src="{{ asset('storage/frontend/images/settings/'.\App\Models\Setting::value('logo')) }}" alt="image" class="img-fluid"/>
+                            <img src="{{ asset('storage/frontend/images/settings/'.\App\Models\Setting::value('logo')) }}" style="max-width: 200px" alt="image" class="img-fluid"/>
                         @else
-                            <img src="{{ Helper::defaultLogo() }}" alt="image" class="img-fluid"/>
+                            <img src="{{ Helper::defaultLogo() }}" alt="image" class="img-fluid" style="max-width: 200px" />
                         @endif
-                        <p>{{\App\Models\Setting::value('short_intro')}}</p>
+                        <p>{{\Illuminate\Support\Str::limit(\App\Models\Setting::value('short_intro'),150)}}</p>
 
                     </div>
                 </div>
@@ -34,7 +34,6 @@
                             <li><a href="{{ route('contact.us') }}">Contact Us</a></li>
                             <li><a href="{{ route('certification') }}">Certification</a></li>
                             <li><a href="{{ route('infrastructure') }}">Infrastructure</a></li>
-                            <li><a href="{{ route('company.profile') }}">Company Profile</a></li>
                         </ul>
                     </div>
                 </div>
@@ -62,7 +61,7 @@
     </div>
     <!-- footer end -->
     <!-- copyright start -->
-    <div class="cv-copyright">
+    <div class="cv-copyright" style="background: #AB292B">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
