@@ -33,7 +33,7 @@
             $reviews=\App\Models\Review::where(['status'=>'active'])->orderBy('id','DESC')->limit('5')->get();
         @endphp
         @if(count($reviews)>0)
-            <div class="cv-testimonial spacer-top-less">
+            <div class="cv-testimonial">
                 <div class="container">
                     <div class="cv-heading">
                         <h1>Customer review</h1>
