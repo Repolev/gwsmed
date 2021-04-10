@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Mail\ContactMail;
 use App\Models\Blog;
 use App\Models\User;
 use App\Models\Brand;
@@ -13,6 +14,7 @@ use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 
 class IndexController extends Controller
@@ -29,7 +31,7 @@ class IndexController extends Controller
 //        $footer_promo_banner=Banner::where(['status'=>'active','condition'=>'promo','position'=>'bottom'])->latest()->first();
 
         //deal of the day
-        $categories=Category::where(['status'=>'active','is_parent'=>1])->limit(3)->orderBy('id',"DESC")->get();
+        $categories=Category::where(['status'=>'active','is_parent'=>1])->limit(3)->orderBy('title',"ASC")->get();
         $featured_products=\App\Models\Product::with(['categories','productReviews'])->where(['status'=>'active','is_featured'=>1])->orderBy('id','DESC')->get();
         $new_products= Product::with(['categories','productReviews'])->where(['status'=>'active','tags'=>'new'])->latest()->limit(10)->get();
         $featured_category = [];
@@ -45,9 +47,11 @@ class IndexController extends Controller
 //        $home_page_category_two=Display::where('status','active')->with('products')->skip(1)->take(2)->get();
 //        $home_page_category_three=Display::where('status','active')->with('products')->skip(3)->take(2)->get();
 //        $brands=Brand::where(['status'=>'active'])->orderBy('id','DESC')->get();
-        $cat_gallery_first = Category::where('status','actvie')->where('on_menu', 1)->with('subcategories')->first();
-        $cat_gallery_second = Category::where('status','actvie')->where('on_menu', 1)->with('subcategories')->skip(1)->first();
-        $cat_gallery_third = Category::where('status','actvie')->where('on_menu', 1)->with('subcategories')->skip(2)->first();
+        $cat_gallery_first = Category::where('status','active')->where('on_menu', 1)->with('subcategories')->first();
+        $cat_gallery_second = Category::where('status','active')->where('on_menu', 1)->with('subcategories')->skip(1)->first();
+        $cat_gallery_third = Category::where('status','active')->where('on_menu', 1)->with('subcategories')->skip(2)->first();
+
+
         return view('frontend.index',compact([
             'banners',
 
@@ -342,7 +346,7 @@ class IndexController extends Controller
     public function productSubCategory(Request $request,$slug){
         $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->first();
         $categories=Category::where('status','active')->orderBy('title','ASC')->with('subcategories')->with('products')->get();
-        return view('frontend.pages.product.product-subcategory', compact(['category', 'products', 'unique_products']));
+        return view('frontend.pages.product.product-subcategory', compact(['category']));
     }
 
     //    Product detail
@@ -360,6 +364,25 @@ class IndexController extends Controller
     //  contact page
     public function contactUs(){
         return view('frontend.pages.contact');
+    }
+
+    public function contactSubmit(Request $request){
+        $this->validate($request,[
+            'full_name'=>'string|required',
+            'email'=>'email|required',
+            'subject'=>"string|required|min:4",
+            'message'=>'string'
+        ]);
+        $data= $request->all();
+        $send_mail = Mail::to('gwssurgicalsllp@gmail.com')->cc('info@gwsmed.com')->cc('reehoodayush@gmail.com')->send(new ContactMail($data));
+        if($send_mail){
+            toastr()->success('Thank you for submitting feedback','Success');
+            return back();
+        }
+        else{
+            toastr()->error('Something went wrong','Error');
+            return back();
+        }
     }
 
     //  contact page

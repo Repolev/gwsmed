@@ -78,6 +78,7 @@ Route::get('search',[\App\Http\Controllers\Frontend\IndexController::class,'sear
 
 //contact page
 Route::get('contact-us',[\App\Http\Controllers\Frontend\IndexController::class,'contactUs'])->name('contact.us');
+Route::post('contact-submit',[\App\Http\Controllers\Frontend\IndexController::class,'contactSubmit'])->name('contact.submit');
 
 //about us
 Route::get('about-us',[\App\Http\Controllers\Frontend\IndexController::class,'aboutUs'])->name('about.us');

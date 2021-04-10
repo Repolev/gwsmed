@@ -38,3 +38,5 @@
     .icon-menu:before{display:none !important}
 </style>
 
+@yield('styles')
+

@@ -46,25 +46,23 @@
                                         <div class="cv-testi-box">
                                             <div class="cv-testi-data">
                                                 <p>{!! html_entity_decode($review->review) !!}</p>
-                                            </div>
-                                            <div class="cv-testi-footer">
-                                                <div class="cv-testi-img">
-                                                    <img src="https://via.placeholder.com/100x100" alt="image" class="img-fluid"/>
+                                                <div class="cv-testi-footer">
+                                                    <div class="cv-testi-name text-center">
+                                                        @php
+                                                            $rate = ceil($review->rate);
+                                                        @endphp
+                                                        @for ($i = 0; $i < 5; $i++)
+                                                            @if ($i < $rate)
+                                                                <i class="fas fa-star text-warning"></i>
+                                                            @else
+                                                                <i class="far fa-star text-warning"></i>
+                                                            @endif
+                                                        @endfor
+                                                        <h1>{{ucfirst($review->name)}}</h1>
+                                                        <p>{{ucfirst($review->address)}}</p>
+                                                    </div>
                                                 </div>
-                                                <div class="cv-testi-name">
-                                                    @php
-                                                        $rate = ceil($review->rate);
-                                                    @endphp
-                                                    @for ($i = 0; $i < 5; $i++)
-                                                        @if ($i < $rate)
-                                                            <i class="fas fa-star text-warning"></i>
-                                                        @else
-                                                            <i class="far fa-star text-warning"></i>
-                                                        @endif
-                                                    @endfor
-                                                    <h1>{{ucfirst($review->name)}}</h1>
-                                                    <p>{{ucfirst($review->address)}}</p>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>

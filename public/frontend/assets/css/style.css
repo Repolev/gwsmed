@@ -50,7 +50,7 @@ a{
 }
 a:hover{
 	text-decoration: none;
-	color: #3cbcff;
+	color: #AB292B;
 }
 ul{
 	margin: 0;
@@ -73,7 +73,7 @@ li{
     min-width: 160px;
     height: 50px;
     line-height: 50px;
-    background: #3cbcff;
+    background: #AB292B;
     color: #fff;
     text-transform: capitalize;
     outline: none;
@@ -124,7 +124,7 @@ input::-webkit-inner-spin-button {
 .cv-head-icon ul li svg{
     width: 16px;
     height: 16px;
-    fill:#3cbcff;
+    fill:#AB292B;
 }
 .cv-head-icon ul li {
     display: inline-block;
@@ -141,7 +141,7 @@ input::-webkit-inner-spin-button {
     position: relative;
 }
 .cv-head-icon ul li a span {
-    background: #3cbcff;
+    background: #AB292B;
     min-width: 16px;
     height: 16px;
     position: absolute;
@@ -160,7 +160,7 @@ input::-webkit-inner-spin-button {
     height: 50px;
     display: flex;
     align-items: center;
-    background: #3cbcff;
+    background: #AB292B;
 }
 .cv-main-header .row,.cv-header-two .row {
     align-items: center;
@@ -192,7 +192,7 @@ input::-webkit-inner-spin-button {
 }
 .cv-banner-cat {
     margin-bottom: 10px;
-    background: #3cbcff;
+    background: #AB292B;
     display: inline-block;
     padding: 3px 20px;
     color: #fff;
@@ -207,7 +207,7 @@ input::-webkit-inner-spin-button {
     text-align: center;
 }
 .cv-banner-sale {
-    color: #3cbcff;
+    color: #AB292B;
     font-size: 25px;
     letter-spacing: 2px;
     font-weight: 600;
@@ -240,10 +240,10 @@ input::-webkit-inner-spin-button {
     margin-bottom: 30px;
 }
 .cv-product-data {
-    padding: 19px 25px 25px;
+    padding: 10px 12px 10px;
 }
 .cv-shop .cv-product-data {
-    padding: 19px 24px 20px;
+    padding: 10px 12px 10px;
 }
 .cv-product-img img {
     border-radius: 10px 10px 0px 0px;
@@ -261,7 +261,7 @@ input::-webkit-inner-spin-button {
 }
 .cv-price-cart {
     display: inline-block;
-    background: #3cbcff;
+    background: #AB292B;
     padding: 2px 10px;
     color: #fff;
     margin-top: 10px;
@@ -274,10 +274,10 @@ input::-webkit-inner-spin-button {
 }
 .cv-price-title {
     font-size: 20px;
-    font-weight: 600;
+    /*font-weight: 600;*/
     margin: 0px 0 5px;
     display: block;
-    color: #242424;
+    color: #4a4a4a;
 }
 .cv-product-icon ul li svg {
     width: 14px;
@@ -305,7 +305,7 @@ input::-webkit-inner-spin-button {
     visibility: visible;
 }
 .cv-product-icon ul li a {
-    background: #3cbcff;
+    background: #AB292B;
     width: 30px;
     height: 30px;
     line-height: 30px;
@@ -318,7 +318,7 @@ input::-webkit-inner-spin-button {
     position: relative;
 }
 .cv-sale {
-    background: #3cbcff;
+    background: #AB292B;
     padding: 0 2px;
     position: absolute;
     left: 10px;
@@ -341,7 +341,7 @@ input::-webkit-inner-spin-button {
 .cv-pdoduct-price {
     font-size: 14px;
     font-weight: 600;
-    color: #3cbcff;
+    color: #AB292B;
 }
 .cv-pdoduct-price del {
     margin-right: 5px;
@@ -379,7 +379,7 @@ input::-webkit-inner-spin-button {
 .cv-heading h1 {
     font-size: 36px;
     font-weight: 600;
-    color: #3cbcff;
+    color: #AB292B;
     margin-bottom: 5px;
     text-transform: capitalize;
 }
@@ -406,7 +406,7 @@ input::-webkit-inner-spin-button {
 .cv-deal-box h3 {
     font-size: 25px;
     margin-bottom: 14px;
-    color: #3cbcff;
+    color: #AB292B;
     margin-top: -6px;
 }
 .cv-deal-box .cv-btn{
@@ -434,14 +434,14 @@ p#me_timer span {
     line-height: 50px;
     display: inline-block;
     border-radius: 100%;
-    border: 1px solid #3cbcff;
+    border: 1px solid #AB292B;
 }
 /* hot deals end */
 /* testimonial start */
 .cv-testi-data {
     box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.05);
     background: #fff;
-    padding: 44px 50px 73px;
+    padding: 44px 50px 30px;
     border-radius: 10px;
     position: relative;
     margin: 15px;
@@ -460,6 +460,7 @@ p#me_timer span {
     border: 5px solid #d4f0ff;
 }
 .cv-testi-footer {
+    margin-top:40px;
     display: flex;
     align-items: center;
     transform: translateY(-15px);
@@ -499,7 +500,7 @@ p#me_timer span {
     content: '';
     width: 10px;
     height: 10px;
-    border: 2px solid #3cbcff;
+    border: 2px solid #AB292B;
     transform: rotate(45deg);
     top: 0;
     bottom: 0;
@@ -520,7 +521,7 @@ p#me_timer span {
     content: '';
     width: 20px;
     height: 2px;
-    background: #3cbcff;
+    background: #AB292B;
     top: 0;
     bottom: 0;
     margin: auto;
@@ -545,7 +546,7 @@ p#me_timer span {
     background: #f8fdff;
 }
 .swiper-button-prev:hover, .swiper-button-next:hover{
-    border-color: #3cbcff;
+    border-color: #AB292B;
 }
 .swiper-button-next {
     right: -20px;
@@ -597,7 +598,7 @@ p#me_timer span {
 }
 .cv-share-hover {
     display: inline-block;
-    background: #3cbcff;
+    background: #AB292B;
     padding: 0px 10px;
     color: #fff;
     font-weight: 600;
@@ -612,7 +613,7 @@ p#me_timer span {
 .cv-share-hover:after {
     position: absolute;
     content: '';
-    border-top: 10px solid #3cbcff;
+    border-top: 10px solid #AB292B;
     border-right: 10px solid #0000ff00;
     transform: rotate(135deg) translate(4px,4px);
     top: 10px;
@@ -665,7 +666,7 @@ p#me_timer span {
     transition-delay: 0.5s;
 }
 .cv-blog-share ul li a {
-    background: #3cbcff;
+    background: #AB292B;
     display: block;
     width: 30px;
     height: 30px;
@@ -682,7 +683,7 @@ p#me_timer span {
 }
 .cv-blog-date{
     font-size: 14px;
-    color: #3cbcff;
+    color: #AB292B;
 }
 /* blog end */
 /* footer start */
@@ -696,7 +697,7 @@ p#me_timer span {
     color: #fff;
 }
 .cv-foot-box a:hover{
-    color: #3cbcff;
+    color: #AB292B;
 }
 .cv-foot-box h2 {
     font-size: 25px;
@@ -720,8 +721,8 @@ p#me_timer span {
     bottom: 0;
     width: 6px;
     height: 6px;
-    border-top: 2px solid #3cbcff;
-    border-right: 2px solid #3cbcff;
+    border-top: 2px solid #AB292B;
+    border-right: 2px solid #AB292B;
     transform: rotate(45deg);
     margin: auto;
 }
@@ -737,7 +738,7 @@ p#me_timer span {
     width: 30px;
     height: 30px;
     display: block;
-    background: #3cbcff;
+    background: #AB292B;
     text-align: center;
     line-height: 27px;
     border-radius: 3px;
@@ -787,7 +788,7 @@ p#me_timer span {
 }
 .cv-copyright {
     text-align: center;
-    background: #3cbcff;
+    background: #AB292B;
     padding: 10px 0;
 }
 .cv-foot-newsbox h2 {
@@ -817,7 +818,7 @@ p#me_timer span {
     margin: 20px 0 0;
 }
 .cv-foot-contact p span {
-    color: #3cbcff;
+    color: #AB292B;
 }
 .cv-foot-contact p {
     margin-bottom: 10px;
@@ -858,12 +859,12 @@ p#me_timer span {
 .cv-feature-img svg{
     width:30px;
     height: 30px;
-    fill: #3cbcff;
+    fill: #AB292B;
 }
 
 .cv-feature-img i {
     font-size: 30px;
-    color: #3cbcff;
+    color: #AB292B;
 }
 .cv-feature-img {
     width: 60px;
@@ -941,7 +942,7 @@ p#me_timer span {
     bottom: 0;
     left: 0;
     right: 0;
-    background: #3cbcff;
+    background: #AB292B;
     transform: scale(0) rotate(45deg);
     transition: 0.3s;
     border-radius: 10px;
@@ -995,7 +996,7 @@ p#me_timer span {
 .cv-product-two .cv-sale:after,.cv-product-three .cv-sale:after {
     position: absolute;
     content: '';
-    border-top: 10px solid #3cbcff;
+    border-top: 10px solid #AB292B;
     border-left: 10px solid rgba(56, 148, 185, 0);
     bottom: -10px;
     right: 5px;
@@ -1017,7 +1018,7 @@ p#me_timer span {
     border: 1px solid #d4f0ff;
 }
 .cv-cart-box .cv-price-cart svg {
-    fill: #3cbcff;
+    fill: #AB292B;
     transition: 0.3s;
 }
 .cv-cart-box .cv-price-cart {
@@ -1032,15 +1033,15 @@ p#me_timer span {
     fill: #fff;
 }
 .cv-cart-box .cv-price-cart:hover {
-    background: #3cbcff;
-    border-color:#3cbcff;
+    background: #AB292B;
+    border-color:#AB292B;
 }
 .cv-product-button .cv-btn {
     height: 40px;
     line-height: 40px;
     min-width: 130px;
     background: #fff;
-    color: #3cbcff;
+    color: #AB292B;
 }
 .cv-product-button {
     z-index: 1;
@@ -1069,7 +1070,7 @@ p#me_timer span {
 }
 .cv-product-button .cv-btn svg {
     width: 14px;
-    fill: #3cbcff;
+    fill: #AB292B;
     height: 14px;
     margin-right: 4px;
 }
@@ -1088,7 +1089,7 @@ p#me_timer span {
     height: 70px;
     margin: -50px auto 4px;
     line-height: 45px;
-    box-shadow: 0px -2px 0px 0px #3cbcff;
+    box-shadow: 0px -2px 0px 0px #AB292B;
     background: #fff;
     border: none;
 }
@@ -1099,7 +1100,7 @@ p#me_timer span {
 /* feature two end */
 /* top header two start */
 .cv-top-header-two {
-    background: #3cbcff;
+    background: #AB292B;
     display: flex;
     align-items: center;
     height: 51px;
@@ -1121,12 +1122,12 @@ p#me_timer span {
     position: relative;
 }
 .cv-product-three .cv-product-data {
-    padding: 19px 25px 20px;
+    padding: 10px 12px 10px;
 }
 .cv-product-data i {
     font-size: 14px;
     margin-right: 1px;
-    color: #3cbcff;
+    color: #AB292B;
 }
 /* product three end */
 /* blog three start */
@@ -1180,7 +1181,7 @@ p#me_timer span {
     bottom: 0;
     margin: auto;
     z-index: -1;
-    border: 30px solid #3cbcff3b;
+    border: 30px solid #AB292B3b;
 }
 .cv-banner-three-text {
     padding: 76px 0 80px;
@@ -1202,7 +1203,7 @@ p#me_timer span {
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     text-align: center;
-    border-bottom: 3px solid #3cbcff;
+    border-bottom: 3px solid #AB292B;
 }
 .cv-team-img img {
     border-radius: 10px 10px 0px 0px;
@@ -1223,7 +1224,7 @@ p#me_timer span {
     width: 30px;
     height: 30px;
     display: block;
-    background: #3cbcff;
+    background: #AB292B;
     text-align: center;
     line-height: 27px;
     border-radius: 5px;
@@ -1252,7 +1253,7 @@ p#me_timer span {
     min-width: 100px;
     display: block;
     text-transform: capitalize;
-    color: #3cbcff;
+    color: #AB292B;
     height: 40px;
     line-height: 39px;
     border-radius: 30px;
@@ -1272,12 +1273,12 @@ p#me_timer span {
     margin: 0;
 }
 .cv-product-tab ul li a.cv-product-active {
-    background: #3cbcff;
+    background: #AB292B;
     color: #fff;
-    border-color: #3cbcff;
+    border-color: #AB292B;
 }
 .cv-product-tab ul li a:hover {
-    color: #3cbcff;
+    color: #AB292B;
 }
 .cv-product-tab ul li a:hover.cv-product-active {
     color: #fff;
@@ -1293,13 +1294,15 @@ p#me_timer span {
 /* breadcrumb start */
 .cv-breadcrumb {
     padding: 71px 0 73px;
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(https://via.placeholder.com/1920x230);
+    background-size: cover;
+    background-position: center;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/background.jpg');
 }
 .cv-breadcrumb-box h1 {
     font-size: 36px;
     font-weight: 800;
     margin-bottom: 10px;
-    color: #3cbcff;
+    color: #AB292B;
     text-transform: capitalize;
 }
 .cv-breadcrumb-box {
@@ -1336,7 +1339,7 @@ p#me_timer span {
     color: #fff;
 }
 .cv-breadcrumb-box ul li a:hover{
-    color: #3cbcff;
+    color: #AB292B;
 }
 /* breadcrumb end */
 /* shop start */
@@ -1367,7 +1370,7 @@ p#me_timer span {
 .cv-sidebar-title {
     font-size: 25px;
     font-weight: 600;
-    color: #3cbcff;
+    color: #AB292B;
     margin-bottom: 24px;
     text-transform: capitalize;
 }
@@ -1383,10 +1386,10 @@ p#me_timer span {
     align-items: center;
 }
 .cv-product-filter ul li a:hover,.cv-product-filter .cv-product-active{
-    color: #3cbcff;
+    color: #AB292B;
 }
 .cv-product-filter ul li a span {
-    background: #3cbcff;
+    background: #AB292B;
     min-width: 20px;
     height: 20px;
     text-align: center;
@@ -1407,8 +1410,8 @@ p#me_timer span {
     top: 0px;
     bottom: 0;
     margin: auto 0 auto 8px;
-    border-top: 1.5px solid #3cbcff;
-    border-right: 1.5px solid #3cbcff;
+    border-top: 1.5px solid #AB292B;
+    border-right: 1.5px solid #AB292B;
     right: 0;
 }
 .cv-widget.cv-product-instagram {
@@ -1446,7 +1449,7 @@ p#me_timer span {
 .cv-shop-title p span {
     font-size: 20px;
     font-weight: 600;
-    color: #3cbcff;
+    color: #AB292B;
 }
 /* ----------------Range Slider------------------ */
 .irs {
@@ -1562,15 +1565,15 @@ p#me_timer span {
 .irs-bar {
     height: 10px;
     top: 33px;
-    border-top: 1px solid #3cbcff;
-    border-bottom: 1px solid #3cbcff;
-    background: linear-gradient(to top, #3cbcff 0%, #3cbcff 100%);
+    border-top: 1px solid #AB292B;
+    border-bottom: 1px solid #AB292B;
+    background: linear-gradient(to top, #AB292B 0%, #AB292B 100%);
 }
 .irs-slider {
     top: 29px;
     width: 18px;
     height: 18px;
-    background: #3cbcff;
+    background: #AB292B;
     border-radius: 30px;
     cursor: pointer;
 }
@@ -1585,7 +1588,7 @@ p#me_timer span {
     font-size: 14px; line-height: 1.333;
     text-shadow: none;
     padding: 1px 5px;
-    background: #3cbcff;
+    background: #AB292B;
     border-radius: 3px;
     -moz-border-radius: 3px;
 }
@@ -1606,8 +1609,8 @@ p#me_timer span {
     bottom: 0;
     width: 6px;
     height: 6px;
-    border-top: 2px solid #3cbcff;
-    border-right: 2px solid #3cbcff;
+    border-top: 2px solid #AB292B;
+    border-right: 2px solid #AB292B;
     transform: rotate(45deg);
     margin: auto;
 }
@@ -1620,7 +1623,7 @@ p#me_timer span {
     font-size: 22px;
     margin: 0;
     font-weight: 600;
-    color: #3cbcff;
+    color: #AB292B;
 }
 .cv-dr-box {
     margin-top: 18px;
@@ -1654,7 +1657,7 @@ p#me_timer span {
 .cv-service-icon svg {
     width: 50px;
     height: 50px;
-    fill: #3cbcff;
+    fill: #AB292B;
 }
 .cv-service-text {
     width: calc(100% - 50px);
@@ -1775,7 +1778,7 @@ p#me_timer span {
     border-radius: 30px;
 }
 .cv-tag ul li a:hover{
-    border-color: #3cbcff;
+    border-color: #AB292B;
 }
 .cv-pagination ul li {
     display: inline-block;
@@ -1795,7 +1798,7 @@ p#me_timer span {
     position: relative;
 }
 .cv-pagination ul li a.cv-page-active, .cv-pagination ul li a:hover {
-    background: #3cbcff;
+    background: #AB292B;
     color: #fff;
 }
 .cv-pagination {
@@ -1913,7 +1916,7 @@ p#me_timer span {
 }
 .cv-cmnt-reply svg {
     width: 14px;
-    fill: #3cbcff;
+    fill: #AB292B;
     margin-right: 5px;
     vertical-align: middle;
     transition:0.3s;
@@ -1943,7 +1946,7 @@ p#me_timer span {
 }
 .cv-rating i {
     font-size: 14px;
-    color: #3cbcff;
+    color: #AB292B;
 }
 .cv-prod-content .cv-pdoduct-price {
     margin-bottom: 5px;
@@ -1980,7 +1983,7 @@ p#me_timer span {
     right: 0;
     bottom: 0;
     content: '';
-    background: #3cbcff;
+    background: #AB292B;
     margin: auto;
     width: 8px;
     height: 2px;
@@ -2022,11 +2025,11 @@ p#me_timer span {
     margin-right: 5px;
 }
 .cv-shop-tab .nav-link.active,.cv-shop-tab .nav-link:focus,.cv-shop-tab .nav-link:hover{
-    border-color: #d4f0ff #d4f0ff transparent;
-    color:#3cbcff ;
+    border-color: #ddd #ddd transparent;
+    color:#AB292B ;
 }
 .cv-shop-tab .nav-tabs{
-    border-color: #d4f0ff;
+    border-color: #ddd;
 }
 .cv-tab-content p{
     margin-bottom: 0;
@@ -2066,7 +2069,7 @@ p#me_timer span {
     height: 250px;
     object-fit: cover;
     border-radius: 100%;
-    border: 5px solid #3cbcff;
+    border: 5px solid #AB292B;
 }
 .cv-profile-svg {
     position: absolute;
@@ -2190,7 +2193,7 @@ p#me_timer span {
     margin-top: 10px;
 }
 .cv-last-order table th {
-    background: #3cbcff;
+    background: #AB292B;
     color: #fff;
     padding: 12px 20px 13px;
     text-transform: capitalize;
@@ -2256,7 +2259,7 @@ p#me_timer span {
 .cv-login-wlcm-box {
     width: 280px;
     padding: 30px;
-    background: #3cbcff;
+    background: #AB292B;
     display: flex;
     align-items: center;
     position: relative;
@@ -2288,7 +2291,7 @@ p#me_timer span {
     line-height: 48px;
 }
 .cv-login-form h2{
-    color: #3cbcff;
+    color: #AB292B;
     margin-bottom: 5px;
 }
 .cv-login-form input,.pa-forgot-password {
@@ -2336,7 +2339,7 @@ div#forgotModal .cv-login-form .cv-btn {
     margin-top: 20px;
 }
 td.cv-price {
-    color: #3cbcff;
+    color: #AB292B;
     font-weight: 600;
 }
 /* cart end */
@@ -2408,7 +2411,7 @@ td.cv-price {
     height: 50px;
     line-height: 50px;
     text-align: center;
-    background: #3cbcff;
+    background: #AB292B;
     border-radius: 10px;
 }
 .cv-contact-text {
@@ -2481,7 +2484,7 @@ textarea{
     top: 20px;
     left: 20px;
     border-radius: 50%;
-    box-shadow: 0 4px 0 0 #3cbcff;
+    box-shadow: 0 4px 0 0 #AB292B;
     transform-origin: 80px 82px;
 }
 .cv-ellipsis {
@@ -2534,7 +2537,7 @@ textarea{
         color: #818899;
     }
     .cv-header-two .cv-menu>ul>li>a:hover{
-        color: #3cbcff;
+        color: #AB292B;
     }
     .cv-nav-bar {
         text-align: right;
@@ -2586,7 +2589,7 @@ textarea{
         font-weight: 600;
         margin-bottom: 20px;
         text-transform: uppercase;
-        color: #3cbcff;
+        color: #AB292B;
         letter-spacing: 2px;
     }
     /* mega menu end */
@@ -2620,7 +2623,7 @@ textarea{
         padding-left: 25px;
     }
     .cv-header-two .cv-children-menu:after{
-        border-bottom-color:#3cbcff;
+        border-bottom-color:#AB292B;
     }
     /* header two end */
 }
@@ -2637,7 +2640,7 @@ textarea{
         margin-bottom: 0px;
     }
     .cv-header-two .cv-toggle-nav span {
-        background: #3cbcff;
+        background: #AB292B;
     }
     .cv-menu {
         position: fixed;
@@ -2674,7 +2677,7 @@ textarea{
         font-size: 18px;
         font-weight: 600;
         padding: 12px 15px;
-        color: #3cbcff;
+        color: #AB292B;
         text-transform: capitalize;
         margin-bottom: 0;
     }
@@ -2710,8 +2713,8 @@ textarea{
         bottom: 0;
         width: 6px;
         height: 6px;
-        border-bottom: 2px solid #3cbcff;
-        border-right: 2px solid #3cbcff;
+        border-bottom: 2px solid #AB292B;
+        border-right: 2px solid #AB292B;
         transform: rotate(45deg);
     }
     .cv-header-two .cv-head-icon {
@@ -3202,7 +3205,7 @@ textarea{
     transition: all .5s ease
   }
 .scrollToTopBtn i{
-    color:#3CBCFF;
+    color:#AB292B;
 }
 
 .showBtn {
@@ -3213,7 +3216,8 @@ textarea{
 
 /*  */
 .cv-menu li a {
-    font-size: 20px;
+    font-size: 14px;
+    text-transform: uppercase;
 }
 
 
@@ -3271,11 +3275,13 @@ textarea{
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    border: 1px solid #96d8fc;
+    padding: 13px;
 }
 
 #sync1 .item img {
     height: auto;
-    width: auto;
+    width: 100%;
 }
 
 #sync2 .item {
