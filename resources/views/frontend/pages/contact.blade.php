@@ -110,7 +110,7 @@
                         <h2 class="cv-sidebar-title">Get a quote</h2>
                         <form action="{{route('contact.submit')}}" method="post">
                             @csrf
-                            <input type="text" placeholder="Enater your name" name="full_name" id="full_name" class="require"/>
+                            <input type="text" placeholder="Enter your name" name="full_name" id="full_name" class="require"/>
                             <input type="text"  placeholder="Enter your email" name="email" id="email" class="require" data-valid="email" data-error="Email should be valid."/>
                             <input type="text"  placeholder="Enter your subject" name="subject" id="subject" class="require"/>
                             <textarea placeholder="Message here" name="message" id="message" class="require"></textarea>

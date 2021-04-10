@@ -374,13 +374,13 @@ class IndexController extends Controller
             'message'=>'string'
         ]);
         $data= $request->all();
-        $send_mail = Mail::to('gwssurgicalsllp@gmail.com')->cc('info@gwsmed.com')->cc('reehoodayush@gmail.com')->send(new ContactMail($data));
-        if($send_mail){
-            toastr()->success('Thank you for submitting feedback','Success');
-            return back();
-        }
-        else{
+        Mail::to('gwssurgicalsllp@gmail.com')->cc('info@gwsmed.com')->send(new ContactMail($data));
+       // check for failures
+        if (Mail::failures()) {
             toastr()->error('Something went wrong','Error');
+            return back();
+        } else {
+            toastr()->success('Thank you for submitting enquiry','Success');
             return back();
         }
     }
