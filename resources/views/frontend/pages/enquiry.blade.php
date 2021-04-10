@@ -34,7 +34,7 @@
                         </div>
                     @endif
                     <h3 class="px-2 pb-3">Enquiry Form</h3>
-                    <form action="{{route('enquiry.product')}}" method="post">
+                    <form action="{{route('enquiry.category')}}" method="post">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">

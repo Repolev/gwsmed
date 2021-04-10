@@ -35,6 +35,6 @@ class CategoryEnquiry extends Mailable
     public function build()
     {
         return $this->subject('New Enquiry for Categories')
-                    ->view('mail.category_enquiry')->with('details',$this->details);
+                    ->markdown('mail.category_enquiry')->with('details', $this->details);
     }
 }
