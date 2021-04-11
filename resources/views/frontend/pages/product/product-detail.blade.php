@@ -79,7 +79,9 @@
                                            <button data-id="{{$product->id}}" class="cv-add"></button>
                                        </div>
 
-                                    <a href="javascript:void(0);" data-product_id="{{$product->id}}" data-quantity="1" class="mr-2 cv-btn add_to_cart_button_details" id="add_to_cart_button_details_{{$product->id}}">add to cart</a>
+                                    <a href="javascript:void(0);" data-product_id="{{$product->id}}" data-quantity="1" class="mr-2 cv-btn add_to_cart_button_details" id="add_to_cart_button_details_{{$product->id}}"><i class="fas fa-cart-plus"></i> Bulk Query</a>
+                                       <a href="javascript:void(0);" class="cv-btn btn btn-success btn-sm" style="background: #218838"  data-target="#exampleModal" data-toggle="modal"><i class="fas fa-paper-plane"></i> Quick Enquiry</a>
+
                                    </div>
 
 
@@ -89,9 +91,8 @@
                                    </div>
 
                                    <div class=" mt-2 mb-2">
-                                       <a href="javascript:void(0);" class="btn btn-outline-success btn-sm"  data-target="#exampleModal" data-toggle="modal"><i class="fas fa-paper-plane"></i> Send Enquiry</a>
 
-                                       <a href="{{ route('catalog.download', $product->id) }}" class="btn btn-sm btn-outline-warning"><i class="fas fa-download"></i> Download Catalog</a>
+                                       <a href="{{ route('catalog.download', $product->id) }}" class="btn  btn-outline-warning"><i class="fas fa-download"></i> Download Catalog</a>
                                    </div>
 
 

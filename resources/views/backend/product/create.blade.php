@@ -115,9 +115,41 @@
 {{--                                    </div>--}}
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <label for="">Category</label>
-                                        <select id="categoryId" name="category_id[]" class="form-control show-tick" multiple>
-                                            @foreach(\App\Models\Category::orderBy('title','DESC')->get() as $cat)
-                                                <option value="{{$cat->id}}" {{old('cat_id')==$cat->id? 'selected ' : ''}}>@for($i = 0; $i < $cat->level; $i++) - @endfor {{ucfirst($cat->title)}}</option>
+                                        <select id="categoryId" name="category_id[]" class="form-control select2  show-tick" multiple>
+                                            @foreach($categories as $cat)
+                                                <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                                @if(count($cat->subcategories)>0)
+                                                    @foreach($cat->subcategories as $subCat)
+                                                        <option value="{{$subCat->id}}">@for($i = 0; $i <= $cat->level; $i++) - @endfor{{$subCat->title}}</option>
+                                                        @if(count($subCat->subcategories)>0)
+                                                            @foreach($subCat->subcategories as $sub2Cat)
+                                                                <option value="{{$sub2Cat->id}}">@for($i = 0; $i <= $subCat->level; $i++) - @endfor{{$sub2Cat->title}}</option>
+
+                                                                @if(count($sub2Cat->subcategories)>0)
+                                                                    @foreach($sub2Cat->subcategories as $sub3Cat)
+                                                                        <option value="{{$sub3Cat->id}}">@for($i = 0; $i <= $sub2Cat->level; $i++) - @endfor{{$sub3Cat->title}}</option>
+                                                                        @if(count($sub3Cat->subcategories)>0)
+                                                                            @foreach($sub3Cat->subcategories as $sub4Cat)
+                                                                                <option value="{{$sub4Cat->id}}">@for($i = 0; $i <= $sub3Cat->level; $i++) - @endfor{{$sub4Cat->title}}</option>
+                                                                                @if(count($sub4Cat->subcategories)>0)
+                                                                                    @foreach($sub4Cat->subcategories as $sub5Cat)
+                                                                                        <option value="{{$sub5Cat->id}}">@for($i = 0; $i <= $sub4Cat->level; $i++) - @endfor{{$sub5Cat->title}}</option>
+                                                                                        @if(count($sub5Cat->subcategories)>0)
+                                                                                            @foreach($sub5Cat->subcategories as $sub6Cat)
+                                                                                                <option value="{{$sub6Cat->id}}">@for($i = 0; $i <= $sub5Cat->level; $i++) - @endfor{{$sub6Cat->title}}</option>
+                                                                                            @endforeach
+                                                                                        @endif
+                                                                                    @endforeach
+                                                                                @endif
+                                                                            @endforeach
+                                                                        @endif
+                                                                    @endforeach
+                                                                @endif
+                                                            @endforeach
+                                                        @endif
+                                                    @endforeach
+                                                @endif
+                                                {{--                                                    <option value="{{$cat->id}}" {{$cat->id == $product->cat_id? 'selected' : ''}}>@for($i = 0; $i < $cat->level; $i++) - @endfor{{$cat->title}}</option>--}}
                                             @endforeach
                                         </select>
                                     </div>
@@ -199,8 +231,21 @@
         </div>
     </div>
 @endsection
+@section('styles')
 
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+@endsection
 @section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2({
+                placeholder:"Choose category subcategory.."
+            });
+        });
+    </script>
     <script>
         $(document).ready(function() {
             $('.description').summernote();

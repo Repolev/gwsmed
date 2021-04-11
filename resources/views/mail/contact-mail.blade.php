@@ -20,7 +20,7 @@
             <br/>
             <br/>
             <p> Best Regards</p>
-            <p> Team, Emart Shopping </p>
+            <p> Team, GWS SURGICAL </p>
         </div>
     </div>
 </div>
