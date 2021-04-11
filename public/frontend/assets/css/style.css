@@ -33,12 +33,8 @@ Author: Kamleshyadav
 26. contact
 27. login
 --------------------------------------------------------------------*/
-
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
-
-
 body{
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'PT Sans', sans-serif;
 	color: #818899;
 	font-size: 16px;
 	font-weight: 300;
@@ -2703,6 +2699,7 @@ textarea{
         display: flex;
         flex-direction: column;
         align-items: flex-end;
+        padding: 10px 0px;
     }
     .cv-children-menu .cv-sub-mmenu, .cv-children-menu .cv-mega-menu {
         display: none;
@@ -2763,6 +2760,9 @@ textarea{
     }
 }
 @media screen and (max-width: 991px){
+    .cv-logo img {
+        max-width: 58%!important;
+    }
     p#me_timer span {
         min-width: 40px;
         min-height: 40px;
@@ -3260,7 +3260,7 @@ textarea{
 }
 
 .cv-logo img{
-    max-width: 56%;
+    max-width: 37%;
     padding:20px 0px;
 }
 

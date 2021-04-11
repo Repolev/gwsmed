@@ -117,15 +117,13 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <div class="cv-head-contact">
                     <h3><i class="fas fa-phone-alt"></i> {{\App\Models\Setting::value('phone')}}  <i class="pl-4 fas fa-envelope"></i> {{\App\Models\Setting::value('email')}}</h3>
                 </div>
             </div>
+           
             <div class="col-md-6">
-
-            </div>
-            <div class="col-md-2">
                 <div class="cv-head-icon">
 
                     <ul>
@@ -173,7 +171,7 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-md-4">
+            <div class="col-6 col-md-6">
                 <div class="cv-head-contact">
                     <div class="cv-logo">
                         @if(\App\Models\Setting::value('logo'))
@@ -185,8 +183,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col"></div>
-            <div class="col-md-6 ">
+            
+            <div class="col-6 col-md-6 ">
                 <form action="{{route('search')}}" method="get" class="d-flex">
                     <input type="text" name="query" class="form-control" style="padding-left:30px;border-radius: 30px 0 0 30px;height: 46px;" name="query" id="search_text"
                            placeholder="Search products...">
