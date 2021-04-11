@@ -55,7 +55,6 @@
                                                 <input type="checkbox" name="toogle" value="{{$item->id}}" data-toggle="switchbutton" {{$item->status=='active' ? 'checked' : ''}} data-onlabel="active" data-offlabel="inactive" data-size="sm" data-onstyle="success" data-offstyle="danger">
                                             </td>
                                             <td>
-{{--                                                <a href="{{route('product.show',$item->id)}}" data-toggle="tooltip" title="add attribute" class="float-left btn btn-sm btn-outline-secondary mr-1 mb-1" data-placement="bottom"><i class="fas fa-plus-circle"></i> </a>--}}
                                                 <a href="{{route('product.detail',$item->slug)}}" target="_blank" data-toggle="tooltip" title="view" class="mr-1 float-left btn btn-sm btn-outline-info" data-placement="bottom"><i class="fas fa-eye"></i> </a>
                                                 <a href="{{route('product.edit',$item->id)}}" data-toggle="tooltip" title="edit" class="float-left btn btn-sm btn-outline-warning" data-placement="bottom"><i class="fas fa-edit"></i> </a>
                                                 <form class="float-left ml-1" action="{{route('product.destroy',$item->id)}}"  method="post">
@@ -65,60 +64,8 @@
                                                 </form>
 
                                             </td>
-
-{{--                                            modal--}}
-                                        <!-- Modal -->
-                                            <div class="modal fade" id="productID{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered  modal-lg" role="document">
-                                                    @php
-                                                    $product=\App\Models\Product::where('id',$item->id)->first();
-                                                    @endphp
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalLongTitle">{{\Illuminate\Support\Str::upper($product->title)}}</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-                                                                    <strong>Main Images :</strong>
-                                                                    @foreach($photo as $photos)
-                                                                        <img src="{{asset($photos)}}" style="max-width: 150px" class="img-fluid">
-                                                                    @endforeach
-                                                                </div>
-                                                            </div>
-
-
-                                                                <div class="col-md-4">
-                                                                    <strong>Status:</strong>
-                                                                    <div class="badge badge-warning">{{$product->status}}</div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-md-12">
-
-                                                                    <strong>Summary:</strong>
-                                                                    <p>{!! html_entity_decode($product->summary) !!}</p>
-                                                                    <strong>Description:</strong>
-                                                                    <p>{!! html_entity_decode($product->description) !!}</p>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                         </tr>
                                     @endforeach
-
                                     </tbody>
                                 </table>
                             </div>
@@ -126,7 +73,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 @endsection
