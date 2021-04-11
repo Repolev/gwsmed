@@ -52,7 +52,9 @@
                                             <td><img src="{{asset($photo[0])}}" alt="Product image" style="max-height: 90px; max-width: 120px"></td>
                                             <td>@foreach($item->categories as $category){{ $category->title }} | @endforeach</td>
                                             <td>
-                                                <input type="checkbox" name="toogle" value="{{$item->id}}" data-toggle="switchbutton" {{$item->status=='active' ? 'checked' : ''}} data-onlabel="active" data-offlabel="inactive" data-size="sm" data-onstyle="success" data-offstyle="danger">
+                                                <input type="checkbox"  name="toogle" value="{{$item->id}}" data-toggle="switchbutton" data-size="sm" {{$item->status=='active' ? 'checked' : ''}}>
+
+{{--                                                <input type="checkbox" name="toogle" value="{{$item->id}}" data-toggle="switchbutton" {{$item->status=='active' ? 'checked' : ''}} data-onlabel="active" data-offlabel="inactive" data-size="sm" data-onstyle="success" data-offstyle="danger">--}}
                                             </td>
                                             <td>
                                                 <a href="{{route('product.detail',$item->slug)}}" target="_blank" data-toggle="tooltip" title="view" class="mr-1 float-left btn btn-sm btn-outline-info" data-placement="bottom"><i class="fas fa-eye"></i> </a>
@@ -125,7 +127,7 @@
                 },
                 success:function (response) {
                     if(response.status){
-                        alert(response.msg);
+                        console.log(response.msg);
                     }
                     else{
                         alert('Please try again!');
