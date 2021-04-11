@@ -8,6 +8,7 @@ use App\Models\Product;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\ProductAttribute;
+use App\Models\ProductCategory;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
 
@@ -171,10 +172,10 @@ class ProductController extends Controller
     {
         $home_page_menus=Display::where('status','active')->latest()->get();
         $categories=Category::where('status','active')->where('is_parent',1)->orderBy('id','DESC')->get();
-
         $product=Product::find($id);
+        $product_categories = ProductCategory::where('product_id', $id)->get();
         if($product){
-            return view('backend.product.edit',compact(['product','home_page_menus','categories']));
+            return view('backend.product.edit',compact(['product','home_page_menus','categories', 'product_categories']));
         }
         else{
             return back()->with('error','Category not found');

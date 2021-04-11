@@ -120,26 +120,25 @@
                                         <select id="categoryId" name="category_id[]" class="form-control show-tick select2" multiple>
 
                                                 @foreach($categories as $cat)
-                                                    <option value="{{$cat->id}}">{{$cat->title}}</option>
+                                                    <option value="{{$cat->id}}" {{ in_array($cat->id, $product_categories->pluck('category_id')->toArray()) ? "selected" : "" }}>{{$cat->title}}</option>
                                                         @if(count($cat->subcategories)>0)
                                                                 @foreach($cat->subcategories as $subCat)
-                                                                    <option value="{{$subCat->id}}">@for($i = 0; $i <= $cat->level; $i++) - @endfor{{$subCat->title}}</option>
+                                                                    <option value="{{$subCat->id}}" {{ in_array($subCat->id, $product_categories->pluck('category_id')->toArray()) ? "selected" : "" }}>@for($i = 0; $i <= $cat->level; $i++) - @endfor{{$subCat->title}}</option>
                                                                     @if(count($subCat->subcategories)>0)
                                                                         @foreach($subCat->subcategories as $sub2Cat)
-                                                                            <option value="{{$sub2Cat->id}}">@for($i = 0; $i <= $subCat->level; $i++) - @endfor{{$sub2Cat->title}}</option>
-
+                                                                            <option value="{{$sub2Cat->id}}" {{ in_array($sub2Cat->id, $product_categories->pluck('category_id')->toArray()) ? "selected" : "" }}>@for($i = 0; $i <= $subCat->level; $i++) - @endfor{{$sub2Cat->title}}</option>
                                                                             @if(count($sub2Cat->subcategories)>0)
                                                                                 @foreach($sub2Cat->subcategories as $sub3Cat)
-                                                                                    <option value="{{$sub3Cat->id}}">@for($i = 0; $i <= $sub2Cat->level; $i++) - @endfor{{$sub3Cat->title}}</option>
+                                                                                    <option value="{{$sub3Cat->id}}" {{ in_array($sub3Cat->id, $product_categories->pluck('category_id')->toArray()) ? "selected" : "" }}>@for($i = 0; $i <= $sub2Cat->level; $i++) - @endfor{{$sub3Cat->title}}</option>
                                                                                     @if(count($sub3Cat->subcategories)>0)
                                                                                         @foreach($sub3Cat->subcategories as $sub4Cat)
-                                                                                            <option value="{{$sub4Cat->id}}">@for($i = 0; $i <= $sub3Cat->level; $i++) - @endfor{{$sub4Cat->title}}</option>
+                                                                                            <option value="{{$sub4Cat->id}}" {{ in_array($sub4Cat->id, $product_categories->pluck('category_id')->toArray()) ? "selected" : "" }}>@for($i = 0; $i <= $sub3Cat->level; $i++) - @endfor{{$sub4Cat->title}}</option>
                                                                                             @if(count($sub4Cat->subcategories)>0)
                                                                                                 @foreach($sub4Cat->subcategories as $sub5Cat)
-                                                                                                    <option value="{{$sub5Cat->id}}">@for($i = 0; $i <= $sub4Cat->level; $i++) - @endfor{{$sub5Cat->title}}</option>
+                                                                                                    <option value="{{$sub5Cat->id}}" {{ in_array($sub5Cat->id, $product_categories->pluck('category_id')->toArray()) ? "selected" : "" }}>@for($i = 0; $i <= $sub4Cat->level; $i++) - @endfor{{$sub5Cat->title}}</option>
                                                                                                     @if(count($sub5Cat->subcategories)>0)
                                                                                                         @foreach($sub5Cat->subcategories as $sub6Cat)
-                                                                                                            <option value="{{$sub6Cat->id}}">@for($i = 0; $i <= $sub5Cat->level; $i++) - @endfor{{$sub6Cat->title}}</option>
+                                                                                                            <option value="{{$sub6Cat->id}}" {{ in_array($sub6Cat->id, $product_categories->pluck('category_id')->toArray()) ? "selected" : "" }}>@for($i = 0; $i <= $sub5Cat->level; $i++) - @endfor{{$sub6Cat->title}}</option>
                                                                                                         @endforeach
                                                                                                     @endif
                                                                                                 @endforeach
