@@ -18,7 +18,7 @@ Author: Kamleshyadav
 11. header two
 12. feature
 13. blog two
-14. instagram
+14. instagram.cv-top-header
 15. feature two
 16. product gallery
 17. team
@@ -109,7 +109,7 @@ input::-webkit-inner-spin-button {
 }
 /* top header start */
 .cv-top-header {
-    height: 51px;
+    height: 54px;
     background: #fff;
     display: flex;
     align-items: center;
