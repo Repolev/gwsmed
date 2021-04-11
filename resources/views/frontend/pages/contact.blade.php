@@ -125,7 +125,7 @@
     <!-- conatact end -->
     <!-- iframe start -->
     <div class="cv-contact-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12301.513435483917!2d-96.04069515802735!3d39.57362236131941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87be3e79433f6007%3A0x86baec447b34422!2sAmerica%20City%2C%20KS%2066540%2C%20USA!5e0!3m2!1sen!2sin!4v1588407931927!5m2!1sen!2sin" aria-hidden="false" tabindex="0"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d449127.0072074519!2d77.068109!3d28.425148!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc932b58d70526b94!2sOcus%20Quantum!5e0!3m2!1sen!2sus!4v1618142158373!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
     <!-- iframe end -->
 
