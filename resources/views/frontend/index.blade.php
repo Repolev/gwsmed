@@ -260,7 +260,7 @@
                         <div class="cv-gallery-grid">
                             @if($cat_gallery_first)
                                 @foreach($cat_gallery_first->subcategories as $subcategories)
-                                    <div class="cv-product-box cv-product-item cv-first">
+                                    <div class="cv-product-box cv-product-item cv-first col-md-3">
 
                                             <div class="cv-product-img">
                                                 <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
@@ -290,7 +290,7 @@
 
                                 @if($cat_gallery_second)
                                     @foreach($cat_gallery_second->subcategories as $subcategories)
-                                        <div class="cv-product-box cv-product-item cv-second">
+                                        <div class="cv-product-box cv-product-item cv-secon col-md-3">
 
                                                 <div class="cv-product-img">
                                                     <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
@@ -319,7 +319,7 @@
                                 @endif
                                 @if($cat_gallery_third)
                                     @foreach($cat_gallery_third->subcategories as $subcategories)
-                                        <div class="cv-product-box cv-product-item cv-third">
+                                        <div class="cv-product-box cv-product-item cv-third col-md-3">
 
                                                 <div class="cv-product-img">
                                                     <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
