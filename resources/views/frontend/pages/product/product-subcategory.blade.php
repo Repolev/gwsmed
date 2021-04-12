@@ -12,12 +12,12 @@
                         <h1>{{ucfirst($category->title)}}</h1>
                         <ul>
                             <li><a href="{{route('home')}}">Home</a></li>
-                            @if($category->parentCategory->parentCategory->parentCategory)
+                            {{-- @if($category->parentCategory->parentCategory->parentCategory)
                                 <li>{{ucfirst($category->parentCategory->parentCategory->parentCategory->title)}}</li>
                             @endif
                             @if($category->parentCategory->parentCategory)
                                 <li>{{ucfirst($category->parentCategory->parentCategory->title)}}</li>
-                            @endif
+                            @endif --}}
                             @if($category->parentCategory)
                                 <li>{{ucfirst($category->parentCategory->title)}}</li>
                             @endif
