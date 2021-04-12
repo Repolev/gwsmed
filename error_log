@@ -97,3 +97,12 @@ Stack trace:
 #6 /home/gwsmedco/gws.gwsmed.com/server.php(21): require_once('/home/gwsmedco/...')
 #7 {main}
   thrown in /home/gwsmedco/gws.gwsmed.com/vendor/paragonie/sodium_compat/lib/constants.php on line 8
+[11-Apr-2021 17:28:41 UTC] PHP Notice:  include(): read of 18410 bytes failed with errno=12 Cannot allocate memory in /home/gwsmedco/gws.gwsmed.com/vendor/composer/ClassLoader.php on line 476
+[11-Apr-2021 17:28:41 UTC] PHP Warning:  include(): Failed opening '/home/gwsmedco/gws.gwsmed.com/vendor/composer/../laravel/framework/src/Illuminate/Events/Dispatcher.php' for inclusion (include_path='.:/opt/alt/php74/usr/share/pear') in /home/gwsmedco/gws.gwsmed.com/vendor/composer/ClassLoader.php on line 476
+[11-Apr-2021 17:28:41 UTC] PHP Fatal error:  Uncaught Error: Class 'Illuminate\Events\Dispatcher' not found in /home/gwsmedco/gws.gwsmed.com/vendor/laravel/framework/src/Illuminate/Events/EventServiceProvider.php:18
+Stack trace:
+#0 /home/gwsmedco/gws.gwsmed.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(829): Illuminate\Events\EventServiceProvider->Illuminate\Events\{closure}(Object(Illuminate\Foundation\Application), Array)
+#1 /home/gwsmedco/gws.gwsmed.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(714): Illuminate\Container\Container->build(Object(Closure))
+#2 /home/gwsmedco/gws.gwsmed.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(841): Illuminate\Container\Container->resolve('events', Array, true)
+#3 /home/gwsmedco/gws.gwsmed.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(652): Illuminate\Foundation\Application->resolve('events', Array)
+#4 /home/gwsmedco/gws.gwsmed.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(826): Illuminate\Container\Co in /home/gwsmedco/gws.gwsmed.com/vendor/laravel/framework/src/Illuminate/Events/EventServiceProvider.php on line 18

@@ -1,6 +1,7 @@
 /node_modules
 /public/hot
 /vendor
+/public/backend/assets/images
 .env
 .env.backup
 .phpunit.result.cache

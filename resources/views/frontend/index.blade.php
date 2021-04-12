@@ -221,7 +221,7 @@
                     <div class="cv-deal-box" @if($cat->image_path != null) style="background-image: url({{url($cat->image_path)}}); background-size: cover;" @endif>
                         <div class="overlay" style="color:white!important; ">
                             <h3>{{ucfirst($cat->title)}}</h3>
-                            <p >{!! html_entity_decode(\Illuminate\Support\Str::limit($cat->description,400)) !!}</p>
+                            <p >{!! html_entity_decode(\Illuminate\Support\Str::limit($cat->description,300)) !!}</p>
                             <a href="{{route('product.category',$cat->slug)}}" class="cv-btn">readmore</a>
                         </div>
 

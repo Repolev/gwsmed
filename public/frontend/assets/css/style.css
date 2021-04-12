@@ -3052,8 +3052,17 @@ textarea{
     .cv-banner-text h1 {
         margin: 0px 0 9px;
     }
+    .category-block{
+        margin-top: 2rem;
+    }
+    .cv-product-tab ul li a{
+        font-size:12px;   
+    }
 }
 @media screen and (max-width: 575px){
+    #at4-share2, #at4-soc2{
+        display:none;
+    }
     p#me_timer span {
         min-width: 40px;
         min-height: 40px;
@@ -3447,3 +3456,35 @@ textarea{
     background: #3f4551;
 }
 
+
+/*=====================
+Custom CSS
+=======================*/
+
+.categories-list{
+    max-height: 18rem;
+    height: auto;
+    overflow-y: scroll;
+}
+
+.categories-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.categories-list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey; 
+  border-radius: 4px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #434242; 
+  border-radius: 2px;
+  height: 5px;
+}
+
+/* Handle on hover */
+.categories-list::-webkit-scrollbar-thumb:hover {
+  background: #ab292b; 
+}
