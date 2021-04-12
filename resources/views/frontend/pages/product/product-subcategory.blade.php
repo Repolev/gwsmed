@@ -51,7 +51,6 @@
                                 </div>
                                 <div class="cv-product-data">
                                     <a href="{{route('product.subcategory',$subcat->slug)}}" class="cv-price-title">{{ucfirst($subcat->title)}}</a>
-                                    <p>No. of products: {{count($subcat->products)}}</p>
 
                                 </div>
                             </div>
