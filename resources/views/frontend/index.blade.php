@@ -282,7 +282,6 @@
                                             </div>
                                             <div class="cv-product-data">
                                                 <a href="{{ route('product.subcategory', $subcategories->slug) }}" class="cv-price-title">{{ ucfirst($subcategories->title) }}</a>
-                                                <p>No. of products: {{count($subcategories->products)}}</p>
                                             </div>
                                     </div>
                                 @endforeach
@@ -312,7 +311,6 @@
                                                 </div>
                                             <div class="cv-product-data">
                                                 <a href="{{ route('product.subcategory', $subcategories->slug) }}" class="cv-price-title">{{ ucfirst($subcategories->title) }}</a>
-                                                <p>No. of products: {{count($subcategories->products)}}</p>
                                             </div>
                                         </div>
                                     @endforeach
@@ -341,7 +339,6 @@
                                                 </div>
                                             <div class="cv-product-data">
                                                 <a href="{{ route('product.subcategory', $subcategories->slug) }}" class="cv-price-title">{{ ucfirst($subcategories->title) }}</a>
-                                                <p>No. of products: {{count($subcategories->products)}}</p>
                                             </div>
                                         </div>
                                     @endforeach

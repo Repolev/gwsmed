@@ -2,7 +2,7 @@
 Enquiry Form<br>
 My name is, {{$details['full_name']}}<br>
 My contact number is: {{$details['phone']}}.<br>
-Product: {{$details['message']}}.<br>
+Message: {{$details['message']}}.<br>
 My address is: {{$details['address']}}.<br>
 Categories:
 <ul>

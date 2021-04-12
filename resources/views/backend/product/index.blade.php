@@ -54,6 +54,10 @@
                                             <td>
                                                 <input type="checkbox"  name="toogle" value="{{$item->id}}" data-toggle="switchbutton" data-size="sm" {{$item->status=='active' ? 'checked' : ''}}>
 
+<<<<<<< HEAD
+=======
+{{--                                                <input type="checkbox" name="toogle" value="{{$item->id}}" data-toggle="switchbutton" {{$item->status=='active' ? 'checked' : ''}} data-onlabel="active" data-offlabel="inactive" data-size="sm" data-onstyle="success" data-offstyle="danger">--}}
+>>>>>>> 0fbefb442710ad46478a6c1118257c81990347f2
                                             </td>
                                             <td>
                                                 <a href="{{route('product.detail',$item->slug)}}" target="_blank" data-toggle="tooltip" title="view" class="mr-1 float-left btn btn-sm btn-outline-info" data-placement="bottom"><i class="fas fa-eye"></i> </a>
