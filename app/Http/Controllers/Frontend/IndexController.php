@@ -343,7 +343,43 @@ class IndexController extends Controller
     }
 
     //product by sub category
-    public function productSubCategory(Request $request,$slug){
+    public function dynamicCategory0(Request $request, $slug){
+        $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->with('products')->first();
+        return view('frontend.pages.product.product-subcategory', compact(['category']));
+    }
+
+    //product by sub category
+    public function dynamicCategory1(Request $request, $parent1, $slug){
+        $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->with('products')->first();
+        return view('frontend.pages.product.product-subcategory', compact(['category']));
+    }
+
+    //product by sub category
+    public function dynamicCategory2(Request $request, $parent2, $parent1, $slug){
+        $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->with('products')->first();
+        return view('frontend.pages.product.product-subcategory', compact(['category']));
+    }
+
+    //product by sub category
+    public function dynamicCategory3(Request $request, $parent3, $parent2, $parent1, $slug){
+        $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->with('products')->first();
+        return view('frontend.pages.product.product-subcategory', compact(['category']));
+    }
+
+    //product by sub category
+    public function dynamicCategory4(Request $request, $parent4, $parent3, $parent2, $parent1, $slug){
+        $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->with('products')->first();
+        return view('frontend.pages.product.product-subcategory', compact(['category']));
+    }
+
+    //product by sub category
+    public function dynamicCategory5(Request $request, $parent5, $parent4, $parent3, $parent2, $parent1, $slug){
+        $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->with('products')->first();
+        return view('frontend.pages.product.product-subcategory', compact(['category']));
+    }
+
+     //product by sub category
+     public function dynamicCategory6(Request $request, $parent6, $parent5, $parent4, $parent3, $parent2, $parent1, $slug){
         $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->with('products')->first();
         return view('frontend.pages.product.product-subcategory', compact(['category']));
     }
