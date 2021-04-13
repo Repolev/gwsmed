@@ -234,9 +234,23 @@
                                     <div class="cv-mega-menu">
                                         <div class="cm-menu-list">
                                             <ul>
-
                                                     @foreach($category->subcategories as $subCat)
-                                                    <li><a href="{{route('product.subcategory',$subCat->slug)}}">{{ucfirst($subCat->title)}}</a></li>
+                                                    @php
+                                                        $category_url['slug'] = $subcategories->slug;
+                                                        if($subcat->level > 0){
+                                                            $category_url['parent1'] = $subcategories->parentCategory->slug;
+                                                            if($subcat->level > 1){
+                                                                $category_url['parent2'] = $subcategories->parentCategory->parentCategory->slug;
+                                                                if($category_url->level > 2){
+                                                                    $category_url['parent3'] = $subcategories->parentCategory->parentCategory->parentCategory->slug;
+                                                                    if($subcat->level > 2){
+                                                                        $category_url['parent4'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    @endphp
+                                                    <li><a href="{{ route('product.category.' . $subcategories->level, $category_url) }}">{{ucfirst($subCat->title)}}</a></li>
                                                     @endforeach
                                             </ul>
                                         </div>

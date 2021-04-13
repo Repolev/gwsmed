@@ -30,10 +30,14 @@ Route::get('/',[\App\Http\Controllers\Frontend\IndexController::class,'home'])->
 //Enquiry form
 Route::get('enquiry',[\App\Http\Controllers\Frontend\IndexController::class,'enquiry'])->name('enquiry');
 //Display the product through category
-Route::get('product-category/{slug}',[\App\Http\Controllers\Frontend\IndexController::class,'productCategory'])->name('product.category');
-
+Route::get('product-category/{slug}',[\App\Http\Controllers\Frontend\IndexController::class,'dynamicCategory0'])->name('product.category.0');
 //Display the products through subcategory
-Route::get('product-subcategory/{slug}',[\App\Http\Controllers\Frontend\IndexController::class,'productSubCategory'])->name('product.subcategory');
+Route::get('product-category/{parent1}/{slug}',[\App\Http\Controllers\Frontend\IndexController::class,'dynamicCategory1'])->name('product.category.1');
+Route::get('product-category/{parent2}/{parent1}/{slug}',[\App\Http\Controllers\Frontend\IndexController::class,'dynamicCategory2'])->name('product.category.2');
+Route::get('product-category/{parent3}/{parent2}/{parent1}/{slug}',[\App\Http\Controllers\Frontend\IndexController::class, 'dynamicCategory3'])->name('product.category.3');
+Route::get('product-category/{parent4}/{parent3}/{parent2}/{parent1}/{slug}',[\App\Http\Controllers\Frontend\IndexController::class, 'dynamicCategory4'])->name('product.category.4');
+Route::get('product-category/{parent5}/{parent4}/{parent3}/{parent2}/{parent1}/{slug}',[\App\Http\Controllers\Frontend\IndexController::class, 'dynamicCategory5'])->name('product.category.5');
+Route::get('product-category/{parent6}/{parent5}/{parent4}/{parent3}/{parent2}/{parent1}/{slug}',[\App\Http\Controllers\Frontend\IndexController::class, 'dynamicCategory6'])->name('product.category.6');
 
 //Product detail
 Route::get('product-detail/{slug}/',[\App\Http\Controllers\Frontend\IndexController::class,'productDetail'])->name('product.detail');
