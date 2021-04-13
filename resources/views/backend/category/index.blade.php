@@ -55,11 +55,6 @@
                                             <td>{{ucfirst(\App\Models\Category::where('id',$item->parent_id)->value('title'))}}</td>
                                             <td>
                                                 <input type="checkbox" id="onMenu" name="toogle" value="{{$item->id}}" data-toggle="switchbutton" data-size="sm" {{$item->status=='active' ? 'checked' : ''}}>
-
-<<<<<<< HEAD
-=======
-{{--                                                <input type="checkbox" name="toogle" value="{{$item->id}}" data-toggle="switchbutton" {{$item->status=='active' ? 'checked' : ''}} data-onlabel="active" data-offlabel="inactive" data-size="sm" data-onstyle="success" data-offstyle="danger">--}}
->>>>>>> 0fbefb442710ad46478a6c1118257c81990347f2
                                             </td>
                                             <td>
                                                 <a href="{{route('category.edit',$item->id)}}" data-toggle="tooltip" title="edit" class="float-left btn btn-sm btn-outline-warning" data-placement="bottom"><i class="fas fa-edit"></i> </a>
