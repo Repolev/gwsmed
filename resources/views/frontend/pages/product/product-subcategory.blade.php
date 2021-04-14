@@ -76,7 +76,10 @@
                                         }
                                     @endphp
                                     <a href="{{ route('product.category.' . $subcat->level, $category_url) }}" class="cv-price-title">{{ucfirst($subcat->title)}}</a>
+<<<<<<< HEAD
                                     <p>No. of products: {{count($subcat->products)}}</p>
+=======
+>>>>>>> 2886ff68b5c0ff761e6e33ac26380cf04ecfa09d
 
                                 </div>
                             </div>
