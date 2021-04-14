@@ -12,14 +12,18 @@
                         <h1>{{ucfirst($category->title)}}</h1>
                         <ul>
                             <li><a href="{{route('home')}}">Home</a></li>
-                            {{-- @if($category->parentCategory->parentCategory->parentCategory)
-                                <li>{{ucfirst($category->parentCategory->parentCategory->parentCategory->title)}}</li>
-                            @endif
-                            @if($category->parentCategory->parentCategory)
-                                <li>{{ucfirst($category->parentCategory->parentCategory->title)}}</li>
-                            @endif --}}
                             @if($category->parentCategory)
-                                <li>{{ucfirst($category->parentCategory->title)}}</li>
+                                @if($category->parentCategory->parentCategory)
+                                    @if($category->parentCategory->parentCategory->parentCategory)
+                                        <li>{{ucfirst($category->parentCategory->parentCategory->parentCategory->title)}}</li>
+                                    @endif
+                                    @if($category->parentCategory->parentCategory)
+                                        <li>{{ucfirst($category->parentCategory->parentCategory->title)}}</li>
+                                    @endif
+                                @endif
+                                @if($category->parentCategory)
+                                    <li>{{ucfirst($category->parentCategory->title)}}</li>
+                                @endif
                             @endif
                             <li>{{ucfirst($category->title)}}</li>
                         </ul>
@@ -50,7 +54,28 @@
                                          class="img-fluid" />
                                 </div>
                                 <div class="cv-product-data">
-                                    <a href="{{route('product.subcategory',$subcat->slug)}}" class="cv-price-title">{{ucfirst($subcat->title)}}</a>
+                                    @php
+                                        $category_url['slug'] = $subcat->slug;
+                                        if($subcat->level > 0){
+                                            $category_url['parent1'] = $subcat->parentCategory->slug;
+                                            if($subcat->level > 1){
+                                                $category_url['parent2'] = $subcat->parentCategory->parentCategory->slug;
+                                                if($subcat->level > 2){
+                                                    $category_url['parent3'] = $subcat->parentCategory->parentCategory->parentCategory->slug;
+                                                    if($subcat->level > 3){
+                                                        $category_url['parent4'] = $subcat->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                                        if($subcat->level > 4){
+                                                            $category_url['parent5'] = $subcat->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                                            if($subcat->level > 5){
+                                                                $category_url['parent6'] = $subcat->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    @endphp
+                                    <a href="{{ route('product.category.' . $subcat->level, $category_url) }}" class="cv-price-title">{{ucfirst($subcat->title)}}</a>
 
                                 </div>
                             </div>
