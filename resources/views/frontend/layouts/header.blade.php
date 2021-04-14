@@ -122,7 +122,7 @@
                     <h3><i class="fas fa-phone-alt"></i> {{\App\Models\Setting::value('phone')}}  <i class="pl-4 fas fa-envelope"></i> {{\App\Models\Setting::value('email')}}</h3>
                 </div>
             </div>
-           
+
             <div class="col-md-6">
                 <div class="cv-head-icon">
 
@@ -183,7 +183,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-6 col-md-6 ">
                 <form action="{{route('search')}}" method="get" class="d-flex">
                     <input type="text" name="query" class="form-control" style="padding-left:30px;border-radius: 30px 0 0 30px;height: 46px;" name="query" id="search_text"
@@ -231,26 +231,26 @@
                         @foreach($categories as $category)
                             @if(count($category->subcategories)>0)
                             @php
-                                $category_url['slug'] = $category->slug;
-                                if($category->level > 0){
-                                    $category_url['parent1'] = $category->parentCategory->slug;
-                                    if($category->level > 1){
-                                        $category_url['parent2'] = $category->parentCategory->parentCategory->slug;
-                                        if($category->level > 2){
-                                            $category_url['parent3'] = $category->parentCategory->parentCategory->parentCategory->slug;
-                                            if($category->level > 3){
-                                                $category_url['parent4'] = $category->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                if($cat->level > 4){
-                                                    $category_url['parent5'] = $category->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                    if($category->level > 5){
-                                                        $category_url['parent6'] = $category->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                    }
+                            $category_url['slug'] = $category->slug;
+                            if($category->level > 0){
+                                $category_url['parent1'] = $category->parentCategory->slug;
+                                if($category->level > 1){
+                                    $category_url['parent2'] = $category->parentCategory->parentCategory->slug;
+                                    if($cat->level > 2){
+                                        $category_url['parent3'] = $category->parentCategory->parentCategory->parentCategory->slug;
+                                        if($category->level > 3){
+                                            $category_url['parent4'] = $category->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                            if($category->level > 4){
+                                                $category_url['parent5'] = $category->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                                if($category->level > 5){
+                                                    $category_url['parent6'] = $cacategoryt->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
                                                 }
                                             }
                                         }
                                     }
                                 }
-                            @endphp
+                            }
+                        @endphp
                                 <li class="cv-children-menu cv-mega-li"><a href="{{ route('product.category.' . $category->level, $category_url) }}">{{ucfirst($category->title)}}</a>
                                     <div class="cv-mega-menu">
                                         <div class="cm-menu-list">
@@ -287,8 +287,14 @@
                                         $category_url['parent2'] = $category->parentCategory->parentCategory->slug;
                                         if($category->level > 2){
                                             $category_url['parent3'] = $category->parentCategory->parentCategory->parentCategory->slug;
-                                            if($category->level > 2){
+                                            if($category->level > 3){
                                                 $category_url['parent4'] = $category->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                                if($cat->level > 4){
+                                                    $category_url['parent5'] = $category->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                                    if($category->level > 5){
+                                                        $category_url['parent6'] = $category->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                                    }
+                                                }
                                             }
                                         }
                                     }
