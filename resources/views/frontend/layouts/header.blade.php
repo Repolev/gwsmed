@@ -230,10 +230,7 @@
 
                         @foreach($categories as $category)
                             @if(count($category->subcategories)>0)
-                            @php
-                                $category_url['slug'] = $category->slug;
-                            @endphp
-                                <li class="cv-children-menu cv-mega-li"><a href="{{ route('product.category.0', $category_url) }}">{{ucfirst($category->title)}}</a>
+                                <li class="cv-children-menu cv-mega-li"><a href="{{ route('product.category.0', $category->slug) }}">{{ucfirst($category->title)}}</a>
                                     <div class="cv-mega-menu">
                                         <div class="cm-menu-list">
                                             <ul>
@@ -261,10 +258,7 @@
                                     </div>
                                 </li>
                             @else
-                            @php
-                                $category_url['slug'] = $category->slug;
-                            @endphp
-                                <li><a href="{{ route('product.category.0', $category_url) }}">{{ucfirst($category->title)}}</a></li>
+                                <li><a href="{{ route('product.category.0', $category->slug) }}">{{ucfirst($category->title)}}</a></li>
                             @endif
 
 

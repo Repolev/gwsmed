@@ -21,10 +21,7 @@
                         @endphp
                         <ul>
                             @foreach($categories as $category)
-                            @php
-                                $category_url['slug'] = $category->slug;
-                            @endphp
-                                <li><a href="{{ route('product.category.0', $category_url) }}">{{ $category->title }}</a></li>
+                                <li><a href="{{ route('product.category.0', $category->slug) }}">{{ $category->title }}</a></li>
                             @endforeach
                         </ul>
                     </div>
