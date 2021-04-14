@@ -232,7 +232,28 @@
 
                         @foreach($categories as $category)
                             @if(count($category->subcategories)>0)
-                                <li class="cv-children-menu cv-mega-li"><a href="{{route('product.category',$category->slug)}}">{{ucfirst($category->title)}}</a>
+                            @php
+                            $category_url['slug'] = $category->slug;
+                            if($category->level > 0){
+                                $category_url['parent1'] = $category->parentCategory->slug;
+                                if($category->level > 1){
+                                    $category_url['parent2'] = $category->parentCategory->parentCategory->slug;
+                                    if($category->level > 2){
+                                        $category_url['parent3'] = $category->parentCategory->parentCategory->parentCategory->slug;
+                                        if($category->level > 3){
+                                            $category_url['parent4'] = $category->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                            if($cat->level > 4){
+                                                $category_url['parent5'] = $category->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                                if($category->level > 5){
+                                                    $category_url['parent6'] = $category->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        @endphp
+                                <li class="cv-children-menu cv-mega-li"><a href="{{route('product.category.' $category->level ,$category_slug)}}">{{ucfirst($category->title)}}</a>
                                     <div class="cv-mega-menu">
                                         <div class="cm-menu-list">
                                             <ul>
