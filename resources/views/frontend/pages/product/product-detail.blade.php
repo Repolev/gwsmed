@@ -68,7 +68,22 @@
                                 <div class="cv-prod-category my-3">
                                     <span>Category :</span>
                                     @foreach($product->categories as $category)
-                                        <a href="{{route('product.category',$category->slug)}}" style="font-weight: 700" class="cv-prod-category">{{ $category->title }}@if(!$loop->last),@endif</a>
+                                    @php
+                                    $category_url['slug'] = $category->slug;
+                                    if($category->level > 0){
+                                        $category_url['parent1'] = $category->parentCategory->slug;
+                                        if($category->level > 1){
+                                            $category_url['parent2'] = $category->parentCategory->parentCategory->slug;
+                                            if($category->level > 2){
+                                                $category_url['parent3'] = $category->parentCategory->parentCategory->parentCategory->slug;
+                                                if($category->level > 2){
+                                                    $category_url['parent4'] = $category->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                                }
+                                            }
+                                        }
+                                    }
+                                @endphp
+                                        <a href="{{ route('product.category.' . $category->level, $category_url) }}" style="font-weight: 700" class="cv-prod-category">{{ $category->title }}@if(!$loop->last),@endif</a>
                                     @endforeach
                                 </div>
                                <div class="mt-3">
