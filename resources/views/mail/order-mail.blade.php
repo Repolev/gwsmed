@@ -11,31 +11,13 @@
 <div class="container">
     <div class="row">
         <div class="col-xl-6 col-lg-6 col-sm-12 m-auto">
-            <h3>Enquiry Form</h3>
+            <h3>Order Confirmation Mail</h3>
+            <p>Order number, {{ $details['order_number'] }}</p>
             <p> My name is, {{$details['full_name']}}</p>
-{{--            @if($details->subject)--}}
-
-{{--            <p> My subject is : {{ $details['subject']}}. </p>--}}
-{{--            @endif--}}
-            @if($details['message'])
-
-
-            <p> My message is: {{$details['message']}}. </p>
-            @endif
+            <p> My email is, {{$details['email']}}</p>
             <p> My phone number is: {{$details['phone']}}. </p>
-            @if($details['address'])
-
             <p> My address is: {{$details['address']}}. </p>
-            @endif
-            <h6>Categories:</h6>
-{{--            @if($details->cats)--}}
-{{--                <ul>--}}
-{{--                    @foreach($details->cats as $cat)--}}
-{{--                        <li>{{ucfirst($cat->title)}}</li>--}}
-{{--                    @endforeach--}}
-{{--                </ul>--}}
-
-{{--            @endif--}}
+            <p> My country is: {{$details['country']}}. </p>
             <p> We will contact you as soon as possible. </p>
             <br/>
             <br/>

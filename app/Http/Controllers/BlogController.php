@@ -137,7 +137,7 @@ class BlogController extends Controller
         $blog = Blog::findOrFail($id);
         $status = $blog->delete();
         if($status){
-            return redirect()->route('banner.index')->with('success','Banner successfully deleted');
+            return redirect()->route('blogs.index')->with('success','Banner successfully deleted');
         }
         else{
             return back()->with('error','Something went wrong!');

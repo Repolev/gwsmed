@@ -124,7 +124,7 @@
                                                       action="{{route('orders.destroy',$item->id)}}" method="post">
                                                     @csrf
                                                     @method('delete')
-                                                    <a href="" data-toggle="tooltip" title="delete"
+                                                    <a href="javascript:void(0);" data-toggle="tooltip" title="delete"
                                                        data-id="{{$item->id}}"
                                                        class="dltBtn btn btn-sm btn-outline-danger"
                                                        data-placement="bottom"><i class="fas fa-trash-alt"></i> </a>
@@ -235,4 +235,39 @@
         </div>
     </div>
 
+@endsection
+
+@section('scripts')
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('.dltBtn').click(function (e) {
+            var form=$(this).closest('form');
+            var dataID=$(this).data('id');
+            e.preventDefault();
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                        swal("Poof! Your imaginary file has been deleted!", {
+                            icon: "success",
+                        });
+                    } else {
+                        swal("Your imaginary file is safe!");
+                    }
+                });
+
+        });
+    </script>
 @endsection

@@ -23,14 +23,7 @@ class OrderController extends Controller
     public function orderStatus(Request $request){
         $order=Order::where('id',$request->input('order_id'))->first();
 //        dd($order->products);
-        if($request->input('condition')=='delivered'){
-            foreach($order->products as $item){
-                $product= Product::where('id',$item->pivot->product_id)->first();
-                $stock=$product->stock;
-                $stock -=$item->pivot->quantity;
-                $product->update(['stock'=>$stock]);
-            }
-        }
+
         $status=Order::where('id',$request->input('order_id'))->update(['condition'=>$request->input('condition')]);
         if($status){
             return back()->with('success','Order condition has been updated');

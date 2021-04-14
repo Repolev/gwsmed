@@ -31,7 +31,7 @@ class IndexController extends Controller
 //        $footer_promo_banner=Banner::where(['status'=>'active','condition'=>'promo','position'=>'bottom'])->latest()->first();
 
         //deal of the day
-        $categories=Category::where(['status'=>'active','is_parent'=>1])->limit(3)->orderBy('title',"ASC")->get();
+        $categories=Category::where(['status'=>'active','is_parent'=>1,'on_menu'=>1])->with('subcategories')->limit(5)->orderBy('title',"ASC")->get();
         $featured_products=\App\Models\Product::with(['categories','productReviews'])->where(['status'=>'active','is_featured'=>1])->orderBy('id','DESC')->get();
         $new_products= Product::with(['categories','productReviews'])->where(['status'=>'active','tags'=>'new'])->latest()->limit(10)->get();
         $featured_category = [];
@@ -538,7 +538,7 @@ class IndexController extends Controller
 
     //blog single
     public function blogDetail(Request $request,$url){
-        $blogs=Blog::latest()->get();
+        $blogs=Blog::latest()->limit(10)->get();
         $blog=Blog::where('slug',$url)->with('comments')->first();
         return view('frontend.pages.blog-single',compact('blog','blogs'));
     }

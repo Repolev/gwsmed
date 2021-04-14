@@ -55,7 +55,7 @@ class CheckoutController extends Controller
 //        return $product;
 
         if($status){
-           Mail::to($order['email'])->bcc($order['semail'])->send(new OrderMail($order));
+           Mail::to($order['email'])->send(new OrderMail($order));
             Cart::instance('shopping')->destroy();
             return redirect()->route('complete',$order['order_number']);
         }

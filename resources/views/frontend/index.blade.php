@@ -238,6 +238,7 @@
                         }
                     }
                 @endphp
+                @if(count($cat->subcategories)>0)
                 <div class="col-md-4 category-block">
                     <div class="cv-deal-box" @if($cat->image_path != null) style="background-image: url({{url($cat->image_path)}}); background-size: cover;" @endif>
                         <div class="overlay" style="color:white!important; ">
@@ -248,6 +249,7 @@
 
                     </div>
                 </div>
+                @endif
                 @endforeach
             </div>
         </div>
@@ -324,10 +326,6 @@
                                             </div>
                                             <div class="cv-product-data">
                                                 <a href="{{ route('product.category.' . $subcategories->level, $category_url) }}" class="cv-price-title">{{ ucfirst($subcategories->title) }}</a>
-<<<<<<< HEAD
-                                                <p>No. of products: {{count($subcategories->products)}}</p>
-=======
->>>>>>> 2886ff68b5c0ff761e6e33ac26380cf04ecfa09d
                                             </div>
                                     </div>
                                 @endforeach
@@ -377,10 +375,6 @@
                                                 </div>
                                             <div class="cv-product-data">
                                                 <a href="{{ route('product.category.' . $subcategories->level, $category_url) }}" class="cv-price-title">{{ ucfirst($subcategories->title) }}</a>
-<<<<<<< HEAD
-                                                <p>No. of products: {{count($subcategories->products)}}</p>
-=======
->>>>>>> 2886ff68b5c0ff761e6e33ac26380cf04ecfa09d
                                             </div>
                                         </div>
                                     @endforeach
@@ -429,10 +423,6 @@
                                                 </div>
                                             <div class="cv-product-data">
                                                 <a href="{{ route('product.category.' . $subcategories->level, $category_url) }}" class="cv-price-title">{{ ucfirst($subcategories->title) }}</a>
-<<<<<<< HEAD
-                                                <p>No. of products: {{count($subcategories->products)}}</p>
-=======
->>>>>>> 2886ff68b5c0ff761e6e33ac26380cf04ecfa09d
                                             </div>
                                         </div>
                                     @endforeach

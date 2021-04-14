@@ -71,7 +71,7 @@ class ProductController extends Controller
             'title'=>'string|required',
             'is_featured'=>'sometimes|in:1',
             'model_number'=>'alpha_num|unique:products:model_number',
-            'summary'=>'string|required',
+            'summary'=>'string|nullable',
             'description'=>'string|nullable',
             'stock'=>'nullable|numeric',
             'price'=>'nullable|numeric',
@@ -195,7 +195,7 @@ class ProductController extends Controller
         if($product){
             $this->validate($request,[
                 'title'=>'string|required',
-                'summary'=>'string|required',
+                'summary'=>'string|nullable',
                 'description'=>'string|nullable',
                 'specification'=>'string|nullable',
                 'stock'=>'nullable|numeric',
