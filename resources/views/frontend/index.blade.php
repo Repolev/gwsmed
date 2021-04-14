@@ -283,32 +283,31 @@
                         <div class="cv-gallery-grid">
                             @if($cat_gallery_first)
                                 @foreach($cat_gallery_first->subcategories as $subcategories)
+                                @php
+                                    $category_url['slug'] = $subcategories->slug;
+                                    if($subcategories->level > 0){
+                                        $category_url['parent1'] = $subcategories->parentCategory->slug;
+                                        if($subcategories->level > 1){
+                                            $category_url['parent2'] = $subcategories->parentCategory->parentCategory->slug;
+                                            if($subcategories->level > 2){
+                                                $category_url['parent3'] = $subcategories->parentCategory->parentCategory->parentCategory->slug;
+                                                if($subcategories->level > 3){
+                                                    $category_url['parent4'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                                    if($subcategories->level > 4){
+                                                        $category_url['parent5'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                                        if($subcategories->level > 5){
+                                                            $category_url['parent6'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                @endphp
                                     <div class="cv-product-box cv-product-item cv-first col-md-3">
-
                                             <div class="cv-product-img">
                                                 <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
                                                 <div class="cv-product-button">
-                                                    @php
-                                                        $category_url['slug'] = $subcategories->slug;
-                                                        if($subcategories->level > 0){
-                                                            $category_url['parent1'] = $subcategories->parentCategory->slug;
-                                                            if($subcategories->level > 1){
-                                                                $category_url['parent2'] = $subcategories->parentCategory->parentCategory->slug;
-                                                                if($subcategories->level > 2){
-                                                                    $category_url['parent3'] = $subcategories->parentCategory->parentCategory->parentCategory->slug;
-                                                                    if($subcategories->level > 3){
-                                                                        $category_url['parent4'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                                        if($subcategories->level > 4){
-                                                                            $category_url['parent5'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                                            if($subcategories->level > 5){
-                                                                                $category_url['parent6'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    @endphp
                                                     <a href="{{ route('product.category.' . $subcategories->level, $category_url) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                         <g>
                                                             <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
@@ -333,31 +332,31 @@
 
                                 @if($cat_gallery_second)
                                     @foreach($cat_gallery_second->subcategories as $subcategories)
-                                        <div class="cv-product-box cv-product-item cv-second">
+                                    @php
+                                        $category_url['slug'] = $subcategories->slug;
+                                        if($subcategories->level > 0){
+                                            $category_url['parent1'] = $subcategories->parentCategory->slug;
+                                            if($subcategories->level > 1){
+                                                $category_url['parent2'] = $subcategories->parentCategory->parentCategory->slug;
+                                                if($subcategories->level > 2){
+                                                    $category_url['parent3'] = $subcategories->parentCategory->parentCategory->parentCategory->slug;
+                                                    if($subcategories->level > 3){
+                                                        $category_url['parent4'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                                        if($subcategories->level > 4){
+                                                            $category_url['parent5'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                                            if($subcategories->level > 5){
+                                                                $category_url['parent6'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    @endphp
+                                        <div class="cv-product-box cv-product-item cv-second col-md-3">
                                                 <div class="cv-product-img">
                                                     <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
                                                     <div class="cv-product-button">
-                                                        @php
-                                                            $category_url['slug'] = $subcategories->slug;
-                                                            if($subcategories->level > 0){
-                                                                $category_url['parent1'] = $subcategories->parentCategory->slug;
-                                                                if($subcategories->level > 1){
-                                                                    $category_url['parent2'] = $subcategories->parentCategory->parentCategory->slug;
-                                                                    if($subcategories->level > 2){
-                                                                        $category_url['parent3'] = $subcategories->parentCategory->parentCategory->parentCategory->slug;
-                                                                        if($subcategories->level > 3){
-                                                                            $category_url['parent4'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                                            if($subcategories->level > 4){
-                                                                                $category_url['parent5'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                                                if($subcategories->level > 5){
-                                                                                    $category_url['parent6'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-                                                            }
-                                                        @endphp
                                                         <a href="{{ route('product.category.' . $subcategories->level, $category_url) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                             <g>
                                                                 <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
@@ -402,7 +401,7 @@
                                                 }
                                             }
                                         @endphp
-                                        <div class="cv-product-box cv-product-item cv-third">
+                                        <div class="cv-product-box cv-product-item cv-third col-md-3">
                                                 <div class="cv-product-img">
                                                     <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
                                                     <div class="cv-product-button">
