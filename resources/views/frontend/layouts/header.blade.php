@@ -252,7 +252,7 @@
                                         }
                                     }
                                 }
-                        @endphp
+                            @endphp
                                 <li class="cv-children-menu cv-mega-li"><a href="{{ route('product.category.' . $category->level, $category_url) }}">{{ucfirst($category->title)}}</a>
                                     <div class="cv-mega-menu">
                                         <div class="cm-menu-list">
@@ -260,13 +260,13 @@
                                                     @foreach($category->subcategories as $subcategories)
                                                     @php
                                                         $category_url['slug'] = $subcategories->slug;
-                                                        if($subcat->level > 0){
+                                                        if($subcategories->level > 0){
                                                             $category_url['parent1'] = $subcategories->parentCategory->slug;
-                                                            if($subcat->level > 1){
+                                                            if($subcategories->level > 1){
                                                                 $category_url['parent2'] = $subcategories->parentCategory->parentCategory->slug;
-                                                                if($category_url->level > 2){
+                                                                if($subcategories->level > 2){
                                                                     $category_url['parent3'] = $subcategories->parentCategory->parentCategory->parentCategory->slug;
-                                                                    if($subcat->level > 2){
+                                                                    if($subcategories->level > 2){
                                                                         $category_url['parent4'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->slug;
                                                                     }
                                                                 }
@@ -281,8 +281,22 @@
                                     </div>
                                 </li>
                             @else
-                                <li><a href="{{ route('product.category.' . $subcategories->level, $category_url) }}">{{ucfirst($category->title)}}</a></li>
-
+                            @php
+                                $category_url['slug'] = $category->slug;
+                                if($category->level > 0){
+                                    $category_url['parent1'] = $category->parentCategory->slug;
+                                    if($category->level > 1){
+                                        $category_url['parent2'] = $category->parentCategory->parentCategory->slug;
+                                        if($category->level > 2){
+                                            $category_url['parent3'] = $category->parentCategory->parentCategory->parentCategory->slug;
+                                            if($category->level > 2){
+                                                $category_url['parent4'] = $category->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                            }
+                                        }
+                                    }
+                                }
+                            @endphp
+                                <li><a href="{{ route('product.category.' . $category->level, $category_url) }}">{{ucfirst($category->title)}}</a></li>
                             @endif
 
 
