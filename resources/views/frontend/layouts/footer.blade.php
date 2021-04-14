@@ -21,7 +21,22 @@
                         @endphp
                         <ul>
                             @foreach($categories as $category)
-                                <li><a href="{{ route('product.category', $category->slug) }}">{{ $category->title }}</a></li>
+                            @php
+                                $category_url['slug'] = $category->slug;
+                                if($category->level > 0){
+                                    $category_url['parent1'] = $category->parentCategory->slug;
+                                    if($category->level > 1){
+                                        $category_url['parent2'] = $category->parentCategory->parentCategory->slug;
+                                        if($category->level > 2){
+                                            $category_url['parent3'] = $category->parentCategory->parentCategory->parentCategory->slug;
+                                            if($category->level > 2){
+                                                $category_url['parent4'] = $category->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                                            }
+                                        }
+                                    }
+                                }
+                            @endphp
+                                <li><a href="{{ route('product.category.' . $category->level, $category_url) }}">{{ $category->title }}</a></li>
                             @endforeach
                         </ul>
                     </div>
