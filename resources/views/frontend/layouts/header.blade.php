@@ -255,7 +255,7 @@
                                     <div class="cv-mega-menu">
                                         <div class="cm-menu-list">
                                             <ul>
-                                                    @foreach($category->subcategories as $subCat)
+                                                    @foreach($category->subcategories as $subcategories)
                                                     @php
                                                         $category_url['slug'] = $subcategories->slug;
                                                         if($subcat->level > 0){
@@ -271,7 +271,7 @@
                                                             }
                                                         }
                                                     @endphp
-                                                    <li><a href="{{ route('product.category.' . $subcategories->level, $category_url) }}">{{ucfirst($subCat->title)}}</a></li>
+                                                    <li><a href="{{ route('product.category.' . $subcategories->level, $category_url) }}">{{ucfirst($subcategories->title)}}</a></li>
                                                     @endforeach
                                             </ul>
                                         </div>
