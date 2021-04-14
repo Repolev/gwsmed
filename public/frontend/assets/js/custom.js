@@ -177,7 +177,7 @@
             if($('.cv-product-all').length > 0){
                 $('.cv-gallery-grid').isotope({
                     itemSelector: '.cv-product-item',
-                    // filter: '*'
+                    filter: '*'
                 });
                 $('.cv-product-nav > ul > li').on( 'click', 'a', function() {
                     // filter button click
