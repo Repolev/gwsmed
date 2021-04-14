@@ -353,7 +353,7 @@
                                             }
                                         }
                                     @endphp
-                                        <div class="cv-product-box cv-product-item cv-second col-md-3">
+                                        <div class="cv-product-box cv-product-item cv-second col-md-3" style="display: none;">
                                                 <div class="cv-product-img">
                                                     <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
                                                     <div class="cv-product-button">
@@ -401,7 +401,7 @@
                                                 }
                                             }
                                         @endphp
-                                        <div class="cv-product-box cv-product-item cv-third col-md-3">
+                                        <div class="cv-product-box cv-product-item cv-third col-md-3" style="display: none;">
                                                 <div class="cv-product-img">
                                                     <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
                                                     <div class="cv-product-button">
