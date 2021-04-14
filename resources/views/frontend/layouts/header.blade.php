@@ -281,7 +281,7 @@
                                     </div>
                                 </li>
                             @else
-                                <li><a href="{{route('product.category',$category->slug)}}">{{ucfirst($category->title)}}</a></li>
+                                <li><a href="{{ route('product.category.' . $subcategories->level, $category_url) }}">{{ucfirst($category->title)}}</a></li>
 
                             @endif
 
