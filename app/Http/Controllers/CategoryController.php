@@ -194,9 +194,11 @@ class CategoryController extends Controller
             }
 
             $slug = $request->input('slug');
-            $slug_count = Category::where('slug',$slug)->count();
-            if($slug_count>0){
-                $slug = $slug.'-'.Str::random(5);
+            $check_slug = Category::where('slug', $slug)->first();
+            if($check_slug){
+                if($check_slug->id != $id){
+                    $slug = $slug.'-'.Str::random(5);
+                }
             }
             $data['slug'] = $slug;
             $data['is_parent']=$request->input('is_parent',0);
