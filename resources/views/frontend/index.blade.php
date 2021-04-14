@@ -269,7 +269,7 @@
                     <div class="cv-product-nav cv-product-tab">
                         <ul>
                             @if($cat_gallery_first)
-                            <li><a data-filter=".cv-first" >{{ $cat_gallery_first->title }}</a></li>
+                            <li><a data-filter=".cv-first" class="cv-product-active">{{ $cat_gallery_first->title }}</a></li>
                             @endif
                             @if($cat_gallery_second)
                             <li><a data-filter=".cv-second" >{{ $cat_gallery_second->title }}</a></li>
