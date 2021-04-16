@@ -50,7 +50,7 @@
                         @foreach($category->subcategories as $subcat)
                             <div class="cv-product-box cv-product-item cv-hand">
                                 <div class="cv-product-img">
-                                    <img src="{{asset($subcat->image_path)}}" alt="image"
+                                    <img src="{{asset($subcat->image_path)}}" alt="{{ $subcat->image_alt }}"
                                          class="img-fluid" />
                                 </div>
                                 <div class="cv-product-data">
@@ -91,7 +91,7 @@
                                     $photo=explode(',',$item->image_path);
                                 @endphp
                                 <div class="cv-product-img">
-                                    <img src="{{asset($photo[0])}}" alt="{{$item->title}}"
+                                    <img src="{{asset($photo[0])}}" alt="{{$item->image_alt}}"
                                          class="img-fluid" />
                                     <div class="cv-product-button">
                                         <a href="{{route('product.detail',$item->slug)}}" class="cv-btn"><svg

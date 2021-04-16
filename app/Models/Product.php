@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable=['title','slug','meta_tag','meta_description','model_no','summary','description','stock','price','offer_price','discount','tags','is_featured','status','photo','image_path'];
+    protected $fillable=['title','slug','meta_tag','meta_description','model_no','summary','description','stock','price','offer_price','discount','tags','is_featured','status','photo','image_path', 'image_alt'];
 
     public function brand(){
         return $this->belongsTo('App\Models\Brand');

@@ -106,6 +106,19 @@
 
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
+                                            <label for="imageAlt">Image Alt : </label>
+                                            <input type="text" name="image_alt" class="form-control" placeholder="Image Alt" value="{{ $category->image_alt }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label for="banner_alt">Banner Alt: </label>
+                                            <input type="text" name="banner_alt" class="form-control" placeholder="Banner Alt" value="{{ $category->banner_alt }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
                                             <label for="">Meta title</label>
                                             <input type="text" class="form-control" placeholder="Meta title" name="meta_title" value="{{$category->meta_title}}" id="">
                                         </div>

@@ -195,21 +195,25 @@
 
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
-                                            <label for="">Meta Title : </label>
-                                            <input type="text" name="meta_tag" class="form-control" placeholder="Meta tags" value="{{old('meta_tag')}}">
-                                            {{--                                            <input id="is_featured" type="checkbox" name="is_featured" value="1" checked> Yes--}}
+                                            <label for="imageAlt">Image Alt : </label>
+                                            <input type="text" name="image_alt" class="form-control" placeholder="Image Alt" value="{{old('image_alt')}}">
                                         </div>
                                     </div>
 
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
-                                            <label for="">Meta Description : </label>
-                                            <textarea  name="meta_description" class="form-control" placeholder="Meta Description" >{{old('meta_description')}}</textarea>
-                                            {{--                                            <input id="is_featured" type="checkbox" name="is_featured" value="1" checked> Yes--}}
+                                            <label for="">Meta Title : </label>
+                                            <input type="text" name="meta_tag" class="form-control" placeholder="Meta tags" value="{{old('meta_tag')}}">
                                         </div>
                                     </div>
 
 
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label for="">Meta Description : </label>
+                                            <textarea  name="meta_description" class="form-control" placeholder="Meta Description" >{{old('meta_description')}}</textarea>
+                                        </div>
+                                    </div>
 
                                     <div class="col-lg-12 col-sm-12">
                                         <label for="status">Status</label>

@@ -62,6 +62,12 @@
                                     </div>
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
+                                            <label for="imageAlt">Image Alt : </label>
+                                            <input type="text" name="image_alt" class="form-control" placeholder="Image Alt" value="{{old('image_alt')}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
                                             <label for="">Meta title</label>
                                             <input type="text" class="form-control" placeholder="Meta title" name="meta_title" value="{{old('meta_title')}}" id="">
                                         </div>

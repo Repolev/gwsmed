@@ -193,6 +193,13 @@
 
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
+                                            <label for="imageAlt">Image Alt: </label>
+                                            <input type="text" name="image_alt" class="form-control" placeholder="Image Alt" value="{{ $product->image_alt }}">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
                                             <label for="">Meta Tags : </label>
                                             <input type="text" name="meta_tag" class="form-control" placeholder="Meta tags" value="{{$product->meta_tag}}">
                                             {{--                                            <input id="is_featured" type="checkbox" name="is_featured" value="1" checked> Yes--}}

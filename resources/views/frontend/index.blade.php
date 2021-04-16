@@ -99,7 +99,7 @@
                                             $photos=explode(',',$item->image_path);
 
                                             @endphp
-                                            <img src="{{asset($photos[0])}}" alt="{{$item->title}}" class="img-fluid"/>
+                                            <img src="{{asset($photos[0])}}" alt="{{$item->image_alt}}" class="img-fluid"/>
                                             <div class="cv-product-button">
                                                 <a href="{{route('product.detail',$item->slug)}}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                         <g>
@@ -306,7 +306,7 @@
                                 @endphp
                                     <div class="cv-product-box cv-product-item cv-first col-md-3">
                                             <div class="cv-product-img">
-                                                <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
+                                                <img src="{{ $subcategories->image_path }}" alt="{{ $subcategories->image_alt }}" class="img-fluid"/>
                                                 <div class="cv-product-button">
                                                     <a href="{{ route('product.category.' . $subcategories->level, $category_url) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                         <g>
@@ -355,7 +355,7 @@
                                     @endphp
                                         <div class="cv-product-box cv-product-item cv-second col-md-3" style="display: none;">
                                                 <div class="cv-product-img">
-                                                    <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
+                                                    <img src="{{ $subcategories->image_path }}" alt="{{ $subcategories->image_alt }}" class="img-fluid"/>
                                                     <div class="cv-product-button">
                                                         <a href="{{ route('product.category.' . $subcategories->level, $category_url) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                             <g>
@@ -403,7 +403,7 @@
                                         @endphp
                                         <div class="cv-product-box cv-product-item cv-third col-md-3" style="display: none;">
                                                 <div class="cv-product-img">
-                                                    <img src="{{ $subcategories->image_path }}" alt="image" class="img-fluid"/>
+                                                    <img src="{{ $subcategories->image_path }}" alt="{{ $subcategories->image_alt }}" class="img-fluid"/>
                                                     <div class="cv-product-button">
                                                         <a href="{{ route('product.category.' . $subcategories->level, $category_url) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                             <g>
