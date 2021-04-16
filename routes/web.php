@@ -40,7 +40,7 @@ Route::get('product-category/{parent5}/{parent4}/{parent3}/{parent2}/{parent1}/{
 Route::get('product-category/{parent6}/{parent5}/{parent4}/{parent3}/{parent2}/{parent1}/{slug}',[\App\Http\Controllers\Frontend\IndexController::class, 'dynamicCategory6'])->name('product.category.6');
 
 //Product detail
-Route::get('product-detail/{slug}/',[\App\Http\Controllers\Frontend\IndexController::class,'productDetail'])->name('product.detail');
+Route::get('product/{slug}/',[\App\Http\Controllers\Frontend\IndexController::class,'productDetail'])->name('product.detail');
 Route::get('download-catalog-pdf/{id}/',[\App\Http\Controllers\Frontend\IndexController::class,'downloadCatalogPdf'])->name('catalog.download');
 Route::get('/get-product-price/{id}',[\App\Http\Controllers\ProductController::class,'filterPriceWithSize']);
 

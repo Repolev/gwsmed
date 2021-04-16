@@ -211,12 +211,12 @@ class ProductController extends Controller
 
             $data=$request->all();
             $data['offer_price']=($request->price-(($request->price*$request->discount)/100));
-            $slug = $request->input('slug');
-            $slug_count = Product::where('slug',$slug)->count();
-            if($slug_count>0){
-                $slug = time().'-'.$slug;
-            }
-            $data['slug']=$slug;
+            // $slug = $request->input('slug');
+            // $slug_count = Product::where('slug',$slug)->count();
+            // if($slug_count>0){
+            //     $slug = time().'-'.$slug;
+            // }
+            // $data['slug']=$slug;
 
             // photo
             if($request->hasFile('photo')){

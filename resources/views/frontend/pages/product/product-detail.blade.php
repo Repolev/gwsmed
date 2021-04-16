@@ -101,7 +101,7 @@
 
 
 
-                                   <div class="my-4 pt-3 px-2 px-3" style="border:1px solid #ddd">
+                                   <div class="my-4 pt-3 px-2 px-3" style="border:1px solid #ddd;overflow-x:scroll;">
                                        <p>{!! html_entity_decode($product->summary) !!}</p>
                                    </div>
 

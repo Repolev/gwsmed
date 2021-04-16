@@ -31,7 +31,7 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="card overflowhidden">
                         <div class="body">
-                            <h3>{{\App\Models\Category::where('status','active')->where('is_parent',1)->count()}} <i class="icon-organization float-right"></i></h3>
+                            <h3>{{\App\Models\Category::where('status','active')->count()}} <i class="icon-organization float-right"></i></h3>
                             <span>Total Category</span>
                         </div>
                         <div class="progress progress-xs progress-transparent custom-color-yellow m-b-0">

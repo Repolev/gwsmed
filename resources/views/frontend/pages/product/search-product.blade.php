@@ -70,6 +70,7 @@
                                 <p>No product found</p>
                             @endif
                         </div>
+                        {{$products->links('vendor.pagination.custom')}}
 {{--                        <div class="cv-product-all wow fadeIn" data-wow-delay="0.5s">--}}
 {{--                            <div class="cv-gallery-grid">--}}
 {{--                                @if(count($products)>0)--}}
