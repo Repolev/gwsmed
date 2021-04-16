@@ -24,6 +24,8 @@ class Category extends Model
         'on_menu',
         'meta_title',
         'meta_description',
+        'image_alt',
+        'banner_alt'
     ];
 
 

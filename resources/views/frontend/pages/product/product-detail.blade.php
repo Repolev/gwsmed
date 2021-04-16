@@ -37,7 +37,7 @@
                                 <div id="sync1" class="owl-carousel owl-theme thumbnail-slider">
                                     @foreach($photos as $photo)
                                         <div class="item">
-                                            <img src="{{asset($photo)}}" alt="Product Detail Image">
+                                            <img src="{{asset($photo)}}" alt="{{ $product->image_alt }}">
                                         </div>
                                     @endforeach
                                 </div>
@@ -45,7 +45,7 @@
                                 <div id="sync2" class="owl-carousel owl-theme">
                                     @foreach($photos as $photo)
                                         <div class="item">
-                                            <img src="{{asset($photo)}}" alt="Product Detail">
+                                            <img src="{{asset($photo)}}" alt="{{ $product->image_alt }}">
                                         </div>
                                     @endforeach
                                 </div>
@@ -98,9 +98,6 @@
                                        <a href="javascript:void(0);" class="cv-btn btn btn-success btn-sm" style="background: #218838"  data-target="#exampleModal" data-toggle="modal"><i class="fas fa-paper-plane"></i> Quick Enquiry</a>
 
                                    </div>
-
-
-
                                    <div class="my-4 pt-3 px-2 px-3" style="border:1px solid #ddd;overflow-x:scroll;">
                                        <p>{!! html_entity_decode($product->summary) !!}</p>
                                    </div>
@@ -346,7 +343,7 @@
                                                             $photos=explode(',',$item->image_path);
                                                         @endphp
                                                         <div class="cv-product-img">
-                                                            <img src="{{asset($photos[0])}}" alt="{{$item->title}}" class="img-fluid"/>
+                                                            <img src="{{asset($photos[0])}}" alt="{{ $item->image_alt }}" class="img-fluid"/>
                                                             <div class="cv-product-button">
                                                                 <a href="{{route('product.detail',$item->slug)}}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                                         <g>

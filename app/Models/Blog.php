@@ -17,7 +17,8 @@ class Blog extends Model
         'content',
         'user_id',
         'meta_title',
-        'meta_description'
+        'meta_description',
+        'image_alt'
     ];
 
     /**

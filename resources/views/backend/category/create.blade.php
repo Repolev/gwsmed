@@ -68,8 +68,6 @@
                                         <div class="form-group">
                                             <label for="">Is parent : </label>
                                             <input type="checkbox" id="is_parent" name="is_parent" value="1" checked data-toggle="switchbutton" data-size="sm" {{ old('is_parent') == 1 ? "checked" : "" }}>
-
-{{--                                            <input id="is_parent" type="checkbox" name="is_parent" value="1" checked> Yes--}}
                                         </div>
                                     </div>
 
@@ -103,7 +101,18 @@
                                             <input type="file" name="banner" class="dropify" data-height="150">
                                         </div>
                                     </div>
-
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label for="imageAlt">Image Alt : </label>
+                                            <input type="text" name="image_alt" class="form-control" placeholder="Image Alt" value="{{old('image_alt')}}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-12">
+                                        <div class="form-group">
+                                            <label for="banner_alt">Banner Alt: </label>
+                                            <input type="text" name="banner_alt" class="form-control" placeholder="Banner Alt" value="{{old('banner_alt')}}">
+                                        </div>
+                                    </div>
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                             <label for="">Meta title</label>
