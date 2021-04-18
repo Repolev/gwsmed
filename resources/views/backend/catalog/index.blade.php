@@ -6,13 +6,13 @@
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Catalog Categories
-                            <a class="btn btn-sm btn-outline-secondary" href="{{route('category.create')}}"><i class="icon-plus"></i> Add Catalog Category</a></h2>
+                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Products
+                            <a class="btn btn-sm btn-outline-secondary" href="{{route('product.create')}}"><i class="icon-plus"></i> Add Product</a></h2>
                         <ul class="breadcrumb float-left">
                             <li class="breadcrumb-item"><a href="{{route('admin')}}"><i class="icon-home"></i></a></li>
-                            <li class="breadcrumb-item active">Catalog Category</li>
+                            <li class="breadcrumb-item active">Product</li>
                         </ul>
-                        <p class="float-right">Total Category :{{\App\Models\CatalogCategory::count()}}</p>
+                        <p class="float-right">Total Products :{{\App\Models\Product::count()}}</p>
                     </div>
                 </div>
             </div>
@@ -24,7 +24,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2><strong>Catalog Category</strong> List</h2>
+                            <h2><strong>Product</strong> List</h2>
 
                         </div>
                         <div class="body">
@@ -33,37 +33,32 @@
                                     <thead>
                                     <tr>
                                         <th>S.N.</th>
-                                        <th>Category name</th>
-                                        <th>Parent</th>
-                                        <th>Status</th>
+                                        <th>Name</th>
+                                        <th>Image</th>
+                                        <th>Category</th>
                                         <th>Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
-                                    @foreach($categories as $item)
+                                    @foreach($catalogs as $item)
                                         <tr>
-                                            <td>{{$loop->iteration}}</td>
-                                            <td>{{ucfirst($item->title)}}</td>
-                                            <td>@if($item->image_path)<img src="{{asset($item->image_path)}}" alt="category image" style="max-height: 90px; max-width: 120px">@endif</td>
-{{--                                            <td><i class="fas {{$item->is_featured==1 ? 'fa-check-circle text-success' : 'fa-times-circle text-danger'}}"></i></td>--}}
-                                            <td>{{ucfirst($item->parentCategory->title)}}</td>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ucfirst($item->name)}}</td>
+                                            <td><img src="{{ asset($item->image_path) }}" alt="Catalog Image" style="max-height: 90px; max-width: 120px"></td>
+                                            <td>{{ $item->category->title }}</td>
                                             <td>
-                                                <input type="checkbox" id="onMenu" name="toogle" value="{{$item->id}}" data-toggle="switchbutton" data-size="sm" {{$item->status=='active' ? 'checked' : ''}}>
-                                            </td>
-                                            <td>
-                                                <a href="{{route('catalogs-category.edit',$item->id)}}" data-toggle="tooltip" title="edit" class="float-left btn btn-sm btn-outline-warning" data-placement="bottom"><i class="fas fa-edit"></i> </a>
-                                                <form class="float-left ml-1" action="{{route('catalogs-category.destroy',$item->id)}}"  method="post">
+                                                <a href="{{ route('catalogs.show', $item->id) }}" target="_blank" data-toggle="tooltip" title="view" class="mr-1 float-left btn btn-sm btn-outline-info" data-placement="bottom"><i class="fas fa-eye"></i> </a>
+                                                <a href="{{route('catalogs.edit',$item->id)}}" data-toggle="tooltip" title="edit" class="float-left btn btn-sm btn-outline-warning" data-placement="bottom"><i class="fas fa-edit"></i> </a>
+                                                <form class="float-left ml-1" action="{{route('catalogs.destroy',$item->id)}}"  method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <a href="" data-toggle="tooltip" title="delete" data-id="{{$item->id}}" class="dltBtn btn btn-sm btn-outline-danger" data-placement="bottom"><i class="fas fa-trash-alt"></i> </a>
                                                 </form>
 
                                             </td>
-
                                         </tr>
                                     @endforeach
-
                                     </tbody>
                                 </table>
                             </div>
@@ -71,7 +66,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 @endsection
@@ -106,30 +100,6 @@
                     }
                 });
 
-        });
-    </script>
-    <script>
-        $('input[name=toogle]').change(function () {
-            var mode=$(this).prop('checked');
-            var id=$(this).val();
-            // alert(id);
-            $.ajax({
-                url:"{{route('catalog-category.status')}}",
-                type:"POST",
-                data:{
-                    _token:'{{csrf_token()}}',
-                    mode:mode,
-                    id:id,
-                },
-                success:function (response) {
-                    if(response.status){
-                        console.log(response.msg);
-                    }
-                    else{
-                        alert('Please try again!');
-                    }
-                }
-            })
         });
     </script>
 @endsection

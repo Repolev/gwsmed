@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\CatalogCategory;
+use Illuminate\Support\Facades\DB;
 
 class CatalogCategoryController extends Controller
 {
@@ -41,7 +42,7 @@ class CatalogCategoryController extends Controller
     {
         $this->validate($request,[
             'title'=>'string|required',
-            'description'=>'string|nullable',
+            'slug' =>'string|required',
             'parent_id'=>'nullable|exists:catalog_categories,id',
             'status'=>'required|in:active,inactive'
         ]);
@@ -51,7 +52,7 @@ class CatalogCategoryController extends Controller
         if($slug_count > 0){
             $slug = $slug.'-'.Str::random(5);
         }
-        $data['slug']=$slug;
+        $data['slug'] = $slug;
 
         $status=CatalogCategory::create($data);
         if($status){
@@ -81,8 +82,8 @@ class CatalogCategoryController extends Controller
      */
     public function edit($id)
     {
-        $category=CatalogCategory::find($id);
-        $parent_cats=CatalogCategory::orderBy('title','ASC')->get();
+        $category = CatalogCategory::find($id);
+        $parent_cats = CatalogCategory::where('id', '!=', $id)->orderBy('title','ASC')->get();
         if($category){
             return view('backend.catalog_category.edit',compact(['category','parent_cats']));
         }
@@ -105,36 +106,21 @@ class CatalogCategoryController extends Controller
             $this->validate($request,[
                 'title'=>'string|required',
                 'description'=>'string|nullable',
-                'is_parent'=>'sometimes|in:1',
-                'photo'=>'image|nullable|mimes:png,jpg,jpeg,svg,gif',
-                'is_featured'=>'sometimes|in:1',
-                'parent_id'=>'nullable|exists:categories,id',
+                'parent_id'=>'nullable|exists:catalog_categories,id',
+                'status'=>'required|in:active,inactive'
             ]);
 
             $data=$request->all();
 
-            if($request->hasFile('photo')){
-                if($file=$request->file('photo')){
-                    $imageName = time() .".". str_replace(' ', '-', $file->getClientOriginalExtension());
-                    $product_image = Image::make($file);
-                    $product_image->resize(250, 250);
-                    $image_path = public_path('/backend/assets/images/category/' . $imageName);
-                    $product_image->save($image_path);
-                    $data['photo']=$imageName;
-                    $data['image_path']='backend/assets/images/category/'.$imageName;
-                }
-            }
-
-
             $slug = $request->input('slug');
-            $check_slug = Category::where('slug', $slug)->first();
+            $check_slug = CatalogCategory::where('slug', $slug)->first();
             if($check_slug){
                 if($check_slug->id != $id){
                     $slug = $slug.'-'.Str::random(5);
                 }
             }
             $data['slug'] = $slug;
-            $status=$category->fill($data)->save();
+            $status = $category->fill($data)->save();
             if($status){
                 return redirect()->route('category.index')->with('success','Category successfully updated');
             }
@@ -174,17 +160,13 @@ class CatalogCategoryController extends Controller
         }
     }
 
-    public function getChildByParentID(Request $request,$id){
-        $category=Category::find($id);
-        if($category){
-            $child_id=Category::getChildByParentID($request->cat_id);
-            if(count($child_id)<=0){
-                return response()->json(['status'=>false,'data'=>null,'msg'=>'']);
-            }
-            return response()->json(['status'=>true,'data'=>$child_id,'msg'=>'']);
+    public function categoryStatus(Request $request){
+        if($request->mode=='true'){
+            DB::table('catalog_categories')->where('id',$request->id)->update(['status'=>'active']);
         }
         else{
-            return response()->json(['status'=>false,'data'=>null,'msg'=>'Category not found']);
+            DB::table('catalog_categories')->where('id',$request->id)->update(['status'=>'inactive']);
         }
+        return response()->json(['msg'=>'Successfully updated status','status'=>true]);
     }
 }

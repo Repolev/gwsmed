@@ -131,6 +131,11 @@ Route::group(['prefix'=>'admin','middleware'=>['admin']],function(){
     Route::post('category_status',[\App\Http\Controllers\CategoryController::class,'categoryStatus'])->name('category.status');
     Route::post('/category/{id}/child',[\App\Http\Controllers\CategoryController::class,'getChildByParentID']);
 
+    // Catalogs Section
+    Route::resource('/catalog-category',\App\Http\Controllers\CatalogCategoryController::class);
+    Route::resource('/catalogs',\App\Http\Controllers\CatalogController::class);
+    Route::post('catalog-category_status',[\App\Http\Controllers\CatalogCategoryController::class,'categoryStatus'])->name('catalog-category.status');
+
     // Brand Section
     Route::resource('/brand',\App\Http\Controllers\BrandController::class);
     Route::post('brand_status',[\App\Http\Controllers\BrandController::class,'brandStatus'])->name('brand.status');

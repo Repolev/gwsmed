@@ -38,7 +38,7 @@
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                             <label for="">Category name <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Title" name="title" value="{{$category->title}}" id="categoryTitle">
+                                            <input type="text" class="form-control" placeholder="Title" name="title" value="{{ $category->title }}" id="categoryTitle">
                                         </div>
                                     </div>
 
@@ -49,89 +49,15 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label for="">Description</label>
-                                            <textarea id="description" class="form-control" placeholder="Write some text..." name="description">{{$category->description}}</textarea>
-                                        </div>
-                                    </div>
-
-{{--                                    <div class="col-lg-12 col-md-12">--}}
-{{--                                        <div class="form-group">--}}
-{{--                                            <label for="">Is featured : </label>--}}
-{{--                                            <input type="checkbox" name="is_featured" value="1" {{$category->is_featured==1 ? 'checked' : ''}} data-toggle="switchbutton"  data-size="sm">--}}
-{{--                                            <input id="is_featured" type="checkbox" name="is_featured" value="1" {{$category->is_featured==1 ? 'checked' : ''}}> Yes--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label for="">Is parent : </label>
-                                            <input type="checkbox" id="is_parent" name="is_parent" value="1" {{$category->is_parent==1 ? 'checked' : ''}} data-toggle="switchbutton"  data-size="sm">
-
-{{--                                            <input id="is_parent" type="checkbox" name="is_parent" value="1" {{$category->is_parent==1 ? 'checked' : ''}}> Yes--}}
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label for="onMenu">On Menu : </label>
-                                            <input type="checkbox" id="onMenu" name="on_menu" value="1" data-toggle="switchbutton" data-size="sm" {{$category->on_menu==1 ? 'checked' : ''}}>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12 col-sm-12 {{$category->is_parent==1 ? 'd-none' : ''}}" id="parent_cat_div">
+                                    <div class="col-lg-12 col-sm-12" id="parent_cat_div">
                                         <label for="parent_id">Parent Category</label>
                                         <select name="parent_id" id="parent_cat" class="form-control show-tick">
                                             <option value="">-- Parent Category --</option>
                                             @foreach($parent_cats as $pcats)
-                                                <option value="{{$pcats->id}}" {{$pcats->id==$category->parent_id ? 'selected' : ''}}>{{ucfirst($pcats->title)}}</option>
+                                                <option value="{{$pcats->id}}" {{ $pcats->id == $category->parent_id ? 'selected' : '' }}>{{ucfirst($pcats->title)}}</option>
                                             @endforeach
                                         </select>
                                     </div>
-
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label for="">Photo</label>
-                                            <input type="file" name="photo" class="dropify" data-height="150" value="{{asset($category->image_path)}}" data-default-file="{{asset($category->image_path)}}">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label for="">Banner</label>
-                                            <input type="file" name="banner" class="dropify" data-height="150" value="{{asset($category->banner_path)}}" data-default-file="{{asset($category->banner_path)}}">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label for="imageAlt">Image Alt : </label>
-                                            <input type="text" name="image_alt" class="form-control" placeholder="Image Alt" value="{{ $category->image_alt }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label for="banner_alt">Banner Alt: </label>
-                                            <input type="text" name="banner_alt" class="form-control" placeholder="Banner Alt" value="{{ $category->banner_alt }}">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label for="">Meta title</label>
-                                            <input type="text" class="form-control" placeholder="Meta title" name="meta_title" value="{{$category->meta_title}}" id="">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-12 col-md-12">
-                                        <div class="form-group">
-                                            <label for="">Meta description</label>
-                                            <textarea id="description" class="form-control" placeholder="Meta description" name="meta_description">{{$category->meta_description}}</textarea>
-                                        </div>
-                                    </div>
-
-
                                 </div>
 
                                 <button type="submit" class="btn btn-success">Update</button>
