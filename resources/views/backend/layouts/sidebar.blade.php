@@ -58,6 +58,18 @@
                 </li>
 
                 <li class="{{(\Illuminate\Support\Facades\Request::is('reviews*')==1) ? 'active' : ''}}"><a href="{{route('reviews.index')}}"><i class="icon-star"></i>Review Management</a></li>
+                <li class="{{(\Illuminate\Support\Facades\Request::is('admin/catalog-category*')==1) ? 'active' : ''}}"><a href="javascript:void(0);" class="has-arrow"><i class="icon-organization"></i><span>Catalog Category</span> </a>
+                    <ul>
+                        <li><a href="{{route('catalog-category.index')}}">All Catalog Category</a></li>
+                        <li><a href="{{route('catalog-category.create')}}">Add Catalog Category</a></li>
+                    </ul>
+                </li>
+                <li class="{{(\Illuminate\Support\Facades\Request::is('admin/catalogs*')==1) ? 'active' : ''}}"><a href="javascript:void(0);" class="has-arrow"><i class="icon-organization"></i><span>Catalogs Management</span> </a>
+                    <ul>
+                        <li><a href="{{route('catalogs.index')}}">All Catalog</a></li>
+                        <li><a href="{{route('catalogs.create')}}">Add Catalog</a></li>
+                    </ul>
+                </li>
 
                 <li class="{{(\Illuminate\Support\Facades\Request::is('comments*')==1) ? 'active' : ''}}"><a href="{{route('comments.index')}}"><i class="fas fa-comment-alt"></i>Comment Management</a></li>
                 <!--<li class="{{(\Illuminate\Support\Facades\Request::is('enquiry*')==1) ? 'active' : ''}}"><a href="{{route('enquiry.index')}}"><i class="fas fa-question-circle"></i>Enquiry Management</a></li>-->

@@ -27,4 +27,10 @@ class CatalogCategory extends Model
     public function childCategories(){
         return $this->hasMany('App\Models\CatalogCategory','id','parent_id')->where('status','active');
     }
+
+
+    public function catalogs()
+    {
+        return $this->hasMany('App\Models\Catalog', 'category_id', 'id');
+    }
 }

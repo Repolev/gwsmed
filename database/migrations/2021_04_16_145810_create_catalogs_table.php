@@ -17,6 +17,7 @@ class CreateCatalogsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('category_id');
             $table->string('slug');
+            $table->string('name');
             $table->string('image_path');
             $table->string('image_name');
             $table->string('pdf_path');
