@@ -422,7 +422,7 @@
                                         @endphp
                                         <div class="cv-product-box cv-product-item cv-third col-md-3" style="display: none;">
                                                 <div class="cv-product-img">
-                                                    @if($subcategories->image_path != null')
+                                                    @if($subcategories->image_path != null)
                                                         <img src="{{ $subcategories->image_path }}" alt="{{ $subcategories->image_alt }}" class="img-fluid"/>
                                                     @else
                                                         <h3>Image Not Found</h3>
