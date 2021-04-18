@@ -202,8 +202,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     height: auto;
     display: flex;
     align-items: center;
-    background: #3dbebd;
-    background-image: -webkit-linear-gradient( 185deg , rgb(67 197 196) 0%, rgb(66 216 224) 100%);
+    background: #0070a4;
+    /*background-image: -webkit-linear-gradient( 185deg , rgb(67 197 196) 0%, rgb(66 216 224) 100%);*/
 }
 
 .cv-main-header .row, .cv-header-two .row {
@@ -221,7 +221,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 
 .cv-nav-bar .cv-menu ul li:hover{
-    background-color: #3dbebd;
+    background-color: #0c5aa5;
     cursor: pointer;
 }
 
@@ -493,13 +493,13 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 
 .cv-heading h1 span{
-    color: #42cdd0;
+    color: #0070a4;
 }
 
 .cv-heading .border-bottom-line{
     width: 12%;
     height: 3px;
-    background-color: #42cdd0;
+    background-color: #0070a4;
     border-radius: 3px;
 }
 
@@ -3192,7 +3192,7 @@ textarea {
         top: 54px;
         margin: auto;
         text-align: left;
-        background: #3dbebd;
+        background: #0c5aa5;
         padding: 26px 30px 0px;
         box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.07);
         transform: scaleY(0);
@@ -4248,7 +4248,7 @@ p{
 
 .qoute-icon{
     font-size: 25px;
-    color: #42cdd0;
+    color: #0070a4;
 }
 
 

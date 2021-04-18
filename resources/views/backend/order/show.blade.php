@@ -68,7 +68,7 @@
                                                                     <tr>
                                                                         <td>{{$loop->iteration}}</td>
                                                                         <td>
-                                                                            <a href="{{route('product.detail',$item->slug)}}" target="_blank">{{ucfirst($item->title)}}</a>
+                                                                            <p>{{ucfirst($item->title)}}</p>
                                                                         </td>
                                                                         <td class="text-center"><img src="{{asset($image[0])}}" style="max-width: 100px"></td>
                                                                         <td class="text-center">{{$item->pivot->quantity}}</td>

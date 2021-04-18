@@ -165,7 +165,7 @@
         <div class="container">
             <div class="cv-heading">
                     <h6 class="text-muted">The Brand to Trust Upon</h6>
-                    <h1>hy buy from  <span>GWS?</span></h1>
+                    <h1>Why buy from  <span>GWS?</span></h1>
                     <hr class="border-bottom-line">
             </div>
            
@@ -452,10 +452,11 @@
   @if(count($reviews)>0)
       <div class="cv-testimonial">
           <div class="container">
-              <div class="cv-heading">
-                  <h1>Customer review</h1>
-              </div>
-              <div class="row">
+                <div class="cv-heading">
+                    <h1>What Our <span>Customer Says</span></h1>
+                    <hr class="border-bottom-line">
+                </div>
+                <div class="row">
                   <div class="swiper-container">
                       <div class="swiper-wrapper">
                           @foreach($reviews as $review)
