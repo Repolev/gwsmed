@@ -98,7 +98,7 @@
                                        <a href="javascript:void(0);" class="cv-btn btn btn-success btn-sm" style="background: #218838"  data-target="#exampleModal" data-toggle="modal"><i class="fas fa-paper-plane"></i> Quick Enquiry</a>
 
                                    </div>
-                                   <div class="my-4 pt-3 px-2 px-3" style="border:1px solid #ddd">
+                                   <div class="my-4 pt-3 px-2 px-3" style="border:1px solid #ddd;overflow-x:scroll;">
                                        <p>{!! html_entity_decode($product->summary) !!}</p>
                                    </div>
 

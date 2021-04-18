@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
 <link rel="shortcut icon" href="{{ asset('frontend/assets/images/fav.png') }}" type="image/x-icon">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
 
 {{-- OWL Carousel --}}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
@@ -46,7 +47,7 @@
 
     .accept-cookies{
         position: fixed;
-        top: 0;
+        bottom: 0;
         left: 0;
         width: 100%;
     }

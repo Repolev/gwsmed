@@ -23,12 +23,19 @@ use Illuminate\Support\Facades\Route;
 //
 //Route::get('user/logout',[\App\Http\Controllers\Auth\LoginController::class,'userLogout'])->name('user.logout');
 //
+Route::get('/clear', function() {
+   Artisan::call('cache:clear');
+   Artisan::call('config:clear');
+   Artisan::call('config:cache');
+   Artisan::call('view:clear');
 
-Route::get('/generate-key', function() {
-    return \Illuminate\Support\Str::random(32);
+   return "Cache Successfully  Cleared!";
+
 });
-
-
+Route::get('/link', function () {
+Artisan::call('storage:link');
+    return "Successfully linked";
+});
 Route::get('/',[\App\Http\Controllers\Frontend\IndexController::class,'home'])->name('home');
 
 //Enquiry form
@@ -44,7 +51,7 @@ Route::get('product-category/{parent5}/{parent4}/{parent3}/{parent2}/{parent1}/{
 Route::get('product-category/{parent6}/{parent5}/{parent4}/{parent3}/{parent2}/{parent1}/{slug}',[\App\Http\Controllers\Frontend\IndexController::class, 'dynamicCategory6'])->name('product.category.6');
 
 //Product detail
-Route::get('product-detail/{slug}/',[\App\Http\Controllers\Frontend\IndexController::class,'productDetail'])->name('product.detail');
+Route::get('product/{slug}/',[\App\Http\Controllers\Frontend\IndexController::class,'productDetail'])->name('product.detail');
 Route::get('download-catalog-pdf/{id}/',[\App\Http\Controllers\Frontend\IndexController::class,'downloadCatalogPdf'])->name('catalog.download');
 Route::get('/get-product-price/{id}',[\App\Http\Controllers\ProductController::class,'filterPriceWithSize']);
 
