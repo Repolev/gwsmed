@@ -52,7 +52,7 @@
                                             <td><?php echo e($item->on_menu==1 ? 'Yes' : 'No'); ?></td>
                                             <td><?php echo e(ucfirst(\App\Models\Category::where('id',$item->parent_id)->value('title'))); ?></td>
                                             <td>
-                                                <input type="checkbox" name="toogle" value="<?php echo e($item->id); ?>" data-toggle="switchbutton" <?php echo e($item->status=='active' ? 'checked' : ''); ?> data-onlabel="active" data-offlabel="inactive" data-size="sm" data-onstyle="success" data-offstyle="danger">
+                                                <input type="checkbox" id="onMenu" name="toogle" value="<?php echo e($item->id); ?>" data-toggle="switchbutton" data-size="sm" <?php echo e($item->status=='active' ? 'checked' : ''); ?>>
                                             </td>
                                             <td>
                                                 <a href="<?php echo e(route('category.edit',$item->id)); ?>" data-toggle="tooltip" title="edit" class="float-left btn btn-sm btn-outline-warning" data-placement="bottom"><i class="fas fa-edit"></i> </a>
@@ -126,7 +126,7 @@
                 },
                 success:function (response) {
                     if(response.status){
-                        alert(response.msg);
+                        console.log(response.msg);
                     }
                     else{
                         alert('Please try again!');

@@ -127,7 +127,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 /* top header start */
 
 .cv-top-header {
-    height: 44px;
+    height: 48px;
     background: #fff;
     display: flex;
     align-items: center;
@@ -139,14 +139,14 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 .cv-top-header p{
     margin: 0;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
 }
 
 .cv-head-contact h3 {
     margin: 0;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 13px;
+    font-weight: 400;
     display: flex;
     color: #878787;
 }
@@ -203,6 +203,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     display: flex;
     align-items: center;
     background: #3dbebd;
+    background-image: -webkit-linear-gradient( 185deg , rgb(67 197 196) 0%, rgb(66 216 224) 100%);
 }
 
 .cv-main-header .row, .cv-header-two .row {
@@ -220,7 +221,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 
 .cv-nav-bar .cv-menu ul li:hover{
-    background-color: #80cbcb;
+    background-color: #3dbebd;
     cursor: pointer;
 }
 
@@ -229,7 +230,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 /* banner start */
 
 .cv-banner, .cv-testimonial, .cv-instagram, .cv-team, .cv-related-product {
-    background: #f8fdff;
+    background: #eef5fa;
+    height: 65vh;
 }
 
 .cv-banner .row {
@@ -305,6 +307,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 30px;
+    height: 24rem;
 }
 
 .cv-product-data {
@@ -348,11 +351,16 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .cv-price-title {
-    font-size: 20px;
-    /*font-weight: 600;*/
+    font-size: 16px;
+    font-weight: 400;
     margin: 0px 0 5px;
     display: block;
     color: #4a4a4a;
+    height: 60px;
+}
+
+.cv-product-data p{
+    font-size: 14px;
 }
 
 .cv-product-icon ul li svg {
@@ -399,6 +407,12 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 .cv-product-img {
     position: relative;
+    transition:all 0.3s ease-in;
+    
+}
+
+.cb-product-img:hover img{
+    transform: scale(1.15);
 }
 
 .cv-sale {
@@ -443,7 +457,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     right: 0;
     top: 0;
     bottom: 0;
-    background: linear-gradient(0deg, rgba(60, 188, 255, 0.47), rgba(166, 221, 250, 0.2));
+    background: linear-gradient(0deg, rgb(66 208 213), rgb(66 215 223));
+    opacity: 0.6;
     z-index: 0;
     transform-origin: bottom center;
     transform: scaleY(0);
@@ -469,11 +484,23 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .cv-heading h1 {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 600;
-    color: #AB292B;
+    /*color: #AB292B;*/
     margin-bottom: 5px;
     text-transform: capitalize;
+}
+
+
+.cv-heading h1 span{
+    color: #42cdd0;
+}
+
+.cv-heading .border-bottom-line{
+    width: 12%;
+    height: 3px;
+    background-color: #42cdd0;
+    border-radius: 3px;
 }
 
 .cv-heading p {
@@ -1050,11 +1077,13 @@ p#me_timer span {
 }
 
 .cv-feature-box {
+    background-color: #fff;
     display: flex;
     border: 1px solid #d4f0ff;
     padding: 20px 17px 13px 12px;
     border-radius: 10px;
     margin: 0 10px 30px;
+    height: 10rem;
 }
 
 .cv-feature-img svg {
@@ -1083,6 +1112,11 @@ p#me_timer span {
 
 .cv-feature-box:hover .cv-feature-img {
     transform: translateY(-5px);
+    background-color: #43d8df;
+}
+
+.cv-feature-box:hover .cv-feature-img i {
+   color: #fff;
 }
 
 .cv-feature-text {
@@ -1285,6 +1319,17 @@ p#me_timer span {
     min-width: 130px;
     background: #fff;
     color: #AB292B;
+    transition:0.3s ease-in;
+    font-size: 14px;
+}
+
+.cv-product-button .cv-btn:hover{
+    background: -webkit-linear-gradient( 185deg , rgb(67 197 196) 0%, rgb(66 216 224) 100%);
+    color:#fff;
+}
+
+.cv-btn:hover svg{
+    color: #3dbebd;
 }
 
 .cv-product-button {
@@ -1588,7 +1633,7 @@ p#me_timer span {
 }
 
 .cv-gallery-grid .cv-product-box {
-    margin: 15px;
+    margin: 0;
 }
 
 .cv-product-gallery .col-12, .cv-shop .col-md-8 {
@@ -3115,19 +3160,19 @@ textarea {
     /* main header start */
     .cv-menu>ul>li {
         display: inline-block;
-        /* margin-right: 25px; */
-        padding: 14px 10px;
+        /*margin-right: 25px; */
+        padding: 14px 6px;
         transition: all 0.3s linear;
     }
     .cv-menu>ul>li.cv-children-menu {
-        margin-right: 40px;
+        padding-right: 40px;
     }
     .cv-menu>ul>li:last-child {
         margin-right: 0;
     }
     .cv-menu>ul>li>a {
         color: #fff;
-        font-weight: 400;
+        font-weight: 500;
     }
     .cv-header-two .cv-menu>ul>li>a {
         color: #818899;
@@ -3142,13 +3187,12 @@ textarea {
     /* mega menu start */
     .cv-mega-menu, .cv-sub-mmenu {
         position: absolute;
-        width: 60%;
-        top: 54px;
+        width: 100%;
         left: 0;
-        right: auto;
+        top: 54px;
         margin: auto;
         text-align: left;
-        background: #80cbcb;
+        background: #3dbebd;
         padding: 26px 30px 0px;
         box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.07);
         transform: scaleY(0);
@@ -3169,7 +3213,6 @@ textarea {
     }
     .cm-menu-list {
         display: inline-flex;
-        width: 24%;
         margin-bottom: 23px;
     }
     .cm-menu-list ul li {
@@ -3178,6 +3221,7 @@ textarea {
     .cm-menu-list ul li a {
         text-transform: capitalize;
         color: #fff;
+        font-weight: 500;
     }
     .cm-menu-list ul li:last-child, .cv-sub-mmenu li:last-child {
         margin-bottom: 0;
@@ -4105,8 +4149,142 @@ Custom CSS
 
 /* Custom */
 
+/*reset css*/
+p{
+    color: #929292;
+    line-height: 2rem;
+}
+
+.section-bg{
+    background-color: #f3f5fa;
+    padding: 60px 0;
+}
+/*Side share panel*/
 #at4-share3, #at4-soc3 {
-    top: 20% !important;
-    bottom: auto;
     display: none;
 }
+
+/*Hero Banner Carousl*/
+
+.cv-banner .container-fluid,  .cv-banner .container-fluid .row , .cv-banner .container-fluid .row .owl-carousel{
+    height: 100%;
+}
+
+.cv-banner .owl-carousel{
+    z-index: 0;
+}
+
+.cv-banner .owl-carousel .owl-dots{
+    display: block;
+    position: absolute;
+    top: auto;
+    bottom: 20px;
+    left: 0;
+    right: auto;
+    width: 100%;
+}
+.cv-banner .owl-carousel .owl-dots .owl-dot span{
+    width: 16px;
+    height: 16px;
+    margin: 5px 7px;
+    background: transparent;
+    display: block;
+    transition: opacity .2s ease;
+    border-radius: 30px;
+    border: 2px solid #fff;
+    cursor: pointer;
+    box-shadow: 0 0 1px 1px #fefefb;
+}
+
+.cv-banner .owl-carousel .owl-dots .owl-dot.active span{
+    background: #42d8df;
+}
+
+.cv-banner .owl-carousel .owl-nav{
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-in;
+}
+
+.cv-banner .owl-carousel:hover .owl-nav{
+    visibility: visible;
+    opacity: 1;
+}
+
+.cv-banner .owl-carousel .owl-nav button{
+    position: absolute;
+    top: 50%;
+    background: #fff!important;
+    width: 50px;
+    height: 50px;
+}
+
+.cv-banner .owl-carousel .owl-nav button span{
+    font-size: 38px;
+    color: #ab292b;
+    line-height: 32px;
+}
+
+.cv-banner .owl-carousel .owl-nav .owl-prev{
+    left: 0;
+    right: auto;
+}
+
+.cv-banner .owl-carousel .owl-nav .owl-next{
+    right: 0;
+    left: auto;
+}
+
+/*Mega Menu */
+
+.cm-menu-list ul{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-auto-rows: 2rem;
+}
+
+
+/*About Us section*/
+
+.qoute-icon{
+    font-size: 25px;
+    color: #42cdd0;
+}
+
+
+
+.bg-parallex{
+    padding:60px 0;
+    position: relative;
+}
+
+
+
+.bg-parallex:before{
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    background-image: url(https://gwsmed.com/wp-content/uploads/2020/01/Stethoscope.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.cv-gallery-grid .cv-product-box{
+    border: none;
+    border-radius: 0px;
+}
+
+.cv-gallery-grid .cv-product-box .cv-product-img{
+    border: 1px solid #d4f0ff;
+    border-radius: 10px 10px 0 0;
+}
+
+

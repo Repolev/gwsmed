@@ -54,8 +54,8 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="card overflowhidden">
                         <div class="body">
-                            <h3>{{\App\Models\Order::where('condition','delivered')->count()}} <i class=" icon-check text-success float-right"></i></h3>
-                            <span>Order Delivered</span>
+                            <h3>{{\App\Models\Enquiry::count()}} <i class=" icon-question text-success float-right"></i></h3>
+                            <span>Total Enquiries</span>
                         </div>
                         <div class="progress progress-xs progress-transparent custom-color-green m-b-0">
                             <div class="progress-bar" data-transitiongoal="68"></div>

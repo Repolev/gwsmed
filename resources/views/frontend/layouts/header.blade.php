@@ -116,11 +116,17 @@
 <div class="cv-top-header" style="background-color: #ecf8f8;">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <p class="welcome-text" >Welcome to GWS Surgical LLP</p>
             </div>
-
-            <div class="col-md-6 d-flex justify-content-end">
+            <div class="col-md-4 text-right">
+                <div class="certification-image">
+                    <img src= "https://gwsmed.com/wp-content/uploads/elementor/thumbs/ISO13485-ogzvc3spk1tjmixoywohjjfuc61k50b0oh5vm7wr28-ov0xgb1zhnwy17j6hfdgzk8zrlu9f51ygvl9fywkxs.png">
+                     <img src= "https://gwsmed.com/wp-content/uploads/elementor/thumbs/WHO-GMP-ogzvc4qjqvuty4wbtf34417axjwxcper0ltd3hvcw0-ov0xf5p34ycbud796xhvxuopmni40ghrn6vwbslwjk.png">
+                      <img src= "https://gwsmed.com/wp-content/uploads/elementor/thumbs/ISO-9001-ogzvc8hwi7zz8kqv7gpme095b3ee7htod4fb0lps74-ov0xe0c6s8rpnivbwfmaw54fhp5ylrxkti6j7mb85c.png">
+                </div>
+            </div>
+            <div class="col-md-5 d-flex justify-content-end">
                 <div class="cv-head-contact">
                     <h3>
                         <i class="ri-mail-open-line pr-2 "></i> {{\App\Models\Setting::value('email')}}

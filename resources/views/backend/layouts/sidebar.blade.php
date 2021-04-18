@@ -49,7 +49,7 @@
                         <li><a href="{{route('shipping.create')}}">Add Shipping</a></li>
                     </ul>
                 </li> --}}
-                <li class="{{(\Illuminate\Support\Facades\Request::is('admin/orders*')==1) ? 'active' : ''}}"><a href="{{route('orders.index')}}"><i class="icon-layers"></i>Order Management</a></li>
+                <li class="{{(\Illuminate\Support\Facades\Request::is('admin/orders*')==1) ? 'active' : ''}}"><a href="{{route('orders.index')}}"><i class="icon-layers"></i>Bulk Enquiry Cart</a></li>
                 <li class="{{(\Illuminate\Support\Facades\Request::is('admin/blogs*')==1) ? 'active' : ''}}"><a href="javascript:void(0);" class="has-arrow"><i class="icon-picture"></i><span>Blog Management</span> </a>
                     <ul>
                         <li><a href="{{route('blogs.index')}}">All Blogs</a></li>

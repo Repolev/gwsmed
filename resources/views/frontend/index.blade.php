@@ -24,12 +24,18 @@
     <div class="cv-feature spacer-top">
         <div class="container">
             <div class="cv-heading">
-                <h1>About Us</h1>
+                <h1>About <span>Us</span></h1>
+                <hr class="border-bottom-line">
             </div>
             <div class="row">
                 <div class="col"></div>
                 <div class="col-md-10 text-center">
-                    <p>GWS Surgicals one of the Leading Indian exporter manufacturing company Known in the Field of Medical Devices covering varied range of Ophthalmic Instruments, Orthopaedic Implants & General Medical Devices. Dedicating four decades in manufacturing & distributing of high-quality products in the sphere of health care, GWS has established its global presence and is accepted in more than 50 countries worldwide.</p>
+                    <p>
+                        <i class="ri-double-quotes-l qoute-icon"></i>
+                        <b>GWS Surgicals</b> one of the Leading Indian exporter manufacturing company Known in the Field of Medical Devices covering varied range of Ophthalmic Instruments, Orthopaedic Implants & General Medical Devices. Dedicating four decades in manufacturing & distributing of high-quality products in the sphere of health care, GWS has established its global presence and is accepted in more than 50 countries worldwide.
+                        <i class="ri-double-quotes-r qoute-icon"></i>
+                    </p>
+            
                 </div>
                 <div class="col"></div>
             </div>
@@ -37,10 +43,11 @@
     </div>
 
 
-    <div class="cv-feature  ">
+    <div class="cv-feature section-bg">
         <div class="container">
             <div class="cv-heading">
-                <h1>Features</h1>
+                <h1>Our <span>Features</span></h1>
+                <hr class="border-bottom-line">
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6">
@@ -81,10 +88,11 @@
     </div>
     <!-- featured products start -->
     @if(count($featured_products)>0)
-        <div class="cv-arrival cv-product-three cv-product-slider">
+        <div class="cv-arrival cv-product-three cv-product-slider" style="padding-top:50px">
             <div class="container">
                 <div class="cv-heading">
-                    <h1>Featured Products</h1>
+                    <h1>Featured <span>Products</span></h1>
+                    <hr class="border-bottom-line">
                 </div>
                 <div class="row">
                     <div class="col-12">
@@ -101,7 +109,8 @@
                                             @endphp
                                             <img src="{{asset($photos[0])}}" alt="{{$item->image_alt}}" class="img-fluid"/>
                                             <div class="cv-product-button">
-                                                <a href="{{route('product.detail',$item->slug)}}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
+                                                <a href="{{route('product.detail',$item->slug)}}" class="cv-btn">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                         <g>
                                                             <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
                                                         S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
@@ -152,15 +161,17 @@
     @endif
     <!-- featured products end -->
 
-    <div class="cv-feature  ">
+    <div class="cv-feature bg-parallex">
         <div class="container">
             <div class="cv-heading">
-                <h6 style="font-weight: bold;color:grey;font-size: 18px">The Brand to Trust Upon</h6>
-                <h1>Why buy from GWS?</h1>
+                    <h6 class="text-muted">The Brand to Trust Upon</h6>
+                    <h1>hy buy from  <span>GWS?</span></h1>
+                    <hr class="border-bottom-line">
             </div>
+           
             <div class="row">
                 <div class="col-md-12">
-                    <p>GWS Surgicals LLP is an accredited medical supplier and manufacturer in India. Apart from national delivery, we also accomplish international shipping of essential medical supplies and products. Our never-ending stock has an assorted range of important medical supplies, hospital products, surgical instruments, tools, advanced medical devices and machines. Apart from being the best in quality, our products are considerably affordable and their efficiency is powered by the latest industry innovations.</p>
+                    <p style="color: #000; font-weight: 300;">GWS Surgicals LLP is an accredited medical supplier and manufacturer in India. Apart from national delivery, we also accomplish international shipping of essential medical supplies and products. Our never-ending stock has an assorted range of important medical supplies, hospital products, surgical instruments, tools, advanced medical devices and machines. Apart from being the best in quality, our products are considerably affordable and their efficiency is powered by the latest industry innovations.</p>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="cv-feature-box">
@@ -280,7 +291,7 @@
                         </ul>
                     </div>
                     <div class="cv-product-all wow fadeIn" data-wow-delay="0.5s">
-                        <div class="cv-gallery-grid">
+                        <div class="row cv-gallery-grid">
                             @if($cat_gallery_first)
                                 @foreach($cat_gallery_first->subcategories as $subcategories)
                                 @php
