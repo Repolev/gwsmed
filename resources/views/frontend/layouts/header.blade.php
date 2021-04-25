@@ -266,7 +266,7 @@
                             $get_covid = \App\Models\Category::where('slug', 'covid19')->first();
                         @endphp
                         @if($get_covid)
-                        <li class="cv-children-menu cv-mega-li"><a href="{{ route('product.category.0', $get_covid->slug) }}">{{ucfirst($category->title)}}</a></li>
+                        <li class="cv-children-menu cv-mega-li"><a href="{{ route('product.category.0', $get_covid->slug) }}">{{ucfirst($get_covid->title)}}</a></li>
                         @endif
                         <li><a href="{{route('blog')}}">Blog</a></li>
                         <li><a href="{{route('enquiry')}}">Enquiry</a></li>
