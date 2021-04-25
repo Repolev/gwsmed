@@ -16,11 +16,12 @@
             <p> My email is {{$data['email']}} </p>
             <p>Subject : {{$data['subject']}}</p>
             <p>Message : {{$data['message']}}</p>
-            <p> We will contact you as soon as possible. </p>
+            <p>Contact Number: {{ $data['phone'] }}</p>
+            <p>Country: {{ $data['country'] }}</p>
+            <p>City: {{ $data['city'] }}</p>
             <br/>
             <br/>
-            <p> Best Regards</p>
-            <p> Team, GWS SURGICAL </p>
+            <p>GWS SURGICAL </p>
         </div>
     </div>
 </div>

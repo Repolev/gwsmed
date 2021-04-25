@@ -22,7 +22,7 @@
     <!-- conatact start -->
     <div class="cv-conatact my-3">
         <div class="container">
-            
+
             <div class="row">
                 <div class="col-lg-4">
                     <div class="cv-contact-detail">
@@ -114,11 +114,19 @@
                             <input type="text" placeholder="Full Name*" name="full_name" id="full_name" class="require"/>
                              <input type="text" placeholder="Company's Name*" name="company_name" id="company_name" class="require"/>
                             <input type="text"  placeholder="Email*" name="email" id="email" class="require" data-valid="email" data-error="Email should be valid."/>
-                             <input type="number" placeholder="Phone number with country code*" name="phone_no" id="phone_no" class="require"/>
-                             <select class="country-options">
+                             <input type="number" placeholder="Phone number with country code*" name="phone" id="phone_no" class="require"/>
+                             <select class="country-options form-control" name="country">
                                  <option>Select Country</option>
+                                 <option value="India">India</option>
+                                 <option value="Pakistan">Pakistan</option>
+                                 <option value="Sri Lanka">Sri Lanka</option>
+                                 <option value="Bhuta">Bhutan</option>
+                                 <option value="Nepal">Nepal</option>
+                                 <option value="Afghanistan">Afghanistan</option>
+                                 <option value="Bangladesh">Bangladesh</option>
+                                 <option value="China">China</option>
                              </select>
-                              <input type="text" placeholder="City Name*" name="city_name" id="city_name" class="require"/>
+                              <input type="text" placeholder="City Name*" name="city" id="city_name" class="require"/>
                             <input type="text"  placeholder="Enter your subject" name="subject" id="subject" class="require"/>
                             <textarea placeholder="Message here" name="message" id="message" class="require"></textarea>
                             <button type="submit" class="cv-btn submitForm">submit</button>

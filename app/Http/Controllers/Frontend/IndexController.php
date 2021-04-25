@@ -406,7 +406,10 @@ class IndexController extends Controller
             'full_name'=>'string|required',
             'email'=>'email|required',
             'subject'=>"string|required|min:4",
-            'message'=>'string'
+            'message'=>'string',
+            'country' => 'required',
+            'phone' => 'required',
+            'city' => 'required'
         ]);
         $data= $request->all();
         Mail::to('gwssurgicalsllp@gmail.com')->cc('info@gwsmed.com')->send(new ContactMail($data));
