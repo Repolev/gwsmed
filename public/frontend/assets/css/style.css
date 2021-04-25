@@ -110,7 +110,7 @@ li {
     outline: none;
 }
 
-input {
+input, select {
     width: 100%;
     height: 50px;
     border: 1px solid #d4f0ff;
@@ -221,7 +221,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 
 .cv-nav-bar .cv-menu ul li:hover{
-    background-color: #0c5aa5;
+    /*background-color: #0c5aa5;*/
     cursor: pointer;
 }
 
@@ -451,19 +451,19 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .cv-product-img:after {
-    position: absolute;
-    content: '';
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: linear-gradient(0deg, rgb(66 208 213), rgb(66 215 223));
-    opacity: 0.6;
-    z-index: 0;
-    transform-origin: bottom center;
-    transform: scaleY(0);
-    transition: 0.5s;
-    width: 100%;
+    /*position: absolute;*/
+    /*content: '';*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*top: 0;*/
+    /*bottom: 0;*/
+    /*background: linear-gradient(0deg, rgb(66 208 213), rgb(66 215 223));*/
+    /*opacity: 0.6;*/
+    /*z-index: 0;*/
+    /*transform-origin: bottom center;*/
+    /*transform: scaleY(0);*/
+    /*transition: 0.5s;*/
+    /*width: 100%;*/
 }
 
 .cv-product-box:hover .cv-product-img:after {
@@ -1361,7 +1361,8 @@ p#me_timer span {
 }
 
 .cv-product-button .cv-btn:hover{
-    background: -webkit-linear-gradient( 185deg , rgb(67 197 196) 0%, rgb(66 216 224) 100%);
+    /*background: -webkit-linear-gradient( 185deg , rgb(67 197 196) 0%, rgb(66 216 224) 100%);*/
+    background-color: #0070a4;
     color:#fff;
 }
 
@@ -3090,7 +3091,7 @@ td.cv-price {
     line-height: 25px;
 }
 
-.cv-contact-form input {
+.cv-contact-form input, select {
     margin-bottom: 15px;
 }
 

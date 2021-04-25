@@ -127,12 +127,13 @@
                     <h3>
                         <i class="ri-mail-open-line pr-2 "></i> <?php echo e(\App\Models\Setting::value('email')); ?>
 
-                        <i class="ri-phone-line pl-4 pr-2"></i> Call Us: <?php echo e(\App\Models\Setting::value('phone')); ?>  
+                        <i class="ri-phone-line pl-4 pr-2"></i> Call Us: <?php echo e(\App\Models\Setting::value('phone')); ?>
+
                     </h3>
                 </div>
             </div>
 
-           
+
         </div>
     </div>
 </div>
@@ -258,9 +259,13 @@
                             <?php else: ?>
                                 <li><a href="<?php echo e(route('product.category.0', $category->slug)); ?>"><?php echo e(ucfirst($category->title)); ?></a></li>
                             <?php endif; ?>
-
-
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        <?php
+                            $get_covid = \App\Models\Category::where('slug', 'covid19')->first();
+                        ?>
+                        <?php if($get_covid): ?>
+                        <li><a href="<?php echo e(route('product.category.0', $get_covid->slug)); ?>"><?php echo e(ucfirst($get_covid->title)); ?></a></li>
+                        <?php endif; ?>
                         <li><a href="<?php echo e(route('blog')); ?>">Blog</a></li>
                         <li><a href="<?php echo e(route('enquiry')); ?>">Enquiry</a></li>
                         <li><a href="<?php echo e(route('contact.us')); ?>">Contact</a></li>
