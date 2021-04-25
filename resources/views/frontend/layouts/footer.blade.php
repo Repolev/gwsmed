@@ -87,5 +87,7 @@
 <!-- main wrapper end -->
 
 <!-- Share this end -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6068b8549ab58bb0"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60859fa2aacd1232"></script>
+
 <!-- Share this end -->
