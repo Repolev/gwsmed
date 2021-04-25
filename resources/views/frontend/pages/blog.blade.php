@@ -5,26 +5,29 @@
 
     <!-- breadcrumb start -->
     <div class="cv-breadcrumb">
+    </div>
+    <div class="row py-2" style="border-bottom: 1px solid #f5f5f5;">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="cv-breadcrumb-box">
-                        <h1>Blog</h1>
-                        <ul>
-                            <li><a href="{{route('home')}}">Home</a></li>
-                            <li>Blog</li>
-                        </ul>
-                    </div>
+            <div class="col-12">
+                <div class="cv-breadcrumb-box">
+                    <ul>
+                        <li><a href="{{route('home')}}">Home</a></li>
+                        |
+                        <li>Blog</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
     <!-- breadcrumb end -->
     <!-- blog start -->
-    <div class="cv-blog-page spacer-top spacer-bottom">
+    <div class="cv-blog-page my-3">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+                    <div class="title py-3">
+                        <h4>Blogs</h4>
+                    </div>
                     <div class="cv-blog-page-box">
                         <div class="row">
                             @if(count($blogs)>0)
@@ -35,7 +38,9 @@
                                                 <img src="{{asset($blog->image_path)}}" alt="{{$blog->title}}" class="img-fluid"/>
                                             </div>
                                             <div class="cv-blog-data">
-                                                <a href="javascript:;" class="cv-blog-date">{{\Carbon\Carbon::parse($blog->created_at)->format('d M Y')}}</a>
+                                                <div class="d-flex">
+                                                    <a href="#" class="cv-blog-date"> <i class="fa fa-clock"></i> {{\Carbon\Carbon::parse($blog->created_at)->format('d M Y')}}</a>
+                                                </div>
                                                 <a href="{{route('blog.detail',$blog->slug)}}" class="cv-blog-title">{{ucfirst($blog->title)}}</a>
 {{--                                                <div class="cv-blog-share">--}}
 {{--                                                    <p class="cv-share-hover">--}}
@@ -62,7 +67,7 @@
                                 <p class="text-center">No blog found</p>
                             @endif
 
-                            <div class="col-md-12">
+                            <div class="col-md-12 my-5">
                                 {{$blogs->links('vendor.pagination.custom')}}
 {{--                                <div class="cv-pagination">--}}
 {{--                                    <ul>--}}

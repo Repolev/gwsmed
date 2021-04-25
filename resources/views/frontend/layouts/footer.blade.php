@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6">
                     <div class="cv-foot-box cv-foot-logo">
-                        @if(\App\Models\Setting::value('logo'))
-                            <img src="{{ asset('storage/frontend/images/settings/'.\App\Models\Setting::value('logo')) }}" style="max-width: 200px" alt="image" class="img-fluid"/>
+                        @if(\App\Models\Setting::value('footer_logo'))
+                            <img src="{{ asset('storage/frontend/images/settings/'.\App\Models\Setting::value('footer_logo')) }}" style="max-width: 200px" alt="image" class="img-fluid"/>
                         @else
                             <img src="{{ Helper::defaultLogo() }}" alt="image" class="img-fluid" style="max-width: 200px" />
                         @endif

@@ -68,6 +68,12 @@
                                                     </div>
                                                     <div class="col-lg-12 col-md-12">
                                                         <div class="form-group">
+                                                            <label for="">Footer Logo</label>
+                                                            <input type="file" name="footer_logo" class="dropify" id="input-file-now" data-height="80" data-default-file="{{asset('storage/frontend/images/settings/'.$setting->footer_logo)}}" value="{{asset('storage/frontend/images/settings/'.$setting->footer_logo)}}">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-12 col-md-12">
+                                                        <div class="form-group">
                                                             <label for="">Favicon</label>
                                                             <input type="file" name="favicon" class="dropify" id="input-file-now" data-height="80" data-default-file="{{asset('storage/frontend/images/settings/'.$setting->favicon)}}" value="{{asset('storage/frontend/images/settings/'.$setting->favicon)}}">
                                                         </div>

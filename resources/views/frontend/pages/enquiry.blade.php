@@ -3,16 +3,16 @@
 @section('content')
     <!-- breadcrumb start -->
     <div class="cv-breadcrumb">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="cv-breadcrumb-box">
-                        <h1>Enquiry</h1>
-                        <ul>
-                            <li><a href="{{route('home')}}">Home</a></li>
-                            <li>Enquiry</li>
-                        </ul>
-                    </div>
+    </div>
+    <div class="row py-2" style="border-bottom: 1px solid #f5f5f5;">
+        <div class="col-12">
+            <div class="container">
+                <div class="cv-breadcrumb-box">
+                    <ul>
+                        <li><a href="{{route('home')}}">Home</a></li>
+                        |
+                        <li>Enquiry</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -36,7 +36,10 @@
                                 </ul>
                             </div>
                         @endif
-                        <h3 class="px-2 pb-3">Enquiry Form</h3>
+                        <div class="title mb-3">
+                            <h4> <span>Enquiry </span>Form</h4>
+                        </div>
+                        <!--<h3 class="px-2 pb-3">Enquiry Form</h3>-->
 
                             <div class="row">
                                 <div class="col-md-6">
@@ -114,7 +117,7 @@
 
 
                     </div>
-                    <div class="col-12 col-lg-3 mt-5" style="height:300px; overflow-y:scroll">
+                    <div class="col-12 col-lg-3 mt-5" style="height:300px;">
                         <div class="row">
                             <div class="col-md-12">
                                 <label style="font-weight: bold;color:black" for="">Category <span
@@ -123,7 +126,7 @@
                             <div class="col-md-12 categories-list">
                                 @foreach($categories as $category)
 
-                                    <div class="form-group d-flex">
+                                    <div class="form-group d-flex align-items-center">
                                         <input type="checkbox" name="cats[]" value="{{$category->id}}" style="width: auto"
                                                class="mr-2 form-control form-control-sm">
                                         <label class="mb-0" for="">{{ucfirst($category->title)}}</label>

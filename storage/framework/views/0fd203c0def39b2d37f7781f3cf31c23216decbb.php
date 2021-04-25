@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('content'); ?>
     <!-- banner start -->
     <div class="cv-banner">
@@ -35,7 +33,7 @@
                         <b>GWS Surgicals</b> one of the Leading Indian exporter manufacturing company Known in the Field of Medical Devices covering varied range of Ophthalmic Instruments, Orthopaedic Implants & General Medical Devices. Dedicating four decades in manufacturing & distributing of high-quality products in the sphere of health care, GWS has established its global presence and is accepted in more than 50 countries worldwide.
                         <i class="ri-double-quotes-r qoute-icon"></i>
                     </p>
-            
+
                 </div>
                 <div class="col"></div>
             </div>
@@ -168,7 +166,7 @@
                     <h1>Why buy from  <span>GWS?</span></h1>
                     <hr class="border-bottom-line">
             </div>
-           
+
             <div class="row">
                 <div class="col-md-12">
                     <p style="color: #000; font-weight: 300;">GWS Surgicals LLP is an accredited medical supplier and manufacturer in India. Apart from national delivery, we also accomplish international shipping of essential medical supplies and products. Our never-ending stock has an assorted range of important medical supplies, hospital products, surgical instruments, tools, advanced medical devices and machines. Apart from being the best in quality, our products are considerably affordable and their efficiency is powered by the latest industry innovations.</p>
@@ -317,7 +315,11 @@
                                 ?>
                                     <div class="cv-product-box cv-product-item cv-first col-md-3">
                                             <div class="cv-product-img">
-                                                <img src="<?php echo e($subcategories->image_path); ?>" alt="<?php echo e($subcategories->image_alt); ?>" class="img-fluid"/>
+                                                <?php if($subcategories->image_path != null): ?>
+                                                    <img src="<?php echo e($subcategories->image_path); ?>" alt="<?php echo e($subcategories->image_alt); ?>" class="img-fluid"/>
+                                                <?php else: ?>
+                                                    <h3>Image Not Found</h3>
+                                                <?php endif; ?>
                                                 <div class="cv-product-button">
                                                     <a href="<?php echo e(route('product.category.' . $subcategories->level, $category_url)); ?>" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                         <g>
@@ -366,7 +368,11 @@
                                     ?>
                                         <div class="cv-product-box cv-product-item cv-second col-md-3" style="display: none;">
                                                 <div class="cv-product-img">
-                                                    <img src="<?php echo e($subcategories->image_path); ?>" alt="<?php echo e($subcategories->image_alt); ?>" class="img-fluid"/>
+                                                    <?php if($subcategories->image_path != null): ?>
+                                                        <img src="<?php echo e($subcategories->image_path); ?>" alt="<?php echo e($subcategories->image_alt); ?>" class="img-fluid"/>
+                                                    <?php else: ?>
+                                                        <h3>Image Not Found</h3>
+                                                    <?php endif; ?>
                                                     <div class="cv-product-button">
                                                         <a href="<?php echo e(route('product.category.' . $subcategories->level, $category_url)); ?>" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                             <g>
@@ -414,7 +420,11 @@
                                         ?>
                                         <div class="cv-product-box cv-product-item cv-third col-md-3" style="display: none;">
                                                 <div class="cv-product-img">
-                                                    <img src="<?php echo e($subcategories->image_path); ?>" alt="<?php echo e($subcategories->image_alt); ?>" class="img-fluid"/>
+                                                    <?php if($subcategories->image_path != null): ?>
+                                                        <img src="<?php echo e($subcategories->image_path); ?>" alt="<?php echo e($subcategories->image_alt); ?>" class="img-fluid"/>
+                                                    <?php else: ?>
+                                                        <h3>Image Not Found</h3>
+                                                    <?php endif; ?>
                                                     <div class="cv-product-button">
                                                         <a href="<?php echo e(route('product.category.' . $subcategories->level, $category_url)); ?>" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                             <g>
