@@ -130,12 +130,12 @@
                 <div class="cv-head-contact">
                     <h3>
                         <i class="ri-mail-open-line pr-2 "></i> {{\App\Models\Setting::value('email')}}
-                        <i class="ri-phone-line pl-4 pr-2"></i> Call Us: {{\App\Models\Setting::value('phone')}}  
+                        <i class="ri-phone-line pl-4 pr-2"></i> Call Us: {{\App\Models\Setting::value('phone')}}
                     </h3>
                 </div>
             </div>
 
-           
+
         </div>
     </div>
 </div>
@@ -261,9 +261,13 @@
                             @else
                                 <li><a href="{{ route('product.category.0', $category->slug) }}">{{ucfirst($category->title)}}</a></li>
                             @endif
-
-
                         @endforeach
+                        @php
+                            $get_covid = \App\Models\Category::where('slug', 'covid19')->first();
+                        @endphp
+                        @if($get_covid)
+                        <li class="cv-children-menu cv-mega-li"><a href="{{ route('product.category.0', $get_covid->slug) }}">{{ucfirst($category->title)}}</a></li>
+                        @endif
                         <li><a href="{{route('blog')}}">Blog</a></li>
                         <li><a href="{{route('enquiry')}}">Enquiry</a></li>
                         <li><a href="{{route('contact.us')}}">Contact</a></li>
