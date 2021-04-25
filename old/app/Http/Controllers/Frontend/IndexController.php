@@ -521,7 +521,7 @@ class IndexController extends Controller
 
     //blog
     public function blog(){
-        $blogs=Blog::orderBy('id','DESC')->paginate(4);
+        $blogs=Blog::orderBy('id','DESC')->paginate(6);
         return view('frontend.pages.blog',compact('blogs'));
     }
 
