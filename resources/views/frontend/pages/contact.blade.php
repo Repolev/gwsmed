@@ -110,7 +110,7 @@
                     <div class="cv-contact-form">
                         <h2 class="cv-sidebar-title">Get a quote</h2>
                         <form action="{{route('contact.submit')}}" method="post">
-                            @csrf
+                            {{ csrf_field() }}
                             <input type="text" placeholder="Full Name*" name="full_name" id="full_name" class="require"/>
                              <input type="text" placeholder="Company's Name*" name="company_name" id="company_name" class="require"/>
                             <input type="text"  placeholder="Email*" name="email" id="email" class="require" data-valid="email" data-error="Email should be valid."/>
@@ -126,6 +126,7 @@
                                  <option value="Bangladesh">Bangladesh</option>
                                  <option value="China">China</option>
                              </select>
+                             <br>
                               <input type="text" placeholder="City Name*" name="city" id="city_name" class="require"/>
                             <input type="text"  placeholder="Enter your subject" name="subject" id="subject" class="require"/>
                             <textarea placeholder="Message here" name="message" id="message" class="require"></textarea>
