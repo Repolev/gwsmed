@@ -49,7 +49,7 @@
                         <li><a href="{{route('shipping.create')}}">Add Shipping</a></li>
                     </ul>
                 </li> --}}
-                <li class="{{(\Illuminate\Support\Facades\Request::is('admin/orders*')==1) ? 'active' : ''}}"><a href="{{route('orders.index')}}"><i class="icon-layers"></i>Bulk Enquiry Cart</a></li>
+                <li class="{{(\Illuminate\Support\Facades\Request::is('admin/orders*')==1) ? 'active' : ''}}"><a href="{{route('orders.index')}}" onclick="myFunction();"><i class="icon-layers"></i>Bulk Enquiry Cart</a></li>
                 <li class="{{(\Illuminate\Support\Facades\Request::is('admin/blogs*')==1) ? 'active' : ''}}"><a href="javascript:void(0);" class="has-arrow"><i class="icon-picture"></i><span>Blog Management</span> </a>
                     <ul>
                         <li><a href="{{route('blogs.index')}}">All Blogs</a></li>
@@ -72,7 +72,7 @@
                 </li>
 
                 <li class="{{(\Illuminate\Support\Facades\Request::is('comments*')==1) ? 'active' : ''}}"><a href="{{route('comments.index')}}"><i class="fas fa-comment-alt"></i>Comment Management</a></li>
-                <li class="{{(\Illuminate\Support\Facades\Request::is('enquiry*')==1) ? 'active' : ''}}"><a href="{{route('enquiry.index')}}"><i class="fas fa-question-circle"></i>Enquiry Management</a></li>
+                <!--<li class="{{(\Illuminate\Support\Facades\Request::is('enquiry*')==1) ? 'active' : ''}}"><a href="{{route('enquiry.index')}}"><i class="fas fa-question-circle"></i>Enquiry Management</a></li>-->
 
 {{--                <li class="{{(\Illuminate\Support\Facades\Request::is('admin/coupon*')==1) ? 'active' : ''}}"><a href="javascript:void(0);" class="has-arrow"><i class="fas fa-comment-alt"></i><span>Comment Management</span> </a>--}}
 {{--                    <ul>--}}
@@ -80,12 +80,12 @@
 {{--                        <li><a href="{{route('coupon.create')}}">Add Coupon</a></li>--}}
 {{--                    </ul>--}}
 {{--                </li>--}}
-                <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-people"></i><span>User Management</span> </a>
-                    <ul>
-                        <li><a href="{{route('user.index')}}">All Users</a></li>
-                        <li><a href="{{route('user.create')}}">Add Users</a></li>
-                    </ul>
-                </li>
+                <!--<li><a href="javascript:void(0);" class="has-arrow"><i class="icon-people"></i><span>User Management</span> </a>-->
+                <!--    <ul>-->
+                <!--        <li><a href="{{route('user.index')}}">All Users</a></li>-->
+                <!--        <li><a href="{{route('user.create')}}">Add Users</a></li>-->
+                <!--    </ul>-->
+                <!--</li>-->
                 <li><a href="{{route('settings')}}"><i class="icon-settings"></i>Settings</a></li>
             </ul>
         </nav>

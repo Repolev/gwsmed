@@ -160,7 +160,7 @@
                     <input type="text" name="query" class="form-control" style="font-size: 14px;padding-left:30px;border-radius: 6px 0 0 6px;height: 46px;" name="query" id="search_text"
                            placeholder="Search for products here...">
                     <div class="input-group-append">
-                        <button type="submit" style="border-radius:0 6px 6px 0;background: #3dbebd" class="input-group-text"><i class="fas fa-search"></i>
+                        <button type="submit" style="border-radius:0 6px 6px 0;background: #0070a4" class="input-group-text"><i class="fas fa-search"></i>
                         </button>
                     </div>
                 </form>

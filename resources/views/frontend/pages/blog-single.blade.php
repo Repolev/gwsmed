@@ -5,7 +5,7 @@
 @section('content')
 
     <!-- breadcrumb start -->
-    <div class="cv-breadcrumb">
+    <div class="cv-breadcrumb blog-details-header">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -13,6 +13,7 @@
                         <h1>{{ucfirst($blog->title)}}</h1>
                         <ul>
                             <li><a href="{{route('home')}}">Home</a></li>
+                            |
                             <li><a href="{{route('blog')}}">Blogs</a></li>
                         </ul>
                     </div>
@@ -31,8 +32,8 @@
                             <img src="{{asset($blog->image_path)}}" alt="{{$blog->title}}" class="img-fluid"/>
                         </div>
                         <div class="cv-blog-data">
-                            <a href="javascript:;" class="cv-blog-date">{{\Carbon\Carbon::parse($blog->created_at)->format('d M Y')}}</a>
-                            <h2 class="cv-blog-title">{{ucfirst($blog->title)}}</h2>
+                            <a href="javascript:;" class="cv-blog-date"><i class="fa fa-clock"></i> {{\Carbon\Carbon::parse($blog->created_at)->format('d M Y')}}</a>
+                            <h2 class="cv-blog-detail-title">{{ucfirst($blog->title)}}</h2>
                            {!! html_entity_decode($blog->content) !!}
                         </div>
                     </div>
@@ -85,8 +86,8 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="cv-blog-sidebar">
-                        <div class="cv-widget cv-product-category">
-                            <h2 class="cv-sidebar-title">Recent Post</h2>
+                        <div class="cv-widget cv-product-category title">
+                            <h4 class="cv-sidebar-title" style="color:#0070a4;">Recent Post</h4>
                             @if(count($blogs)>0)
                             <ul>
                                 @foreach($blogs as $item)

@@ -5,41 +5,43 @@
 @section('content')
     <!-- breadcrumb start -->
     <div class="cv-breadcrumb" style="background: linear-gradient(to left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{{asset($category->banner_path)}}');">
+    </div>
+    <div class="row py-2" style="border: 1px solid #f5f5f5;">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="cv-breadcrumb-box" >
-                        <h1>{{ucfirst($category->title)}}</h1>
-                        <ul>
-                            <li><a href="{{route('home')}}">Home</a></li>
-                            @if($category->parentCategory)
-                                @if($category->parentCategory->parentCategory)
-                                    @if($category->parentCategory->parentCategory->parentCategory)
-                                        <li>{{ucfirst($category->parentCategory->parentCategory->parentCategory->title)}}</li>
-                                    @endif
-                                    @if($category->parentCategory->parentCategory)
-                                        <li>{{ucfirst($category->parentCategory->parentCategory->title)}}</li>
-                                    @endif
+            <div class="col-12">
+                <div class="cv-breadcrumb-box" >
+                    <h1 class="d-none">{{ucfirst($category->title)}}</h1>
+                    <ul>
+                        <li><a href="{{route('home')}}">Home</a></li>|
+                        @if($category->parentCategory)
+                            @if($category->parentCategory->parentCategory)
+                                @if($category->parentCategory->parentCategory->parentCategory)
+                                    <li>{{ucfirst($category->parentCategory->parentCategory->parentCategory->title)}}</li>|
                                 @endif
-                                @if($category->parentCategory)
-                                    <li>{{ucfirst($category->parentCategory->title)}}</li>
+                                @if($category->parentCategory->parentCategory)
+                                    <li>{{ucfirst($category->parentCategory->parentCategory->title)}}</li>|
                                 @endif
                             @endif
-                            <li>{{ucfirst($category->title)}}</li>
-                        </ul>
-                    </div>
+                            @if($category->parentCategory)
+                                <li>{{ucfirst($category->parentCategory->title)}}</li>|
+                            @endif
+                        @endif
+                        <li>{{ucfirst($category->title)}}</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
     <!-- breadcrumb end -->
     <!-- shop start -->
-    <div class="cv-shop">
+    <div class="cv-shop py-4">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="category-detail mb-5 ml-2">
-                        <h1>{{ ucfirst($category->title) }}</h1>
+                        <div class="title">
+                            <h4>{{ ucfirst($category->title) }}</h4>
+                        </div>
                         {!! $category->description !!}
                     </div>
                 </div>

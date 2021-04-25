@@ -26,3 +26,21 @@
 
     $('.dropify').dropify();
 </script>
+
+<script>
+    function myFunction(){
+        var password='Sahil123'
+        var message=prompt('Please enter password');
+        
+        if(message.length<=0){
+            alert('Enter password');
+            return false;
+        }
+        else if(message ===password){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+</script>

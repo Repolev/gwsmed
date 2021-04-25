@@ -42,8 +42,8 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="card overflowhidden">
                         <div class="body">
-                            <h3>{{number_format(\App\Models\User::where('status','active')->count())}} <i class="icon-user-follow float-right"></i></h3>
-                            <span>New Customers</span>
+                            <h3>{{number_format(\App\Models\Blog::count())}} <i class="icon-book-open float-right"></i></h3>
+                            <span>Total Blogs</span>
                         </div>
                         <div class="progress progress-xs progress-transparent custom-color-purple m-b-0">
                             <div class="progress-bar" data-transitiongoal="67"></div>
@@ -54,8 +54,8 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="card overflowhidden">
                         <div class="body">
-                            <h3>{{\App\Models\Enquiry::count()}} <i class=" icon-question text-success float-right"></i></h3>
-                            <span>Total Enquiries</span>
+                            <h3>{{\App\Models\Order::count()}} <i class=" icon-question text-success float-right"></i></h3>
+                            <span>Total Bulk Enquiries</span>
                         </div>
                         <div class="progress progress-xs progress-transparent custom-color-green m-b-0">
                             <div class="progress-bar" data-transitiongoal="68"></div>

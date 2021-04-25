@@ -4,24 +4,25 @@
 
     <!-- breadcrumb start -->
     <div class="cv-breadcrumb">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
+    </div>
+        <div class="row py-2" style="border-bottom: 1px solid #f5f5f5;">
+            <div class="col-12">
+                <div class="container">
                     <div class="cv-breadcrumb-box">
-                        <h1>Contact us</h1>
                         <ul>
                             <li><a href="{{route('home')}}">Home</a></li>
+                            |
                             <li>Contact us</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     <!-- breadcrumb end -->
     <!-- conatact start -->
-    <div class="cv-conatact spacer-top spacer-bottom">
+    <div class="cv-conatact my-3">
         <div class="container">
+            
             <div class="row">
                 <div class="col-lg-4">
                     <div class="cv-contact-detail">
@@ -83,16 +84,16 @@
 
                                 </div>
                             </li>
-                            <li>
-                                <div class="cv-contact-icon">
-                                   <i class="fas fa-clock text-white"></i>
-                                </div>
-                                <div class="cv-contact-text">
-                                    <h3>Open Time</h3>
-                                    <p>{{\App\Models\Setting::value('office_time')}}</p>
+                            <!--<li>-->
+                            <!--    <div class="cv-contact-icon">-->
+                            <!--       <i class="fas fa-clock text-white"></i>-->
+                            <!--    </div>-->
+                            <!--    <div class="cv-contact-text">-->
+                            <!--        <h3>Open Time</h3>-->
+                            <!--        <p>{{\App\Models\Setting::value('office_time')}}</p>-->
 
-                                </div>
-                            </li>
+                            <!--    </div>-->
+                            <!--</li>-->
                         </ul>
                     </div>
                 </div>

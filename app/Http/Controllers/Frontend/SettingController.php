@@ -19,6 +19,7 @@ class SettingController extends Controller
             'title'=>'string|required',
             'url'=>'url|nullable',
             'logo'=>'image|nullable|mimes:png,jpg,svg,gif,jpeg',
+            'footer_logo'=>'image|nullable|mimes:png,jpg,svg,gif,jpeg',
             'favicon'=>'image|nullable|mimes:png,jpg,svg,gif,jpeg',
             'email'=>'email|required',
             'phone'=>'required',
@@ -37,6 +38,14 @@ class SettingController extends Controller
                 $data['logo']=$imageName;
             }
         }
+        
+        if($request->hasFile('footer_logo')){
+            if($file=$request->file('footer_logo')){
+                $imageName=str_replace(' ','-',$request->input('title')).'-'.$file->getClientOriginalName();
+                $file->storeAs('public/frontend/images/settings/',$imageName);
+                $data['footer_logo']=$imageName;
+            }
+        }
         //favicon
         if($request->hasFile('favicon')){
             if($file=$request->file('favicon')){
@@ -45,6 +54,7 @@ class SettingController extends Controller
                 $data['favicon']=$imageName;
             }
         }
+        
 
         $status=$setting->update($data);
         if($status){

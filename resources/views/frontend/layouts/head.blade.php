@@ -10,7 +10,8 @@
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/font.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/swiper.min.css') }}">
 <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
-<link rel="shortcut icon" href="{{ asset('frontend/assets/images/fav.png') }}" type="image/x-icon">
+<link rel="shortcut icon" href="{{ asset('frontend/assets/images/cropped-LOGO-TOP-SMALL-PNG-192x192.png') }}" type="image/x-icon">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css">
 

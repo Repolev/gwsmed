@@ -5,17 +5,17 @@
 @section('content')
     <!-- breadcrumb start -->
     <div class="cv-breadcrumb" style="background: linear-gradient(to left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{{asset($category->banner_path)}}');">
+    </div>
+    <div class="row">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="cv-breadcrumb-box">
-                        <h1>{{ucfirst($category->title)}}</h1>
-                        <ul>
-                            <li><a href="{{route('home')}}">Home</a></li>
-                            <li>Category</li>
-                            <li>{{ucfirst($category->title)}}</li>
-                        </ul>
-                    </div>
+            <div class="col-12">
+                <div class="cv-breadcrumb-box">
+                    <h1>{{ucfirst($category->title)}}</h1>
+                    <ul>
+                        <li><a href="{{route('home')}}">Home</a></li>
+                        <li>Category</li>
+                        <li>{{ucfirst($category->title)}}</li>
+                    </ul>
                 </div>
             </div>
         </div>
