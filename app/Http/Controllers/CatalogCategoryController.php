@@ -56,7 +56,7 @@ class CatalogCategoryController extends Controller
 
         $status=CatalogCategory::create($data);
         if($status){
-            return redirect()->route('category.index')->with('success','Catalog Category successfully created');
+            return redirect()->route('catalog-category.index')->with('success','Catalog Category successfully created');
         }
         else{
             return back()->with('error','Something went wrong!');
@@ -101,7 +101,7 @@ class CatalogCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category=CatalogCategory::find($id);
+        $category = CatalogCategory::find($id);
         if($category){
             $this->validate($request,[
                 'title'=>'string|required',
@@ -122,7 +122,7 @@ class CatalogCategoryController extends Controller
             $data['slug'] = $slug;
             $status = $category->fill($data)->save();
             if($status){
-                return redirect()->route('category.index')->with('success','Category successfully updated');
+                return redirect()->route('catalog-category.index')->with('success','Category successfully updated');
             }
             else{
                 return back()->with('error','Something went wrong!');
@@ -149,7 +149,7 @@ class CatalogCategoryController extends Controller
                 if(count($child_cat_id)>0){
                     CatalogCategory::shiftChild($child_cat_id);
                 }
-                return redirect()->route('category.index')->with('success','Category successfully deleted');
+                return redirect()->route('catalog-category.index')->with('success','Category successfully deleted');
             }
             else{
                 return back()->with('error','Something went wrong!');

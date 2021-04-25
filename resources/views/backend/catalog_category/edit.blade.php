@@ -31,7 +31,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="body">
-                            <form action="{{route('category.update',$category->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('catalog-category.update',$category->id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('patch')
                                 <div class="row clearfix">
@@ -56,6 +56,14 @@
                                             @foreach($parent_cats as $pcats)
                                                 <option value="{{$pcats->id}}" {{ $pcats->id == $category->parent_id ? 'selected' : '' }}>{{ucfirst($pcats->title)}}</option>
                                             @endforeach
+                                        </select>
+                                    </div>
+
+                                    <div class="col-lg-12 col-sm-12">
+                                        <label for="status">Status</label>
+                                        <select name="status" class="form-control show-tick">
+                                            <option value="active" {{ $category->status =='active' ? 'selected' : ''}}>Active</option>
+                                            <option value="inactive" {{ $category->status == 'inactive' ? 'selected' : ''}} >Inactive</option>
                                         </select>
                                     </div>
                                 </div>

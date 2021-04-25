@@ -27,7 +27,7 @@
                             <div class="col-lg-7 col-12">
                                 <div class="hero-text">
                                     <h1>Prouct Category</h1>
-                                    <p>Maboriosam in a nesciung eget magnae <br> dapibus disting tloctio in the find it pereri 
+                                    <p>Maboriosam in a nesciung eget magnae <br> dapibus disting tloctio in the find it pereri
                                 </div>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
     <!--/ End Single Slider -->
 </section>
 
@@ -53,27 +53,21 @@
                 <h1>Category</h1>
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>-->
-			
+
             <div class="row">
-			
+
 			 @if($category_lists)
 				 @foreach($category_lists as $key=>$cat)
                 <div class="col-lg-4 col-sm-6">
                     <div class="cv-product-box">
                         <div class="cv-product-img">
-						
+
                             <img src="{{$cat->photo}} " alt="image" onmouseover="opensubcat()" class="img-fluid"/>
-							
+
 							<div class="cv-product-icon">
                                 <ul>
-								
-								
-                                 
-                                  
                                     <li>
 									<a href="" >
-								
-								
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.092 512.092">
                                             <g>
                                                 <path d="M312.453,199.601c-6.066-6.102-12.792-11.511-20.053-16.128c-19.232-12.315-41.59-18.859-64.427-18.859
@@ -99,36 +93,26 @@
                                     </a></li>
                                 </ul>
                             </div>
-							
-							
-                         
                         </div>
-						
+
                         <div class="cv-product-data">
                            <a  href="{{URL::to('/')}}/category/{{ $cat->slug}}"  class="cv-price-title">
 						   {{$cat->title}}  </a>
-                         
-                            
+
                         </div>
                     </div>
-					
-					
                 </div>
 				  @endforeach
-				
 			 @endif
-				
-				
-				 
-             
+
             </div>
         </div>
     </div>
     <!-- self protection kit end -->
     <!-- hot deals start -->
-  
-    
-	
+
+
+
 @endsection
 
 @push('styles')
@@ -175,7 +159,7 @@
 @push('scripts')
 <script>
    function opensubcat()
-	   
+
 	   {
 		   alert('Testing');
 	   }
@@ -183,9 +167,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
     {{-- <script>
-	
-	
-	   
+
+
+
         $('.cart').click(function(){
             var quantity=1;
             var pro_id=$(this).data('id');
@@ -239,14 +223,14 @@
                     else{
                         swal('error',response.msg,'error').then(function(){
 							// document.location.href=document.location.href;
-						}); 
+						});
                     }
                 }
             });
         });
     </script> --}}
     <script>
-        
+
         /*==================================================================
         [ Isotope ]*/
         var $topeContainer = $('.isotope-grid');
@@ -258,7 +242,7 @@
                 var filterValue = $(this).attr('data-filter');
                 $topeContainer.isotope({filter: filterValue});
             });
-            
+
         });
 
         // init Isotope
