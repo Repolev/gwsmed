@@ -111,8 +111,14 @@
                         <h2 class="cv-sidebar-title">Get a quote</h2>
                         <form action="{{route('contact.submit')}}" method="post">
                             @csrf
-                            <input type="text" placeholder="Enter your name" name="full_name" id="full_name" class="require"/>
-                            <input type="text"  placeholder="Enter your email" name="email" id="email" class="require" data-valid="email" data-error="Email should be valid."/>
+                            <input type="text" placeholder="Full Name*" name="full_name" id="full_name" class="require"/>
+                             <input type="text" placeholder="Company's Name*" name="company_name" id="company_name" class="require"/>
+                            <input type="text"  placeholder="Email*" name="email" id="email" class="require" data-valid="email" data-error="Email should be valid."/>
+                             <input type="number" placeholder="Phone number with country code*" name="phone_no" id="phone_no" class="require"/>
+                             <select class="country-options">
+                                 <option>Select Country</option>
+                             </select>
+                              <input type="text" placeholder="City Name*" name="city_name" id="city_name" class="require"/>
                             <input type="text"  placeholder="Enter your subject" name="subject" id="subject" class="require"/>
                             <textarea placeholder="Message here" name="message" id="message" class="require"></textarea>
                             <button type="submit" class="cv-btn submitForm">submit</button>
