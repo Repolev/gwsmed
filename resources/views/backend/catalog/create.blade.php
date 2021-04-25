@@ -31,7 +31,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="body">
-                            <form action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('catalogs.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row clearfix">
                                     <div class="col-lg-12 col-md-12">
@@ -51,7 +51,7 @@
 
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <label for="">Category</label>
-                                        <select id="categoryId" name="category_id[]" class="form-control select2  show-tick" multiple>
+                                        <select id="categoryId" name="category_id" class="form-control select2  show-tick">
                                             @foreach($categories as $cat)
                                                 <option value="{{$cat->id}}">{{$cat->title}}</option>
                                             @endforeach

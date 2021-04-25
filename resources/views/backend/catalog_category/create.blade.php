@@ -37,7 +37,7 @@
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                             <label for="">Category Name: <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="eg. Electronics" name="title" value="{{old('title')}}" id="categoryTitle">
+                                            <input type="text" class="form-control" placeholder="eg. Medical" name="title" value="{{old('title')}}" id="categoryTitle">
                                         </div>
                                     </div>
 

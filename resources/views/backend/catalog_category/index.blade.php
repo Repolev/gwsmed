@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Catalog Categories
-                            <a class="btn btn-sm btn-outline-secondary" href="{{route('category.create')}}"><i class="icon-plus"></i> Add Catalog Category</a></h2>
+                            <a class="btn btn-sm btn-outline-secondary" href="{{route('catalog-category.create')}}"><i class="icon-plus"></i> Add Catalog Category</a></h2>
                         <ul class="breadcrumb float-left">
                             <li class="breadcrumb-item"><a href="{{route('admin')}}"><i class="icon-home"></i></a></li>
                             <li class="breadcrumb-item active">Catalog Category</li>
@@ -45,15 +45,13 @@
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{ucfirst($item->title)}}</td>
-                                            <td>@if($item->image_path)<img src="{{asset($item->image_path)}}" alt="category image" style="max-height: 90px; max-width: 120px">@endif</td>
-{{--                                            <td><i class="fas {{$item->is_featured==1 ? 'fa-check-circle text-success' : 'fa-times-circle text-danger'}}"></i></td>--}}
-                                            <td>{{ucfirst($item->parentCategory->title)}}</td>
+                                            <td>{{ucfirst($item->parentCategory != null ? $item->parentCategory->title : null )}}</td>
                                             <td>
                                                 <input type="checkbox" id="onMenu" name="toogle" value="{{$item->id}}" data-toggle="switchbutton" data-size="sm" {{$item->status=='active' ? 'checked' : ''}}>
                                             </td>
                                             <td>
-                                                <a href="{{route('catalogs-category.edit',$item->id)}}" data-toggle="tooltip" title="edit" class="float-left btn btn-sm btn-outline-warning" data-placement="bottom"><i class="fas fa-edit"></i> </a>
-                                                <form class="float-left ml-1" action="{{route('catalogs-category.destroy',$item->id)}}"  method="post">
+                                                <a href="{{route('catalog-category.edit',$item->id)}}" data-toggle="tooltip" title="edit" class="float-left btn btn-sm btn-outline-warning" data-placement="bottom"><i class="fas fa-edit"></i> </a>
+                                                <form class="float-left ml-1" action="{{route('catalog-category.destroy',$item->id)}}"  method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <a href="" data-toggle="tooltip" title="delete" data-id="{{$item->id}}" class="dltBtn btn btn-sm btn-outline-danger" data-placement="bottom"><i class="fas fa-trash-alt"></i> </a>

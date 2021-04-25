@@ -96,7 +96,7 @@ Route::get('contact-us',[\App\Http\Controllers\Frontend\IndexController::class,'
 Route::post('contact-submit',[\App\Http\Controllers\Frontend\IndexController::class,'contactSubmit'])->name('contact.submit');
 
 //about us
-Route::get('about-us',[\App\Http\Controllers\Frontend\IndexController::class,'aboutUs'])->name('about.us');
+Route::get('about',[\App\Http\Controllers\Frontend\IndexController::class,'aboutUs'])->name('about.us');
 Route::get('certification',[\App\Http\Controllers\Frontend\IndexController::class,'certification'])->name('certification');
 Route::get('infrastructure',[\App\Http\Controllers\Frontend\IndexController::class,'infrastructure'])->name('infrastructure');
 Route::get('company-profile',[\App\Http\Controllers\Frontend\IndexController::class,'companyProfile'])->name('company.profile');
@@ -115,6 +115,11 @@ Route::get('blogs/{url}',[\App\Http\Controllers\Frontend\IndexController::class,
 // Enquiry Form
 Route::post('enquiry-category',[\App\Http\Controllers\EnquiryController::class,'enquiryCategoryForm'])->name('enquiry.category');
 Route::post('enquiry-product',[\App\Http\Controllers\EnquiryController::class,'enquiryProductForm'])->name('enquiry.product');
+
+Route::get('catalog', [\App\Http\Controllers\Frontend\CatalogController::class, 'catalogCategory'])->name('catalog.category');
+Route::get('catalog/{category}', [\App\Http\Controllers\Frontend\CatalogController::class, 'catalogSubCategory'])->name('catalog.subcategory');
+Route::get('catalog/{category}/{subcategory}', [\App\Http\Controllers\Frontend\CatalogController::class, 'catalogList'])->name('catalog.list');
+Route::get('catalog/{category}/{subcategory}', [\App\Http\Controllers\Frontend\CatalogController::class, 'catalogDetail'])->name('catalog.detail');
 
 //Endfrontend section
 Auth::routes();

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Catalog;
+use App\Models\CatalogCategory;
 
 class CatalogController extends Controller
 {
@@ -14,8 +15,8 @@ class CatalogController extends Controller
      */
     public function index()
     {
-        $categories = Catalog::orderBy('id','DESC')->get();
-        return view('backend.catalog.index',compact('categories'));
+        $catalogs = Catalog::orderBy('id','DESC')->get();
+        return view('backend.catalog.index',compact('catalogs'));
     }
 
     /**
@@ -25,7 +26,8 @@ class CatalogController extends Controller
      */
     public function create()
     {
-        return view('backend.catalog.create');
+        $categories = CatalogCategory::all();
+        return view('backend.catalog.create', compact('categories'));
     }
 
     /**
@@ -37,14 +39,35 @@ class CatalogController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'title'=>'string|required',
-            'description'=>'string|nullable',
-            'parent_id'=>'nullable|exists:catalog_categories,id',
+            'name'=>'string|required',
+            'catalog-slug'=>'string|nullable',
+            'category_id'=>'nullable|exists:catalog_categories,id',
+            'photo'=>'image|nullable|mimes:png,jpg,jpeg,svg,gif',
+            'pdf_file' => 'required|max:10000',
             'status'=>'required|in:active,inactive'
         ]);
-        $data=$request->all();
+        $data = $request->all();
 
-        $status=Catalog::create($data);
+        if($request->hasFile('photo')){
+            if($file=$request->file('photo')){
+                $imageName = time() .".". $file->getClientOriginalExtension();
+                $file->storeAs('/backend/assets/images/catalog/' , $imageName);
+                $data['image_name']=$imageName;
+                $data['image_path']='storage/backend/assets/images/catalog/'.$imageName;
+            }
+        }
+
+        if($request->hasFile('pdf_file')){
+            if($file=$request->file('pdf_file')){
+                $fileName = time() .".". $file->getClientOriginalExtension();
+                $file->storeAs('/backend/assets/images/catalog/' , $fileName);
+                $data['pdf_path']='storage/backend/assets/images/catalog/'. $fileName;
+            }
+        }
+
+        // dd($data);
+
+        $status =  Catalog::create($data);
         if($status){
             return redirect()->route('catalogs.index')->with('success','Catalogs successfully created');
         }
@@ -72,10 +95,10 @@ class CatalogController extends Controller
      */
     public function edit($id)
     {
-        $category=Catalog::find($id);
-        $parent_cats=Catalog::orderBy('title','ASC')->get();
+        $category = Catalog::find($id);
+        $categories = CatalogCategory::orderBy('title','ASC')->get();
         if($category){
-            return view('backend.catalog_category.edit',compact(['category','parent_cats']));
+            return view('backend.catalog.edit',compact(['category','parent_cats']));
         }
         else{
             return back()->with('error','Category not found');
@@ -91,7 +114,7 @@ class CatalogController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category=Catalog::find($id);
+        $category = Catalog::find($id);
         if($category){
             $this->validate($request,[
                 'title'=>'string|required',
@@ -100,10 +123,26 @@ class CatalogController extends Controller
                 'status'=>'required|in:active,inactive'
             ]);
 
-            $data=$request->all();
-            $status=$category->fill($data)->save();
+            $data = $request->all();
+            if($request->hasFile('photo')){
+                if($file=$request->file('photo')){
+                    $imageName = time() .".". $file->getClientOriginalExtension();
+                    $file->storeAs('/backend/assets/images/catalog/' , $imageName);
+                    $data['image_name']=$imageName;
+                    $data['image_path']='storage/backend/assets/images/catalog/'.$imageName;
+                }
+            }
+
+            if($request->hasFile('pdf_file')){
+                if($file=$request->file('pdf_file')){
+                    $fileName = time() .".". $file->getClientOriginalExtension();
+                    $file->storeAs('/backend/assets/images/catalog/' , $fileName);
+                    $data['pdf_path']='storage/backend/assets/images/catalog/'. $fileName;
+                }
+            }
+            $status = $category->fill($data)->save();
             if($status){
-                return redirect()->route('category.index')->with('success','Category successfully updated');
+                return redirect()->route('catalogs.index')->with('success','Category successfully updated');
             }
             else{
                 return back()->with('error','Something went wrong!');
