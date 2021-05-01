@@ -70,7 +70,7 @@
             <div class="row align-items-center justify-content-center">
                 <div class="col-12 text-center">
                     <div class="cv-heading">
-                        <h1>Choose a <span>Catalogue</span></h1>
+                        <h1>Choose a <span>Category</span></h1>
                         <hr class="border-bottom-line">
                     </div>
                 </div>
@@ -78,10 +78,17 @@
                 <ul class="catalog-list">
                     @foreach($catalog_category as $category)
                         <li>
-                            <a href ="{{ route('catalog.subcategory', $category->slug) }}">
-                                <img src="{{ $category->image_path }}" alt="{{ $category->title }}">
-                                <h1>{{ $category->title }}</h1>
-                            </a>
+                            @if(count($category->childCategories))
+                                <a href ="{{ route('catalog.subcategory', $category->slug) }}">
+                                    <img src="{{ $category->childCategories->first()->catalogs->first()->image_path }}" alt="{{ $category->title }}" height="200" width="200">
+                                    <h1>{{ $category->title }}</h1>
+                                </a>
+                            @else
+                                <a href ="{{ route('catalog.subcategory', $category->slug) }}">
+                                    <img src="{{ $category->catalogs->first()->image_path }}" alt="{{ $category->title }}" height="200" width="200">
+                                    <h1>{{ $category->title }}</h1>
+                                </a>
+                            @endif
                         </li>
                     @endforeach
                 </ul>

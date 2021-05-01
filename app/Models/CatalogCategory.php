@@ -18,14 +18,14 @@ class CatalogCategory extends Model
      *
      */
     public function parentCategory(){
-        return $this->belongsTo('App\Models\CatalogCategory','id','parent_id')->where('status','active');
+        return $this->hasOne('App\Models\CatalogCategory','id','parent_id')->where('status','active');
     }
 
     /**
      *
      */
     public function childCategories(){
-        return $this->hasMany('App\Models\CatalogCategory','id','parent_id')->where('status','active');
+        return $this->hasMany('App\Models\CatalogCategory','parent_id')->where('status','active');
     }
 
 

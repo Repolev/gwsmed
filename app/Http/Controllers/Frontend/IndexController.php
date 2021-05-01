@@ -345,6 +345,7 @@ class IndexController extends Controller
     //product by sub category
     public function dynamicCategory0(Request $request, $slug){
         $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->with('products')->first();
+        $products = $category->products()->paginate(10);
         return view('frontend.pages.product.product-subcategory', compact(['category']));
     }
 
