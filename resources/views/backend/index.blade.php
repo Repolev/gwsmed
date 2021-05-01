@@ -63,6 +63,8 @@
                     </div>
                 </div>
             </div>
+            
+            @if(auth('admin')->user()->is_verified==1)
 
             <div class="row clearfix">
                 <div class="col-sm-12 col-md-12 col-lg-12">
@@ -142,6 +144,8 @@
                     </div>
                 </div>
             </div>
+            
+            @endif
 
 {{--            <div class="row clearfix">--}}
 {{--                <div class="col-lg-4 col-md-12 col-sm-12">--}}

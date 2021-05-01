@@ -83,7 +83,7 @@
 
             var spinner = $(this),
                 input = spinner.closest(".cv-cart-quantity").find('input[type="number"]');
-            var newVal = parseFloat(input.val())+1;
+            var newVal = parseFloat(input.val());
             $('#qty-input-'+id ).val(newVal);
 
             var productQuantity = $("#update-cart-"+id).data('product-quantity');
@@ -98,7 +98,7 @@
                 return false;
             }
             if(input.val() != 1){
-                var newVal = parseFloat(input.val())-1;
+                var newVal = parseFloat(input.val());
                 $('#qty-input-'+id ).val(newVal);
             }
             var productQuantity = $("#update-cart-"+id).data('product-quantity');

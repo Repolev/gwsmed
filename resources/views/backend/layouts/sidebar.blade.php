@@ -49,7 +49,12 @@
                         <li><a href="{{route('shipping.create')}}">Add Shipping</a></li>
                     </ul>
                 </li> --}}
-                <li class="{{(\Illuminate\Support\Facades\Request::is('admin/orders*')==1) ? 'active' : ''}}"><a href="{{route('orders.index')}}" onclick="myFunction();"><i class="icon-layers"></i>Bulk Enquiry Cart</a></li>
+                
+                 @if(auth('admin')->user()->is_verified==1)
+
+                <li class="{{(\Illuminate\Support\Facades\Request::is('admin/orders*')==1) ? 'active' : ''}}"><a href="{{route('orders.index')}}" ><i class="icon-layers"></i>Bulk Enquiry Cart</a></li>
+                
+                @endif
                 <li class="{{(\Illuminate\Support\Facades\Request::is('admin/blogs*')==1) ? 'active' : ''}}"><a href="javascript:void(0);" class="has-arrow"><i class="icon-picture"></i><span>Blog Management</span> </a>
                     <ul>
                         <li><a href="{{route('blogs.index')}}">All Blogs</a></li>
@@ -80,12 +85,16 @@
 {{--                        <li><a href="{{route('coupon.create')}}">Add Coupon</a></li>--}}
 {{--                    </ul>--}}
 {{--                </li>--}}
-                <!--<li><a href="javascript:void(0);" class="has-arrow"><i class="icon-people"></i><span>User Management</span> </a>-->
-                <!--    <ul>-->
-                <!--        <li><a href="{{route('user.index')}}">All Users</a></li>-->
-                <!--        <li><a href="{{route('user.create')}}">Add Users</a></li>-->
-                <!--    </ul>-->
-                <!--</li>-->
+    
+                @if(auth('admin')->user()->is_verified==1)
+                <li><a href="javascript:void(0);" class="has-arrow"><i class="icon-people"></i><span>All Admins</span> </a>
+                    <ul>
+                        <li><a href="{{route('admin.index')}}">All Admins</a></li>
+                        <li><a href="{{route('admin.create')}}">Add Admins</a></li>
+                    </ul>
+                </li>
+                
+                 @endif
                 <li><a href="{{route('settings')}}"><i class="icon-settings"></i>Settings</a></li>
             </ul>
         </nav>

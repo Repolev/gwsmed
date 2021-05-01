@@ -5,7 +5,7 @@
 <div class="card">
     <h5 class="card-header">Edit User</h5>
     <div class="card-body">
-      <form method="post" action="{{route('users.update',$user->id)}}">
+      <form method="post" action="{{route('admin.update',$user->id)}}">
         @csrf 
         @method('PATCH')
         <div class="form-group">

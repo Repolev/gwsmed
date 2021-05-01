@@ -318,7 +318,7 @@
                                                 <?php if($subcategories->image_path != null): ?>
                                                     <img src="<?php echo e($subcategories->image_path); ?>" alt="<?php echo e($subcategories->image_alt); ?>" class="img-fluid"/>
                                                 <?php else: ?>
-                                                    <h3>Image Not Found</h3>
+                                                    <h6>Image Not Found</h6>
                                                 <?php endif; ?>
                                                 <div class="cv-product-button">
                                                     <a href="<?php echo e(route('product.category.' . $subcategories->level, $category_url)); ?>" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">

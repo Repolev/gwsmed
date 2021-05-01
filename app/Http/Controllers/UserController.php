@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -16,16 +17,26 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users=User::orderBy('id','DESC')->get();
+        $users=Admin::orderBy('id','DESC')->get();
         return view('backend.user.index',compact('users'));
     }
 
     public function userStatus(Request $request){
         if($request->mode=='true'){
-            DB::table('users')->where('id',$request->id)->update(['status'=>'active']);
+            DB::table('admins')->where('id',$request->id)->update(['status'=>'active']);
         }
         else{
-            DB::table('users')->where('id',$request->id)->update(['status'=>'inactive']);
+            DB::table('admins')->where('id',$request->id)->update(['status'=>'inactive']);
+        }
+        return response()->json(['msg'=>'Successfully updated status','status'=>true]);
+    }
+
+ public function userVerified(Request $request){
+        if($request->mode=='true'){
+            DB::table('admins')->where('id',$request->id)->update(['is_verified'=>1]);
+        }
+        else{
+            DB::table('admins')->where('id',$request->id)->update(['is_verified'=>0]);
         }
         return response()->json(['msg'=>'Successfully updated status','status'=>true]);
     }
@@ -49,9 +60,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'full_name'=>'string|required',
+            'name'=>'string|required',
             'username'=>'string|nullable',
-            'email'=>'email|required|unique:users,email',
+            'email'=>'email|required|unique:admins,email',
             'photo'=>'nullable|image|mimes:png,jpg,gif,jpeg,svg',
             'password'=>'min:4|required',
             'phone'=>'string|nullable',
@@ -71,9 +82,9 @@ class UserController extends Controller
         $data['password']=Hash::make($request->password);
 
 //        return $data;
-        $status=User::create($data);
+        $status=Admin::create($data);
         if($status){
-            return redirect()->route('user.index')->with('success','User successfully created');
+            return redirect()->route('admin.index')->with('success','Admin successfully created');
         }
         else{
             return back()->with('error','Something went wrong!');
@@ -101,7 +112,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user=User::find($id);
+        $user=Admin::find($id);
         if($user){
             return view('backend.user.edit',compact(['user']));
         }
@@ -119,16 +130,16 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user=User::find($id);
+        $user=Admin::find($id);
         if($user){
             $this->validate($request,[
-                'full_name'=>'string|required',
+                'name'=>'string|required',
                 'username'=>'string|nullable',
-                'email'=>'email|required|exists:users,email',
-                'photo'=>'required|image|mimes:png,jpg,gif,jpeg,svg',
+              
+                'photo'=>'nullable|image|mimes:png,jpg,gif,jpeg,svg',
                 'phone'=>'string|nullable',
                 'address'=>'string|nullable',
-                'status'=>'required|in:active,inactive',
+                'status'=>'nullable|in:active,inactive',
             ]);
 
             $data=$request->all();
@@ -143,7 +154,7 @@ class UserController extends Controller
 
             $status=$user->fill($data)->save();
             if($status){
-                return redirect()->route('user.index')->with('success','User successfully updated');
+                return redirect()->route('admin.index')->with('success','Admin successfully updated');
             }
             else{
                 return back()->with('error','Something went wrong!');
@@ -162,11 +173,11 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user=User::find($id);
+        $user=Admin::find($id);
         if($user){
             $status=$user->delete();
             if($status){
-                return redirect()->route('user.index')->with('success','User successfully deleted');
+                return redirect()->route('admin.index')->with('success','Admin successfully deleted');
             }
             else{
                 return back()->with('error','Something went wrong!');

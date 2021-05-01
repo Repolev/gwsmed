@@ -1,14 +1,12 @@
-$(function () {
-    $('.js-basic-example').DataTable();
 
-    //Exportable table
-    $('.js-exportable').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    });
-});
+
+$(document).ready( function () {
+  var table = $('.js-basic-example').DataTable({
+    "lengthMenu": [ 10, 25, 50 ],
+    "pageLength":25
+  });
+} );
+
 
 /* Formatting function for row details - modify as you need */
 function format ( d ) {

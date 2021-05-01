@@ -113,21 +113,21 @@
 {{--<!-- main header end -->--}}
 
 <!-- top header start -->
-<div class="cv-top-header" style="background-color: #ecf8f8;">
+<div class="cv-top-header d-none d-sm-block" style="background-color: #ecf8f8;">
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-12 col-md-3 col-lg-3 d-none d-lg-block">
                 <p class="welcome-text" >Welcome to GWS Surgical LLP</p>
             </div>
-            <div class="col-md-4 text-right">
+            <div class="col-12 col-md-5 col-lg-4 text-right">
                 <div class="certification-image">
                     <img src= "https://gwsmed.com/wp-content/uploads/elementor/thumbs/ISO13485-ogzvc3spk1tjmixoywohjjfuc61k50b0oh5vm7wr28-ov0xgb1zhnwy17j6hfdgzk8zrlu9f51ygvl9fywkxs.png">
                      <img src= "https://gwsmed.com/wp-content/uploads/elementor/thumbs/WHO-GMP-ogzvc4qjqvuty4wbtf34417axjwxcper0ltd3hvcw0-ov0xf5p34ycbud796xhvxuopmni40ghrn6vwbslwjk.png">
                       <img src= "https://gwsmed.com/wp-content/uploads/elementor/thumbs/ISO-9001-ogzvc8hwi7zz8kqv7gpme095b3ee7htod4fb0lps74-ov0xe0c6s8rpnivbwfmaw54fhp5ylrxkti6j7mb85c.png">
                 </div>
             </div>
-            <div class="col-md-5 d-flex justify-content-end">
-                <div class="cv-head-contact">
+            <div class="col-12 col-md-7 col-lg-5 d-none d-sm-block">
+                <div class="cv-head-contact text-right">
                     <h3>
                         <i class="ri-mail-open-line pr-2 "></i> {{\App\Models\Setting::value('email')}}
                         <i class="ri-phone-line pl-4 pr-2"></i> Call Us: {{\App\Models\Setting::value('phone')}}
@@ -141,11 +141,11 @@
 </div>
 <!-- top header end -->
 
-<div class="cv-top-header" style="height:104px">
+<div class="cv-top-header" style="height:auto">
     <div class="container">
         <div class="row">
 
-            <div class="col-6 col-md-3">
+            <div class="col-12 col-sm-3">
                 <div class="cv-head-contact">
                     <div class="cv-logo">
                         @if(\App\Models\Setting::value('logo'))
@@ -158,7 +158,7 @@
                 </div>
             </div>
 
-            <div class="col-6 col-md-6 ">
+            <div class="col-12 col-sm-6 ">
                 <form action="{{route('search')}}" method="get" class="d-flex">
                     <input type="text" name="query" class="form-control" style="font-size: 14px;padding-left:30px;border-radius: 6px 0 0 6px;height: 46px;" name="query" id="search_text"
                            placeholder="Search for products here...">
@@ -170,8 +170,8 @@
 {{--                <input type="text" class="form-control" name="query" placeholder="Search...">--}}
             </div>
 
-            <div class="col-3 col-md-3">
-                <div class="cv-head-icon">
+            <div class="col-12 col-sm-3">
+                <div class="cv-head-icon d-none d-sm-inline-block">
                     <ul>
                         <li>
                             <a href="{{route('cart')}}" class="cv-head-cart">
@@ -281,6 +281,49 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="mobile-view__wrapper d-block d-sm-none">
+    <div class="mobile-view__menu">
+        <ul>
+            <li class="active">
+                <a href="{{route('home')}}">
+                    <div class="icon-wrapper">
+                        <i class="ri-home-3-fill menu-icon"></i>
+                    </div>
+                    <span class="menu-title">Home</span>
+                </a>
+            </li>
+             <li>
+                <a class="menu-categories" onclick="">
+                    <div class="icon-wrapper">
+                        <i class="ri-dashboard-fill menu-icon"></i>
+                        <span class="badge-count"></span>
+                    </div>
+                    <span class="menu-title">Categories</span>
+                </a>
+            </li>
+             <li>
+                <a href="{{route('cart')}}" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div class="icon-wrapper">
+                        <i class="ri-shopping-cart-line menu-icon"></i>
+                    </div>
+
+                    <span class="menu-title">My Cart</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <div class="icon-wrapper">
+                        <i class="ri-questionnaire-line menu-icon"></i>
+                    </div>
+                    <span class="menu-title">Enquiry</span>
+                </a>
+            </li>
+           
+           
+        </ul>
     </div>
 </div>
 <!-- main header end -->

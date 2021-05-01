@@ -165,8 +165,9 @@ Route::group(['prefix'=>'admin','middleware'=>['admin']],function(){
     Route::post('product-attribute/{id}',[\App\Http\Controllers\ProductController::class,'addProductAttribute'])->name('product.attribute');
     Route::delete('product-attribute-delete/{id}',[\App\Http\Controllers\ProductController::class,'addProductAttributeDelete'])->name('product.attribute.destroy');
     // User Section
-    Route::resource('/user',\App\Http\Controllers\UserController::class);
+    Route::resource('/admin',\App\Http\Controllers\UserController::class);
     Route::post('user_status',[\App\Http\Controllers\UserController::class,'userStatus'])->name('user.status');
+    Route::post('user_verify',[\App\Http\Controllers\UserController::class,'userVerified'])->name('user.verified');
 
     // Coupon Section
     Route::resource('/coupon',\App\Http\Controllers\CouponController::class);

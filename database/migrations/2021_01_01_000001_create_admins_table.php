@@ -22,6 +22,7 @@ class CreateAdminsTable extends Migration
             $table->string('password');
             $table->string('photo')->nullable();
             $table->string('image_path')->nullable();
+            $table->boolean('is_verified')->default(1)->nullable();
             $table->enum('status',['active','inactive'])->default('active');
             $table->rememberToken();
             $table->timestamps();

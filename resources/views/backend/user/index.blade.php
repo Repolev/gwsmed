@@ -6,13 +6,13 @@
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Users
-                            <a class="btn btn-sm btn-outline-secondary" href="{{route('user.create')}}"><i class="icon-plus"></i> Create User</a></h2>
+                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a> Admins
+                            <a class="btn btn-sm btn-outline-secondary" href="{{route('admin.create')}}"><i class="icon-plus"></i> Create Admin</a></h2>
                         <ul class="breadcrumb float-left">
                             <li class="breadcrumb-item"><a href="{{route('admin')}}"><i class="icon-home"></i></a></li>
-                            <li class="breadcrumb-item active">User</li>
+                            <li class="breadcrumb-item active">Admin</li>
                         </ul>
-                        <p class="float-right">Total Users :{{\App\Models\User::count()}}</p>
+                        <p class="float-right">Total Admins :{{\App\Models\Admin::count()}}</p>
                     </div>
                 </div>
             </div>
@@ -36,6 +36,7 @@
                                         <th>Photo</th>
                                         <th>Full name</th>
                                         <th>Email</th>
+                                        <th>Is verified</th>
                                         <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
@@ -45,16 +46,18 @@
                                     @foreach($users as $item)
                                         <tr>
                                             <td>{{$loop->iteration}}</td>
-                                            <td><img src="{{asset('storage/backend/assets/images/user/'.$item->photo)}}" alt="image" style="height:60px;width:60px;border-radius:50%;max-height: 90px; max-width: 120px"></td>
-                                            <td>{{$item->full_name}}</td>
+                                            <td><img src="@if($item->photo){{asset('storage/backend/assets/images/user/'.$item->photo)}}@else {{Helper::userDefaultImage()}} @endif" alt="image" style="height:60px;width:60px;border-radius:50%;max-height: 90px; max-width: 120px"></td>
+                                            <td>{{$item->name}}</td>
                                             <td>{{$item->email}}</td>
+                                            <td>
+                                                <input type="checkbox" name="verified" value="{{$item->id}}" data-toggle="switchbutton" {{$item->is_verified==1 ? 'checked' : ''}} data-onlabel="Yes" data-offlabel="No" data-size="sm" >
+                                            </td>
                                             <td>
                                                 <input type="checkbox" name="toogle" value="{{$item->id}}" data-toggle="switchbutton" {{$item->status=='active' ? 'checked' : ''}} data-onlabel="active" data-offlabel="inactive" data-size="sm" data-onstyle="success" data-offstyle="danger">
                                             </td>
                                             <td>
-                                                <a href="javascript:void(0);"  data-toggle="modal" data-target="#userID{{$item->id}}" data-toggle="tooltip" title="view" class="float-left btn btn-sm btn-outline-secondary" data-placement="bottom"><i class="fas fa-eye"></i> </a>
-                                                <a href="{{route('user.edit',$item->id)}}" data-toggle="tooltip" title="edit" class="float-left btn btn-sm btn-outline-warning" data-placement="bottom"><i class="fas fa-edit"></i> </a>
-                                                <form class="float-left ml-1" action="{{route('user.destroy',$item->id)}}"  method="post">
+                                                <a href="{{route('admin.edit',$item->id)}}" data-toggle="tooltip" title="edit" class="float-left btn btn-sm btn-outline-warning" data-placement="bottom"><i class="fas fa-edit"></i> </a>
+                                                <form class="float-left ml-1" action="{{route('admin.destroy',$item->id)}}"  method="post">
                                                     @csrf
                                                     @method('delete')
                                                     <a href="" data-toggle="tooltip" title="delete" data-id="{{$item->id}}" class="dltBtn btn btn-sm btn-outline-danger" data-placement="bottom"><i class="fas fa-trash-alt"></i> </a>
@@ -187,7 +190,32 @@
                 },
                 success:function (response) {
                     if(response.status){
-                        alert(response.msg);
+                        console.log(response.msg);
+                    }
+                    else{
+                        alert('Please try again!');
+                    }
+                }
+            })
+        });
+    </script>
+    
+     <script>
+        $('input[name=verified]').change(function () {
+            var mode=$(this).prop('checked');
+            var id=$(this).val();
+            // alert(id);
+            $.ajax({
+                url:"{{route('user.verified')}}",
+                type:"POST",
+                data:{
+                    _token:'{{csrf_token()}}',
+                    mode:mode,
+                    id:id,
+                },
+                success:function (response) {
+                    if(response.status){
+                        console.log(response.msg);
                     }
                     else{
                         alert('Please try again!');

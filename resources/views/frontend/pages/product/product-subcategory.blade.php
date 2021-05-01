@@ -46,10 +46,10 @@
                     </div>
                 </div>
             </div>
-            @if(count($category->subcategories)>0)
+            @if(count($subcategories)>0)
                 <div class="cv-product-all wow fadeIn" data-wow-delay="0.5s">
                     <div class="cv-gallery-grid">
-                        @foreach($category->subcategories as $subcat)
+                        @foreach($subcategories as $subcat)
                             <div class="cv-product-box cv-product-item cv-hand">
                                 <div class="cv-product-img">
                                     <img src="{{asset($subcat->image_path)}}" alt="{{ $subcat->image_alt }}"
@@ -84,10 +84,12 @@
                         @endforeach
                     </div>
                 </div>
+                {{$subcategories->links('vendor.pagination.custom')}}
+
             @else
                 <div class="cv-product-all wow fadeIn" data-wow-delay="0.5s">
                     <div class="cv-gallery-grid">
-                        @foreach($category->products as $item)
+                        @foreach($products as $item)
                             <div class="cv-product-box cv-product-item cv-hand">
                                 @php
                                     $photo=explode(',',$item->image_path);
@@ -143,7 +145,7 @@
                         @endforeach
                     </div>
                 </div>
-
+                {{$products->links('vendor.pagination.custom')}}
             @endif
         </div>
     </div>

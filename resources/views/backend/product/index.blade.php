@@ -24,7 +24,19 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2><strong>Product</strong> List</h2>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h2><strong>Product</strong> List</h2>
+                                </div>
+                                <div class="col-md-2"></div>
+                                <div class="col-md-4 d-none" id="category_lists">
+                                       
+                                    <select class="form-control">
+                                        <option>Choose Categories</option>
+                                    </select>
+                                
+                                </div>
+                            </div>
 
                         </div>
                         <div class="body">
@@ -32,7 +44,9 @@
                                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
                                     <thead>
                                     <tr>
+                                        <th></th>
                                         <th>S.N.</th>
+                                        
                                         <th>Title</th>
                                         <th>Photo</th>
                                         <th>Categories</th>
@@ -47,6 +61,7 @@
                                             $photo=explode(',',$item->image_path);
                                         @endphp
                                         <tr>
+                                            <td><input type="checkbox" id="check"></td>
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{ucfirst($item->title)}}</td>
                                             <td><img src="{{asset($photo[0])}}" alt="Product image" style="max-height: 90px; max-width: 120px"></td>
@@ -78,6 +93,19 @@
 @endsection
 
 @section('scripts')
+
+    <script>
+        $('#check').click(function(){
+            
+            if($(this).prop("checked")==true){
+               
+                $('#category_lists').removeClass('d-none');
+            }
+            else{
+                $('#category_lists').addClass('d-none');
+            }
+        })
+    </script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $.ajaxSetup({

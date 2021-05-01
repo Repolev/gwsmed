@@ -98,10 +98,10 @@ class CatalogController extends Controller
         $category = Catalog::find($id);
         $categories = CatalogCategory::orderBy('title','ASC')->get();
         if($category){
-            return view('backend.catalog.edit',compact(['category','parent_cats']));
+            return view('backend.catalog.edit',compact(['category','categories']));
         }
         else{
-            return back()->with('error','Category not found');
+            return back()->with('error','Catelog not found');
         }
     }
 
@@ -118,6 +118,8 @@ class CatalogController extends Controller
         if($category){
             $this->validate($request,[
                 'title'=>'string|required',
+                 'photo'=>'image|nullable|mimes:png,jpg,jpeg,svg,gif',
+                'pdf_file' => 'required|max:10000',
                 'description'=>'string|nullable',
                 'parent_id'=>'nullable|exists:catalog_categories,id',
                 'status'=>'required|in:active,inactive'

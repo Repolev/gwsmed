@@ -6,11 +6,11 @@
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-6 col-md-8 col-sm-12">
-                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a>Add User</h2>
+                        <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a>Add Admin</h2>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('admin')}}"><i class="icon-home"></i></a></li>
-                            <li class="breadcrumb-item">Users</li>
-                            <li class="breadcrumb-item active">Add User</li>
+                            <li class="breadcrumb-item">Admins</li>
+                            <li class="breadcrumb-item active">Edit Admin</li>
                         </ul>
                     </div>
                 </div>
@@ -31,14 +31,14 @@
                 <div class="col-lg-12 col-md-12 col-sm-12">
                     <div class="card">
                         <div class="body">
-                            <form action="{{route('user.update',$user->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('admin.update',$user->id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('patch')
                                 <div class="row clearfix">
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                             <label for="">Full name <span class="text-danger">*</span></label>
-                                            <input type="text" class="form-control" placeholder="Full name" name="full_name" value="{{$user->full_name}}">
+                                            <input type="text" class="form-control" placeholder="Full name" name="name" value="{{$user->name}}">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12">
@@ -50,7 +50,7 @@
                                     <div class="col-lg-12 col-md-12">
                                         <div class="form-group">
                                             <label for="">Email</label>
-                                            <input type="email" class="form-control" placeholder="Email Address" name="email" value="{{$user->email}}">
+                                            <input type="email" disabled class="form-control" placeholder="Email Address" name="email" value="{{$user->email}}">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12">
@@ -76,7 +76,7 @@
                                     <div class="col-lg-12 col-sm-12">
                                         <label for="status">Status</label>
                                         <select name="status" class="form-control show-tick">
-                                            <option value="">-- Status --</option>
+                                          
                                             <option value="active" {{$user->status=='active' ? 'selected' : ''}}>Active</option>
                                             <option value="inactive" {{$user->status == 'inactive' ? 'selected' : ''}} >Inactive</option>
                                         </select>

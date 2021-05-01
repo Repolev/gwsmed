@@ -11,7 +11,7 @@ class Admin extends Authenticatable
 {
     use HasFactory,Notifiable;
 
-    protected $fillable=['name','username','email','photo','image_path','status'];
+    protected $fillable=['name','username','password','is_verified','email','photo','image_path','status'];
 
 
     /**
