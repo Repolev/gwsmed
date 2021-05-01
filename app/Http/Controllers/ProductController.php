@@ -348,7 +348,7 @@ class ProductController extends Controller
         $explode_products = explode(',', $products);
         $all_products = Product::whereIn('id', $explode_products)->get();
         foreach($all_products as $product){
-            $product->categories()->sync($categories);
+            $product->categories()->syncWithoutDetaching($categories);
         }
         return redirect()->route('product.index')->with('success','Product Bulk Category successfully updated');
     }
