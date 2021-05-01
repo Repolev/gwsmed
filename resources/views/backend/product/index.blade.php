@@ -101,7 +101,7 @@
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{ucfirst($item->title)}}</td>
                                             <td>
-                                                {{-- <img src="{{asset($photo[0])}}" alt="Product image" style="max-height: 90px; max-width: 120px"> --}}
+                                                <img src="{{asset($photo[0])}}" alt="Product image" style="max-height: 90px; max-width: 120px">
                                             </td>
                                             <td>@foreach($item->categories as $category){{ $category->title }} | @endforeach</td>
                                             <td>

@@ -344,7 +344,7 @@ class ProductController extends Controller
     public function storeBulkCategory(Request $request)
     {
         $products = $request->products;
-        $categories = $request->categories;
+        $categories = $request->category_id;
         $explode_products = explode(',', $products);
         $all_products = Product::whereIn('id', $explode_products)->get();
         foreach($all_products as $product){
