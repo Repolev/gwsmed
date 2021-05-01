@@ -36,7 +36,7 @@ class CatalogController extends Controller
     {
         $catalog_category = CatalogCategory::where('slug', $subcategory)->first();
         $catalogs = Catalog::where('category_id', $catalog_category->id)->get();
-        return view('frontend.pages.catalog.catalogs');
+        return view('frontend.pages.catalog.catalogs', compact('catalogs'));
     }
 
     /**

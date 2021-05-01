@@ -119,7 +119,7 @@ Route::post('enquiry-product',[\App\Http\Controllers\EnquiryController::class,'e
 Route::get('catalog', [\App\Http\Controllers\Frontend\CatalogController::class, 'catalogCategory'])->name('catalog.category');
 Route::get('catalog/{category}', [\App\Http\Controllers\Frontend\CatalogController::class, 'catalogSubCategory'])->name('catalog.subcategory');
 Route::get('catalog/{category}/{subcategory}', [\App\Http\Controllers\Frontend\CatalogController::class, 'catalogList'])->name('catalog.list');
-Route::get('catalog/{category}/{subcategory}', [\App\Http\Controllers\Frontend\CatalogController::class, 'catalogDetail'])->name('catalog.detail');
+// Route::get('catalog/{category}/{subcategory}', [\App\Http\Controllers\Frontend\CatalogController::class, 'catalogDetail'])->name('catalog.detail');
 
 //Endfrontend section
 Auth::routes();

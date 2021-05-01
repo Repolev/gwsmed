@@ -51,17 +51,17 @@ class CatalogController extends Controller
         if($request->hasFile('photo')){
             if($file=$request->file('photo')){
                 $imageName = time() .".". $file->getClientOriginalExtension();
-                $file->storeAs('/backend/assets/images/catalog/' , $imageName);
+                $file->move(public_path('/backend/assets/images/catalog/') , $imageName);
                 $data['image_name']=$imageName;
-                $data['image_path']='storage/backend/assets/images/catalog/'.$imageName;
+                $data['image_path']='/backend/assets/images/catalog/'.$imageName;
             }
         }
 
         if($request->hasFile('pdf_file')){
             if($file=$request->file('pdf_file')){
                 $fileName = time() .".". $file->getClientOriginalExtension();
-                $file->storeAs('/backend/assets/images/catalog/' , $fileName);
-                $data['pdf_path']='storage/backend/assets/images/catalog/'. $fileName;
+                $file->move(public_path('/backend/assets/images/catalog/') , $fileName);
+                $data['pdf_path']='/backend/assets/images/catalog/'. $fileName;
             }
         }
 
@@ -129,17 +129,17 @@ class CatalogController extends Controller
             if($request->hasFile('photo')){
                 if($file=$request->file('photo')){
                     $imageName = time() .".". $file->getClientOriginalExtension();
-                    $file->storeAs('/backend/assets/images/catalog/' , $imageName);
+                    $file->move(public_path('/backend/assets/images/catalog/') , $imageName);
                     $data['image_name']=$imageName;
-                    $data['image_path']='storage/backend/assets/images/catalog/'.$imageName;
+                    $data['image_path']='/backend/assets/images/catalog/'.$imageName;
                 }
             }
 
             if($request->hasFile('pdf_file')){
                 if($file=$request->file('pdf_file')){
                     $fileName = time() .".". $file->getClientOriginalExtension();
-                    $file->storeAs('/backend/assets/images/catalog/' , $fileName);
-                    $data['pdf_path']='storage/backend/assets/images/catalog/'. $fileName;
+                    $file->move(public_path('/backend/assets/images/catalog/') , $fileName);
+                    $data['pdf_path']='/backend/assets/images/catalog/'. $fileName;
                 }
             }
             $status = $category->fill($data)->save();
