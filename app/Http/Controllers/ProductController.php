@@ -21,9 +21,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-
         $products=Product::orderBy('id','DESC')->get();
-        return view('backend.product.index',compact('products'));
+        $categories=Category::where('status','active')->where('is_parent',1)->orderBy('id','DESC')->get();
+        return view('backend.product.index',compact('products', 'categories'));
     }
 
     public function productStatus(Request $request){
@@ -54,7 +54,6 @@ class ProductController extends Controller
     public function create()
     {
         $categories=Category::where('status','active')->where('is_parent',1)->orderBy('id','DESC')->get();
-
         $home_page_menus=Display::where('status','active')->latest()->get();
         return view('backend.product.create',compact('home_page_menus','categories'));
     }
@@ -336,5 +335,21 @@ class ProductController extends Controller
     public function filterPriceWithSize(Request $request,$id){
         $productAttr=ProductAttribute::where(['product_id'=>$id,'size'=>$request->size])->first();
         return response()->json(['status'=>true,'msg'=>'Success','data'=>$productAttr]);
+    }
+
+
+    /**
+     * Bulk Categories
+     */
+    public function storeBulkCategory(Request $request)
+    {
+        $products = $request->products;
+        $categories = $request->categories;
+        $explode_products = explode(',', $products);
+        $all_products = Product::whereIn('id', $explode_products)->get();
+        foreach($all_products as $product){
+            $product->categories()->sync($categories);
+        }
+        return redirect()->route('product.index')->with('success','Product Bulk Category successfully updated');
     }
 }

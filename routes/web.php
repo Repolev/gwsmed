@@ -156,6 +156,7 @@ Route::group(['prefix'=>'admin','middleware'=>['admin']],function(){
     Route::resource('/product',\App\Http\Controllers\ProductController::class);
     Route::post('product_status',[\App\Http\Controllers\ProductController::class,'productStatus'])->name('product.status');
     Route::post('deals',[\App\Http\Controllers\ProductController::class,'todaysDeal'])->name('todays.deal');
+    Route::post('bulk-category',[\App\Http\Controllers\ProductController::class,'storeBulkCategory'])->name('product.bulk.categories');
 
     // Display section
     Route::resource('/display',\App\Http\Controllers\DisplayController::class);
