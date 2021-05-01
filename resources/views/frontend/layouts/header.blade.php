@@ -269,6 +269,7 @@
                         <li><a href="{{ route('product.category.0', $get_covid->slug) }}">{{ucfirst($get_covid->title)}}</a></li>
                         @endif
                         <li><a href="{{route('blog')}}">Blog</a></li>
+                        <li><a href="{{route('catalog.category')}}">Catalogs</a></li>
                         <li><a href="{{route('enquiry')}}">Enquiry</a></li>
                         <li><a href="{{route('contact.us')}}">Contact</a></li>
                     </ul>
@@ -321,8 +322,8 @@
                     <span class="menu-title">Enquiry</span>
                 </a>
             </li>
-           
-           
+
+
         </ul>
     </div>
 </div>
