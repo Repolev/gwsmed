@@ -116,10 +116,17 @@
 <div class="cv-top-header d-none d-sm-block" style="background-color: #ecf8f8;">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-5 col-lg-6 d-none d-lg-block">
+            <div class="col-12 col-md-3 col-lg-3 d-none d-lg-block">
                 <p class="welcome-text" >Welcome to GWS Surgical LLP</p>
             </div>
-            <div class="col-12 col-md-7 col-lg-6 d-none d-sm-block">
+            <div class="col-12 col-md-5 col-lg-4 text-right">
+                <div class="certification-image">
+                    <img src= "https://gwsmed.com/wp-content/uploads/elementor/thumbs/ISO13485-ogzvc3spk1tjmixoywohjjfuc61k50b0oh5vm7wr28-ov0xgb1zhnwy17j6hfdgzk8zrlu9f51ygvl9fywkxs.png">
+                     <img src= "https://gwsmed.com/wp-content/uploads/elementor/thumbs/WHO-GMP-ogzvc4qjqvuty4wbtf34417axjwxcper0ltd3hvcw0-ov0xf5p34ycbud796xhvxuopmni40ghrn6vwbslwjk.png">
+                      <img src= "https://gwsmed.com/wp-content/uploads/elementor/thumbs/ISO-9001-ogzvc8hwi7zz8kqv7gpme095b3ee7htod4fb0lps74-ov0xe0c6s8rpnivbwfmaw54fhp5ylrxkti6j7mb85c.png">
+                </div>
+            </div>
+            <div class="col-12 col-md-7 col-lg-5 d-none d-sm-block">
                 <div class="cv-head-contact text-right">
                     <h3>
                         <i class="ri-mail-open-line pr-2 "></i> {{\App\Models\Setting::value('email')}}
@@ -163,7 +170,7 @@
 {{--                <input type="text" class="form-control" name="query" placeholder="Search...">--}}
             </div>
 
-            <div class="col-12 col-sm-1">
+            <div class="col-12 col-sm-3">
                 <div class="cv-head-icon d-none d-sm-inline-block">
                     <ul>
                         <li>
@@ -189,20 +196,13 @@
                     </ul>
                 </div>
             </div>
-             <div class="col-12 col-md-5 col-lg-2 text-right">
-                <div class="certification-image">
-                    <img src= "https://gwsmed.com/wp-content/uploads/elementor/thumbs/ISO13485-ogzvc3spk1tjmixoywohjjfuc61k50b0oh5vm7wr28-ov0xgb1zhnwy17j6hfdgzk8zrlu9f51ygvl9fywkxs.png">
-                     <img src= "https://gwsmed.com/wp-content/uploads/elementor/thumbs/WHO-GMP-ogzvc4qjqvuty4wbtf34417axjwxcper0ltd3hvcw0-ov0xf5p34ycbud796xhvxuopmni40ghrn6vwbslwjk.png">
-                      <img src= "https://gwsmed.com/wp-content/uploads/elementor/thumbs/ISO-9001-ogzvc8hwi7zz8kqv7gpme095b3ee7htod4fb0lps74-ov0xe0c6s8rpnivbwfmaw54fhp5ylrxkti6j7mb85c.png">
-                </div>
-            </div>
         </div>
     </div>
 </div>
 
 <!-- main header start -->
 <div class="cv-main-header" id="header-sticky">
-    <div class="container" style="max-width: 1260px;">
+    <div class="container" style="max-width: 1280px;">
         <div class="row">
 {{--            <div class="col-lg-3 col-9">--}}
 {{--                <div class="cv-logo">--}}
@@ -216,7 +216,7 @@
 {{--                    @endif--}}
 {{--                </div>--}}
 {{--            </div>--}}
-            <div class="col-lg-12 col-12 d-flex align-items-center justify-content-center">
+            <div class="col-lg-12 col-12">
                 <div class="cv-nav-bar text-left">
                     <div class="cv-menu">
                     <ul>
