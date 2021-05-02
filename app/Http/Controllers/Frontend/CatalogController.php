@@ -26,7 +26,12 @@ class CatalogController extends Controller
     {
         $parent = CatalogCategory::where('slug', $category)->first();
         $catalog_sub_cats = CatalogCategory::where('parent_id', $parent->id)->get();
-        return view('frontend.pages.catalog.subcategory', compact('catalog_sub_cats'));
+        if(count($catalog_sub_cats) > 0){
+            return view('frontend.pages.catalog.subcategory', compact('catalog_sub_cats'));
+        } else {
+            $catalogs = Catalog::where('category_id', $parent->id)->get();
+            return view('frontend.pages.catalog.catalogs', compact('catalogs'));
+        }
     }
 
     /**
