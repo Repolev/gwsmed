@@ -1486,6 +1486,12 @@ p#me_timer span {
     color: #fff;
 }
 
+.cv-gallery-grid .custom-gallery-grid .cv-product-data {
+    padding: 10px 12px 10px;
+    background: #0070a4;
+    color: #fff;
+}
+
 .cv-gallery-grid .cv-product-data a{
     color: #fff!important;
 }
