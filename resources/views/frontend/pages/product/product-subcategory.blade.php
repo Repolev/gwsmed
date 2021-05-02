@@ -48,9 +48,9 @@
             </div>
             @if(count($subcategories)>0)
                 <div class="cv-product-all wow fadeIn" data-wow-delay="0.5s">
-                    <div class="cv-gallery-grid">
+                    <div class="cv-gallery-grid row">
                         @foreach($subcategories as $subcat)
-                            <div class="cv-product-box cv-product-item cv-hand">
+                            <div class="custom-gallery-grid cv-product-item cv-hand col-md-3">
                                 <div class="cv-product-img">
                                     <img src="{{asset($subcat->image_path)}}" alt="{{ $subcat->image_alt }}"
                                          class="img-fluid" />
@@ -88,9 +88,9 @@
 
             @else
                 <div class="cv-product-all wow fadeIn" data-wow-delay="0.5s">
-                    <div class="cv-gallery-grid">
+                    <div class="cv-gallery-grid row">
                         @foreach($products as $item)
-                            <div class="cv-product-box cv-product-item cv-hand">
+                            <div class="custom-gallery-grid cv-product-item cv-hand col-md-3">
                                 @php
                                     $photo=explode(',',$item->image_path);
                                 @endphp

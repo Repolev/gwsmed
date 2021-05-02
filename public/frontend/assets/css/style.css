@@ -407,7 +407,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .cv-product-img {
     position: relative;
     transition:all 0.3s ease-in;
-    
+
 }
 
 .cb-product-img:hover img{
@@ -901,7 +901,7 @@ p#me_timer span {
     font-weight: 400;
     letter-spacing: 0px;
     text-transform: uppercase;
-    
+
 }
 
 .cv-blog-date i, .cv-blog-author i{
@@ -3376,7 +3376,7 @@ textarea {
     .certification-image{
         text-align: left;
     }
-    
+
     .at-share-dock.atss-top{
         display:none!important;
     }
@@ -3673,7 +3673,7 @@ textarea {
     .cv-blog-two .cv-blog-img img {
         height: auto;
     }
-    
+
     /*.cm-menu-list ul{*/
     /*    grid-template-columns: repeat(1,1fr)!important;*/
     /*    grid-auto-rows: 3rem!important;*/
@@ -3685,7 +3685,7 @@ textarea {
         text-align: center;
         margin-bottom: 1rem;
     }
-    
+
     .cv-top-header .cv-head-icon, .cv-head-contact, .cv-head-email {
         text-align: center!important;
     }
@@ -3820,7 +3820,7 @@ textarea {
     .cv-product-tab ul li a {
         font-size: 12px;
     }
-    
+
     .cv-cart-btn {
         margin-top: 54px;
         margin-left: 25px;
@@ -4422,6 +4422,15 @@ p{
     justify-content: center;
 }
 
+.cv-gallery-grid .custom-gallery-grid .cv-product-img{
+    border: 1px solid #d4f0ff;
+    border-radius: 10px 10px 0 0;
+    height: 18rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .cv-testimonial {
     height: auto;
     padding: 60px 0;
@@ -4527,7 +4536,6 @@ p{
     font-size: 18px;
     padding-top: 6px;
 }
-
 
 /*Home Page- change Css*/
 
