@@ -64,8 +64,10 @@
     <div class="cv-copyright" style="background: #AB292B">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
-                    <p>&copy; {{\App\Models\Setting::value('footer')}}</p>
+                <div class="col-md-12 d-flex align-items-center justify-content-center text-white">
+                    <p>&copy; {{\App\Models\Setting::value('footer')}}</p> | 
+                    <p><a href="#">Privacy Policy</a></p> |
+                    <p><a href="#">Disclaimer</a></p> 
                 </div>
             </div>
         </div>
@@ -91,3 +93,8 @@
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60859fa2aacd1232"></script>
 
 <!-- Share this end -->
+<style>
+    .atss-top{
+        display: none;
+    }
+</style>

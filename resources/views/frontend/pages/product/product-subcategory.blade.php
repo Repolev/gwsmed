@@ -16,17 +16,17 @@
                         @if($category->parentCategory)
                             @if($category->parentCategory->parentCategory)
                                 @if($category->parentCategory->parentCategory->parentCategory)
-                                    <li>{{ucfirst($category->parentCategory->parentCategory->parentCategory->title)}}</li>|
+                                    <a href="{{route('product.category.3',[$category->slug,$category->parentCategory->slug,$category->parentCategory->parentCategory->slug,$category->parentCategory->parentCategory->parentCategory->slug])}}"><li>{{ucfirst($category->parentCategory->parentCategory->parentCategory->title)}}</li></a>|
                                 @endif
                                 @if($category->parentCategory->parentCategory)
-                                    <li>{{ucfirst($category->parentCategory->parentCategory->title)}}</li>|
+                                    <li><a href="{{route('product.category.2',[$category->slug,$category->parentCategory->slug,$category->parentCategory->parentCategory->slug])}}">{{ucfirst($category->parentCategory->parentCategory->title)}}</a></li>|
                                 @endif
                             @endif
                             @if($category->parentCategory)
-                                <li>{{ucfirst($category->parentCategory->title)}}</li>|
+                                <li><a href="{{route('product.category.1',[$category->slug,$category->parentCategory->slug])}}">{{ucfirst($category->parentCategory->title)}}</a></li>|
                             @endif
                         @endif
-                        <li>{{ucfirst($category->title)}}</li>
+                        <li><a href="{{route('product.category.0',$category->slug)}}">{{ucfirst($category->title)}}</a></li>
                     </ul>
                 </div>
             </div>

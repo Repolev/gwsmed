@@ -51,7 +51,8 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="cv-feature-box">
                         <div class="cv-feature-img">
-                            <i class="fas fa-globe"></i>
+                            <img src="frontend/assets/images/international.svg">
+                            <!--<i class="fas fa-globe"></i>-->
                         </div>
                         <div class="cv-feature-text">
                             <h3>Global Presence</h3>
@@ -62,7 +63,8 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="cv-feature-box">
                         <div class="cv-feature-img">
-                            <i class="fas fa-users"></i>
+                            <img src="frontend/assets/images/technical-support.svg">
+                            <!--<i class="fas fa-users"></i>-->
                         </div>
                         <div class="cv-feature-text">
                             <h3>Customer Service</h3>
@@ -73,7 +75,8 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="cv-feature-box">
                         <div class="cv-feature-img">
-                            <i class="fas fa-check-circle"></i>
+                             <img src="frontend/assets/images/shield.svg">
+                            <!--<i class="fas fa-check-circle"></i>-->
                         </div>
                         <div class="cv-feature-text">
                             <h3>Quality & Certification</h3>
@@ -174,7 +177,8 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="cv-feature-box">
                         <div class="cv-feature-img">
-                            <i class="fas fa-certificate"></i>
+                            <img src="frontend/assets/images/shield.svg">
+                            <!--<i class="fas fa-certificate"></i>-->
                         </div>
                         <div class="cv-feature-text">
                             <h3>Certificate</h3>
@@ -187,7 +191,8 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="cv-feature-box">
                         <div class="cv-feature-img">
-                            <i class="fas fa-building"></i>
+                            <img src="frontend/assets/images/international.svg">
+                            <!--<i class="fas fa-building"></i>-->
                         </div>
                         <div class="cv-feature-text">
                             <h3>Infrastructure</h3>
@@ -198,7 +203,8 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="cv-feature-box">
                         <div class="cv-feature-img">
-                            <i class="fas fa-globe"></i>
+                            <img src="frontend/assets/images/catalogue.svg">
+                            <!--<i class="fas fa-globe"></i>-->
                         </div>
                         <div class="cv-feature-text">
                             <h3>Product Catalog</h3>
@@ -209,7 +215,8 @@
                 <div class="col-lg-6 col-md-6">
                     <div class="cv-feature-box">
                         <div class="cv-feature-img">
-                            <i class="fas fa-thumbs-up"></i>
+                            <img src="frontend/assets/images/like.svg">
+                            <!--<i class="fas fa-thumbs-up"></i>-->
                         </div>
                         <div class="cv-feature-text">
                             <h3>Quality</h3>
@@ -336,7 +343,7 @@
                                                     </svg> View detail</a>
                                                 </div>
                                             </div>
-                                            <div class="cv-product-data">
+                                            <div class="cv-product-data product-data-wrapper">
                                                 <a href="<?php echo e(route('product.category.' . $subcategories->level, $category_url)); ?>" class="cv-price-title"><?php echo e(ucfirst($subcategories->title)); ?></a>
                                             </div>
                                     </div>

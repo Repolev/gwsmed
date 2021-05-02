@@ -14,7 +14,7 @@
                     <ul>
                         <li><a href="{{route('home')}}">Home</a></li>
                         <li>Category</li>
-                        <li>{{ucfirst($category->title)}}</li>
+                        <li><a href="{{route('product.category',$category->slug)}}"> {{ucfirst($category->title)}}</a></li>
                     </ul>
                 </div>
             </div>

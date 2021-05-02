@@ -6,19 +6,20 @@
 
     <!-- breadcrumb start -->
     <div class="cv-breadcrumb " style="background: linear-gradient(to left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{{asset($product->categories[0]->banner_path)}}');">
+    </div>
+    <div class="row py-2" style="border: 1px solid #f5f5f5;">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="cv-breadcrumb-box">
-                        <h1>{{ucfirst($product->title)}}</h1>
-                        <ul>
-                            <li><a href="{{route('home')}}">Home</a></li>
+            <div class="col-12">
+                <div class="cv-breadcrumb-box">
+                    <h1 class="d-none">{{ucfirst($product->title)}}</h1>
+                    <ul>
+                        <li><a href="{{route('home')}}">Home</a></li> |
 {{--                            <li><a href="{{route('home')}}">{{$product->category['title']}}</a></li>--}}
-                            <li>{{ucfirst($product->title)}}</li>
-                        </ul>
-                    </div>
+                        <li>{{ucfirst($product->title)}}</li>
+                    </ul>
                 </div>
             </div>
+          
         </div>
     </div>
     <!-- breadcrumb end -->

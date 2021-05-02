@@ -127,7 +127,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 /* top header start */
 
 .cv-top-header {
-    height: 48px;
+    height: auto;
     background: #fff;
     display: flex;
     align-items: center;
@@ -151,7 +151,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .cv-head-contact h3 i {
-    color: #3dbebd;
+    color: #0070a4;
 }
 
 .cv-head-icon ul li svg {
@@ -456,7 +456,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     right: 0;
     top: 0;
     bottom: 0;
-    background: linear-gradient(0deg, rgb(66 208 213), rgb(66 215 223));
+    background: linear-gradient(0deg, rgb(255 255 255), rgb(145 185 234));
+    /*background: linear-gradient(0deg, rgb(66 208 213), rgb(66 215 223));*/
     opacity: 0.6;
     z-index: 0;
     transform-origin: bottom center;
@@ -485,7 +486,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .cv-heading h1 {
     font-size: 28px;
     font-weight: 600;
-    /*color: #AB292B;*/
+    color: #000!important;
     margin-bottom: 5px;
     text-transform: capitalize;
 }
@@ -509,7 +510,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 .border-bottom-line{
     width: 12%;
     height: 3px;
-    background-color: #0070a4;
+    background-color:#0070a4!important;
     border-radius: 3px;
 }
 
@@ -581,6 +582,12 @@ p#me_timer span {
 
 /* testimonial start */
 
+.cv-testimonial{
+    background-image: url('../images/bg.jpg');
+    background-size: cover;
+    background-position: top;
+}
+
 .cv-testi-data {
     box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.05);
     background: #fff;
@@ -596,7 +603,7 @@ p#me_timer span {
 
 .cv-testi-data p {
     margin: 0;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .cv-testi-img img {
@@ -620,7 +627,7 @@ p#me_timer span {
 }
 
 .cv-testi-name h1 {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 600;
     margin-bottom: 0;
 }
@@ -1024,9 +1031,15 @@ p#me_timer span {
 }
 
 .cv-copyright p {
+    font-size: 14px;
     margin: 0;
     color: #fff;
     text-transform: capitalize;
+    margin: 0 0.5rem;
+}
+
+.cv-copyright p a {
+    color: #fff;
 }
 
 .cv-copyright {
@@ -1137,18 +1150,20 @@ p#me_timer span {
     width: 60px;
     height: 60px;
     margin-left: -45px;
-    border: 1px solid #d4f0ff;
+    border: 1px solid #0070a4;
     padding: 14px;
     background: #fff;
     border-radius: 100%;
     line-height: 35px;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: 0.3s;
 }
 
 .cv-feature-box:hover .cv-feature-img {
     transform: translateY(-5px);
-    background-color: #43d8df;
+    background-color: #0070a4;
 }
 
 .cv-feature-box:hover .cv-feature-img i {
@@ -1361,8 +1376,8 @@ p#me_timer span {
 
 .cv-product-button .cv-btn:hover{
     /*background: -webkit-linear-gradient( 185deg , rgb(67 197 196) 0%, rgb(66 216 224) 100%);*/
-    background-color: #0070a4;
-    color:#fff;
+    /*background-color: #0070a4;*/
+    /*color:#fff;*/
 }
 
 .cv-btn:hover svg{
@@ -1465,8 +1480,25 @@ p#me_timer span {
     position: relative;
 }
 
-.cv-product-three .cv-product-data {
+.cv-gallery-grid .cv-product-box .cv-product-data {
     padding: 10px 12px 10px;
+    background: #0070a4;
+    color: #fff;
+}
+
+.cv-gallery-grid .cv-product-data a{
+    color: #fff!important;
+}
+
+
+.cv-product-three .cv-product-data a {
+    font-size: 14px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    margin: 0;
 }
 
 .cv-product-data i {
@@ -1632,7 +1664,7 @@ p#me_timer span {
     min-width: 100px;
     display: block;
     text-transform: capitalize;
-    color: #AB292B;
+    color: #000;
     height: 40px;
     line-height: 39px;
     border-radius: 30px;
@@ -1656,9 +1688,9 @@ p#me_timer span {
 }
 
 .cv-product-tab ul li a.cv-product-active {
-    background: #AB292B;
+    background: #0070a4;
     color: #fff;
-    border-color: #AB292B;
+    border-color: #0070a4 ;
 }
 
 .cv-product-tab ul li a:hover {
@@ -2502,6 +2534,9 @@ p#me_timer span {
 
 .cv-prod-content .cv-price-title {
     margin: 0px 0 10px;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 .cv-rating i {
@@ -3217,10 +3252,14 @@ textarea {
         transition: all 0.3s linear;
     }
     .cv-menu>ul>li.cv-children-menu {
-        padding-right: 40px;
+        padding-right: 24px;
     }
     .cv-nav-bar .cv-menu ul li:hover{
     background-color: #0c5aa5;
+    cursor: pointer;
+    }
+    .cv-mega-menu .cm-menu-list ul li:hover{
+    background-color: #2b77c1;
     cursor: pointer;
     }
     .cv-menu>ul>li:last-child {
@@ -3243,13 +3282,14 @@ textarea {
     /* mega menu start */
     .cv-mega-menu, .cv-sub-mmenu {
         position: absolute;
-        width: 100%;
+        width: 98%;
         left: 0;
+        right: 0;
         top: 54px;
         margin: auto;
         text-align: left;
         background: #0c5aa5;
-        padding: 26px 30px 0px;
+        /*padding: 26px 30px 0px;*/
         box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.07);
         transform: scaleY(0);
         transition: 0.5s;
@@ -3269,10 +3309,12 @@ textarea {
     }
     .cm-menu-list {
         display: inline-flex;
-        margin-bottom: 23px;
+        /*margin-bottom: 23px;*/
     }
     .cm-menu-list ul li {
         margin-bottom: 0px;
+        border: 1px solid #1766b2;
+        padding: 2px 14px;
     }
     .cm-menu-list ul li a {
         text-transform: capitalize;
@@ -3480,7 +3522,7 @@ textarea {
         font-size: 16px;
     }
     .spacer-top {
-        padding-top: 60px;
+        padding-top: 48px;
     }
     .spacer-top-less {
         padding-top: 51px;
@@ -4032,17 +4074,12 @@ textarea {
     color: #FFF;
     border-radius: 3px;
     text-align: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
     align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
     justify-content: center;
-    border: 1px solid #96d8fc;
     padding: 13px;
+    border: 1px solid #e4e4e4;
+    box-shadow: 6px 3px 9px -3px #e6e6e6;
 }
 
 #sync1 .item img {
@@ -4379,7 +4416,7 @@ p{
 .cv-gallery-grid .cv-product-box .cv-product-img{
     border: 1px solid #d4f0ff;
     border-radius: 10px 10px 0 0;
-    height: 18rem;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -4489,4 +4526,12 @@ p{
     height: 2rem;
     font-size: 18px;
     padding-top: 6px;
+}
+
+
+/*Home Page- change Css*/
+
+.cv-feature-img img{
+    height: 2rem;
+    width: auto;
 }
