@@ -202,7 +202,7 @@
 
 <!-- main header start -->
 <div class="cv-main-header" id="header-sticky">
-    <div class="container" style="max-width: 1280px;">
+    <div class="container" style="max-width: 1260px;">
         <div class="row">
 {{--            <div class="col-lg-3 col-9">--}}
 {{--                <div class="cv-logo">--}}
