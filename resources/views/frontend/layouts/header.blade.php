@@ -223,7 +223,13 @@
                     <ul>
                         <li><a href="{{route('home')}}"><i class="fas fa-home"></i></a>
                         </li>
-                        <li><a href="{{route('about.us')}}">About</a></li>
+                        <li class="cv-children-menu"><a href="{{ route('about.us') }}">About</a>
+                                <ul class="cv-sub-mmenu" style="left: auto; right:auto;">
+                                    <li class="text-white"><a href="{{ route('company.profile') }}">Company Profile</a></li>
+                                <li><a href="{{ route('certification') }}">Certification</a></li>
+                                <li><a href="{{ route('infrastructure') }}">Infrastructure</a></li>
+                                </ul>
+                            </li>
                         @php
 
                             $categories=\App\Models\Category::with('subcategories')->where(['status'=>'active'])->where('on_menu', 1)->orderBy('title','ASC')->limit(4)->get();

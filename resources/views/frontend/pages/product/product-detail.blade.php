@@ -63,7 +63,7 @@
                             <div class="cv-prod-content">
                                 <h2 class="cv-price-title">{{ucfirst($product->title)}}</h2>
                                 <div class="cv-prod-category">
-                                    <span>Product Model : <span style="font-weight: 700">{{$product->model_no}}</span></span>
+                                    <span>Product Model : <span style="font-weight: 500; color: #0070a4; text-transform:capitalize;">{{$product->model_no}}</span></span>
 
                                 </div>
                                 <div class="cv-prod-category my-3">
@@ -84,7 +84,7 @@
                                         }
                                     }
                                 @endphp
-                                        <a href="{{ route('product.category.' . $category->level, $category_url) }}" style="font-weight: 700" class="cv-prod-category">{{ $category->title }}@if(!$loop->last),@endif</a>
+                                        <a href="{{ route('product.category.' . $category->level, $category_url) }}" style="font-weight: 500" class="cv-prod-category">{{ $category->title }}@if(!$loop->last),@endif</a>
                                     @endforeach
                                 </div>
                                <div class="mt-3">

@@ -2,15 +2,15 @@
 
 @section('content')
     <!-- breadcrumb start -->
-    <div class="cv-breadcrumb">
+    <div class="cv-breadcrumb blog-details-header">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="cv-breadcrumb-box">
                         <h1>Infrastructure</h1>
                         <ul>
-                            <li><a href="{{route('home')}}">Home</a></li>
-                            <li>Infrastructure</li>
+                            <li><a href="{{route('home')}}">Home | </a></li>
+                            <li class="text-white">Infrastructure</li>
                         </ul>
                     </div>
                 </div>
@@ -25,10 +25,24 @@
                 <div class="col-lg-12">
                     <div class="cv-about-content">
                        <p>
-                           We are committed to keep alive quality as a legacy in which quality is not an end but a vehicle for seeking excellence and perfection at all stages. We conform to all National & International Standards required for our products.  Our State-of-the -Art production facility is in accordance to International standard and is accredited with ISO 9001, ISO 13485, WHO-GMP & CE Certified.
-
-                           In a very short span of time GWS has grown with a reputation of specializing in manufacturing/sourcing various medical and surgical products/ devices in its state-of-the-art facilities.
+                          GWS  Medical Limited, a one-stop shop for over 1000 hospital/medical/scientific/laboratory supplies, devices, and instruments, is perhaps the fastest growing Indian company in its industry. The success of GWS , which gives not only benefit but also enjoyment, has a glorious history, an outstanding present, and an incredibly bright future ahead of it. The key to this success story is not difficult to find. The organisation has a diverse mix of highly seasoned employees and new, ambitious professionals who are experts in their fields.
                        </p>
+                       <ul>
+                           <li>
+                               To keep the prices of our high-quality goods within reach of the general public.
+                           </li>
+                           <li>
+                               Continue to prepare ahead of time to improve the quality of our services in the future.
+                           </li>
+                           <br/>
+                           <li>
+                               Constantly being innovative.
+                           </li>
+                           <br/>
+                           <li>
+                               To gain our clients' interest through shared trust and higher business ethics.
+                           </li>
+                       </ul>
                     </div>
                 </div>
             </div>

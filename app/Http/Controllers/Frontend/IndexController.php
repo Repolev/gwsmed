@@ -456,6 +456,12 @@ class IndexController extends Controller
     {
         return view('frontend.pages.certification');
     }
+    
+     // Company Profile
+    public function privacyDisclaimer()
+    {
+        return view('frontend.pages.privacy_disclaimer');
+    }
 
 
     public function userDashboard(){

@@ -221,7 +221,13 @@
                     <ul>
                         <li><a href="<?php echo e(route('home')); ?>"><i class="fas fa-home"></i></a>
                         </li>
-                        <li><a href="<?php echo e(route('about.us')); ?>">About</a></li>
+                        <li class="cv-children-menu"><a href="<?php echo e(route('about.us')); ?>">About</a>
+                                <ul class="cv-sub-mmenu" style="left: auto; right:auto;">
+                                    <li class="text-white"><a href="<?php echo e(route('company.profile')); ?>">Company Profile</a></li>
+                                <li><a href="<?php echo e(route('certification')); ?>">Certification</a></li>
+                                <li><a href="<?php echo e(route('infrastructure')); ?>">Infrastructure</a></li>
+                                </ul>
+                            </li>
                         <?php
 
                             $categories=\App\Models\Category::with('subcategories')->where(['status'=>'active'])->where('on_menu', 1)->orderBy('title','ASC')->limit(4)->get();

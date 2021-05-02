@@ -2,15 +2,15 @@
 
 @section('content')
     <!-- breadcrumb start -->
-    <div class="cv-breadcrumb">
+    <div class="cv-breadcrumb blog-details-header">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="cv-breadcrumb-box">
-                        <h1>About Us</h1>
+                        <h1>Company Profile</h1>
                         <ul>
-                            <li><a href="{{route('home')}}">Home</a></li>
-                            <li>About Us</li>
+                            <li><a href="{{route('home')}}">Home | </a></li>
+                            <li class="text-white">Company Profile</li>
                         </ul>
                     </div>
                 </div>

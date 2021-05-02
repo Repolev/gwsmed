@@ -2,15 +2,15 @@
 
 @section('content')
     <!-- breadcrumb start -->
-    <div class="cv-breadcrumb">
+    <div class="cv-breadcrumb blog-details-header">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="cv-breadcrumb-box">
                         <h1>About Us</h1>
                         <ul>
-                            <li><a href="{{ route('home') }}">Home</a></li>
-                            <li>About Us</li>
+                            <li><a href="{{ route('home') }}">Home | </a></li>
+                            <li class="text-white">About Us</li>
                         </ul>
                     </div>
                 </div>
@@ -22,6 +22,12 @@
     <div class="cv-about">
         <div class="container">
             <div class="row">
+                <div class="col-lg-12">
+                    <div class="cv-heading mt-5 mb-0" style="max-width: 100%">
+                        <h1>About <span>Us</span></h1>
+                        <hr class="border-bottom-line" style="width: 5%;">
+                    </div>
+                </div>
                 <div class="col-lg-5">
                     <div class="cv-about-img">
                         <img src="{{ asset('frontend/images/about-us.jpg') }}" alt="image" class="img-fluid" />
@@ -29,6 +35,7 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="cv-about-content">
+                       
                         {!! html_entity_decode(\App\Models\Setting::value('about')) !!}
                     </div>
                 </div>

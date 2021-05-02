@@ -34,7 +34,7 @@
             </div>
             @if(count($category->subcategories)>0)
             <div class="cv-product-all wow fadeIn" data-wow-delay="0.5s">
-                <div class="cv-gallery-grid row">
+                <div class="row">
                     @foreach($category->subcategories as $subcat)
                         <div class="custom-gallery-grid cv-product-item cv-hand col-md-3">
                         <div class="cv-product-img">
@@ -51,7 +51,7 @@
             @else
                 @if(count($category->products)>0)
                     <div class="cv-product-all wow fadeIn" data-wow-delay="0.5s">
-                        <div class="cv-gallery-grid row">
+                        <div class="row">
                                 @foreach($category->products as $item)
                                     <div class="custom-gallery-grid cv-product-item cv-hand col-md-3">
                                         @php

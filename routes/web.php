@@ -100,6 +100,7 @@ Route::get('about',[\App\Http\Controllers\Frontend\IndexController::class,'about
 Route::get('certification',[\App\Http\Controllers\Frontend\IndexController::class,'certification'])->name('certification');
 Route::get('infrastructure',[\App\Http\Controllers\Frontend\IndexController::class,'infrastructure'])->name('infrastructure');
 Route::get('company-profile',[\App\Http\Controllers\Frontend\IndexController::class,'companyProfile'])->name('company.profile');
+Route::get('privacy-disclaimer',[\App\Http\Controllers\Frontend\IndexController::class,'privacyDisclaimer'])->name('privacy.disclaimer');
 
 //Compare
 Route::get('compare',[\App\Http\Controllers\Frontend\CompareController::class,'index'])->name('compare');
