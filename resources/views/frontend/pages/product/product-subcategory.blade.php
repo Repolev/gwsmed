@@ -13,20 +13,16 @@
                     <h1 class="d-none">{{ucfirst($category->title)}}</h1>
                     <ul>
                         <li><a href="{{route('home')}}">Home</a></li>|
-                        @if($category->parentCategory)
-                            @if($category->parentCategory->parentCategory)
-                                @if($category->parentCategory->parentCategory->parentCategory)
-                                    <a href="{{route('product.category.3',['slug' => $category->slug, 'parent3' => $category->parentCategory->slug, 'parent2' => $category->parentCategory->parentCategory->slug, 'parent1' => $category->parentCategory->parentCategory->parentCategory->slug])}}"><li>{{ucfirst($category->parentCategory->parentCategory->parentCategory->title)}}</li></a>|
-                                @endif
-                                @if($category->parentCategory->parentCategory)
-                                    <li><a href="{{route('product.category.2',['slug' => $category->slug, 'parent3' => $category->parentCategory->slug, 'parent2' => $category->parentCategory->parentCategory->slug ])}}">{{ucfirst($category->parentCategory->parentCategory->title)}}</a></li>|
-                                @endif
-                            @endif
-                            @if($category->parentCategory)
-                                <li><a href="{{route('product.category.1',['slug' => $category->slug,'parent1' => $category->parentCategory->slug])}}">{{ucfirst($category->parentCategory->title)}}</a></li>|
-                            @endif
+                        @if(isset($category->parentCategory->parentCategory->parentCategory->parentCategory))
+                            <li><a href="{{ route('product.category.' . $category->parentCategory->parentCategory->parentCategory->level, $category->parentCategory->parentCategory->parentCategory->full_slug) }}">{{ ucfirst($category->parentCategory->parentCategory->parentCategory->title) }}</a></li>
                         @endif
-                        <li><a href="{{route('product.category.0', ['slug' => $category->slug])}}">{{ucfirst($category->title)}}</a></li>
+                        @if(isset($category->parentCategory->parentCategory))
+                            <li><a href="{{ route('product.category.' . $category->parentCategory->parentCategory->level, $category->parentCategory->parentCategory->full_slug) }}">{{ ucfirst($category->parentCategory->parentCategory->title) }}</a></li>
+                        @endif
+                        @if(isset($category->parentCategory))
+                            <li><a href="{{ route('product.category.' . $category->parentCategory->level, $category->parentCategory->full_slug) }}">{{ ucfirst($category->parentCategory->title) }}</a></li>
+                        @endif
+                        <li><a href="{{ route('product.category.' . $category->level, $category->full_slug) }}">{{ucfirst($category->title)}}</a></li>
                     </ul>
                 </div>
             </div>
@@ -56,28 +52,7 @@
                                          class="img-fluid" />
                                 </div>
                                 <div class="cv-product-data">
-                                    @php
-                                        $category_url['slug'] = $subcat->slug;
-                                        if($subcat->level > 0){
-                                            $category_url['parent1'] = $subcat->parentCategory->slug;
-                                            if($subcat->level > 1){
-                                                $category_url['parent2'] = $subcat->parentCategory->parentCategory->slug;
-                                                if($subcat->level > 2){
-                                                    $category_url['parent3'] = $subcat->parentCategory->parentCategory->parentCategory->slug;
-                                                    if($subcat->level > 3){
-                                                        $category_url['parent4'] = $subcat->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                        if($subcat->level > 4){
-                                                            $category_url['parent5'] = $subcat->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                            if($subcat->level > 5){
-                                                                $category_url['parent6'] = $subcat->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    @endphp
-                                    <a href="{{ route('product.category.' . $subcat->level, $category_url) }}" class="cv-price-title">{{ucfirst($subcat->title)}}</a>
+                                    <a href="{{ route('product.category.' . $subcat->level, $subcat->full_slug) }}" class="cv-price-title">{{ucfirst($subcat->title)}}</a>
 
                                 </div>
                             </div>

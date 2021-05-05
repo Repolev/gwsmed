@@ -189,7 +189,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="col-12 col-md-5 col-lg-2 text-right">
                 <div class="certification-image">
                     <img src= "https://gwsmed.com/wp-content/uploads/elementor/thumbs/ISO13485-ogzvc3spk1tjmixoywohjjfuc61k50b0oh5vm7wr28-ov0xgb1zhnwy17j6hfdgzk8zrlu9f51ygvl9fywkxs.png">
@@ -237,22 +237,7 @@
                                         <div class="cm-menu-list">
                                             <ul>
                                                     @foreach($category->subcategories as $subcategories)
-                                                    @php
-                                                        $category_url['slug'] = $subcategories->slug;
-                                                        if($subcategories->level > 0){
-                                                            $category_url['parent1'] = $subcategories->parentCategory->slug;
-                                                            if($subcategories->level > 1){
-                                                                $category_url['parent2'] = $subcategories->parentCategory->parentCategory->slug;
-                                                                if($subcategories->level > 2){
-                                                                    $category_url['parent3'] = $subcategories->parentCategory->parentCategory->parentCategory->slug;
-                                                                    if($subcategories->level > 2){
-                                                                        $category_url['parent4'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    @endphp
-                                                    <li><a href="{{ route('product.category.' . $subcategories->level, $category_url) }}">{{ucfirst($subcategories->title)}}</a></li>
+                                                    <li><a href="{{ route('product.category.' . $subcategories->level, $subcategories->full_slug) }}">{{ucfirst($subcategories->title)}}</a></li>
                                                     @endforeach
                                             </ul>
                                         </div>

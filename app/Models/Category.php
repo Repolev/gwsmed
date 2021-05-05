@@ -28,6 +28,8 @@ class Category extends Model
         'banner_alt'
     ];
 
+    protected $appends = ['full_slug'];
+
 
     public static function shiftChild($cat_id){
         return Category::whereIn('id',$cat_id)->update(['is_parent'=>1]);
@@ -58,6 +60,34 @@ class Category extends Model
     public function parentCategory(){
         return $this->hasOne('App\Models\Category','id','parent_id')->with('products')->where('status','active');
     }
+
+    /**
+     * return the whole slug
+     */
+    public function getFullSlugAttribute()
+    {
+        $category_url['slug'] = $this->slug;
+        if($this->level > 0){
+            $category_url['parent1'] = $this->parentCategory->slug;
+            if($this->level > 1){
+                $category_url['parent2'] = $this->parentCategory->parentCategory->slug;
+                if($this->level > 2){
+                    $category_url['parent3'] = $this->parentCategory->parentCategory->parentCategory->slug;
+                    if($this->level > 3){
+                        $category_url['parent4'] = $this->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                        if($this->level > 4){
+                            $category_url['parent5'] = $this->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                            if($this->level > 5){
+                                $category_url['parent6'] = $this->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return $category_url;
+    }
+
 
 }
 
