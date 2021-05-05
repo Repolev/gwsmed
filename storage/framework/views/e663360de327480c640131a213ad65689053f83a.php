@@ -112,8 +112,8 @@
 <div class="cv-top-header d-none d-sm-block" style="background-color: #ecf8f8;">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-5 col-lg-6 d-none d-lg-block">
-                <p class="welcome-text" >Welcome to GWS Surgical LLP</p>
+            <div class="col-12 col-md-5 col-lg-6 d-lg-block">
+                <p class="welcome-text" >Legacy of Excellence in Health Care Products...</p>
             </div>
             <div class="col-12 col-md-7 col-lg-6 d-none d-sm-block">
                 <div class="cv-head-contact text-right">
@@ -139,17 +139,20 @@
             <div class="col-12 col-sm-3">
                 <div class="cv-head-contact">
                     <div class="cv-logo">
-                        <?php if(\App\Models\Setting::value('logo')): ?>
-                            <a href="<?php echo e(route('home')); ?>"><img src="<?php echo e(asset('storage/frontend/images/settings/'.\App\Models\Setting::value('logo'))); ?>" alt="image" class="img-fluid"/></a>
-                        <?php else: ?>
-                            <a href="<?php echo e(route('home')); ?>"><img src="<?php echo e(Helper::defaultLogo()); ?>" alt="image" class="img-fluid"/>
-                            </a>
-                        <?php endif; ?>
+                         <a href="<?php echo e(route ('home')); ?>">
+                            <img src="<?php echo e(asset ('frontend/assets/images/gws-logo.svg')); ?>" alt="Logo">
+                         </a>
+                        <!--<?php if(\App\Models\Setting::value('logo')): ?>-->
+                        <!--    <a href="<?php echo e(route('home')); ?>"><img src="<?php echo e(asset('storage/frontend/images/settings/'.\App\Models\Setting::value('logo'))); ?>" alt="image" class="img-fluid"/></a>-->
+                        <!--<?php else: ?>-->
+                        <!--    <a href="<?php echo e(route('home')); ?>"><img src="<?php echo e(Helper::defaultLogo()); ?>" alt="image" class="img-fluid"/>-->
+                        <!--    </a>-->
+                        <!--<?php endif; ?>-->
                     </div>
                 </div>
             </div>
 
-            <div class="col-12 col-sm-6 ">
+            <div class="col-12 col-sm-5 ">
                 <form action="<?php echo e(route('search')); ?>" method="get" class="d-flex">
                     <input type="text" name="query" class="form-control" style="font-size: 14px;padding-left:30px;border-radius: 6px 0 0 6px;height: 46px;" name="query" id="search_text"
                            placeholder="Search for products here...">
@@ -188,11 +191,9 @@
                 </div>
             </div>
             
-            <div class="col-12 col-md-5 col-lg-2 text-right">
+            <div class="col-12 col-sm-3 text-right">
                 <div class="certification-image">
-                    <img src= "https://gwsmed.com/wp-content/uploads/elementor/thumbs/ISO13485-ogzvc3spk1tjmixoywohjjfuc61k50b0oh5vm7wr28-ov0xgb1zhnwy17j6hfdgzk8zrlu9f51ygvl9fywkxs.png">
-                     <img src= "https://gwsmed.com/wp-content/uploads/elementor/thumbs/WHO-GMP-ogzvc4qjqvuty4wbtf34417axjwxcper0ltd3hvcw0-ov0xf5p34ycbud796xhvxuopmni40ghrn6vwbslwjk.png">
-                      <img src= "https://gwsmed.com/wp-content/uploads/elementor/thumbs/ISO-9001-ogzvc8hwi7zz8kqv7gpme095b3ee7htod4fb0lps74-ov0xe0c6s8rpnivbwfmaw54fhp5ylrxkti6j7mb85c.png">
+                   <img src="<?php echo e(asset ('frontend/assets/images/certificate.svg')); ?>" alt="Certification" style="height: 9rem;">
                 </div>
             </div>
         </div>
@@ -215,8 +216,8 @@
 
 
 
-            <div class="col-lg-12 col-12 d-flex justify-content-center">
-                <div class="cv-nav-bar text-left">
+            <div class="col-lg-12 col-12">
+                <div class="cv-nav-bar d-block d-lg-flex justify-content-center text-left">
                     <div class="cv-menu">
                     <ul>
                         <li><a href="<?php echo e(route('home')); ?>"><i class="fas fa-home"></i></a>
@@ -274,9 +275,11 @@
                         <li><a href="<?php echo e(route('product.category.0', $get_covid->slug)); ?>"><?php echo e(ucfirst($get_covid->title)); ?></a></li>
                         <?php endif; ?>
                         <li><a href="<?php echo e(route('blog')); ?>">Blog</a></li>
-                        <li><a href="<?php echo e(route('catalog.category')); ?>">Catalogs</a></li>
                         <li><a href="<?php echo e(route('enquiry')); ?>">Enquiry</a></li>
                         <li><a href="<?php echo e(route('contact.us')); ?>">Contact</a></li>
+                        <li style="background: #ecf8f8; padding: 15px 16px;">
+                            <i class="fa fa-book" style="font-size: 22px; margin-right: 8px; color: #0070a4;"></i>
+                            <a href="<?php echo e(route('catalog.category')); ?>" style="color: #0070a4;">E-Catalogue</a></li>
                     </ul>
                     </div>
                     <div class="cv-toggle-nav">
@@ -293,7 +296,7 @@
 <div class="mobile-view__wrapper d-block d-sm-none">
     <div class="mobile-view__menu">
         <ul>
-            <li class="active">
+            <li class="<?php echo e((\Illuminate\Support\Facades\Request::is('/')==1) ? 'active' : ''); ?>">
                 <a href="<?php echo e(route('home')); ?>">
                     <div class="icon-wrapper">
                         <i class="ri-home-3-fill menu-icon"></i>
@@ -301,16 +304,16 @@
                     <span class="menu-title">Home</span>
                 </a>
             </li>
-             <li>
-                <a class="menu-categories" onclick="">
+             <li class="<?php echo e((\Illuminate\Support\Facades\Request::is('catalog')==1) ? 'active' : ''); ?>">
+                <a class="menu-categories" href="<?php echo e(route('catalog.category')); ?>">
                     <div class="icon-wrapper">
                         <i class="ri-dashboard-fill menu-icon"></i>
                         <span class="badge-count"></span>
                     </div>
-                    <span class="menu-title">Categories</span>
+                    <span class="menu-title">Catalog</span>
                 </a>
             </li>
-             <li>
+             <li class="<?php echo e((\Illuminate\Support\Facades\Request::is('cart')==1) ? 'active' : ''); ?>">
                 <a href="<?php echo e(route('cart')); ?>" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     <div class="icon-wrapper">
                         <i class="ri-shopping-cart-line menu-icon"></i>
@@ -319,8 +322,8 @@
                     <span class="menu-title">My Cart</span>
                 </a>
             </li>
-            <li>
-                <a href="">
+            <li class="<?php echo e((\Illuminate\Support\Facades\Request::is('enquiry')==1) ? 'active' : ''); ?>">
+                <a href="<?php echo e(route('enquiry')); ?>">
                     <div class="icon-wrapper">
                         <i class="ri-questionnaire-line menu-icon"></i>
                     </div>

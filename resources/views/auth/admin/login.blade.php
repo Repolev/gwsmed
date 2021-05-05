@@ -30,7 +30,7 @@
                     @if(\App\Models\Setting::value('logo'))
                     <img src="{{ asset('storage/frontend/images/settings/'.\App\Models\Setting::value('logo')) }}" alt="Btplanet logo">
                     @else
-                        <img src="{{ asset(Helper::defaultLogo()) }}" alt="Btplanet logo">
+                        <img src="{{ asset(Helper::defaultLogo()) }}" alt="gwsmed logo">
                     @endif
                 </div>
                 <div class="card">

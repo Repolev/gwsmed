@@ -77,7 +77,7 @@
                                             $category_url['parent2'] = $category->parentCategory->parentCategory->slug;
                                             if($category->level > 2){
                                                 $category_url['parent3'] = $category->parentCategory->parentCategory->parentCategory->slug;
-                                                if($category->level > 2){
+                                                if($category->level > 3){
                                                     $category_url['parent4'] = $category->parentCategory->parentCategory->parentCategory->parentCategory->slug;
                                                 }
                                             }
@@ -485,6 +485,10 @@
             -webkit-transition: -webkit-width 0.5s;
             -webkit-transition: width 0.5s;
             transition: width 0.5s; }
+            
+            #cv-pro-description li{
+                list-style:unset;
+            }
     </style>
 @endsection
 

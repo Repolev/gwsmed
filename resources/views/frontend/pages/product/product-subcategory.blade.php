@@ -16,18 +16,19 @@
                         @if($category->parentCategory)
                             @if($category->parentCategory->parentCategory)
                                 @if($category->parentCategory->parentCategory->parentCategory)
-                                    <a href="{{route('product.category.3',['slug' => $category->slug, 'parent3' => $category->parentCategory->slug, 'parent2' => $category->parentCategory->parentCategory->slug, 'parent1' => $category->parentCategory->parentCategory->parentCategory->slug])}}"><li>{{ucfirst($category->parentCategory->parentCategory->parentCategory->title)}}</li></a>|
+                                    <a href="{{route('product.category.3',[$category->slug,  $category->parentCategory->slug,  $category->parentCategory->parentCategory->slug, $category->parentCategory->parentCategory->parentCategory->slug])}}"><li>{{ucfirst($category->parentCategory->parentCategory->parentCategory->title)}}</li></a>|
                                 @endif
                                 @if($category->parentCategory->parentCategory)
-                                    <li><a href="{{route('product.category.2',['slug' => $category->slug, 'parent3' => $category->parentCategory->slug, 'parent2' => $category->parentCategory->parentCategory->slug ])}}">{{ucfirst($category->parentCategory->parentCategory->title)}}</a></li>|
+                                    <li><a href="{{route('product.category.2',[ $category->slug, $category->parentCategory->slug,$category->parentCategory->parentCategory->slug ])}}">{{ucfirst($category->parentCategory->parentCategory->title)}}</a></li>|
                                 @endif
                             @endif
                             @if($category->parentCategory)
-                                <li><a href="{{route('product.category.1',['slug' => $category->slug,'parent1' => $category->parentCategory->slug])}}">{{ucfirst($category->parentCategory->title)}}</a></li>|
+                                <li><a href="{{route('product.category.1',[ $category->slug,$category->parentCategory->slug])}}">{{ucfirst($category->parentCategory->title)}}</a></li>|
                             @endif
                         @endif
-                        <li><a href="{{route('product.category.0', ['slug' => $category->slug])}}">{{ucfirst($category->title)}}</a></li>
+                        <li><a href="{{route('product.category.0', $category->slug)}}">{{ucfirst($category->title)}}</a></li>
                     </ul>
+                   
                 </div>
             </div>
         </div>
@@ -46,10 +47,10 @@
                     </div>
                 </div>
             </div>
-            @if(count($subcategories)>0)
+            @if(count($category->subcategories)>0)
                 <div class="cv-product-all wow fadeIn" data-wow-delay="0.5s">
                     <div class="row">
-                        @foreach($subcategories as $subcat)
+                        @foreach($category->subcategories as $subcat)
                             <div class="custom-gallery-grid cv-product-item cv-hand col-md-3">
                                 <div class="cv-product-img">
                                     <img src="{{asset($subcat->image_path)}}" alt="{{ $subcat->image_alt }}"
@@ -84,62 +85,64 @@
                         @endforeach
                     </div>
                 </div>
-                {{$subcategories->links('vendor.pagination.custom')}}
+              
 
             @else
                 <div class="cv-product-all wow fadeIn" data-wow-delay="0.5s">
                     <div class="row">
                         @foreach($products as $item)
-                            <div class="cv-product-box cv-product-item cv-hand col-md-3">
+                            <div class="cv-product-box cv-product-item cv-hand col-md-3" style="border: none;">
                                 @php
                                     $photo=explode(',',$item->image_path);
                                 @endphp
-                                <div class="cv-product-img">
-                                    <img src="{{asset($photo[0])}}" alt="{{$item->image_alt}}"
-                                         class="img-fluid" />
-                                    <div class="cv-product-button">
-                                        <a href="{{route('product.detail',$item->slug)}}" class="cv-btn"><svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 461.312 461.312">
-                                                <g>
-                                                    <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
-                                                                    S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
-                                                                    c0.512-23.04,18.944-41.472,41.472-41.472V208.64z"></path>
-                                                </g>
-                                                <g>
-                                                    <path
-                                                        d="M455.936,215.296c-25.088-31.232-114.688-133.12-225.28-133.12S30.464,184.064,5.376,215.296
-                                                                    c-7.168,8.704-7.168,21.504,0,30.72c25.088,31.232,114.688,133.12,225.28,133.12s200.192-101.888,225.28-133.12
-                                                                    C463.104,237.312,463.104,224.512,455.936,215.296z M230.656,338.176c-59.392,0-107.52-48.128-107.52-107.52
-                                                                    s48.128-107.52,107.52-107.52s107.52,48.128,107.52,107.52S290.048,338.176,230.656,338.176z">
-                                                    </path>
-                                                </g>
-                                            </svg>
-                                            View detail</a>
-                                        <a href="javascript:;" data-id="{{$item->id}}" data-quantity="1" class="add_to_cart cv-btn" id="add_to_cart{{$item->id}}">
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                                <g>
-                                                    <path
-                                                        d="M507.519,116.384C503.721,111.712,498.021,109,492,109H129.736l-1.484-13.632l-0.053-0.438C121.099,40.812,74.583,0,20,0
-                                                                        C8.954,0,0,8.954,0,20s8.954,20,20,20c34.506,0,63.923,25.749,68.512,59.928l23.773,218.401C91.495,327.765,77,348.722,77,373
-                                                                        c0,0.167,0.002,0.334,0.006,0.5C77.002,373.666,77,373.833,77,374c0,33.084,26.916,60,60,60h8.138
-                                                                        c-2.034,5.964-3.138,12.355-3.138,19c0,32.532,26.467,59,59,59s59-26.468,59-59c0-6.645-1.104-13.036-3.138-19h86.277
-                                                                        c-2.034,5.964-3.138,12.355-3.138,19c0,32.532,26.467,59,59,59c32.533,0,59-26.468,59-59c0-32.532-26.467-59-59-59H137
-                                                                        c-11.028,0-20-8.972-20-20c0-0.167-0.002-0.334-0.006-0.5c0.004-0.166,0.006-0.333,0.006-0.5c0-11.028,8.972-20,20-20h255.331
-                                                                        c35.503,0,68.084-21.966,83.006-55.962c4.439-10.114-0.161-21.912-10.275-26.352c-10.114-4.439-21.912,0.161-26.352,10.275
-                                                                        C430.299,300.125,411.661,313,392.331,313h-240.39L134.09,149h333.308l-9.786,46.916c-2.255,10.813,4.682,21.407,15.495,23.662
-                                                                        c1.377,0.288,2.75,0.426,4.104,0.426c9.272,0,17.59-6.484,19.558-15.92l14.809-71C512.808,127.19,511.317,121.056,507.519,116.384
-                                                                        z M399,434c10.477,0,19,8.523,19,19s-8.523,19-19,19s-19-8.523-19-19S388.523,434,399,434z M201,434c10.477,0,19,8.524,19,19
-                                                                        c0,10.477-8.523,19-19,19s-19-8.523-19-19S190.523,434,201,434z">
-                                                    </path>
-                                                </g>
-                                            </svg>
-                                            add to Cart</a>
+                                <div style="border: 1px solid #d4f0ff;">
+                                    <div class="cv-product-img">
+                                        <img src="{{asset($photo[0])}}" alt="{{$item->image_alt}}"
+                                             class="img-fluid" />
+                                        <div class="cv-product-button">
+                                            <a href="{{route('product.detail',$item->slug)}}" class="cv-btn"><svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    viewBox="0 0 461.312 461.312">
+                                                    <g>
+                                                        <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
+                                                                        S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
+                                                                        c0.512-23.04,18.944-41.472,41.472-41.472V208.64z"></path>
+                                                    </g>
+                                                    <g>
+                                                        <path
+                                                            d="M455.936,215.296c-25.088-31.232-114.688-133.12-225.28-133.12S30.464,184.064,5.376,215.296
+                                                                        c-7.168,8.704-7.168,21.504,0,30.72c25.088,31.232,114.688,133.12,225.28,133.12s200.192-101.888,225.28-133.12
+                                                                        C463.104,237.312,463.104,224.512,455.936,215.296z M230.656,338.176c-59.392,0-107.52-48.128-107.52-107.52
+                                                                        s48.128-107.52,107.52-107.52s107.52,48.128,107.52,107.52S290.048,338.176,230.656,338.176z">
+                                                        </path>
+                                                    </g>
+                                                </svg>
+                                                View detail</a>
+                                            <a href="javascript:;" data-id="{{$item->id}}" data-quantity="1" class="add_to_cart cv-btn" id="add_to_cart{{$item->id}}">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                                    <g>
+                                                        <path
+                                                            d="M507.519,116.384C503.721,111.712,498.021,109,492,109H129.736l-1.484-13.632l-0.053-0.438C121.099,40.812,74.583,0,20,0
+                                                                            C8.954,0,0,8.954,0,20s8.954,20,20,20c34.506,0,63.923,25.749,68.512,59.928l23.773,218.401C91.495,327.765,77,348.722,77,373
+                                                                            c0,0.167,0.002,0.334,0.006,0.5C77.002,373.666,77,373.833,77,374c0,33.084,26.916,60,60,60h8.138
+                                                                            c-2.034,5.964-3.138,12.355-3.138,19c0,32.532,26.467,59,59,59s59-26.468,59-59c0-6.645-1.104-13.036-3.138-19h86.277
+                                                                            c-2.034,5.964-3.138,12.355-3.138,19c0,32.532,26.467,59,59,59c32.533,0,59-26.468,59-59c0-32.532-26.467-59-59-59H137
+                                                                            c-11.028,0-20-8.972-20-20c0-0.167-0.002-0.334-0.006-0.5c0.004-0.166,0.006-0.333,0.006-0.5c0-11.028,8.972-20,20-20h255.331
+                                                                            c35.503,0,68.084-21.966,83.006-55.962c4.439-10.114-0.161-21.912-10.275-26.352c-10.114-4.439-21.912,0.161-26.352,10.275
+                                                                            C430.299,300.125,411.661,313,392.331,313h-240.39L134.09,149h333.308l-9.786,46.916c-2.255,10.813,4.682,21.407,15.495,23.662
+                                                                            c1.377,0.288,2.75,0.426,4.104,0.426c9.272,0,17.59-6.484,19.558-15.92l14.809-71C512.808,127.19,511.317,121.056,507.519,116.384
+                                                                            z M399,434c10.477,0,19,8.523,19,19s-8.523,19-19,19s-19-8.523-19-19S388.523,434,399,434z M201,434c10.477,0,19,8.524,19,19
+                                                                            c0,10.477-8.523,19-19,19s-19-8.523-19-19S190.523,434,201,434z">
+                                                        </path>
+                                                    </g>
+                                                </svg>
+                                                add to Cart</a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="cv-product-data">
-                                    <a href="{{route('product.detail',$item->slug)}}" class="cv-price-title">{{ucfirst($item->title)}}</a>
-                                    <p>Model No: <span style="font-weight: bold;color:#AB292B;">{{\Illuminate\Support\Str::upper($item->model_no)}}</span></p>
+                                    <div class="cv-product-data">
+                                        <a href="{{route('product.detail',$item->slug)}}" class="cv-price-title">{{ucfirst($item->title)}}</a>
+                                        <p>Model No: <span style="font-weight: bold;color:#AB292B;">{{\Illuminate\Support\Str::upper($item->model_no)}}</span></p>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach

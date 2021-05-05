@@ -139,8 +139,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 
 .cv-top-header p{
     margin: 0;
-    font-size: 13px;
-    font-weight: 400;
+    font-size: 12px;
+    font-weight: 500;
+    font-style: italic;
+    color: #0070a4;
 }
 
 .cv-head-contact h3 {
@@ -306,7 +308,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 30px;
-    height: 24rem;
+    height: 25rem;
 }
 
 .cv-product-data {
@@ -351,9 +353,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 .cv-price-title {
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
-    margin: 0px 0 5px;
+    margin: 0px 0 20px;
     display: block;
     color: #4a4a4a;
     height: 60px;
@@ -2547,7 +2549,8 @@ p#me_timer span {
     font-size: 28px;
     text-transform: uppercase;
     font-weight: 600;
-    line-height: 52px;
+    line-height: 38px;
+    height: auto;
 }
 
 .cv-rating i {
@@ -3075,7 +3078,7 @@ td.cv-price {
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.07);
     background: #fff;
     border-radius: 10px;
-    padding: 34px 40px 40px;
+    padding: 34px 30px 40px;
 }
 
 .cv-contact-detail ul li {
@@ -3098,21 +3101,20 @@ td.cv-price {
 }
 
 .cv-contact-text p {
+    line-height: 28px;
     margin-bottom: 0;
+    font-size: 14px;
 }
 
-.cv-contact-icon svg {
-    width: 20px;
-    height: 20px;
-    fill: #fff;
+.cv-contact-icon img {
+    height: 1.5rem;
 }
 
 .cv-contact-icon {
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
+   width: 45px;
+    height: auto;
     text-align: center;
-    background: #AB292B;
+    /*background: #AB292B;*/
     border-radius: 10px;
 }
 
@@ -3251,6 +3253,12 @@ textarea {
     }
     .cv-menu li a {
      font-size: 12px!important;
+    }
+}
+
+@media screen and (max-width: 1028px){
+    .cv-menu>ul>li{
+        padding: 14px 3px;
     }
 }
 
@@ -3523,8 +3531,11 @@ textarea {
 }
 
 @media screen and (max-width: 991px) {
-    .cv-logo img {
-        max-width: 58%!important;
+    .certification-image img{
+        height: 6rem!important;
+    }
+    .cv-top-header p{
+        display: none;
     }
     p#me_timer span {
         min-width: 40px;
@@ -3844,6 +3855,20 @@ textarea {
 }
 
 @media screen and (max-width: 575px) {
+    .cv-logo img{
+        height: 5rem!important;    
+    }
+    .certification-image {
+        display: none;
+    }
+    
+    .cv-gallery-grid .cv-product-box .cv-product-img, .custom-gallery-grid .cv-product-img{
+        height: 16rem!important;
+    }
+    
+    .cv-gallery-grid .cv-product-box .cv-product-img img, .custom-gallery-grid .cv-product-img img{
+        width: auto;
+    }
     #at4-share2, #at4-soc2 {
         display: none;
     }
@@ -3875,7 +3900,7 @@ textarea {
         right: 2px;
     }
     .cv-gallery-grid .cv-product-box, .cv-shop .cv-gallery-grid .cv-product-box {
-        width: 90%;
+        width: 100%;
     }
     .cv-product-tab ul li {
         margin-bottom: 5px;
@@ -3891,6 +3916,13 @@ textarea {
     }
     .cv-login .modal-dialog {
         max-width: 100%;
+    }
+    
+    .cv-product-img img, .custom-gallery-grid .cv-product-img img{
+        height: 100%!important;
+    }
+    .cv-product-data p{
+        text-align: center;
     }
 }
 
@@ -4016,7 +4048,9 @@ textarea {
     /* also add a translate effect */
     transform: translateY(100px);
     /* and a transition */
-    transition: all .5s ease
+    transition: all .5s ease;
+    box-shadow: -7px 12px 9px rgb(0, 0, 0, 0.6);
+    
 }
 
 .scrollToTopBtn i {
@@ -4032,7 +4066,7 @@ textarea {
 
 .cv-menu li a {
     font-size: 14px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color:#fff;
 }
 
@@ -4074,9 +4108,9 @@ textarea {
 }
 
 .cv-logo img {
-    max-width: 100%;
-    height: auto;
-    padding: 20px 0px;
+    width: 100%;
+    height: 8rem;
+    margin: 0;
 }
 
 /*multiple images*/
@@ -4507,7 +4541,7 @@ p{
     -webkit-box-shadow: 0 0 8px rgb(0 0 0 / 10%);
     box-shadow: 0 0 8px rgb(0 0 0 / 10%);
     border-top: 1px solid #eee;
-    z-index: 999;
+    z-index: 2;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
@@ -4555,5 +4589,97 @@ p{
 
 .mt-30{
     margin-top: 5rem;
+}
+
+
+/*--------------------------------------------------------------
+# Privacy Policy and Disclaimer Page CSS
+--------------------------------------------------------------*/
+
+
+.faq .accordion-list {
+  padding: 0 100px;
+}
+
+.faq .accordion-list ul {
+  padding: 0;
+  list-style: none;
+}
+
+.faq .accordion-list li+li {
+  margin-top: 15px;
+}
+
+.faq .accordion-list li {
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
+  position: relative;
+}
+
+.faq .accordion-list a {
+  display: block;
+  position: relative;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+  padding: 0 30px;
+  outline: none;
+}
+
+.faq .accordion-list .icon-help {
+  font-size: 14px;
+  position: absolute;
+  right: 0;
+  left: 20px;
+  color: #AB292B;
+}
+
+.faq .accordion-list .icon-show, .faq .accordion-list .icon-close {
+  font-size: 24px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.faq .accordion-list p {
+  margin-bottom: 0;
+  padding: 10px 0 0 0;
+  font-size: 14px;
+  text-align: justify;
+  line-height: 2rem;
+  color: #737373;
+  margin-top: 1rem;
+  padding: 0 2rem;
+}
+
+.faq .accordion-list .icon-show {
+  display: none;
+}
+
+.faq .accordion-list a.collapsed {
+  color: ##AB292B;
+}
+
+.faq .accordion-list a.collapsed:hover {
+  color: ##AB292B;
+}
+
+.faq .accordion-list a.collapsed .icon-show {
+  display: inline-block;
+}
+
+.faq .accordion-list a.collapsed .icon-close {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .faq .accordion-list {
+    padding: 0;
+  }
+}
+
+.cv-foot-social li a img{
+    height: 2rem;
 }
 
