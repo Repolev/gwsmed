@@ -203,7 +203,7 @@ class CategoryController extends Controller
             $data['slug'] = $slug;
             $data['is_parent']=$request->input('is_parent',0);
             $data['on_menu']=$request->input('on_menu',0);
-            
+
             $status=$category->fill($data)->save();
             if($status){
                 return redirect()->route('category.index')->with('success','Category successfully updated');

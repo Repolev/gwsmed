@@ -46,6 +46,10 @@ body {
     overflow-x: hidden;
 }
 
+img {
+    pointer-events: none !important;
+}
+
 h1, h2, h3, h4, h5, h6 {
     color: #242424;
 }
@@ -1749,7 +1753,8 @@ p#me_timer span {
     position: relative;
     color: #AB292B;
     text-transform: capitalize;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight:500;
 }
 
 .cv-breadcrumb-box ul li:last-child {
@@ -2547,7 +2552,7 @@ p#me_timer span {
 .cv-prod-content .cv-price-title {
     margin: 0px 0 10px;
     font-size: 28px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-weight: 600;
     line-height: 38px;
     height: auto;

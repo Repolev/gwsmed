@@ -9,6 +9,9 @@ class Helper{
     public static function defaultFavicon(){
         return asset('frontend/images/favicon.jpg');
     }
+    public static function defaultImage(){
+        return asset('backend/img/default-img.png');
+    }
 
     public static function userDefaultImage(){
         return asset('frontend/images/avatars/website_-_female_user-512.webp');

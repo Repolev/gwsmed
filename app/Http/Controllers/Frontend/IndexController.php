@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Mail\ContactMail;
+use App\Models\Admin;
 use App\Models\Blog;
 use App\Models\User;
 use App\Models\Brand;
@@ -14,6 +15,7 @@ use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
 
@@ -75,17 +77,39 @@ class IndexController extends Controller
             ]));
     }
 
+    public function passwordChange(){
+        return view('auth.admin.password-change');
+    }
+
+    public function passwordChangeSubmit(Request $request){
+        $this->validate($request,[
+            'email'=>'email|required',
+            'password'=>'required|min:6',
+        ]);
+        $email=Admin::where('email',$request->email)->first();
+        if($email){
+            $status=$email->update(['password'=>Hash::make($request->password)]);
+            if($status){
+                return redirect()->route('admin')->with('success','Successfully updated account');
+            }
+            else{
+                return back()->with('error','Something went wrong');
+            }
+        }
+        return back()->with('error','Not found');
+    }
+
     /**
      * Download the Catalog
      */
     public function downloadCatalogPdf($id)
     {
         $product = Product::findOrFail($id);
-        
+
         $pdf = PDF::loadView('frontend.pages.download_catalog', compact('product'));
-        
-        
-        return $pdf->download('GWSmed-catalog.pdf');
+
+
+        return $pdf->download($product->title.'.pdf');
     }
 
     public function hotOffer(Request $request){
@@ -349,7 +373,7 @@ class IndexController extends Controller
     public function dynamicCategory0(Request $request, $slug){
         $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->with('products')->first();
         $products = $category->products()->paginate(12);
-      
+
         return view('frontend.pages.product.product-subcategory', compact(['category','products']));
     }
 
@@ -357,7 +381,7 @@ class IndexController extends Controller
     public function dynamicCategory1(Request $request, $parent1, $slug){
         $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->with('products')->first();
         $products = $category->products()->paginate(12);
-       
+
         return view('frontend.pages.product.product-subcategory', compact(['category','products']));
     }
 
@@ -365,7 +389,7 @@ class IndexController extends Controller
     public function dynamicCategory2(Request $request, $parent2, $parent1, $slug){
         $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->with('products')->first();
         $products = $category->products()->paginate(12);
-       
+
         return view('frontend.pages.product.product-subcategory', compact(['category','products']));
            }
 
@@ -373,21 +397,21 @@ class IndexController extends Controller
     public function dynamicCategory3(Request $request, $parent3, $parent2, $parent1, $slug){
         $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->with('products')->first();
         $products = $category->products()->paginate(12);
-      
+
         return view('frontend.pages.product.product-subcategory', compact(['category','products']));    }
 
     //product by sub category
     public function dynamicCategory4(Request $request, $parent4, $parent3, $parent2, $parent1, $slug){
         $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->with('products')->first();
         $products = $category->products()->paginate(12);
-       
+
         return view('frontend.pages.product.product-subcategory', compact(['category','products']));    }
 
     //product by sub category
     public function dynamicCategory5(Request $request, $parent5, $parent4, $parent3, $parent2, $parent1, $slug){
         $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->with('products')->first();
         $products = $category->products()->paginate(12);
-      
+
         return view('frontend.pages.product.product-subcategory', compact(['category','products']));
         }
 
@@ -395,7 +419,7 @@ class IndexController extends Controller
      public function dynamicCategory6(Request $request, $parent6, $parent5, $parent4, $parent3, $parent2, $parent1, $slug){
         $category=Category::with('subcategories','products')->where(['status'=>'active','slug'=>$slug])->with('products')->first();
         $products = $category->products()->paginate(12);
-       
+
         return view('frontend.pages.product.product-subcategory', compact(['category','products']));    }
 
     //    Product detail
@@ -459,7 +483,7 @@ class IndexController extends Controller
     {
         return view('frontend.pages.certification');
     }
-    
+
      // Company Profile
     public function privacyDisclaimer()
     {

@@ -156,7 +156,7 @@
 
             <div class="col-12 col-sm-5 ">
                 <form action="{{route('search')}}" method="get" class="d-flex">
-                    <input type="text" name="query" class="form-control" style="font-size: 14px;padding-left:30px;border-radius: 6px 0 0 6px;height: 46px;" name="query" id="search_text"
+                    <input type="text" name="query" class="form-control" style="font-size: 14px;padding-left:30px;border-radius: 6px 0 0 6px;height: 46px;" name="query" required id="search_text"
                            placeholder="Search for products here...">
                     <div class="input-group-append">
                         <button type="submit" style="border-radius:0 6px 6px 0;background: #0070a4" class="input-group-text"><i class="fas fa-search"></i>
@@ -192,7 +192,6 @@
                     </ul>
                 </div>
             </div>
-            
             <div class="col-12 col-sm-3 text-right">
                 <div class="certification-image">
                    <img src="{{ asset ('frontend/assets/images/certificate.svg')}}" alt="Certification" style="height: 9rem;">
@@ -244,22 +243,7 @@
                                         <div class="cm-menu-list">
                                             <ul>
                                                     @foreach($category->subcategories as $subcategories)
-                                                    @php
-                                                        $category_url['slug'] = $subcategories->slug;
-                                                        if($subcategories->level > 0){
-                                                            $category_url['parent1'] = $subcategories->parentCategory->slug;
-                                                            if($subcategories->level > 1){
-                                                                $category_url['parent2'] = $subcategories->parentCategory->parentCategory->slug;
-                                                                if($subcategories->level > 2){
-                                                                    $category_url['parent3'] = $subcategories->parentCategory->parentCategory->parentCategory->slug;
-                                                                    if($subcategories->level > 2){
-                                                                        $category_url['parent4'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    @endphp
-                                                    <li><a href="{{ route('product.category.' . $subcategories->level, $category_url) }}">{{ucfirst($subcategories->title)}}</a></li>
+                                                    <li><a href="{{ route('product.category.' . $subcategories->level, $subcategories->full_slug) }}">{{ucfirst($subcategories->title)}}</a></li>
                                                     @endforeach
                                             </ul>
                                         </div>

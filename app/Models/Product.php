@@ -28,7 +28,12 @@ class Product extends Model
      */
     public function categories()
     {
-        return $this->belongsToMany(Category::class, 'product_categories');
+        return $this->belongsToMany(Category::class, 'product_categories')->orderBy('level','asc');
+    }
+
+    public function reverseCategories(){
+        return $this->belongsToMany(Category::class, 'product_categories')->orderBy('level','desc');
+
     }
 
     // relationship between product & product review

@@ -182,6 +182,31 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    
+                                                     <div class="col-lg-6 col-md-6">
+                                                        <div class="form-group">
+                                                            <label >Linkedin</label>
+                                                            <div class="input-group mb-2">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">https://linkedin.com/</div>
+                                                                </div>
+                                                                <input type="text" name="linkedin" value="{{$setting->linkedin}}" class="form-control" id="inlineFormInputGroup" placeholder="page name">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                     <div class="col-lg-6 col-md-6">
+                                                        <div class="form-group">
+                                                            <label >Youtube</label>
+                                                            <div class="input-group mb-2">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">https://youtube.com/</div>
+                                                                </div>
+                                                                <input type="text" name="youtube" value="{{$setting->youtube}}" class="form-control" id="inlineFormInputGroup" placeholder="page name">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
 
                                                 </div>
                                                 <button type="submit" class="btn btn-success">Update Changes</button>

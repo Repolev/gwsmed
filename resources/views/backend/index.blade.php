@@ -6,6 +6,11 @@
         <div class="container-fluid">
             <div class="block-header">
                 <div class="row">
+                    <div class="col-md-12">
+                        @include('backend.layouts.notification')
+                    </div>
+                </div>
+                <div class="row">
                     <div class="col-lg-5 col-md-8 col-sm-12">
                         <h2><a href="javascript:void(0);" class="btn btn-xs btn-link btn-toggle-fullwidth"><i class="fa fa-arrow-left"></i></a>Dashboard</h2>
                         <ul class="breadcrumb">
@@ -63,7 +68,7 @@
                     </div>
                 </div>
             </div>
-            
+
             @if(auth('admin')->user()->is_verified==1)
 
             <div class="row clearfix">
@@ -144,7 +149,7 @@
                     </div>
                 </div>
             </div>
-            
+
             @endif
 
 {{--            <div class="row clearfix">--}}

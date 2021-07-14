@@ -87,9 +87,9 @@ class ProductController extends Controller
         if($request->hasFile('photo')){
             if($files=$request->file('photo')){
                 foreach($files as $file){
-                    $imageName = str_replace(' ', '_', $request->input('title')) . Str::random(10) .".". $file->getClientOriginalExtension();
+                    $imageName = Str::random(10) .".". $file->getClientOriginalExtension();
                     $product_image = Image::make($file);
-                    $product_image->resize(253, 253);
+                    $product_image->resize(500, 500);
                     $image_path = public_path('/backend/assets/images/product/' . $imageName);
                     $product_image->save($image_path);
                     $photos[]=$imageName;
@@ -221,9 +221,9 @@ class ProductController extends Controller
             if($request->hasFile('photo')){
                 if($files=$request->file('photo')){
                     foreach($files as $file){
-                        $imageName = str_replace(' ', '_', $request->input('title')) . Str::random(4) .".". $file->getClientOriginalExtension();
+                        $imageName = Str::random(4) .".". $file->getClientOriginalExtension();
                         $product_image = Image::make($file);
-                        $product_image->resize(253, 253);
+                        $product_image->resize(500, 500);
                         $image_path = public_path('/backend/assets/images/product/' . $imageName);
                         $product_image->save($image_path);
                         $photos[]=$imageName;

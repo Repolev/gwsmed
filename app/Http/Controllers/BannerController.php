@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use Buglinjo\LaravelWebp\Facades\Webp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -57,7 +58,8 @@ class BannerController extends Controller
         ]);
         $data=$request->all();
         if($request->hasFile('photo')){
-            if($file=$request->file('photo')){
+            if($file=Webp::make($request->file('photo'))){
+                dd($file);
                 $imageName = time() ."-". str_replace(' ', '-', $file->getClientOriginalName());
                 $file->storeAs('public/backend/assets/images/banner/', $imageName);
                 $data['photo']=$imageName;

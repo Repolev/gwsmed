@@ -235,34 +235,13 @@
         <div class="container">
             <div class="row">
                 @foreach($categories as $cat)
-                @php
-                    $category_url['slug'] = $cat->slug;
-                    if($cat->level > 0){
-                        $category_url['parent1'] = $cat->parentCategory->slug;
-                        if($cat->level > 1){
-                            $category_url['parent2'] = $cat->parentCategory->parentCategory->slug;
-                            if($cat->level > 2){
-                                $category_url['parent3'] = $cat->parentCategory->parentCategory->parentCategory->slug;
-                                if($cat->level > 3){
-                                    $category_url['parent4'] = $cat->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                    if($cat->level > 4){
-                                        $category_url['parent5'] = $cat->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                        if($cat->level > 5){
-                                            $category_url['parent6'] = $cat->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                @endphp
                 @if(count($cat->subcategories)>0)
                 <div class="col-md-4 category-block">
                     <div class="cv-deal-box" @if($cat->image_path != null) style="background-image: url({{url($cat->image_path)}}); background-size: cover;" @endif>
                         <div class="overlay" style="color:white!important; ">
                             <h3>{{ucfirst($cat->title)}}</h3>
                             <p >{!! html_entity_decode(\Illuminate\Support\Str::limit($cat->description,400)) !!}</p>
-                            <a href="{{ route('product.category.' . $cat->level, $category_url) }}" class="cv-btn">readmore</a>
+                            <a href="{{ route('product.category.' . $cat->level, $cat->full_slug) }}" class="cv-btn">readmore</a>
                         </div>
 
                     </div>
@@ -301,27 +280,6 @@
                         <div class="row cv-gallery-grid">
                             @if($cat_gallery_first)
                                 @foreach($cat_gallery_first->subcategories as $subcategories)
-                                @php
-                                    $category_url['slug'] = $subcategories->slug;
-                                    if($subcategories->level > 0){
-                                        $category_url['parent1'] = $subcategories->parentCategory->slug;
-                                        if($subcategories->level > 1){
-                                            $category_url['parent2'] = $subcategories->parentCategory->parentCategory->slug;
-                                            if($subcategories->level > 2){
-                                                $category_url['parent3'] = $subcategories->parentCategory->parentCategory->parentCategory->slug;
-                                                if($subcategories->level > 3){
-                                                    $category_url['parent4'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                    if($subcategories->level > 4){
-                                                        $category_url['parent5'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                        if($subcategories->level > 5){
-                                                            $category_url['parent6'] = $subcategories->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                @endphp
                                     <div class="cv-product-box cv-product-item cv-first col-md-3">
                                             <div class="cv-product-img">
                                                 @if($subcategories->image_path != null)
@@ -330,7 +288,7 @@
                                                     <h6>Image Not Found</h6>
                                                 @endif
                                                 <div class="cv-product-button">
-                                                    <a href="{{ route('product.category.' . $subcategories->level, $category_url) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
+                                                    <a href="{{ route('product.category.' . $subcategories->level, $subcategories->full_slug) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                         <g>
                                                             <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
                                                                 S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
@@ -346,7 +304,7 @@
                                                 </div>
                                             </div>
                                             <div class="cv-product-data product-data-wrapper">
-                                                <a href="{{ route('product.category.' . $subcategories->level, $category_url) }}" class="cv-price-title">{{ ucfirst($subcategories->title) }}</a>
+                                                <a href="{{ route('product.category.' . $subcategories->level, $subcategories->full_slug) }}" class="cv-price-title">{{ ucfirst($subcategories->title) }}</a>
                                             </div>
                                     </div>
                                 @endforeach
@@ -383,7 +341,7 @@
                                                         <h3>Image Not Found</h3>
                                                     @endif
                                                     <div class="cv-product-button">
-                                                        <a href="{{ route('product.category.' . $subcategories->level, $category_url) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
+                                                        <a href="{{ route('product.category.' . $subcategories->level, $subcategories->full_slug) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                             <g>
                                                                 <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
                                                                     S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
@@ -399,7 +357,7 @@
                                                     </div>
                                                 </div>
                                             <div class="cv-product-data">
-                                                <a href="{{ route('product.category.' . $subcategories->level, $category_url) }}" class="cv-price-title">{{ ucfirst($subcategories->title) }}</a>
+                                                <a href="{{ route('product.category.' . $subcategories->level, $subcategories->full_slug) }}" class="cv-price-title">{{ ucfirst($subcategories->title) }}</a>
                                             </div>
                                         </div>
                                     @endforeach
@@ -435,7 +393,7 @@
                                                         <h3>Image Not Found</h3>
                                                     @endif
                                                     <div class="cv-product-button">
-                                                        <a href="{{ route('product.category.' . $subcategories->level, $category_url) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
+                                                        <a href="{{ route('product.category.' . $subcategories->level, $subcategories->full_slug) }}" class="cv-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.312 461.312">
                                                             <g>
                                                                 <path d="M230.656,156.416c-40.96,0-74.24,33.28-74.24,74.24s33.28,74.24,74.24,74.24s74.24-33.28,74.24-74.24
                                                                     S271.616,156.416,230.656,156.416z M225.024,208.64c-9.216,0-16.896,7.68-16.896,16.896h-24.576
@@ -451,7 +409,7 @@
                                                     </div>
                                                 </div>
                                             <div class="cv-product-data">
-                                                <a href="{{ route('product.category.' . $subcategories->level, $category_url) }}" class="cv-price-title">{{ ucfirst($subcategories->title) }}</a>
+                                                <a href="{{ route('product.category.' . $subcategories->level, $subcategories->full_slug) }}" class="cv-price-title">{{ ucfirst($subcategories->title) }}</a>
                                             </div>
                                         </div>
                                     @endforeach

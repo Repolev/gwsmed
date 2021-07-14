@@ -38,6 +38,10 @@ Artisan::call('storage:link');
 });
 Route::get('/',[\App\Http\Controllers\Frontend\IndexController::class,'home'])->name('home');
 
+
+Route::get('/password-change',[\App\Http\Controllers\Frontend\IndexController::class,'passwordChange'])->name('password.change');
+Route::post('/password-change',[\App\Http\Controllers\Frontend\IndexController::class,'passwordChangeSubmit'])->name('password.change.submit');
+
 //Enquiry form
 Route::get('enquiry',[\App\Http\Controllers\Frontend\IndexController::class,'enquiry'])->name('enquiry');
 //Display the product through category

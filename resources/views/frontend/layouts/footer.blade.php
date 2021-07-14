@@ -45,13 +45,21 @@
                         <p><span>Address : </span>{{\App\Models\Setting::value('address')}}</p>
                         <ul class="cv-foot-social">
                             <li><a href="https://facebook.com/{{\App\Models\Setting::value('facebook')}}">
-                                   <img src="frontend/assets/images/facebook.svg">
+                                   <img src="{{asset('frontend/assets/images/facebook.svg')}}">
                                 </a></li>
                             <li><a href="https://twitter.com/{{\App\Models\Setting::value('twitter')}}">
-                                    <img src="frontend/assets/images/twitter.svg">
+                                    <img src="{{asset('frontend/assets/images/twitter.svg')}}">
                                 </a></li>
                             <li><a href="https://instagram.com/{{\App\Models\Setting::value('instagram')}}">
-                                  <img src="frontend/assets/images/instagram.svg">
+                                  <img src="{{asset('frontend/assets/images/instagram.svg')}}">
+                                </a></li>
+                                
+                                <li><a style="background:transparent;" href="https://www.linkedin.com/{{\App\Models\Setting::value('linkedin')}}">
+                                  <img src="{{asset('frontend/assets/images/linkedin.png')}}">
+                                </a></li>
+                                
+                                 <li><a href="https://www.youtube.com/{{\App\Models\Setting::value('youtube')}}">
+                                  <img src="{{asset('frontend/assets/images/youtube.png')}}">
                                 </a></li>
                         </ul>
                     </div>
@@ -90,7 +98,8 @@
 
 <!-- Share this end -->
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60859fa2aacd1232"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5df0f9489d176625"></script>
+
 
 <!-- Share this end -->
 <style>

@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- breadcrumb start -->
-    <div class="cv-breadcrumb" style="background: linear-gradient(to left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('{{asset($category->banner_path)}}');">
+    <div class="cv-breadcrumb" style="background: url('{{asset($category->banner_path)}}');">
     </div>
     <div class="row py-2" style="border: 1px solid #f5f5f5;">
         <div class="container">
@@ -12,23 +12,23 @@
                 <div class="cv-breadcrumb-box" >
                     <h1 class="d-none">{{ucfirst($category->title)}}</h1>
                     <ul>
-                        <li><a href="{{route('home')}}">Home</a></li>|
-                        @if($category->parentCategory)
-                            @if($category->parentCategory->parentCategory)
-                                @if($category->parentCategory->parentCategory->parentCategory)
-                                    <a href="{{route('product.category.3',[$category->slug,  $category->parentCategory->slug,  $category->parentCategory->parentCategory->slug, $category->parentCategory->parentCategory->parentCategory->slug])}}"><li>{{ucfirst($category->parentCategory->parentCategory->parentCategory->title)}}</li></a>|
-                                @endif
-                                @if($category->parentCategory->parentCategory)
-                                    <li><a href="{{route('product.category.2',[ $category->slug, $category->parentCategory->slug,$category->parentCategory->parentCategory->slug ])}}">{{ucfirst($category->parentCategory->parentCategory->title)}}</a></li>|
-                                @endif
-                            @endif
-                            @if($category->parentCategory)
-                                <li><a href="{{route('product.category.1',[ $category->slug,$category->parentCategory->slug])}}">{{ucfirst($category->parentCategory->title)}}</a></li>|
-                            @endif
+                        <li><a href="{{route('home')}}">Home</a></li>
+                        @if(isset($category->parentCategory->parentCategory->parentCategory->parentCategory))
+                        |
+                            <li><a href="{{ route('product.category.' . $category->parentCategory->parentCategory->parentCategory->level, $category->parentCategory->parentCategory->parentCategory->full_slug) }}">{{ ucfirst($category->parentCategory->parentCategory->parentCategory->title) }}</a></li>
                         @endif
-                        <li><a href="{{route('product.category.0', $category->slug)}}">{{ucfirst($category->title)}}</a></li>
+                        @if(isset($category->parentCategory->parentCategory))
+                        |
+                            <li><a href="{{ route('product.category.' . $category->parentCategory->parentCategory->level, $category->parentCategory->parentCategory->full_slug) }}">{{ ucfirst($category->parentCategory->parentCategory->title) }}</a></li>
+                        @endif
+                        @if(isset($category->parentCategory))
+                        |
+                            <li><a href="{{ route('product.category.' . $category->parentCategory->level, $category->parentCategory->full_slug) }}">{{ ucfirst($category->parentCategory->title) }}</a></li>
+
+                        @endif
+                        | <li><a href="{{ route('product.category.' . $category->level, $category->full_slug) }}">{{ucfirst($category->title)}}</a></li>
                     </ul>
-                   
+
                 </div>
             </div>
         </div>
@@ -57,35 +57,14 @@
                                          class="img-fluid" />
                                 </div>
                                 <div class="cv-product-data">
-                                    @php
-                                        $category_url['slug'] = $subcat->slug;
-                                        if($subcat->level > 0){
-                                            $category_url['parent1'] = $subcat->parentCategory->slug;
-                                            if($subcat->level > 1){
-                                                $category_url['parent2'] = $subcat->parentCategory->parentCategory->slug;
-                                                if($subcat->level > 2){
-                                                    $category_url['parent3'] = $subcat->parentCategory->parentCategory->parentCategory->slug;
-                                                    if($subcat->level > 3){
-                                                        $category_url['parent4'] = $subcat->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                        if($subcat->level > 4){
-                                                            $category_url['parent5'] = $subcat->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                            if($subcat->level > 5){
-                                                                $category_url['parent6'] = $subcat->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->parentCategory->slug;
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    @endphp
-                                    <a href="{{ route('product.category.' . $subcat->level, $category_url) }}" class="cv-price-title">{{ucfirst($subcat->title)}}</a>
+                                    <a href="{{ route('product.category.' . $subcat->level, $subcat->full_slug) }}" class="cv-price-title">{{ucfirst($subcat->title)}}</a>
 
                                 </div>
                             </div>
                         @endforeach
                     </div>
                 </div>
-              
+
 
             @else
                 <div class="cv-product-all wow fadeIn" data-wow-delay="0.5s">
